@@ -1,0 +1,19 @@
+﻿Установка движка с pip: cmd-> python -m pip install programy
+
+Установка движка с pip для anaconda:
+1) Запускаем anaconda prompt, pip install programy
+
+Установка движка c gitHub
+1) Скачиваем python, если нет, устанавливаем согласно туториалу: https://www.python.org/downloads/
+2) Скачиваем https://github.com/keiffster/program-y, в ZIP-архиве, разархивируем в любую папку.
+3) Копируем путь из src (например, C:\Users\Xenus\Desktop\program-y-master\src)
+4) В командной строке вводим python -m pip install -e C:\Users\Xenus\Desktop\program-y-master\src
+
+Установка движка с pypi
+
+Запуск бота и работа с AIML
+1) скачиваем бота в ZIP-архиве, разархивируем в любую папку.
+2) Редактируем AIML файлы или создаем новые в \storage\categories. Неважно, сколько файлов с расширением .aiml, бот считает все.
+3) Запускаем \scripts\windows\NosferatuZodd.cmd (для выхода из бота ctrl+c и y)
+4) Повторяем шаг 2. Важно, при изменении файла бота нужно перезапустить.
+
