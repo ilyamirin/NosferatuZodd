@@ -1,0 +1,28 @@
+{
+    "client_context": {
+        "clientid": "Socket",
+        "userid": "MNIXenus",
+        "botid": "bot",
+        "brainid": "brain",
+        "depth": 0
+    },
+    "questions": [
+        {
+            "sentences": [
+                {
+                    "question": "a",
+                    "response": "Sorry, I don't have an answer for that!",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        }
+    ],
+    "max_histories": 100,
+    "properties": {
+        "topic": "*"
+    }
+}
