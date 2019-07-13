@@ -122,6 +122,10 @@
         <pattern>ДА</pattern>
             <template>Есть одноразовая и многоразовая страховка. Какая вас интересует? <think><set name = "topic">сроки_страховки</set></think></template>
     </category>
+    <category>
+        <pattern>НЕТ</pattern>
+            <template>Хорошо, рада была помочь!<think><set name = "topic">сроки_страховки</set></think></template>
+    </category>
 </topic>
 <topic name="оформление">
     <category>
@@ -139,7 +143,7 @@
 </category>
 <category>
         <pattern>Я УЖЕ ПУТЕШЕСТВУЮ МОГУ Я КУПИТЬ СТРАХОВКУ</pattern>
-            <template>Страховку можно купить только до пересечения границы России</template>
+            <template>Страховку можно купить только до пересечения границы России. Куда вы отправляетесь?<think><set name = "topic">страна</set></think></template>
 </category>    
 <category>
         <pattern>НА КОГО СТРАХОВКА</pattern>
@@ -150,11 +154,28 @@
             <template>Наш страховой сертификат компании признается всеми иностранными посольствами</template>
 </category>
 <category>
+        <pattern>ВКЛЮЧАЕТ ЛИ СТРАХОВАНИЕ СТОМОТОЛОГИЮ</pattern>
+            <template>Да! Мы заботмся о ваших улыбках</template>
+</category>
+<category>
+        <pattern>СОЛНЕЧНЫЕ ОЖОГИ</pattern>
+            <template>Да, стаховка покрывает солнечные ожоги. Берегите себя! Хотите подобрать срок?<think><set name = "topic">сроки</set></think></template>
+</category>
+<category>
         <pattern>СПАСИБО</pattern>
-            <template>Всегда пожалуйста!Мне нравится помогать вам</template>
+            <template>Всегда пожалуйста! Мне нравится помогать вам</template>
 </category>
 <category>
         <pattern>ОТЛИЧНО</pattern>
             <template>Всегда пожалуйста!Мне нравится помогать вам</template>
 </category>
+<category>
+    <pattern>МОГУТ ПОЛУЧИТЬ СТРАХОВКУ СУПРУГИ</pattern>
+        <template>Да, страховка распространяется на супругов и детей. Ооформляем?<think><set name = "topic">оформление</set></think></template>
+</category>
+<category>
+    <pattern>ЧТО ОПЛАЧИВАЕТСЯ ПРИ ЗАДЕРЖКЕ РЕЙСА</pattern>
+        <template>Оплачиваются расходы на питание, напитки и размещение в гостинице.Вы путешествуете по России или зарубеж?<think><set name = "topic">страна</set></think></template>
+</category>
+
 </aiml>
