@@ -1,4 +1,5 @@
 socket:
+  bot: personality
   host: 0.0.0.0
   port: 80
   queue: 5
@@ -135,15 +136,16 @@ socket:
 #####################################################################################################
 #
 
-bot:
-    brain: brain
+personality:
+    brain: brain_sberta_personality
+    root: ..\..\config\windows
 
-    initial_question: Hi, how can I help you today?
+    initial_question: dont know
     initial_question_srai: YINITIALQUESTION
-    default_response: Sorry, I don't have an answer for that!
+    default_response: dont know
     default_response_srai: YEMPTY
     empty_string: YEMPTY
-    exit_response: So long, and thanks for the fish!
+    exit_response: dont know
     exit_response_srai: YEXITRESPONSE
 
     override_properties: true
@@ -158,17 +160,16 @@ bot:
       classname: programy.spelling.norvig.NorvigSpellingChecker
       corpus: file
       check_before: false
-      check_and_retry: false
+      check_and_retry: True
 
     conversations:
       save: true
       load: false
 
-
 #####################################################################################################
 #
 
-brain:
+brain_sberta_personality:
 
     # Overrides
     overrides:
@@ -258,4 +259,3 @@ brain:
         maps:
             romantodec: programy.dynamic.maps.roman.MapRomanToDecimal
             dectoroman: programy.dynamic.maps.roman.MapDecimalToRoman
-

@@ -55,4 +55,8 @@
         <pattern>ПРИВЕТ</pattern>
         <template>Привет</template>
     </category>
+    <category>
+        <pattern>*</pattern>
+        <template>Не совсем Вас поняла</template>
+    </category>
 </aiml>
