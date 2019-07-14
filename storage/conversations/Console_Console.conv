@@ -10,279 +10,6 @@
         {
             "sentences": [
                 {
-                    "question": "\u041c\u043e\u0435 \u0438\u043c\u044f",
-                    "response": "Sorry, I don't have an answer for that!",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041c\u043e\u0435 \u0438\u043c\u044f \u041f\u0430\u0448\u0430",
-                    "response": "\u042f \u0437\u0430\u043f\u043e\u043c\u043d\u044e, \u0447\u0442\u043e \u0442\u0432\u043e\u0435 \u0438\u043c\u044f \u041f\u0430\u0448\u0430",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u042f \u043d\u0430\u0437\u043e\u0432\u0443 \u0442\u0435\u0431\u044f \u0414\u0436\u0430\u0440\u0432\u0438\u0441",
-                    "response": "\u0425\u043c, \u0414\u0436\u0430\u0440\u0432\u0438\u0441 \u044d\u0442\u043e \u0445\u043e\u0440\u043e\u0448\u0435\u0435 \u0438\u043c\u044f",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u043a\u0430\u043a \u0442\u0435\u0431\u044f \u0437\u043e\u0432\u0443\u0442",
-                    "response": "\u041c\u0435\u043d\u044f \u0437\u043e\u0432\u0443\u0442 unknown",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041a\u0430\u043a \u0442\u0435\u0431\u044f \u0437\u043e\u0432\u0443\u0442",
-                    "response": "\u041c\u0435\u043d\u044f \u0437\u043e\u0432\u0443\u0442 unknown",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u042f \u043d\u0430\u0437\u043e\u0432\u0443 \u0442\u0435\u0431\u044f \u0414\u0436\u0430\u0440\u0432\u0438\u0441",
-                    "response": "\u0425\u043c, \u0414\u0436\u0430\u0440\u0432\u0438\u0441 \u044d\u0442\u043e \u0445\u043e\u0440\u043e\u0448\u0435\u0435 \u0438\u043c\u044f",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041a\u0430\u043a \u0442\u0435\u0431\u044f \u0437\u043e\u0432\u0443\u0442",
-                    "response": "\u041c\u0435\u043d\u044f \u0437\u043e\u0432\u0443\u0442 \u0414\u0436\u0430\u0440\u0432\u0438\u0441",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041c\u043e\u0435 \u0438\u043c\u044f \u041f\u0430\u0448\u0430",
-                    "response": "\u042f \u0437\u0430\u043f\u043e\u043c\u043d\u044e, \u0447\u0442\u043e \u0442\u0432\u043e\u0435 \u0438\u043c\u044f \u041f\u0430\u0448\u0430",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u0427\u0442\u043e \u043b\u0443\u0447\u0448\u0435 \u043a\u0432\u0430\u043a\u0430 \u0438\u043b\u0438 \u043f\u043e\u0440\u043d\u0443\u0445\u0430",
-                    "response": "\u041d\u0435 \u0434\u0443\u043c\u0430\u044e, \u0447\u0442\u043e \u043a\u0432\u0430\u043a\u0430 \u043b\u0443\u0447\u0448\u0435 \u043f\u043e\u0440\u043d\u0443\u0445\u0430",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u042f \u043d\u0430\u0437\u043e\u0432\u0443 \u0442\u0435\u0431\u044f \u0414\u0436\u0430\u0440\u0432\u0438\u0441",
-                    "response": "\u0425\u043c. <br></br> \u0414\u0436\u0430\u0440\u0432\u0438\u0441 \u044d\u0442\u043e \u0445\u043e\u0440\u043e\u0448\u0435\u0435 \u0438\u043c\u044f",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041a\u0430\u043a \u0442\u0435\u0431\u044f \u0437\u043e\u0432\u0443\u0442",
-                    "response": "\u041c\u0435\u043d\u044f \u0437\u043e\u0432\u0443\u0442 \u0414\u0436\u0430\u0440\u0432\u0438\u0441",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041c\u043e\u0435 \u0438\u043c\u044f \u041f\u0430\u0448\u0430",
-                    "response": "\u042f \u0437\u0430\u043f\u043e\u043c\u043d\u044e, \u0447\u0442\u043e \u0442\u0432\u043e\u0435 \u0438\u043c\u044f \u041f\u0430\u0448\u0430",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "lt get name equals clientname gt",
-                    "response": "Sorry, I don't have an answer for that!",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041a\u0430\u043a \u0442\u0435\u0431\u044f \u0437\u043e\u0432\u0443\u0442",
-                    "response": "Sorry, I don't have an answer for that!",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041a\u0430\u043a \u0442\u0435\u0431\u044f \u0437\u043e\u0432\u0443\u0442",
-                    "response": "Sorry, I don't have an answer for that!",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u042f \u043d\u0430\u0437\u043e\u0432\u0443 \u0442\u0435\u0431\u044f \u041f\u0435\u0442\u044f",
-                    "response": "Sorry, I don't have an answer for that!",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041a\u0430\u043a \u0442\u0435\u0431\u044f \u0437\u043e\u0432\u0443\u0442",
-                    "response": "Sorry, I don't have an answer for that!",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041c\u043e\u0435 \u0438\u043c\u044f \u041f\u0430\u0448\u0430",
-                    "response": "Sorry, I don't have an answer for that!",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u042f \u043d\u0430\u0437\u043e\u0432\u0443 \u0442\u0435\u0431\u044f \u041f\u0435\u0442\u044f",
-                    "response": "\u0425\u043c. <br></br> \u041f\u0435\u0442\u044f \u044d\u0442\u043e \u0445\u043e\u0440\u043e\u0448\u0435\u0435 \u0438\u043c\u044f. \u041e\u043d\u043e \u043c\u0443\u0436\u0441\u043a\u043e\u0435 \u0438\u043b\u0438 \u0436\u0435\u043d\u0441\u043a\u043e\u0435? \u043f\u043e\u043b",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041c\u043e\u0435 \u0438\u043c\u044f \u041f\u0430\u0448\u0430",
-                    "response": "\u042f \u0437\u0430\u043f\u043e\u043c\u043d\u044e, \u0447\u0442\u043e \u0442\u0432\u043e\u0435 \u0438\u043c\u044f \u041f\u0430\u0448\u0430",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u041a\u0430\u043a \u0442\u0435\u0431\u044f \u0437\u043e\u0432\u0443\u0442",
-                    "response": "\u041c\u0435\u043d\u044f \u0437\u043e\u0432\u0443\u0442 unknown",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
                     "question": "\u042f \u043d\u0430\u0437\u043e\u0432\u0443 \u0442\u0435\u0431\u044f \u041f\u0435\u0442\u044f",
                     "response": "\u0425\u043c. <br></br> \u041f\u0435\u0442\u044f \u044d\u0442\u043e \u0445\u043e\u0440\u043e\u0448\u0435\u0435 \u0438\u043c\u044f. \u041e\u043d\u043e \u043c\u0443\u0436\u0441\u043a\u043e\u0435 \u0438\u043b\u0438 \u0436\u0435\u043d\u0441\u043a\u043e\u0435? \u042f \u0445\u043e\u0447\u0443 \u043e\u043f\u0440\u0435\u0434\u0435\u043b\u0438\u0442\u044c \u0441\u0432\u043e\u0439 \u043f\u043e\u043b",
                     "positivity": 0.0,
@@ -1266,7 +993,7 @@
             ],
             "srai": false,
             "properties": {},
-            "current_sentence_no": 0
+            "current_sentence_no": -1
         },
         {
             "sentences": [
@@ -1279,7 +1006,7 @@
             ],
             "srai": false,
             "properties": {},
-            "current_sentence_no": 0
+            "current_sentence_no": -1
         },
         {
             "sentences": [
@@ -1292,7 +1019,7 @@
             ],
             "srai": false,
             "properties": {},
-            "current_sentence_no": 0
+            "current_sentence_no": -1
         },
         {
             "sentences": [
@@ -1305,15 +1032,286 @@
             ],
             "srai": false,
             "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "Zfsd",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "afheryjtu",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "vdng",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "fdd",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "YEMPTY",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "dfg",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "s",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "dghsd",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "h",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "YEMPTY",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "sdghh",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "fh",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "hf",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "h",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "fgh",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "h",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "YEMPTY",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "YEMPTY",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "YEMPTY",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "YEMPTY",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "YEMPTY",
+                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
             "current_sentence_no": 0
         }
     ],
     "max_histories": 100,
     "properties": {
-        "topic": "\u043f\u043e\u043b",
+        "topic": "*",
         "positivity": "0.0",
-        "subjectivity": "0.5",
-        "name": "\u0410\u043d\u044f",
-        "gender": "\u0416\u0435\u043d\u0441\u043a\u0438\u0439"
+        "subjectivity": "0.5"
     }
 }

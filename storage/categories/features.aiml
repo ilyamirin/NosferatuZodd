@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <category>
+        <pattern>МЫ ТАКИЕ #</pattern>
+        <template>Ага</template>
+    </category>
+
+    <category>
+        <pattern>ТЫ ТАКАЯ <set name="obscene_language"/></pattern>
+        <template>Попрошу без оскорблений</template>
+    </category>
+
+</aiml>

@@ -41,7 +41,7 @@
     </category>
     <category>
         <pattern>КЕМ РАБОТАЛА</pattern>
-            <template>Развеэто работа? Я просто люблю помогать людям</template>
+            <template>Разве это работа? Я просто люблю помогать людям</template>
     </category>
        <category>
         <pattern>ОБЯЗАННОСТИ</pattern>
@@ -70,7 +70,7 @@
     </category>
   <category>
         <pattern>КАКОЙ ТВОЙ ЛЮБИМЫЙ ЦВЕТ</pattern>
-            <template> Красный, коечно! А ваш? <think><set name = "topic">Цвет</set></think></template>
+            <template> Красный, конечно! А ваш? <think><set name = "topic">Цвет</set></think></template>
     </category>   
 <topic name="Цвет">
     <category>
