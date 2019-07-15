@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">    
+<category>
+     <pattern>КАРТА</pattern>
+        <template>Я ЗНАЮ О КАРТАХ ВСЁ НО ВИЖУ ВАС ИНТЕРЕСУЕТ ПРЕМИАЛЬНЫЙ СЕГМЕНТ В ПАКЕТЕ СБЕРБАНК ПЕРВЫЙ ОСОБЫЕ УСЛОВИЯ ДЛЯ НАШИХ КЛИЕНТОВ ХОТИТЕ УЗНАТЬ<think><set name = "topic">НИШТЯКИ</set></think></template>
+</category>
+<topic name="НИШТЯКИ">
+<category>
+        <pattern>ДА</pattern>
+        <template>ПАКЕТ СБЕРБАНК ПЕРВЫЙ ВКЛЮЧАЕТ КАРТЫ С БОЛЬШИМИ БОНУСАМИ ВКЛАДЫ С ПОВЫШЕННЫМИ СТАВКАМИ ВЫГОДНЫЙ ОБМЕН ВАЛЮТЫ СТРАХОВАНИЕ В ПУТЕШЕСТВИИ ПРЕМИАЛЬНОЕ ОБСЛУЖИВАНИЕ СОГЛАСИТЕСЬ ПРИЯТНО БЫТЬ ПЕРВЫМ</template>
+</category>
+</topic> 
+<topic name="НИШТЯКИ">
+	<category>
+        <pattern>КОНЕЧНО</pattern>
+        <template>Я ДУМАЮ ВАС ПОРАДУЮТ И УСЛОВИЯ ДЛЯ ДЕРЖАТЕЛЕЙ КАРТ: БЕСПЛАТНОЕ ОБСЛУЖИВАНИЕ, БЕСПЛАТНЫЙ ПЕРЕВЫПУСК, ВЫДАЧА ЛЮБОЙ СУММЫ БЕЗ КОМИССИИ ГДЕ БЫ ТО НИ БЫЛО. ХОТЬ НА МАРСЕ ЕСЛИ Б ТАМ БЫЛИ БАНКИ<think><set name = "topic">ВАЛЮТА</set></think></template>
+</category>
+</topic> 
+<topic name="ВАЛЮТА">
+<category>
+        <pattern>В КАКОЙ ВАЛЮТЕ МОЖНО ХРАНИТЬ ДЕНЬГИ</pattern>
+        <template>В ДОЛЛАРАХ, ЕВРО И РУБЛЯХ<think><set name = "topic">ЛИМИТ</set></think></template>
+</category>
+</topic>
+<topic name="ЛИМИТ">
+<category>
+        <pattern>КАКОЙ ЛИМИТ НА СНЯТИЕ ДЕНЕГ В БАНКОМАТАХ</pattern>
+        <template> В месяц вы можете снять не больше 30 000 000 РУБЛЕЙ ИЛИ 1 000 000 ДОЛЛАРОВ США ИЛИ 750 000 ЕВРО. <think><set name = "topic">СУТЛИМИТ</set></think></template>
+</category>
+</topic> 
+<topic name="СУТЛИМИТ">
+<category>
+        <pattern>А В СУТКИ</pattern>
+        <template> В сутки вы можете снять не больше 1 000 000 РУБЛЕЙ ИЛИ 25 000 ДОЛЛАРОВ США ИЛИ 20 000 ЕВРО.<think><set name = "topic">СУТЛИМИТДРБАНКИ</set></think></template>
+</category>
+</topic>
+<topic name="СУТЛИМИТДРБАНКИ">
+<category>
+        <pattern>А В БАНКОМАТАХ ДРУГИХ БАНКОВ</pattern>
+        <template>ТОЧНО ТАК ЖЕ.НИКАКОЙ КОМИССИИ ДЛЯ ЛЮБИМЫХ КЛИЕНТОВ<think><set name = "topic">СНЯТЬКАССА</set></think></template>
+</category>
+</topic> 
+<topic name="СНЯТЬКАССА">
+<category>
+        <pattern>СКОЛЬКО Я МОГУ СНЯТЬ ДЕНЕГ В КАССЕ</pattern>
+        <template>ВЫ МОЖЕТЕ СНЯТЬ 50 000 РУБЛЕЙ ИЛИ 1600 ДОЛЛАРОВ ИЛИ 1200 ЕВРО В СУТКИ. НО ТОЛЬКО ЕСЛИ ВАША КАРТА ЗАБЛОКИРОВАНА ПО КАКИМ-ЛИБО ПРИЧИНАМ<think><set name = "topic">БОНУСЫ</set></think></template>
+</category>
+</topic> 
+<topic name="БОНУСЫ">
+<category>
+        <pattern>СКОЛЬКО БОНУСОВ СПАСИБО НАЧИСЛЯЕТСЯ НА КАРТУ</pattern>
+        <template>10% ПРИ ОПЛАТЕ В КАФЕ И РЕСТОРАНАХ, 5% ЗА ПОКУПКИ В СУПЕРМАРКЕТЕ И 0,5% ЗА ВСЁ ОСТАЛЬНОЕ<think><set name = "topic">ОБМЕНБОНУС</set></think></template>
+</category>
+</topic> 
+<topic name="ОБМЕНБОНУС">
+<category>
+        <pattern>НА ЧТО Я МОГУ ОБМЕНЯТЬ БОНУСЫ СПАСИБО</pattern>
+        <template>ИХ МОЖНО ОБМЕНЯТЬ НА АВИАБИЛЕТЫ, БИЛЕТЫ В ТЕАТР, НА КОНЦЕРТЫ И НА ПОКУПКИ НА МАРКЕТПЛЕЙСЕ БЕРУ. ПОМОЧЬ ЧЕМ-ТО ЕЩЁ?<think><set name = "topic">ФИНИШ</set></think></template>
+</category>
+</topic> 
+<topic name="ФИНИШ">
+<category>
+        <pattern>НЕТ СПАСИБО</pattern>
+        <template>БЫЛА РАДА ПОМОЧЬ, НАДЕЮСЬ, МЫ ЕЩЁ УВИДИМСЯ.</template>
+</category>
+</topic> 
+</aiml>
