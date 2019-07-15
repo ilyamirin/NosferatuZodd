@@ -55,7 +55,6 @@ console:
                   dirs: ..\..\storage/categories
                   subdirs: true
                   extension: .aiml
-                  format: xml
                 errors_storage:
                   file: ..\..\storage/debug/errors.txt
                 duplicates_storage:
@@ -168,7 +167,11 @@ bot:
 #
 
 brain:
-
+    # Files
+    files:
+      #reg-ex
+      regex_templates: $BOT_ROOT/storage/regexp/template.txt
+    
     # Overrides
     overrides:
       allow_system_aiml: true

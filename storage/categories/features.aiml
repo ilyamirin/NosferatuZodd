@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-
     <category>
         <pattern>МЫ ТАКИЕ #</pattern>
         <template>Ага</template>
     </category>
-
     <category>
-        <pattern>ТЫ ТАКАЯ <set name="obscene_language"/></pattern>
-        <template>Попрошу без оскорблений</template>
+        <pattern>^ ТЫ ^ <set name="obscene_language"/> ^</pattern>
+        <template>Вы мной недовольны?</template>
     </category>
-
+    <category>
+        <pattern>^ ДА ^ </pattern><that>ВЫ МНОЙ НЕДОВОЛЬНЫ</that>
+        <template>Я расстроена</template>
+    </category>
+    <category>
+        <pattern><iset words="ЭЙ, ПРИВЕТ, ОК, ЗДРАВСТВУЙ"/>* </pattern>
+        <template>
+            <star/>
+        </template>
+    </category>
+    <category>
+        <pattern>СКАЖИ * </pattern>
+        <template>
+            <star/>
+        </template>
+    </category>
 </aiml>

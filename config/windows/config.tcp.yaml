@@ -170,6 +170,10 @@ personality:
 #
 
 brain_sberta_personality:
+    # Files
+    files:
+      #reg-ex
+      regex_templates: $BOT_ROOT/config/regex-templates.txt
 
     # Overrides
     overrides:

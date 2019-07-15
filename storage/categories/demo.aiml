@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <category>
+        <pattern><iset words= "ХАЙ, ЭЙ, ПРИВЕТ, ОК, ЗДРАВСТВУЙ"/> ^ </pattern>
+        <template>
+            <random>
+                <li>Здравствуйте, я могу поговорить с Вами о страховании или вкладах<think><set name="topic">Выбор_услуги</set></think></li>
+                <li>Здравствуйте, о чем Вы хотите со мной поговорить – о страховании или о вкладах?<think><set name="topic">Выбор_услуги</set></think></li>
+            </random>
+        </template>
+    </category>
+<topic name="Выбор_услуги">
+    <category>
+        <pattern> ^ <regex pattern=".*ВКЛАД.*"/> ^</pattern>
+        <template>В сбербанке есть обычные вклады, особые и вклады для премьер-сегмента.<think><set name="topic">Выбор_вклада</set></think></template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern=".*СТРАХОВ.*"/> ^</pattern>
+        <template>
+            <think><set name="topic">Страхование</set></think>
+            <srai>СТРАХОВАНИЕ</srai>
+        </template>
+    </category>
+</topic>
+<topic name="Страхование">
+    <category>
+     <pattern>СТРАХОВАНИЕ</pattern>
+        <template>
+            <random>
+                <li>Мы предоставляем бесплатное страхование на время путешествий клиентам Сбербанк Премьер. Вас интересуют условия?<think><set name = "topic">условия</set></think></li>
+                <li>Для клиентов Сбербанка.Премьер страхование на время путешествий бесплатное. Интересны условия?<think><set name = "topic">условия</set></think></li>
+            </random>
+        </template>
+    </category>
+</topic>
+<topic name="Выбор_вклада">
+    <category>
+        <pattern> ^ <regex pattern=".*ОБЫЧН.*"/> ^</pattern>
+        <template>С удовольствием! На данный момент, я могу рассказать вам про следующие вклады: Сохраняй, Пополняй, Управляй</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern=".*ОСОБ.*"/> ^</pattern>
+        <template>Особые вклады, это вклады с особыми условиями. Сейчас у нас есть следующие виды особых вкладов: Социальный, Пенсионный плюс, Подари жизнь</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern=".*ПРЕМЬЕР.*"/> ^</pattern>
+        <template>Они доступны только клиентам, которые приобрели пакеты услуг сбербанк Первый или Сбербанк премьер</template>
+    </category>
+</topic>
+<topic name="условия">
+    <category>
+        <pattern> ^ <regex pattern=".*ДА.*"/> ^</pattern>
+            <template>Страхование гарантирует медицинскую помощь, госпитализацию, услуги переводчика, оплату сотовой связи и  даже стоматологию! Вы путешествуете по России или зарубеж?<think><set name = "topic">страна</set></think></template>
+    </category>
+</topic>
+<topic name="страна">
+    <category>
+        <pattern> ^ <regex pattern=".*РУБЕЖ.*"/> ^ </pattern>
+        <template>А в какую именно страну? Для США и Финляндии оформляется особая страховка<think><set name = "topic">точная_страна</set></think></template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern=".*ГРАН.*"/> ^ </pattern>
+        <template><srai>РУБЕЖ</srai></template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern=".*РОСС.*"/> ^ </pattern>
+        <template>Отлично! Я тоже люблю путешествовать по России. Хотите выбрать срок?<think><set name = "topic">сроки</set></think></template>
+    </category>
+</topic>
+
+<topic name ="точная_страна">
+    <category>
+        <pattern> ^ <regex pattern=".*АМЕРИКА.*"/> ^ </pattern>
+            <template>Хот-доги, красивые машины и девушки! Что-то я замечталась... Выберем срок?<think><set name = "topic">сроки</set></think></template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern=".*ФИНЛЯНД.*"/> ^ </pattern>
+            <template>Давайте подберём срок?<think><set name = "topic">сроки</set></think></template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+            <template>Хороший выбор! У нас есть специальная страховка для путешествий по <set name="country"><star /></set></template>
+    </category>
+</topic>
+<!--
+<topic name="планы">
+    <category>
+        <pattern>ПОЧЕМУ</pattern>
+        <template>Я люблю путешествовать, а ещё люблю свободу!</template>
+    </category>
+</topic>
+-->
+
+    
+<category>
+    <pattern> ^ <regex pattern=".*СРОК.*"/> ^ </pattern>
+        <template>Есть одноразовая и многоразовая страховка. Какая вас интересует?<think><set name = "topic">сроки_страховки</set></think></template>
+</category>
+
+<topic name="сроки_страховки">
+    <category>
+        <pattern> ^ <regex pattern=".*МНОГО.*"/> ^ </pattern>
+            <template>Многоразовая длится 90 дней. Оформляем?<think><set name = "topic">оформление</set></think></template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern=".*ОДНОРА.*"/> ^ </pattern>
+            <template>Одноразовая на 15 дней. Подходит?<think><set name = "topic">оформление</set></think></template>
+    </category>
+</topic>
+<topic name="сроки">
+    <category>
+        <pattern> ^ <regex pattern=".*ДА.*"/> ^</pattern>
+            <template>Есть одноразовая и многоразовая страховка. Какая вас интересует? <think><set name = "topic">сроки_страховки</set></think></template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern=".*НЕТ.*"/> ^</pattern>
+            <template>Хорошо, рада была помочь!<think><set name = "topic">сроки_страховки</set></think></template>
+    </category>
+</topic>
+<topic name="оформление">
+        <category>
+            <pattern> ^ <regex pattern=".*ДА.*"/> ^</pattern>
+                <template>Зайдите в личный кабинет - все документы ждут вас там!</template>
+        </category>
+        <category>
+            <pattern> ^ <regex pattern=".*НЕТ.*"/> ^</pattern>
+                <template>Я сохраню данные в личном документе. Вы можете вернуться к заполнению заявки позже</template>
+        </category>
+</topic>
+
+<category>
+    <pattern> ^ <regex pattern=".*ШУТК.*"/> ^ </pattern>
+        <template>
+            <random>
+                <li>За мной по пятам ползает робот-пылесос. Старею, что ли?</li>
+                <li>Холостяк купил стиральную машину, посудомойку, мультиварку и робот-пылесос. Шансы его женить практически равны нулю.</li>
+                <li> Робот никогда не заменит человека. Сказал людоед</li>
+            </random>
+        </template>
+</category>
+<category>
+    <pattern>*</pattern>
+    <template>Извините, я не совсем поняла Вас</template>
+</category>
+</aiml>
