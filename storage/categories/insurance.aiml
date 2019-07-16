@@ -125,20 +125,20 @@
         </category>
 </topic>
     <category>
-            <pattern>КТО СТРАХОВЩИК</pattern>
+            <pattern>КТО СТРАХОВ*ЩИК</pattern>
                 <template>Страховщиком выступает общество с ограниченной ответственностью Страховая компания «Сбербанк страхование»</template>
     </category>
     <category>
-            <pattern>Я УЖЕ ПУТЕШЕСТВУЮ МОГУ Я КУПИТЬ СТРАХОВКУ</pattern>
-                <template>Страховку можно купить только до пересечения границы России. Куда вы отправляетесь?<think><set name = "topic">страна</set></think></template>
+        <pattern>Я УЖЕ ПУТЕШЕСТВУЮ МОГУ Я КУПИТЬ СТРАХОВКУ</pattern>
+        <template>Страховку можно купить только до пересечения границы России. Куда вы отправляетесь?<think><set name = "topic">страна</set></think></template>
     </category>    
     <category>
-            <pattern>НА КОГО СТРАХОВКА</pattern>
-                <template>Страховка распространяется на вас и всю вашу семью: супргу и детей</template>
+        <pattern>НА КОГО СТРАХОВКА</pattern>
+        <template>Страховка распространяется на вас и всю вашу семью: супргу и детей</template>
     </category>
     <category>
-            <pattern>ВИЗА</pattern>
-                <template>Наш страховой сертификат компании признается всеми иностранными посольствами</template>
+        <pattern>ВИЗА</pattern>
+        <template>Наш страховой сертификат компании признается всеми иностранными посольствами</template>
     </category>
     <category>
             <pattern>ВКЛЮЧАЕТ ЛИ СТРАХОВАНИЕ СТОМОТОЛОГИЮ</pattern>

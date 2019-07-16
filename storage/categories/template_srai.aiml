@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">    
+    <category>
+        <pattern>СКОЛЬКО ДЕНЕГ Я МОГУ СНЯТЬ *</pattern>
+        <template><think><set name="topic">amount_of_money</set></think><srai><star/></srai></template>
+    </category>
+    <topic name="amount_of_money">
+        <category>
+            <pattern>В МЕСЯЦ</pattern>
+            <template>500 р<think><set name="topic">unknown</set></think></template>
+        </category>
+        <category>
+            <pattern>В ГОД</pattern>
+            <template>6000<think><set name="topic">unknown</set></think></template>
+        </category>
+    </topic>
+</aiml>
