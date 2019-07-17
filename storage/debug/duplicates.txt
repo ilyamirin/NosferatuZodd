@@ -1,1 +1,2 @@
-Duplicate	File	Start Line	End Line
+Duplicate	File	Start Line	End LineDupicate grammar tree found [^]	..\..\storage\/categories\hello2.aiml	12	24
+Dupicate grammar tree found [ÑÒĞÀÕÎÂÀÍÈÅ]	..\..\storage\/categories\insurance.aiml	3	13

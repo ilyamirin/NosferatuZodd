@@ -1,2 +1,2 @@
 cd %cd%
-python -m programy.clients.events.console.client --config ..\..\config\windows\config.yaml --cformat yaml --logging ..\..\config\windows\logging.yaml --bot_root ..\..\config\windows\
+python -m programy.clients.events.console.client --config ..\..\config\windows\config.yaml --cformat yaml --logging ..\..\config\windows\logging.yaml --bot_root ..\..\storage\

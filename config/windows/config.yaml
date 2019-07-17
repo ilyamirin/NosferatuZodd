@@ -52,7 +52,7 @@ console:
               type:   file
               config:
                 categories_storage:
-                  dirs: ..\..\storage/categories
+                  dirs: $BOT_ROOT/categories
                   subdirs: true
                   extension: .aiml
                 errors_storage:
@@ -69,7 +69,7 @@ console:
                   dirs: ..\..\storage/sets
                   extension: txt
                 maps_storage:
-                  dirs: ..\..\storage/maps
+                  dirs: $BOT_ROOT/maps
                   extension: txt
                 rdf_storage:
                   dirs: ..\..\storage/rdfs
@@ -134,7 +134,7 @@ console:
 
 bot:
     brain: brain
-    root: ..\..\config\windows
+    root: $BOT_ROOT
 
     initial_question: Приветствую, чем я могу Вам помочь?
     initial_question_srai: YINITIALQUESTION
@@ -170,7 +170,14 @@ brain:
     # Files
     files:
       #reg-ex
-      regex_templates: $BOT_ROOT/storage/regexp/template.txt
+      regex_templates: $BOT_ROOT/regexp/template.txt
+      maps: 
+        files: $BOT_ROOT/maps
+        extension: .txt
+        directories: false
+      properties: 
+        files: $BOT_ROOT/properties
+        extension: .txt
     
     # Overrides
     overrides:
