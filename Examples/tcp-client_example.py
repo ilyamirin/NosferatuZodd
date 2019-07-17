@@ -8,7 +8,7 @@ def talk(question, userid='anon'):
         "question" : question
     }
     sock = socket.socket()
-    sock.connect(('localhost', 80))
+    sock.connect(('localhost', 8080))
     sock.send(json.dumps(query).encode())
     data = json.loads(sock.recv(16384).decode('utf-8'))
     sock.close()
