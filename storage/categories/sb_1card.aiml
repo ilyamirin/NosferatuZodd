@@ -1,67 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aiml version="2.0">    
-<category>
-     <pattern>КАРТА</pattern>
-        <template>Я ЗНАЮ О КАРТАХ ВСЁ НО ВИЖУ ВАС ИНТЕРЕСУЕТ ПРЕМИАЛЬНЫЙ СЕГМЕНТ В ПАКЕТЕ СБЕРБАНК ПЕРВЫЙ ОСОБЫЕ УСЛОВИЯ ДЛЯ НАШИХ КЛИЕНТОВ ХОТИТЕ УЗНАТЬ<think><set name = "topic">НИШТЯКИ</set></think></template>
-</category>
-<topic name="НИШТЯКИ">
-<category>
-        <pattern>ДА</pattern>
-        <template>ПАКЕТ СБЕРБАНК ПЕРВЫЙ ВКЛЮЧАЕТ КАРТЫ С БОЛЬШИМИ БОНУСАМИ ВКЛАДЫ С ПОВЫШЕННЫМИ СТАВКАМИ ВЫГОДНЫЙ ОБМЕН ВАЛЮТЫ СТРАХОВАНИЕ В ПУТЕШЕСТВИИ ПРЕМИАЛЬНОЕ ОБСЛУЖИВАНИЕ СОГЛАСИТЕСЬ ПРИЯТНО БЫТЬ ПЕРВЫМ</template>
-</category>
-</topic> 
-<topic name="НИШТЯКИ">
-	<category>
-        <pattern>КОНЕЧНО</pattern>
-        <template>Я ДУМАЮ ВАС ПОРАДУЮТ И УСЛОВИЯ ДЛЯ ДЕРЖАТЕЛЕЙ КАРТ: БЕСПЛАТНОЕ ОБСЛУЖИВАНИЕ, БЕСПЛАТНЫЙ ПЕРЕВЫПУСК, ВЫДАЧА ЛЮБОЙ СУММЫ БЕЗ КОМИССИИ ГДЕ БЫ ТО НИ БЫЛО. ХОТЬ НА МАРСЕ ЕСЛИ Б ТАМ БЫЛИ БАНКИ<think><set name = "topic">ВАЛЮТА</set></think></template>
-</category>
-</topic> 
-<topic name="ВАЛЮТА">
-<category>
-        <pattern>В КАКОЙ ВАЛЮТЕ МОЖНО ХРАНИТЬ ДЕНЬГИ</pattern>
-        <template>В ДОЛЛАРАХ, ЕВРО И РУБЛЯХ<think><set name = "topic">ЛИМИТ</set></think></template>
-</category>
-</topic>
-<topic name="ЛИМИТ">
-<category>
-        <pattern>КАКОЙ ЛИМИТ НА СНЯТИЕ ДЕНЕГ В БАНКОМАТАХ</pattern>
-        <template> В месяц вы можете снять не больше 30 000 000 РУБЛЕЙ ИЛИ 1 000 000 ДОЛЛАРОВ США ИЛИ 750 000 ЕВРО. <think><set name = "topic">СУТЛИМИТ</set></think></template>
-</category>
-</topic> 
-<topic name="СУТЛИМИТ">
-<category>
-        <pattern>А В СУТКИ</pattern>
-        <template> В сутки вы можете снять не больше 1 000 000 РУБЛЕЙ ИЛИ 25 000 ДОЛЛАРОВ США ИЛИ 20 000 ЕВРО.<think><set name = "topic">СУТЛИМИТДРБАНКИ</set></think></template>
-</category>
-</topic>
-<topic name="СУТЛИМИТДРБАНКИ">
-<category>
-        <pattern>А В БАНКОМАТАХ ДРУГИХ БАНКОВ</pattern>
-        <template>ТОЧНО ТАК ЖЕ.НИКАКОЙ КОМИССИИ ДЛЯ ЛЮБИМЫХ КЛИЕНТОВ<think><set name = "topic">СНЯТЬКАССА</set></think></template>
-</category>
-</topic> 
-<topic name="СНЯТЬКАССА">
-<category>
-        <pattern>СКОЛЬКО Я МОГУ СНЯТЬ ДЕНЕГ В КАССЕ</pattern>
-        <template>ВЫ МОЖЕТЕ СНЯТЬ 50 000 РУБЛЕЙ ИЛИ 1600 ДОЛЛАРОВ ИЛИ 1200 ЕВРО В СУТКИ. НО ТОЛЬКО ЕСЛИ ВАША КАРТА ЗАБЛОКИРОВАНА ПО КАКИМ-ЛИБО ПРИЧИНАМ<think><set name = "topic">БОНУСЫ</set></think></template>
-</category>
-</topic> 
-<topic name="БОНУСЫ">
-<category>
-        <pattern>СКОЛЬКО БОНУСОВ СПАСИБО НАЧИСЛЯЕТСЯ НА КАРТУ</pattern>
-        <template>10% ПРИ ОПЛАТЕ В КАФЕ И РЕСТОРАНАХ, 5% ЗА ПОКУПКИ В СУПЕРМАРКЕТЕ И 0,5% ЗА ВСЁ ОСТАЛЬНОЕ<think><set name = "topic">ОБМЕНБОНУС</set></think></template>
-</category>
-</topic> 
-<topic name="ОБМЕНБОНУС">
-<category>
-        <pattern>НА ЧТО Я МОГУ ОБМЕНЯТЬ БОНУСЫ СПАСИБО</pattern>
-        <template>ИХ МОЖНО ОБМЕНЯТЬ НА АВИАБИЛЕТЫ, БИЛЕТЫ В ТЕАТР, НА КОНЦЕРТЫ И НА ПОКУПКИ НА МАРКЕТПЛЕЙСЕ БЕРУ. ПОМОЧЬ ЧЕМ-ТО ЕЩЁ?<think><set name = "topic">ФИНИШ</set></think></template>
-</category>
-</topic> 
-<topic name="ФИНИШ">
-<category>
-        <pattern>НЕТ СПАСИБО</pattern>
-        <template>БЫЛА РАДА ПОМОЧЬ, НАДЕЮСЬ, МЫ ЕЩЁ УВИДИМСЯ.</template>
-</category>
-</topic> 
+<aiml version="2.0">
+        <category>
+                <pattern>СБЕРБАНК ПЕРВЫЙ</pattern>
+                <template>Сбербанк предоставляет премиальный сегмент в пакете "Сбербанк Первый". Особые условия для наших клиентов. Хотите узнать?</template>
+        </category> 
+        <category>
+                <pattern>КАРТА</pattern>
+                <template>Я знаю о картах всё, но вижу: Вас интересует премиальный сегмент в пакете "Сбербанк Первый". Особые условия для наших клиентов. Хотите узнать?</template>
+        </category>
+        <category>
+                <pattern>ДА</pattern><!--ответы "да" или "нет" на "хотите узнать?" во вводных предолжениях-->
+                <that> Хотите узнать</that>
+                <template>Отлично! Пакет "Сбербанк Первый" включает: карты с большими бонусами, вклады с повышенными ставками, выгодный обмен валюты, страхование в путешествии, премиальное обслуживание. Согласитесь, приятно быть первым! О каких особых условиях Вы бы хотели услышать?<think><set name = "topic">sb_1card_подробности</set></think></template>
+        </category>
+        <category>
+                <pattern>НЕТ</pattern>
+                <that> Хотите узнать</that>
+                <template>Очень жаль, если Вас все же заинтересует "Сбербанк Первый", просто спросите меня!</template>
+        </category>
+        <category>
+                <pattern>ДА</pattern>
+                <that> Хотите узнать</that>
+                <template>Отлично! Пакет "Сбербанк Первый" включает: карты с большими бонусами, вклады с повышенными ставками, выгодный обмен валюты, страхование в путешествии, премиальное обслуживание. Согласитесь, приятно быть первым! О каких особых условиях Вы бы хотели услышать?<think><set name = "topic">sb_1card_подробности</set></think></template>
+        </category>
+        <category>
+                <pattern>НЕТ</pattern>
+                <that> Хотите узнать</that>
+                <template>Очень жаль, если Вас все же заинтересует "Сбербанк Первый", просто спросите меня!</template>
+        </category>
+        <topic name="sb_1card_подробности">
+                <category>
+                        <pattern>КАРТЫ</pattern>
+                        <template>Я думаю, Вас порадуют условия для держателей карт: бесплатное обслуживание, бесплатный перевыпуск, выдача любой суммы без комиссии, где бы то ни было. Хоть на Марсе, лишь бы были банки! (не является офертой, хах)</template>
+                </category>
+                <category>
+                        <pattern>ВКЛАДЫ</pattern>
+                        <template>Пока я не знаю о вкладах</template>
+                </category>
+                <category>
+                        <pattern>ОБМЕН ВАЛЮТЫ</pattern>
+                        <template>Пока я не знаю об обмене валюты. Могу сказать, в какой валюте можно хранить деньги. Интересно?</template>
+                </category>
+                <category>
+                        <pattern>ДА</pattern>
+                        <that>Пока я не знаю об обмене валюты. Могу сказать, в какой валюте можно хранить деньги. Интересно?</that>
+                        <template>Вы можете хранить деньги в долларах, евро и рублях</template>
+                </category>
+                <category>
+                        <pattern>СТРАХОВАНИЕ В ПУТЕШЕСТВИИ</pattern>
+                        <template><think><set name="topic">условия</set></think><srai>ДА</srai></template> <!--ссылка на insurance-->
+                </category>
+        </topic>
+        <category>
+                <pattern>КАКОЙ ЛИМИТ НА СНЯТИЕ ДЕНЕГ В БАНКОМАТАХ</pattern>
+                <template>А за какой срок? У нас есть лимит за сутки и за месяц<think><set name = "topic">sb_1card_лимит</set></think></template>
+        </category>
+        <topic name="sb_1card_лимит">
+                <category>
+                        <pattern>В МЕСЯЦ</pattern>
+                        <template> В месяц вы можете снять не больше 30 000 000 рублей или 1 000 000 долларов США или 750 000 евро.</template>
+                </category>
+                <category>
+                        <pattern>В СУТКИ</pattern>
+                        <template> В сутки вы можете снять не больше 1 000 000 рублей или 25 000 долларов США или 20 000 евро.</template>
+                </category>
+                <category>
+                        <pattern>В БАНКОМАТАХ ДРУГИХ БАНКОВ</pattern>
+                        <template>Точно так же. Никакой комиссии для любимых клиентов</template>
+                </category>
+        </topic>
+        <category>
+                <pattern>СКОЛЬКО Я МОГУ СНЯТЬ ДЕНЕГ В КАССЕ</pattern>
+                <template>Вы можете снять 50 000 рублей или 1600 долларов или 1200 евро в сутки. Но только если ваша карта заблокирована по каким-либо причинам</template>
+        </category>
+        <category>
+                <pattern>СКОЛЬКО БОНУСОВ СПАСИБО НАЧИСЛЯЕТСЯ НА КАРТУ</pattern>
+                <template>10% при оплате в кафе и ресторанах, 5% за покупки в супермаркете и 0,5% за всё остальное</template>
+        </category>
+        <category>
+                <pattern>НА ЧТО Я МОГУ ОБМЕНЯТЬ БОНУСЫ СПАСИБО</pattern>
+                <template>Их можно обменять на авиабилеты, билеты в театр, на концерты и на покупки на маркетплейсе беру. Помочь чем-то ещё?</template>
+        </category>
+        <category>
+                <pattern>НЕТ</pattern>
+                <that> Помочь чем то ещё </that>
+                <template>Ок. До свидания!</template>
+        </category>
+        <category>
+                <pattern>ПРИВЕТ1</pattern>
+                <template>Привет тебе тоже, еу-ты их можно. обменять на авиабилеты билеты в театр на концертыих можно обменять на авиабилеты билеты в театр на концерты</template>
+        </category>
+        <category>
+                <pattern>НЕТ</pattern>
+                <that> обменять на авиабилеты билеты в театр на концертыих можно обменять на авиабилеты билеты в театр на концерты</that>
+                <template>ввв</template>
+        </category>
 </aiml>
