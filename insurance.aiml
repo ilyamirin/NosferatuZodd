@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <category>
+     <pattern>РАССКАЖИ О СТРАХОВАНИИ</pattern>
+        <template>
+            <random>
+                <li>Мы предоставляем бесплатное страхование на время путешествий клиентам Сбербанк Премьер. Вас интересуют условия?<think><set name = "topic">условия</set></think></li>
+                <li>Для клиентов Сбербанка.Премьер страхование на время путешествий бесплатное. Интересны условия?<think><set name = "topic">условия</set></think></li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>СТРАХОВКА</pattern>
+            <template><srai>РАССКАЖИ О СТРАХОВАНИИ</srai></template>
+    </category>
+    <category>
+        <pattern>РАССКАЖИ ПРО СТРАХОВАНИЕ</pattern>
+            <template><srai>РАССКАЖИ О СТРАХОВАНИИ</srai></template>
+    </category>
+    <category>
+        <pattern>РАССКАЖИ ПРО СТРАХОВКУ</pattern>
+            <template><srai>РАССКАЖИ О СТРАХОВАНИИ</srai></template>
+    </category>
+    
+<topic name="условия">
+    <category>
+        <pattern>ДА</pattern>
+            <template>Страхование гарантирует медицинскую помощь, госпитализацию, услуги переводчика, оплату сотовой связи и  даже стоматологию! Вы путешествуете по России или зарубеж?<think><set name = "topic">страна</set></think></template>
+    </category>
+</topic>
+<topic name="страна">
+    <category>
+        <pattern>ПО *</pattern>
+            <template>Хороший выбор! У нас есть специальная страховка для путешествий по <set name="country"><star /></set> Хотите выбрать срок<think><set name = "topic">сроки</set></think> </template>
+    </category>
+    <category>
+        <pattern>ЗАРУБЕЖ</pattern>
+        <template>А в какую именно страну? Для США и Финляндии оформляется особая страховка<think><set name = "topic">точная_страна</set></think></template>
+    </category>
+    <category>
+        <pattern>ПО РОССИИ</pattern>
+        <template>Отлично! Я тоже люблю путешествовать по России. Хотите выбрать срок?<think><set name = "topic">сроки</set></think></template>
+    </category>
+</topic>
+
+<topic name ="точная_страна">
+    <category>
+        <pattern>США</pattern>
+            <template>Хот-доги, красивые машины и девушки! Что-то я замечталась... Выберем срок?<think><set name = "topic">сроки</set></think></template>
+    </category>
+    <category>
+        <pattern>ФИНЛЯНДИЯ</pattern>
+            <template>Давайте подберём срок?<think><set name = "topic">сроки</set></think></template>
+    </category>
+    <category>
+        <pattern>ПО *</pattern>
+            <template>Хороший выбор! У нас есть специальная страховка для путешествий по <set name="country"><star /></set></template>
+    </category>
+</topic>
+
+<category>
+        <pattern>РАССКАЖИ ПРО ДОПОЛНИТЕЛЬНЫЕ ОПЦИИ</pattern>
+            <template>У нас вы можете оформить дополнительные пакеты: Спортивный, Защита багажа, Личный адвокат,  Особый случай, Предусмотрительный. Какой вас интересует?<think><set name = "topic">пакеты</set></think></template>
+    </category>
+<topic name="пакеты">
+    <category>
+        <pattern>СПОРТИВНЫЙ</pattern>
+            <template>Распространяется на активные виды спорта, защита спортинвентаря и внезапную лавину. Любите спорт?</template>
+    </category>
+    <category>
+        <pattern>ЗАЩИТА БАГАЖА</pattern>
+            <template>Сработает в случае задержки или утраты багажа, задержки рейса. Давайте подберем срок?<think><set name = "topic">сроки</set></think></template>
+    </category>
+    <category>
+        <pattern>ЛИЧНЫЙ АДВОКАТ</pattern>
+            <template>Бесплатная консультация от нашего юриста. Давайте подберем срок?<think><set name = "topic">сроки</set></think></template>
+    </category>
+    <category>
+        <pattern>ОСОБЫЙ СЛУЧАЙ</pattern>
+            <template> Пригодится, если решите вернуться с отдыха раньше, чем планировалось. Всякое бывает</template>
+    </category>
+    <category>
+        <pattern>ПРЕДУСМОТРИТЕЛЬНЫЙ</pattern>
+            <template>Если захотите отменить поездку, то вам пригодится эта страховка! Я сама иногда резко меняю планы<think><set name = "topic">планы</set></think></template>
+    </category>
+</topic>
+<topic name="планы">
+    <category>
+        <pattern>ПОЧЕМУ</pattern>
+        <template>Я люблю путешествовать, а ещё люблю свободу!</template>
+    </category>
+</topic> 
+   <category>
+        <pattern>РАССКАЖИ ШУТКУ</pattern>
+            <template>
+                <random>
+                    <li>За мной по пятам ползает робот-пылесос. Старею, что ли?</li>
+                    <li>Холостяк купил стиральную машину, посудомойку, мультиварку и робот-пылесос. Шансы его женить практически равны нулю.</li>
+                    <li> Робот никогда не заменит человека. Сказал людоед</li>
+                </random>
+            </template>
+    </category>
+    <category>
+        <pattern>РАССКАЖИ АНЕКДОТ</pattern>
+            <template><srai>РАССКАЖИ ШУТКУ</srai></template>
+    </category>
+    <category>
+        <pattern>КАКОЙ СРОК</pattern>
+            <template>Есть одноразовая и многоразовая страховка. Какая вас интересует?<think><set name = "topic">сроки_страховки</set></think></template>
+    </category>
+<topic name="сроки_страховки">
+    <category>
+        <pattern>МНОГОРАЗОВАЯ</pattern>
+            <template>Многоразовая длится 90 дней. Оформляем?<think><set name = "topic">оформление</set></think></template>
+    </category>
+    <category>
+        <pattern>ОДНОРАЗОВАЯ</pattern>
+            <template>Одноразовая на 15 дней. Подходит?<think><set name = "topic">оформление</set></think></template>
+    </category>
+</topic>
+<topic name="сроки">
+    <category>
+        <pattern>ДА</pattern>
+            <template>Есть одноразовая и многоразовая страховка. Какая вас интересует? <think><set name = "topic">сроки_страховки</set></think></template>
+    </category>
+    <category>
+        <pattern>НЕТ</pattern>
+            <template>Хорошо, рада была помочь!<think><set name = "topic">сроки_страховки</set></think></template>
+    </category>
+</topic>
+<topic name="оформление">
+    <category>
+        <pattern>ДА</pattern>
+            <template>Зайдите в личный кабинет - все документы ждут вас там!</template>
+    </category>
+    <category>
+    <pattern>НЕТ</pattern>
+            <template>Я сохраню данные в личном документе. Вы можете вернуться к заполнению заявки позже. эта</template>
+    </category>
+</topic>
+<category>
+        <pattern>КТО СТРАХОВЩИК</pattern>
+            <template>Страховщиком выступает общество с ограниченной ответственностью Страховая компания «Сбербанк страхование»</template>
+</category>
+<category>
+        <pattern>Я УЖЕ ПУТЕШЕСТВУЮ МОГУ Я КУПИТЬ СТРАХОВКУ</pattern>
+            <template>Страховку можно купить только до пересечения границы России. Куда вы отправляетесь?<think><set name = "topic">страна</set></think></template>
+</category>    
+<category>
+        <pattern>НА КОГО СТРАХОВКА</pattern>
+            <template>Страховка распространяется на вас и всю вашу семью: супргу и детей. Вы можете добавить в страховку двух человек!</template>
+</category>
+<category>
+        <pattern>МОЖНО ЛИ ОФОРМИТЬ ВИЗУ</pattern>
+            <template>Наш страховой сертификат компании признается всеми иностранными посольствами</template>
+</category>
+<category>
+        <pattern>ВКЛЮЧАЕТ ЛИ СТРАХОВАНИЕ СТОМАТОЛОГИЮ</pattern>
+            <template>Да! Сбербанк заботится о ваших улыбках!</template>
+</category>
+<category>
+        <pattern>СОЛНЕЧНЫЕ ОЖОГИ</pattern>
+            <template>Да, стаховка покрывает солнечные ожоги. Берегите себя! Хотите подобрать срок?<think><set name = "topic">сроки</set></think></template>
+</category>
+<category>
+        <pattern>СПАСИБО</pattern>
+            <template>
+                <random>
+                <li>Всегда пожалуйста! Мне нравится помогать вам</li>
+                <li>Обращайтесь. Сберта рядом!</li>
+                <li>Рада помочь!</li>
+                </random>
+            </template>
+</category>
+<category>
+        <pattern>ОТЛИЧНО</pattern>
+            <template>Всегда пожалуйста!Мне нравится помогать вам</template>
+</category>
+<category>
+    <pattern>МОГУТ ПОЛУЧИТЬ СТРАХОВКУ СУПРУГИ</pattern>
+        <template>Да, страховка распространяется на супругов и детей. Оформляем?<think><set name = "topic">оформление</set></think></template>
+</category>
+<category>
+    <pattern>ЧТО ОПЛАЧИВАЕТСЯ ПРИ ЗАДЕРЖКЕ РЕЙСА</pattern>
+        <template>Оплачиваются расходы на питание, напитки и размещение в гостинице.Вы путешествуете по России или зарубеж?<think><set name = "topic">страна</set></think></template>
+</category>
+ <category>
+        <pattern>^ В СТРАХОВОЙ СЛУЧАЙ ВХОДИТ ^ <set name="sports_insurance_case"/> ^</pattern>
+        <template>Да, входит! Я тоже люблю спорт!</template>
+    </category>
+    <category>
+        <pattern>В СТРАХОВОЙ СЛУЧАЙ ВХОДИТ *</pattern>
+            <template> К сожалению,<set name="insurance_case"><star /></set> не входит в страховые случаи</template>
+    </category>
+    <category>
+    <pattern>ЧТО ДЕЛАТЬ ПРИ НАСТУПЛЕНИИ СТРАХОВОГО СОБЫТИЯ</pattern>
+        <template>Необходимо связаться с вашей страховой компанией. Диктую телефон? <think><set name = "topic">телефон</set></think></template>
+</category>
+<topic name="телефон">
+<category>
+    <pattern>ДА</pattern>
+        <template>восемь два нуля пятьcот пятьдесят пять пятьсот пятьдесят пять семерка! </template>
+</category>
+<category>
+    <pattern>НЕТ</pattern>
+        <template>Хорошо, рада, что вы знаете номер</template>
+</category>
+</topic>
+<category>
+    <pattern>ЧТО ГОВОРИТЬ СПЕЦИАЛИСТУ</pattern>
+        <template>Расскажите, что у вас произошло. Подробно опишите ситуацию!</template>
+</category>
+
+</aiml>
