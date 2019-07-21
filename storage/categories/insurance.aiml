@@ -21,14 +21,11 @@
         <pattern>РАССКАЖИ ПРО СТРАХОВКУ</pattern>
             <template><srai>РАССКАЖИ О СТРАХОВАНИИ</srai></template>
     </category>
-    <category>
-        <pattern>СТРАХОВКА</pattern>
-            <template><srai>ПРО СТРАХОВКУ</srai></template>
-    </category>
+    
 <topic name="условия">
     <category>
         <pattern>ДА</pattern>
-            <template>Страхование гарантирует медицинскую помощь, госпитализацию, услуги переводчика, оплату сотовой связи и  даже стоматологию! Вы путешествуете по России или зарубеж?<think><set name = "topic">страна</set></think></template>
+            <template>Страхование гарантирует медицинскую помощь, госпитализацию, услуги переводчика, оплату сотовой связи и  даже стоматологию! Вы путешествуете по России или за рубеж?<think><set name = "topic">страна</set></think></template>
     </category>
 </topic>
 <topic name="страна">
@@ -37,7 +34,7 @@
             <template>Хороший выбор! У нас есть специальная страховка для путешествий по <set name="country"><star /></set> Хотите выбрать срок<think><set name = "topic">сроки</set></think> </template>
     </category>
     <category>
-        <pattern>ЗАРУБЕЖ</pattern>
+        <pattern>ЗА РУБЕЖ</pattern>
         <template>А в какую именно страну? Для США и Финляндии оформляется особая страховка<think><set name = "topic">точная_страна</set></think></template>
     </category>
     <category>
@@ -62,7 +59,7 @@
 </topic>
 
 <category>
-        <pattern>ДОПОЛНИТЕЛЬНЫЕ ОПЦИИ</pattern>
+        <pattern>РАССКАЖИ ПРО ДОПОЛНИТЕЛЬНЫЕ ОПЦИИ</pattern>
             <template>У нас вы можете оформить дополнительные пакеты: Спортивный, Защита багажа, Личный адвокат,  Особый случай, Предусмотрительный. Какой вас интересует?<think><set name = "topic">пакеты</set></think></template>
     </category>
 <topic name="пакеты">
@@ -151,14 +148,14 @@
 </category>    
 <category>
         <pattern>НА КОГО СТРАХОВКА</pattern>
-            <template>Страховка распространяется на вас и всю вашу семью: супргу и детей</template>
+            <template>Страховка распространяется на вас и всю вашу семью: супргу и детей. Вы можете добавить в страховку двух человек!</template>
 </category>
 <category>
-        <pattern>ВИЗА</pattern>
+        <pattern>МОЖНО ЛИ ОФОРМИТЬ ВИЗУ</pattern>
             <template>Наш страховой сертификат компании признается всеми иностранными посольствами</template>
 </category>
 <category>
-        <pattern>ВКЛЮЧАЕТ ЛИ СТРАХОВАНИЕ СТОМОТОЛОГИЮ</pattern>
+        <pattern>ВКЛЮЧАЕТ ЛИ СТРАХОВАНИЕ СТОМАТОЛОГИЮ</pattern>
             <template>Да! Сбербанк заботится о ваших улыбках!</template>
 </category>
 <category>
@@ -172,7 +169,7 @@
                 <li>Всегда пожалуйста! Мне нравится помогать вам</li>
                 <li>Обращайтесь. Сберта рядом!</li>
                 <li>Рада помочь!</li>
-                <random>
+                </random>
             </template>
 </category>
 <category>
@@ -181,7 +178,7 @@
 </category>
 <category>
     <pattern>МОГУТ ПОЛУЧИТЬ СТРАХОВКУ СУПРУГИ</pattern>
-        <template>Да, страховка распространяется на супругов и детей. Ооформляем?<think><set name = "topic">оформление</set></think></template>
+        <template>Да, страховка распространяется на супругов и детей. Оформляем?<think><set name = "topic">оформление</set></think></template>
 </category>
 <category>
     <pattern>ЧТО ОПЛАЧИВАЕТСЯ ПРИ ЗАДЕРЖКЕ РЕЙСА</pattern>
@@ -196,14 +193,13 @@
             <template> К сожалению,<set name="insurance_case"><star /></set> не входит в страховые случаи</template>
     </category>
     <category>
-    <category>
     <pattern>ЧТО ДЕЛАТЬ ПРИ НАСТУПЛЕНИИ СТРАХОВОГО СОБЫТИЯ</pattern>
         <template>Необходимо связаться с вашей страховой компанией. Диктую телефон? <think><set name = "topic">телефон</set></think></template>
 </category>
 <topic name="телефон">
 <category>
     <pattern>ДА</pattern>
-        <template>восемь два нуля пятьмот пятьдесят пять пятьсот пятьдесят пять семерка! </template>
+        <template>восемь два нуля пятьcот пятьдесят пять пятьсот пятьдесят пять семерка! </template>
 </category>
 <category>
     <pattern>НЕТ</pattern>
