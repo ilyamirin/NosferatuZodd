@@ -1,0 +1,55 @@
+1.скачать http://www.cstr.ed.ac.uk/projects/festival/download.html все архивы
+
+2. распаковать в одной папке      $tar -xvzf file.tar.gz
+
+3. обновить python 
+
+4. установить $sudo aptitude install libncurses-dev
+
+5. зайти в папку Speech Tools
+выполнить:
+$cd speech_tools
+$ ./configure
+$make
+
+6.зайти в папку festival
+	выполнить:
+	$cd ../festival
+$ ./configure
+$make
+ 
+ 7. зайти в ../festival/bin/ запустить ./festival проверить работоспособность, если ошибка, то:
+Для PulseAudio, добавить эти строки в конец файла ~/.festivalrc или /usr/share/festival/festival.scm: 
+(Parameter.set 'Audio_Required_Format 'aiff)
+(Parameter.set 'Audio_Method 'Audio_Command)
+(Parameter.set 'Audio_Command "paplay $FILE --client-name=Festival --stream-name=Speech")
+
+8. распаковать архив msu_ru_nsh_clunits-0.5.tar.bz2 к другим голосам в voices/ru/ 
+
+9.В начало файла $INST_DIR/festival/lib/languages.scm пишем:
+(define (language_russian)
+ "(language_russian)
+ Set up language parameters for Russian."
+ (set! male1 voice_msu_ru_nsh_clunits)
+ (male1)
+ (Parameter.set 'Language 'russian)
+ )
+
+
+Ищем блок начинающийся строкой:
+(define (select_language language)
+
+по аналогии с другими языками добавляем
+  ((equal? language 'russian)
+   (language_russian))
+
+10. проверяем по аналогии работает или нет: echo "Привет" |.../festival/bin/festival --language russian --tts
+
+11. запускаем сервер /home/ss/festival/festival/bin/festival --server --language russian --tts
+
+12. создаем текстовый докумет и запускаем его с клиента
+ echo "текс просто так" | /home/ss/festival/festival/bin/festival_client --port 1314 --ttw /home/ss/festival/text.txt  --output text.waw --async text.waw  --aucommand 'aplay text.waw'
+
+13. в итоге должно проиграться и сохраниться waw из текстового файла
+
+14. другие команды и запросы описаны в api festival http://festvox.org/docs/manual-2.4.0/festival_toc.html
