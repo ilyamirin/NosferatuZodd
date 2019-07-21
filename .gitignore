@@ -1,5 +1,7 @@
 *.conv
 *.pyc
-*.log
+*.log*
 .vscode\*
 debug\
+storage/conversations/Console_Console.conv
+*.1
