@@ -47,9 +47,13 @@ $make
 
 11. запускаем сервер /home/ss/festival/festival/bin/festival --server --language russian --tts
 
-12. создаем текстовый докумет и запускаем его с клиента
+12. создаем текстовый докумет и запускаем его с клиента файл из текстового файла сохраняется в waw
+ echo "текс просто так" | /home/ss/festival/festival/bin/festival_client --port 1314 --ttw /home/ss/festival/text.txt  --output text.waw --async text.waw  
+ 
+ 13. проигрывание предыдущей команды
  echo "текс просто так" | /home/ss/festival/festival/bin/festival_client --port 1314 --ttw /home/ss/festival/text.txt  --output text.waw --async text.waw  --aucommand 'aplay text.waw'
 
-13. в итоге должно проиграться и сохраниться waw из текстового файла
 
-14. другие команды и запросы описаны в api festival http://festvox.org/docs/manual-2.4.0/festival_toc.html
+14. в итоге должно проиграться и сохраниться waw из текстового файла
+
+15. другие команды и запросы описаны в api festival http://festvox.org/docs/manual-2.4.0/festival_toc.html
