@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+<!--
     <category>
         <pattern><iset words= "ХАЙ, ЭЙ, ПРИВЕТ, ОК, ЗДРАВСТВУЙ"/> ^ </pattern>
         <template>
@@ -82,14 +83,12 @@
             <template>Хороший выбор! У нас есть специальная страховка для путешествий по <set name="country"><star /></set></template>
     </category>
 </topic>
-<!--
 <topic name="планы">
     <category>
         <pattern>ПОЧЕМУ</pattern>
         <template>Я люблю путешествовать, а ещё люблю свободу!</template>
     </category>
 </topic>
--->
 
     
 <category>
@@ -142,4 +141,5 @@
     <pattern>*</pattern>
     <template>Извините, я не совсем поняла Вас</template>
 </category>
+-->
 </aiml>

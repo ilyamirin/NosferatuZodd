@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+<!--
     <category>
      <pattern>РАССКАЖИ О СТРАХОВАНИИ</pattern>
         <template>
@@ -210,5 +211,5 @@
     <pattern>ЧТО ГОВОРИТЬ СПЕЦИАЛИСТУ</pattern>
         <template>Расскажите, что у вас произошло. Подробно опишите ситуацию!</template>
 </category>
-
+-->
 </aiml>

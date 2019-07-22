@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aiml version="2.0">    
+<aiml version="2.0">
+<!--
 <category>
         <pattern>СКОЛЬКО ХРАНИТСЯ КАРТА В ОФИСЕ СБЕРБАНКА</pattern>
         <template>Карта хранится в течение 3 месяцев. Вы заберете сами или прислать курьера?<think><set name = "topic">debit_cards_Забрать</set></think></template>
@@ -1416,4 +1417,5 @@
         <pattern>СКОЛЬКО СТОИТ ПЕРЕВЫПУСТИТЬ КАРТУ В ПАКЕТЕ СБЕРБАНК ПРЕМЬЕР ЕСЛИ Я ЕЁ ПОТЕРЯЛ</pattern>
         <template>ЕСЛИ ВЫ ПОТЕРЯЛИ КАРТУ С В ПАКЕТЕ СБЕРБАНК ПРЕМЬЕР ВЫ МОЖЕТЕ ПЕРЕВЫПУСТИТЬ ЕЁ БЕСПЛАТНО</template>
 </category>
+-->
 </aiml>
