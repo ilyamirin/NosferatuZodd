@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<!-- вход в карты-->
+        <category>
+                <pattern> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+                <template>В КАКОМ ПРЕМИАЛЬНОМ ПАКЕТЕ: СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР?<think><set name="topic">dialog1_segment_choice</set></think></template>
+        </category>
+                <topic name="dialog1_segment_choice">
+                        <category>
+                                <pattern> ^ <regex pattern="ПЕРВ.*" /> ^</pattern>
+                                <template><think><set name="topic">dialog1_sb1_theme_choice</set></think><srai>КАРТА</srai></template>
+                        </category>
+                        <category>
+                                <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^</pattern>
+                                <template><think><set name="topic">sberbank_premier_theme_choice</set></think><srai>КАРТА</srai></template>
+                        </category>
+                        <category>
+                                <pattern> ^ <regex pattern="РАЗНИЦ.*|РАЗЛИЧ.*" /> ^</pattern>
+                                <template>Сбербанк Премьер это пакет услуг, куда входят приорити пасс и страхование в путешествиях, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
+                        </category>
+                </topic>
+        <category>
+                <pattern>^ <regex pattern="INFINITE.*" /> ^</pattern>
+                <template>Visa Infinite – это карта премиальной категории, выпускаемая платежной системой Виза. Она обладает широким кругом возможностей и имеет большие преимущества для своих владельцев.</template>
+        </category>
+
+        <category>
+            <pattern>^ <regex pattern="РАЗН.*|РАЗЛ.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ </pattern>
+            <that> КАКАЯ ИНФОРМАЦИЯ ВАС ИНТЕРЕСУЕТ</that>
+            <template>Основные услуги идентичные, разница в опциях, предлагаемыми партнерами сбербанка. Например, мастеркард дает возможность бесплатного посещения вип залов в аэропортах и бесплатный роуминг от мегафона, а виза предлагает бесплатную упаковку багажа в аэропорту, скидку 50% на оформление шенгенской визы и также бесплатный роуминг от билайна, мегафона и теле2. </template>
+        </category>
+        <category>
+                <pattern>^ <regex pattern="РАЗН.*|РАЗЛ.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ </pattern>
+                <template>Основные услуги идентичные, разница в опциях, предлагаемыми партнерами сбербанка. Например, мастеркард дает возможность бесплатного посещения вип залов в аэропортах и бесплатный роуминг от мегафона, а виза предлагает бесплатную упаковку багажа в аэропорту, скидку 50% на оформление шенгенской визы и также бесплатный роуминг от билайна, мегафона и теле2. </template>
+        </category>
+
+        <category>
+                <pattern> ^ <regex pattern="УСЛУГ.*|ВИЗ.." /> ^ <regex pattern="ВИЗ..|УСЛУГ.*" /> ^ </pattern>
+                <template>ВИЗА ПРЕДЛАГАЕТ БЕСПЛАТНУЮ УПАКОВКУ БАГАЖА В АЭРОПОРТУ, СКИДКУ 50% НА ОФОРМЛЕНИЕ ШЕНГЕНСКОЙ ВИЗЫ И ТАКЖЕ БЕСПЛАТНЫЙ РОУМИНГ ОТ БИЛАЙНА, МЕГАФОНА И ТЕЛЕ2.</template>
+        </category>
+
+
+        <category>
+                <pattern> ^ <regex pattern="УСЛУГ.*|МАСТЕР" /> ^ <regex pattern="МАСТЕР|УСЛУГ.*"/> ^ </pattern>
+                <template>МАСТЕРКАРД ДАЕТ ВОЗМОЖНОСТЬ БЕСПЛАТНОГО ПОСЕЩЕНИЯ ВИП ЗАЛОВ В АЭРОПОРТАХ И БЕСПЛАТНЫЙ РОУМИНГ ОТ МЕГАФОНА</template>
+        </category>
+
+        <category>
+                <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern=".*|БАНКОМАТ.*" /> ^ </pattern>
+                <template>А за какой срок? У нас есть лимит в сутки и в месяц</template>
+        </category>
+        <category>
+                <pattern> ^ <regex pattern="СКОЛЬК.*" /> ^ <regex pattern="МОГ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ </pattern>
+                <template><srai>ЛИМИТ СНЯТ БАНКОМАТ</srai></template>
+        </category>
+                <category>
+                        <pattern> ^ <regex pattern="МЕСЯЦ.*" /> ^ </pattern>
+                        <that>А ЗА КАКОЙ СРОК  У НАС ЕСТЬ ЛИМИТ В СУТКИ И В МЕСЯЦ</that>
+                        <template> В месяц вы можете снять не больше 30 000 000 рублей или 1 000 000 долларов США или 750 000 евро.</template>
+                </category>
+                <category>
+                        <pattern> ^ <regex pattern="СУТК.*" /> ^ </pattern>
+                        <that>А ЗА КАКОЙ СРОК  У НАС ЕСТЬ ЛИМИТ В СУТКИ И В МЕСЯЦ</that>
+                        <template> В сутки вы можете снять не больше 1 000 000 рублей или 25 000 долларов США или 20 000 евро.</template>
+                </category>
+
+        <category>
+                <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="КАСС.*" /> ^ </pattern>
+                <template>Вы можете снять 50 000 рублей или 1600 долларов или 1200 евро в сутки. Но только если ваша карта заблокирована по каким-либо причинам</template>
+        </category>
+        <category>
+                <pattern> ^ <regex pattern="СКОЛЬК.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="КАСС.*" /> ^ </pattern>
+                <template><srai>ЛИМИТ СНЯТ КАСС</srai></template>
+        </category>
+        <category>
+                <pattern> ^ <regex pattern="СКОЛЬК.*" /> ^ <regex pattern="БОНУС.*" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+                <template>10% при оплате в кафе и ресторанах, 5% за покупки в супермаркете и 0,5% за всё остальное</template>
+        </category>
+        <category>
+                <pattern> ^ <regex pattern="ОБМЕН.*" /> ^ <regex pattern="БОНУС.*" /> ^ </pattern>
+                <template>Их можно обменять на авиабилеты, билеты в театр, на концерты и на покупки на маркетплейсе беру.</template>
+        </category>
+                <!--обслуж-->
+        <category>
+                <pattern> ^ <regex pattern="ОБСЛУЖИВ.*" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+                <template>Обслуживание премиальных карт бесплатно.</template>
+        </category>
+</aiml>
