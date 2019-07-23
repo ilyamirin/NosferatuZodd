@@ -2,7 +2,7 @@
 <aiml version="2.0">
 <!-- вход в карты-->
         <category>
-                <pattern> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+                <pattern>^ <regex pattern="(.*СКА(З|Ж).*|УСЛЫШАТЬ)*" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
                 <template>В КАКОМ ПРЕМИАЛЬНОМ ПАКЕТЕ: СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР?<think><set name="topic">dialog1_segment_choice</set></think></template>
         </category>
                 <topic name="dialog1_segment_choice">
@@ -16,7 +16,7 @@
                         </category>
                         <category>
                                 <pattern> ^ <regex pattern="РАЗНИЦ.*|РАЗЛИЧ.*" /> ^</pattern>
-                                <template>Сбербанк Премьер это пакет услуг, куда входят приорити пасс и страхование в путешествиях, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
+                                <template>Сбербанк Премьер это пакет услуг, куда входит страхование в путешествиях и многое другое, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
                         </category>
                 </topic>
         <category>
@@ -56,12 +56,12 @@
                 <category>
                         <pattern> ^ <regex pattern="МЕСЯЦ.*" /> ^ </pattern>
                         <that>А ЗА КАКОЙ СРОК  У НАС ЕСТЬ ЛИМИТ В СУТКИ И В МЕСЯЦ</that>
-                        <template> В месяц вы можете снять не больше 30 000 000 рублей или 1 000 000 долларов США или 750 000 евро.</template>
+                        <template> В месяц вы можете снять 3000000 рублей или 1000000 долларов США или 75000 евро и меньше.</template>
                 </category>
                 <category>
                         <pattern> ^ <regex pattern="СУТК.*" /> ^ </pattern>
                         <that>А ЗА КАКОЙ СРОК  У НАС ЕСТЬ ЛИМИТ В СУТКИ И В МЕСЯЦ</that>
-                        <template> В сутки вы можете снять не больше 1 000 000 рублей или 25 000 долларов США или 20 000 евро.</template>
+                        <template> В сутки вы можете снять 1000000 рублей или 25000 долларов США или 20000 евро и меньше.</template>
                 </category>
 
         <category>

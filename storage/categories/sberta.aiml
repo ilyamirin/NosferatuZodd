@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
     <category>
+        <pattern><iset words= "ХАЙ, ЭЙ, ПРИВЕТ, ОК, ЗДРАВСТВУЙ"/> ^ </pattern>
+        <template>
+            <random>
+                <li>Здравствуйте. <srai>BASICTHEMES001</srai></li>
+                <li>Здравствуйте, о чем Вы хотите со мной поговорить? <srai>BASICTHEMES001</srai></li>
+            </random>
+        </template>
+    </category>
+    <category>
         <pattern>BASICTHEMES001</pattern>
         <template>
             <random>
                 <li>Могу рассказать о премиальных пакетах: Сбербанк Первый и Сбербанк Премьер. О чем вам рассказать?<think><set name="topic">sberta_package_choise</set></think></li>
-                <li>Могу рассказать вам о картах, вкладах, страховании, приорити пасс для клиентов премиум сегмента. О чем вам рассказать?<think><set name="topic">sberta_package_choise</set></think></li>
+                <li>Могу рассказать вам о картах, вкладах, страховании для клиентов премиум сегмента. О чем вам рассказать?<think><set name="topic">sberta_package_choise</set></think></li>
             </random>
         </template>
     </category>
@@ -16,7 +25,7 @@
             </category>
             <category>
                 <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^</pattern>
-                <template>В Сбербанк Премьер входит приорити пасс и страхование в путешествиях. Хотите поподробнее о Сбербанк Премьер?</template>
+                <template>В Сбербанк Премьер входит страхование в путешествиях и многое другое. Хотите поподробнее о Сбербанк Премьер?</template>
             </category>
             <category>
                 <pattern> ^ <regex pattern="ДА.*" /> ^</pattern>
@@ -24,11 +33,11 @@
             </category>
             <category>
                 <pattern> ^ <regex pattern="РАЗЛИЧ.*|РАЗНИЦ.*" /> ^</pattern>
-                <template>Сбербанк Премьер это пакет услуг, куда входят приорити пасс и страхование в путешествиях, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
+                <template>Сбербанк Премьер это пакет услуг, куда входят страхование в путешествиях и многое другое, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
             </category>
         </topic>
     <category>
-        <pattern>BASICNTROSS001</pattern>
+        <pattern>BASICOK001</pattern>
         <template>
             <random>
                 <li>Хорошо!</li>
@@ -39,7 +48,7 @@
         </template>
     </category>
     <category>
-        <pattern> ^ КАК ^ <regex pattern="ДЕЛА|ЖИЗНЬ|ТЫ|НАСТРОЕНИЕ"/></pattern>
+        <pattern> ^ КАК ^ <regex pattern="ДЕЛА|ЖИЗНЬ|ТЫ|НАСТРОЕНИ.*"/></pattern>
         <template>Спасибо, что интересуетесь! Я оптимистка, поэтому у меня всё хорошо</template>
     </category>
     <category>
@@ -218,5 +227,15 @@
     <category>
         <pattern>^ <regex pattern="ПОКА|СВИДАНИЯ|ВСЕ"/> ^</pattern>
         <template>До свидания! Возвращайтесь к нам</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ШУТ.*|АНЕК.*"/> ^ </pattern>
+            <template>
+                <random>
+                    <li>За мной по пятам ползает робот-пылесос. Старею, что ли?</li>
+                    <li>Холостяк купил стиральную машину, посудомойку, мультиварку и робот-пылесос. Шансы его женить практически равны нулю.</li>
+                    <li> Робот никогда не заменит человека. Сказал людоед</li>
+                </random>
+            </template>
     </category>
 </aiml>

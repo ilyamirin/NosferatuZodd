@@ -22,7 +22,11 @@
     <!--карты-->
         <category>
             <pattern>^ <regex pattern="КАРТ.*" /> ^ </pattern>
-            <template>Я думаю, Вас порадуют условия для держателей карт: бесплатное обслуживание, бесплатный перевыпуск, выдача любой суммы без комиссии, где бы то ни было. Хоть на Марсе, лишь бы были банки! В пакете Сбербанк первый есть две элитные карты: WORLD MASTERCARD ELITE И VISA INFINITE. Какая информация вас интересует?</template>
+            <template>Я думаю, Вас порадуют условия для держателей карт: 
+                бесплатное обслуживание, бесплатный перевыпуск, выдача любой суммы без комиссии, где бы то ни было.
+                Хоть на Марсе, лишь бы были банки! В пакете Сбербанк первый есть две элитные карты:
+                WORLD MASTERCARD ELITE И VISA INFINITE. Какая информация вас интересует?
+            </template>
         </category>
 
     <!--кредиты-->
@@ -228,7 +232,7 @@
         <template>Хорошо, чем я еще могу Вам помочь?</template>
     </category>
     <category>
-        <pattern> ^ <regex pattern="КРЕДИТ.*|ВКЛАД.*|ВАЛЮТ.*"/> ^ </pattern>
+        <pattern> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*"/> ^ </pattern>
         <template><think><set name="topic">dialog1_sb1_theme_choice</set></think><srai><input/></srai></template>
     </category>
 
