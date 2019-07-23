@@ -2,17 +2,13 @@
 <aiml version="2.0">
 <!-- вход в Сбербанк Премьер. -->
     <category>
-        <pattern> ^ ПРЕМЬЕР ^ </pattern>
-        <template>Это пакет услуг для клиентов с высоким уровнем доходов. Вы хотите узнать, какие бонусы подразумевает пакет услуг?</template>
-    </category>
-    <category>
-        <pattern> ^ <regex pattern="(ЧТО)*" /> ^ <regex pattern="(СБЕРБАНК)*" /> ПРЕМЬЕР ^ </pattern>
+        <pattern> ^ <regex pattern="ЧТО" /> ^ <regex pattern="(СБЕРБАНК)*" /> ПРЕМЬЕР ^ </pattern>
         <template>Это пакет услуг для клиентов с высоким уровнем доходов. Вы хотите узнать, какие бонусы подразумевает пакет услуг?</template>
     </category>
     <category>
         <pattern> ^ <regex pattern="ДА.*" /> ^ </pattern>
         <that> ВЫ ХОТИТЕ УЗНАТЬ КАКИЕ БОНУСЫ ПОДРАЗУМЕВАЕТ ПАКЕТ УСЛУГ </that>
-        <template><srai>УСЛУГ СБЕРБАНК ПРЕМЬЕР</srai></template>
+        <template><srai>УСЛУГИ СБЕРБАНК ПРЕМЬЕР</srai></template>
     </category>
     <category>
             <pattern> ^ <regex pattern="УСЛУГ.*" /> ^ СБЕРБАНК ПРЕМЬЕР ^</pattern>
