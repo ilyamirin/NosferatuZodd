@@ -1,0 +1,9 @@
+### включение встроенного шумоподавления
+1 открываем sudo subl /etc/pulse/default.pa
+or sudo nano /etc/pulse/default.pa
+2 вставляем под строкой load-module module-filter-apply
+
+load-module module-echo-cancel
+3. перезагружаем пк / ps/ рестарт pulseaudio -k не дал эффкта
+4. в параметрах звука заходим во вход и выбираем устройство с echo cancelled в качестве микрофона
+5. пример установки https://www.youtube.com/watch?reload=9&time_continue=68&v=gKsBAEnVxEA
