@@ -2,25 +2,29 @@
 <aiml version="2.0">
 <!-- вход в карты-->
         <category>
-                <pattern>^ <regex pattern="(.*СКА(З|Ж).*|УСЛЫШАТЬ)*" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+                <pattern> ^ <regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
                 <template>В КАКОМ ПРЕМИАЛЬНОМ ПАКЕТЕ: СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР?<think><set name="topic">dialog1_segment_choice</set></think></template>
         </category>
                 <topic name="dialog1_segment_choice">
                         <category>
                                 <pattern> ^ <regex pattern="ПЕРВ.*" /> ^</pattern>
-                                <template><think><set name="topic">dialog1_sb1_theme_choice</set></think><srai>КАРТА</srai></template>
+                                <template><think><set name="topic">sb1_theme_choice</set></think> <srai>КАРТА</srai> </template>
                         </category>
                         <category>
                                 <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^</pattern>
-                                <template><think><set name="topic">sberbank_premier_theme_choice</set></think><srai>КАРТА</srai></template>
+                                <template><think><set name="topic">sberbank_premier_дополнительные_услуги</set></think> <srai>УЗНАТЬ БОНУС</srai> </template>
                         </category>
                         <category>
                                 <pattern> ^ <regex pattern="РАЗНИЦ.*|РАЗЛИЧ.*" /> ^</pattern>
                                 <template>Сбербанк Премьер это пакет услуг, куда входит страхование в путешествиях и многое другое, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
                         </category>
+                        <category>
+                                <pattern>*</pattern>
+                                <template><think><set name="topic">unknown</set></think><srai>MU001</srai><srai>СКАЖИ КАРТА</srai></template>
+                        </category>
                 </topic>
         <category>
-                <pattern>^ <regex pattern="INFINITE.*" /> ^</pattern>
+                <pattern>^ <regex pattern="ИНФИНИТЕ.*" /> ^</pattern>
                 <template>Visa Infinite – это карта премиальной категории, выпускаемая платежной системой Виза. Она обладает широким кругом возможностей и имеет большие преимущества для своих владельцев.</template>
         </category>
 

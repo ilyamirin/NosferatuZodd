@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
     <category>
-        <pattern> ^ <regex pattern="ВКЛАД.*"/> ^</pattern>
+        <pattern> ^ <regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="ВКЛАД.*"/> ^</pattern>
         <template>В сбербанке есть обычные вклады, особые и вклады для премьер-сегмента. О каком Вам рассказать?<think><set name="topic">insurance_выбор_вклада</set></think></template>
     </category>
         <topic name="insurance_выбор_вклада">
@@ -37,14 +37,24 @@
     </category>
 </topic>
     <category>
-        <pattern> ^ <regex pattern="ДА.*"/> ^</pattern>
-        <that> ВАС ИНТЕРЕСУЮТ УСЛОВИЯ ПО СТРАХОВАНИЮ </that>
-        <template>Страхование гарантирует медицинскую помощь, госпитализацию, услуги переводчика, оплату сотовой связи и  даже стоматологию! Я могу рассказать Вам про дополнительные опции. Вы путешествуете по России или зарубеж?<think><set name="topic">страна</set></think></template>
-    </category>
-    <category>
         <pattern> ^ <regex pattern="НЕ.*"/> ^</pattern>
         <that> ВАС ИНТЕРЕСУЮТ УСЛОВИЯ ПО СТРАХОВАНИЮ </that>
-        <template>Ладно. Чем я еще могу помочь?</template>
+        <template>Ладно. Чем еще я могу вам помочь?</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+        <that> ВАС ИНТЕРЕСУЮТ УСЛОВИЯ ПО СТРАХОВАНИЮ </that>
+        <template>
+            Страхование гарантирует медицинскую помощь, госпитализацию, услуги переводчика, оплату сотовой связи и  даже стоматологию!
+            Я могу рассказать Вам про дополнительные опции.
+            Вы путешествуете по России или зарубеж?
+            <think><set name="topic">страна</set></think>
+        </template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that> ВАС ИНТЕРЕСУЮТ УСЛОВИЯ ПО СТРАХОВАНИЮ </that>
+        <template>Извините, я Вас не совсем поняла.  Вы хотите узнать, какие бонусы подразумевает пакет услуг?</template>
     </category>
         <topic name="страна">
             <category>
@@ -82,6 +92,11 @@
             <category>
                     <pattern> ^ <regex pattern=".*НЕ.*"/> ^</pattern>
                     <that> ХОТИТЕ ВЫБРАТЬ СРОК СТРАХОВКИ</that>
+                    <template>Хорошо. Чем еще я могу вам помочь?</template>
+            </category>
+            <category>
+                    <pattern>*</pattern>
+                    <that> ХОТИТЕ ВЫБРАТЬ СРОК СТРАХОВКИ</that>
                     <template>Хорошо, рада была помочь!</template>
             </category>
 
@@ -100,17 +115,6 @@
                     <template>Одноразовая на 15 дней. Оформляем?</template>
                 </category>
             </topic>
-
-                <category>
-                    <pattern> ^ <regex pattern=".*ДА.*"/> ^</pattern>
-                    <that> ОФОРМЛЯЕМ</that>
-                    <template>Зайдите в личный кабинет - все документы ждут вас там!</template>
-                </category>
-                <category>
-                    <pattern> ^ <regex pattern=".*НЕ.*"/> ^</pattern>
-                    <that> ОФОРМЛЯЕМ</that>
-                    <template>Я сохраню данные в личном документе. Вы можете вернуться к заполнению заявки позже</template>
-                </category>
 
     <category>
         <pattern> ^ <regex pattern="ДОПОЛНИТЕЛЬ.*"/> ^ <regex pattern="ОПЦИ.*"/> ^ </pattern>

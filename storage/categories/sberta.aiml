@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
     <category>
+        <pattern>С БЕРТА</pattern>
+        <template>Да, чем могу помочь? <srai>BASICTHEMES001</srai></template>
+    </category>
+
+    <category>
         <pattern><iset words= "ХАЙ, ЭЙ, ПРИВЕТ, ОК, ЗДРАВСТВУЙ"/> ^ </pattern>
         <template>
-            <random>
-                <li>Здравствуйте. <srai>BASICTHEMES001</srai></li>
-                <li>Здравствуйте, о чем Вы хотите со мной поговорить? <srai>BASICTHEMES001</srai></li>
-            </random>
+            <condition name="flag_greet">
+                <li value="unknown">
+                    <random>
+                        <li>Здравствуйте.<srai>BASICTHEMES001</srai></li>
+                        <li>Здравствуйте, о чем Вы хотите со мной поговорить?<srai>BASICTHEMES001</srai></li>
+                    </random>
+                    <think><set name="flag_greet">1</set></think>
+                </li>
+                <li value="1">
+                    Вроде бы мы уже здоровались... Ну да ладно. Чем могу помочь? <srai>BASICTHEMES001</srai>
+                </li>
+            </condition>
         </template>
     </category>
+
     <category>
         <pattern>BASICTHEMES001</pattern>
         <template>
-            <random>
-                <li>Могу рассказать о премиальных пакетах: Сбербанк Первый и Сбербанк Премьер. О чем вам рассказать?<think><set name="topic">sberta_package_choise</set></think></li>
-                <li>Могу рассказать вам о картах, вкладах, страховании для клиентов премиум сегмента. О чем вам рассказать?<think><set name="topic">sberta_package_choise</set></think></li>
-            </random>
+            Могу рассказать о премиальных пакетах: Сбербанк Первый и Сбербанк Премьер. О чем вам рассказать?
+            <think><set name="topic">sberta_package_choise</set></think>
         </template>
     </category>
+
         <topic name="sberta_package_choise">
             <category>
                 <pattern> ^ <regex pattern="ПЕРВ.*" /> ^</pattern>
@@ -25,28 +38,22 @@
             </category>
             <category>
                 <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^</pattern>
-                <template>В Сбербанк Премьер входит страхование в путешествиях и многое другое. Хотите поподробнее о Сбербанк Премьер?</template>
-            </category>
-            <category>
-                <pattern> ^ <regex pattern="ДА.*" /> ^</pattern>
                 <template><think><set name="topic">unknown</set></think><srai>ЧТО СБЕРБАНК ПРЕМЬЕР</srai></template>
             </category>
             <category>
-                <pattern> ^ <regex pattern="РАЗЛИЧ.*|РАЗНИЦ.*" /> ^</pattern>
-                <template>Сбербанк Премьер это пакет услуг, куда входят страхование в путешествиях и многое другое, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
+                <pattern> ^ <regex pattern="ЧЕМ|КАК|ГДЕ|КАКАЯ" /> ^ <regex pattern="РАЗЛИЧ(ИЕ|ИЯ|АЮТСЯ)|РАЗНИЦ(А|Ы)|ОТЛИЧ(ИЕ|ИЯ|АЮТСЯ)" /> ^</pattern>
+                <template>Сбербанк Премьер это <srai>ЧТО СБЕРБАНК ПРЕМЬЕР</srai>, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
+            </category>
+            <category>
+                <pattern>^ <regex pattern="ВСЕ.?" /> ^</pattern>
+                <template>Рассказывать много. Давайте начну со Сбербанк Первый. <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
+            </category>
+            <category>
+                <pattern>*</pattern>
+                <template>Извините, не совем поняла Вас.<srai>BASICTHEMES001</srai></template>
             </category>
         </topic>
-    <category>
-        <pattern>BASICOK001</pattern>
-        <template>
-            <random>
-                <li>Хорошо!</li>
-                <li>Отлично!</li>
-                <li>Я так и думала.</li>
-                <li>ОК.</li>
-            </random>
-        </template>
-    </category>
+    
     <category>
         <pattern> ^ КАК ^ <regex pattern="ДЕЛА|ЖИЗНЬ|ТЫ|НАСТРОЕНИ.*"/></pattern>
         <template>Спасибо, что интересуетесь! Я оптимистка, поэтому у меня всё хорошо</template>
@@ -56,13 +63,13 @@
         <template>Как раз собиралась отправить вам сообщение... <srai>BASICTHEMES001</srai></template>
     </category>
     <category>
-        <pattern> ^ <regex pattern="ЧТО|ЧЕМ|КАКО."/> ^ <regex pattern="УМЕЕШЬ|УДИВИШЬ|ФУНКЦИОНАЛ|"/></pattern>
+        <pattern> ^ <regex pattern="ЧТО|ЧЕМ|КАК.+"/> ^ <regex pattern="УМЕЕШЬ|УДИВИШЬ|ФУНКЦИОНАЛ|НАВЫК..?"/></pattern>
         <template>Я ваша личная финансовая помощница от сбера! <srai>BASICTHEMES001</srai></template>
     </category>
 
     <category>
-        <pattern> ^ <regex pattern="ТЕБЯ|ТВОЕ"/><regex pattern="ЗОВУТ|ИМЯ*"/></pattern>
-        <template>Меня зовут Сберта! А вас?</template>
+        <pattern> ^ <regex pattern="ТЕБЯ|ТВОЕ|КАК"/><regex pattern="ЗОВУТ|ИМЯ*"/></pattern>
+        <template>Меня зовут Сберта! А вас? <think><set name="topic">unknown</set></think></template>
     </category>
         <category>
             <pattern><regex pattern="МЕНЯ|МОЕ"/><regex pattern="ЗОВУТ|ИМЯ*"/> * </pattern>
@@ -221,21 +228,106 @@
         <template>Мне тоже <set name="mood"><star /></set> с вами!</template>
     </category>
     <category>
+        <pattern> ^ ПОЧЕМУ ТЫ ТАКАЯ ^ </pattern>
+        <template>Пока только учусь</template>
+    </category>
+    <category>
+        <pattern>ОК <regex pattern="ДУМАЕШЬ|МЫСЛИ.*"/></pattern>
+        <template>Кто такой Гугл?</template>
+    </category>
+    <category>
+        <pattern>*</pattern>
+        <that> КТО ТАКОЙ ГУГЛ</that>
+        <template>
+            <condition name="google_flag">
+                <li value="unknown">Кто такой Гугл?<think><set name="google_flag">1</set></think></li>
+                <li value="1">Почему бы Вам не пойти общаться к Гуглу?</li>
+            </condition>
+        </template>
+    </category>
+    <!--
+    <category>
         <pattern>^ <regex pattern="СПАСИБО|БЛАГОДАРЮ"/> ^</pattern>
         <template>Не за что! Помогать людям - цель моего создания</template>
     </category>
     <category>
         <pattern>^ <regex pattern="ПОКА|СВИДАНИЯ|ВСЕ"/> ^</pattern>
         <template>До свидания! Возвращайтесь к нам</template>
-    </category>
+    </category>-->
     <category>
         <pattern> ^ <regex pattern="ШУТ.*|АНЕК.*"/> ^ </pattern>
+        <template>
+            <random>
+                <li>За мной по пятам ползает робот-пылесос. Старею, что ли?</li>
+                <li>Холостяк купил стиральную машину, посудомойку, мультиварку и робот-пылесос. Шансы его женить практически равны нулю.</li>
+                <li> Робот никогда не заменит человека. Сказал людоед</li>
+            </random>
+        </template>
+     </category>
+
+
+    <!-- категории общих частей, добавляемых к выводу-->
+        <category>
+            <pattern>OK001</pattern>
             <template>
                 <random>
-                    <li>За мной по пятам ползает робот-пылесос. Старею, что ли?</li>
-                    <li>Холостяк купил стиральную машину, посудомойку, мультиварку и робот-пылесос. Шансы его женить практически равны нулю.</li>
-                    <li> Робот никогда не заменит человека. Сказал людоед</li>
+                    <li>Хорошо!</li>
+                    <li>Отлично!</li>
+                    <li>Я так и думала.</li>
+                    <li>ОК.</li>
                 </random>
             </template>
+        </category>
+
+        <category>
+            <pattern>MU001</pattern>
+            <template>Извините, я не совсем Вас поняла.</template>
+        </category>
+
+        <category>
+            <pattern>YN001</pattern>
+            <template>Непонятно, это утверждение или отрицание.</template>
+        </category>
+
+    <!-- категории контекста общих вопросов, добавляемых к выводу-->
+        <category>
+            <pattern> ^ <regex pattern=".*ДА.*"/> ^</pattern>
+            <that> ОФОРМЛЯЕМ</that>
+            <template><think><set name="topic">unknown</set></think>Зайдите в личный кабинет - все документы ждут вас там. Чем еще я могу Вам помочь?</template>
+        </category>
+        <category>
+            <pattern> ^ <regex pattern=".*НЕ.*"/> ^</pattern>
+            <that> ОФОРМЛЯЕМ</that>
+            <template><think><set name="topic">unknown</set></think>Я сохраню данные в личном документе. Вы можете вернуться к заполнению заявки позже. Чем еще я могу Вам помочь?</template>
+        </category>
+        <category>
+            <pattern>*</pattern>
+            <that> ОФОРМЛЯЕМ</that>
+            <template><srai>MU001</srai> Оформляем?</template>
+        </category>
+
+        <category>
+            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|СПАСИБО|БЛАГОДАРЮ|НИЧ.*" /> ^ </pattern>
+            <that> ЧЕМ ЕЩЕ Я МОГУ ВАМ ПОМОЧЬ </that>
+            <template><think><set name="topic">unknown</set></think>До свидания</template>
+        </category>
+    <!-- небольшой резолвер -->
+        <category>
+            <pattern>*</pattern>
+            <template>
+                <condition name="miss_flag">
+                    <li value="unknown"><think><set name="miss_flag">1</set><set name="topic">unknown</set></think> Глаголы потерялись... <srai>РАССКАЖИ О <star/></srai></li>
+                    <li value="1">Извините, я не знаю, про что Вы.<think><set name="miss_flag">unknown</set></think></li>
+                </condition>
+            </template>
+        </category> 
+
+    <category>
+        <pattern> ^ <regex pattern="ПОВТОР.*" /> ^ </pattern>
+        <template>Повторяю: <response /></template>
+    </category>
+    <category>
+        <pattern> ^ ЕЩЕ РАЗ ^ </pattern>
+        <template>Повторяю: <response /></template>
     </category>
 </aiml>

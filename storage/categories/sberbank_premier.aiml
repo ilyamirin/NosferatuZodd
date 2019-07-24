@@ -1,28 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 <!-- вход в Сбербанк Премьер. -->
+
     <category>
-        <pattern> ^ <regex pattern="ЧТО" /> ^ <regex pattern="(СБЕРБАНК)*" /> ПРЕМЬЕР ^ </pattern>
+        <pattern> ^ <regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ ПРЕМЬЕР ^ </pattern>
         <template>Это пакет услуг для клиентов с высоким уровнем доходов. Вы хотите узнать, какие бонусы подразумевает пакет услуг?</template>
     </category>
+        <category>
+            <pattern> ^ <regex pattern="НЕ.*|ВСЕ" /> ^</pattern>
+            <that> ВЫ ХОТИТЕ УЗНАТЬ КАКИЕ БОНУСЫ ПОДРАЗУМЕВАЕТ ПАКЕТ УСЛУГ </that>
+            <template>Ок. Чем еще я могу Вам помочь?</template>
+        </category>
+        <category>
+            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+            <that> ВЫ ХОТИТЕ УЗНАТЬ КАКИЕ БОНУСЫ ПОДРАЗУМЕВАЕТ ПАКЕТ УСЛУГ </that>
+            <template><srai>УСЛУГИ СБЕРБАНК ПРЕМЬЕР</srai></template>
+        </category>
+        <category>
+            <pattern>*</pattern>
+            <that> ВЫ ХОТИТЕ УЗНАТЬ КАКИЕ БОНУСЫ ПОДРАЗУМЕВАЕТ ПАКЕТ УСЛУГ </that>
+            <template><srai>MU001</srai> Вы хотите узнать, какие бонусы подразумевает пакет услуг?</template>
+        </category>
     <category>
-        <pattern> ^ <regex pattern="ДА.*" /> ^ </pattern>
-        <that> ВЫ ХОТИТЕ УЗНАТЬ КАКИЕ БОНУСЫ ПОДРАЗУМЕВАЕТ ПАКЕТ УСЛУГ </that>
-        <template><srai>УСЛУГИ СБЕРБАНК ПРЕМЬЕР</srai></template>
+        <pattern> ^ <regex pattern="УСЛУГ.*" /> ^ СБЕРБАНК ПРЕМЬЕР ^</pattern>
+        <template>
+            В рамках Сбербанк премьер вы получите такие бонусы, как индивидуальное обслуживание без очередей, 
+            специализированные банковские продукты, выделенную телефонную линию в контактном центре и услуги персонального менеджера. 
+            Так же имеются дополнительные услуги. Что Вам интересно?
+            <think><set name="topic">sbpr_theme_choice</set></think>
+        </template>
     </category>
-    <category>
-            <pattern> ^ <regex pattern="УСЛУГ.*" /> ^ СБЕРБАНК ПРЕМЬЕР ^</pattern>
-            <template>
-                В рамках Сбербанк премьер вы получите такие бонусы, как индивидуальное обслуживание без очередей, 
-                специализированные банковские продукты, выделенную телефонную линию в контактном центре и услуги персонального менеджера. 
-                Так же имеются дополнительные услуги. Что Вам интересно?
-                <think><set name="topic">sberbank_premier_bonuses</set></think>
-            </template>
-    </category>
-        <topic name="sberbank_premier_bonuses">
+        <topic name="sbpr_theme_choice">
             <category>
-                <pattern> ^ <regex pattern="ИНДВИДУАЛ.*" />  ^ <regex pattern="ОБСЛУЖИВ.*" /> </pattern>
-                <template>Вы в любое удобное для вас время можете прийти в любой офис Сбербанка и вас проводят в специальную зону.</template>
+                <pattern> ^ ВСЕ ^ </pattern>
+                <template>Очень много рассказывать. Пожалуйста, выберите одну категорию. <srai>УСЛУГ СБЕРБАНК ПРЕМЬЕР</srai></template>
+            </category>
+            <category>
+                <pattern> ^ <regex pattern="ИНДИВИД.*" />  ^ <regex pattern="ОБСЛУЖ.*" /> </pattern>
+                <template>Вы в любое удобное для вас время можете прийти в любой офис Сбербанка и вас проводят в специальную зону. Оформляем?</template>
             </category>
 
             <category>
@@ -41,32 +56,61 @@
                 <template>
                     Выделенная телефонная линия, тоже самое, что и личный менеджер.
                     Позвонив в Сбербанк, вы не будет ждать оператора и вас сразу соединят с нужным вам человеком.
-                    Ну, или, на крайний случай, со мной!
+                    Ну, или, на крайний случай, со мной! Оформляем?
                 </template>
             </category>
 
             <category>
-                <pattern> ^ <regex pattern="(ПЕРСОН)*" />  ^ <regex pattern="МЕНЕДЖЕР.*" /> </pattern>
+                <pattern> ^ <regex pattern="ПЕРС.*" />  ^ <regex pattern="МЕНЕДЖ.*" /> </pattern>
                 <template>
                     Менеджеры, которые обслуживают клиентов Сбербанк Премьер, - высококвалифицированные специалисты. 
                     Ваш менеджер всегда будет на связи, но, если вы не сможете связаться с ним, всегда есть я. 
                     Перед тем как куда-то уезжать, сообщите об этом своему менеджеру, чтобы он успел связаться с отделом Сбербанка в городе, 
-                    в который вы направляетесь
+                    в который вы направляетесь. Оформляем?
                 </template>
             </category>
+
             <category>
-                <pattern> ^ <regex pattern="ДОПОЛНИТЕЛЬН.*" />  ^ <regex pattern="УСЛУГ.*" /> </pattern>
+                <pattern> ^ <regex pattern="ДОПОЛНИТ.*" />  ^ <regex pattern="УСЛУГ.*" /> </pattern>
                 <template>
                     повышенные бонусы Спасибо, выгодный обмен валютой, скидка на банковскую ячейку, 
                     и даже юридическая поддержка и медицинская помощь. 
-                    Рассказать о чем-нибудь поподробнее?
+                    Рассказать о чем-нибудь из дополнительных услуг поподробнее?
                 </template>
             </category>
-        </topic> 
+                <category>
+                    <pattern> ^ <regex pattern="НЕ.*|ВСЕ" /> ^</pattern>
+                    <that> РАССКАЗАТЬ О ЧЕМ НИБУДЬ ИЗ ДОПОЛНИТЕЛЬНЫХ УСЛУГ ПОПОДРОБНЕЕ </that>
+                    <template><srai>OK001</srai> Чем еще я могу Вам помочь?</template>
+                </category>
+                <category>
+                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+                    <that> РАССКАЗАТЬ О ЧЕМ НИБУДЬ ИЗ ДОПОЛНИТЕЛЬНЫХ УСЛУГ ПОПОДРОБНЕЕ </that>
+                    <template><think><set name="topic">sberbank_premier_дополнительные_услуги</set></think><srai>OK001</srai>О чем Вы хотите услышать?</template>
+                </category>
+                <category>
+                    <pattern>*</pattern>
+                    <that> ВЫ ХОТИТЕ УЗНАТЬ КАКИЕ БОНУСЫ ПОДРАЗУМЕВАЕТ ПАКЕТ УСЛУГ </that>
+                    <template><srai>YN001</srai> Вы хотите узнать, какие бонусы подразумевает пакет услуг?</template>
+                </category>
+
+            <category>
+                <pattern>*</pattern>
+                <template>
+                    <srai>MU001</srai> <srai>УСЛУГ СБЕРБАНК ПРЕМЬЕР</srai>
+                </template>
+            </category>
+
+            <category>
+                <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+                <that> ОФОРМЛЯЕМ </that>
+                <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
+            </category>
+        </topic>
             <topic name="sberbank_premier_банковские_продукты">
                 <category>
                     <pattern> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                    <template>Это те же вклады: сохраняй, пополняй и управляй, но с повышенными процентными ставками. Оформляем?<think><set name="topic">unknown</set></think></template>
+                    <template>Это те же вклады: сохраняй, пополняй и управляй, но с повышенными процентными ставками. Оформляем?</template>
                 </category>
                 <category>
                     <pattern> ^ <regex pattern="СПЕЦИАЛИСТ.*" />  ^ </pattern>
@@ -80,45 +124,69 @@
                     <pattern> ^ <regex pattern="СТРАХОВАНИ.*" />  ^ </pattern>
                     <template>
                         приобретая пакет услуг премьер, вы получаете бесплатную страховку для вас и 
-                        вашей семьи в путешествиях! сбербанк заботится о своих клиентах.
+                        вашей семьи в путешествиях! сбербанк заботится о своих клиентах. Оформляем?
                     </template>
                 </category>
+                <category>
+                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+                    <that> ОФОРМЛЯЕМ </that>
+                    <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
+                </category>
+                <category>
+                    <pattern>*</pattern>
+                    <template>
+                        <srai>MU001</srai> <srai>СПЕЦИАЛЬНЫЕ ПРОДУКТЫ</srai> <think><set name="topic">sbpr_theme_choice</set></think>
+                    </template>
+                </category> 
             </topic>
-    <topic name="Дополнительные_бонусы">
-        <category>
-            <pattern> ^ <regex pattern="УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="БОНУС*" />  ^ </pattern>
-            <template>
-                Получив статус премьер в нашем банке, вы также получите карту с большими бонусами! 
-                На эту карту будет больше начисляться бонусов Спасибо, и поэтому вы будет больше экономить
-            </template>
-        </category>
-        <category>
-            <pattern>^ <regex pattern="ЧТО.*" /> ^ <regex pattern="СПАСИБО" /> ^</pattern>
-            <template>Это бонусная программа, в рамках которой за каждую покупку, на бонусный счёт начисляются бонусы «Спасибо»</template>
-        </category>
-        <category>
-            <pattern>^ <regex pattern="ВАЛЮТ.*" /> ^</pattern>
-            <template>Для клиентов Сбербанк Премьер обмен валюты производится по спцеиальному курсу, ниже, чем для всех остальных</template>
-        </category>
-        <category>
-            <pattern>^ <regex pattern="СКИДК.*" /> ^</pattern>
-            <template>Клиенты Премьер могут снять банковскую ячейку с двадцати процентной скидкой</template>
-        </category>
-        <category>
-            <pattern>^ <regex pattern="ЮРИДИ.*" /> ^</pattern>
-            <template>В данном случае, вы можете получить скидку в размере 35 процентов на услуги наших партнеров urist.els24.com</template>
-        </category>
-        <category>
-            <pattern>^ <regex pattern="МЕДИЦИН.*" /> ^</pattern>
-            <template>
-                Данная услуга включает в себя несколько категорий, но главное это то, что, являясь клиентом Премьер, 
-                вы можете в любой момент бесплатно получить медицинскую консультацию
-            </template>
-        </category>
-    </topic>
+
+
+            <topic name="sberbank_premier_дополнительные_услуги">
+                <category>
+                    <pattern> ^ <regex pattern="УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="БОНУС*" />  ^ </pattern>
+                    <template>
+                        Получив статус премьер в нашем банке, вы также получите карту с большими бонусами! 
+                        На эту карту будет больше начисляться бонусов Спасибо, и поэтому вы будете больше экономить. Оформляем?
+                    </template>
+                </category>
+                <category>
+                    <pattern>^ <regex pattern="ЧТО.*" /> ^ <regex pattern="СПАСИБО" /> ^</pattern>
+                    <template>Это бонусная программа, в рамках которой за каждую покупку, на бонусный счёт начисляются бонусы «Спасибо». Оформляем?</template>
+                </category>
+                <category>
+                    <pattern>^ <regex pattern="ВАЛЮТ.*" /> ^</pattern>
+                    <template>Для клиентов Сбербанк Премьер обмен валюты производится по спцеиальному курсу, ниже, чем для всех остальных. Оформляем?</template>
+                </category>
+                <category>
+                    <pattern>^ <regex pattern="ЯЧЕЙК.*" /> ^</pattern>
+                    <template>Клиенты Премьер могут снять банковскую ячейку с двадцати процентной скидкой. Оформляем?</template>
+                </category>
+                <category>
+                    <pattern>^ <regex pattern="ЮРИДИ.*" /> ^</pattern>
+                    <template>В данном случае, вы можете получить скидку в размере 35 процентов на услуги наших партнеров urist.els24.com. Оформляем?</template>
+                </category>
+                <category>
+                    <pattern>^ <regex pattern="МЕДИЦИН.*" /> ^</pattern>
+                    <template>
+                        Данная услуга включает в себя несколько категорий, но главное это то, что, являясь клиентом Премьер, 
+                        вы можете в любой момент бесплатно получить медицинскую консультацию. Оформляем?
+                    </template>
+                </category>
+                <category>
+                    <pattern>*</pattern>
+                    <template>
+                        <srai>MU001</srai> <think><set name="topic">sbpr_theme_choice</set></think><srai>ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</srai>
+                    </template>
+                </category>
+                <category>
+                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+                    <that> ОФОРМЛЯЕМ </that>
+                    <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
+                </category>
+            </topic>
     <category>
         <pattern>^ <regex pattern="ТРЕБОВАН.*" /> ^ СБЕРБАНК ПРЕМЬЕР</pattern>
-        <template>Есть только два условия: вам должно быть больше 18 лет и вы должны много зарабатывать<think><set name="topic">Требования_Премьер</set></think></template>
+        <template>Есть только два условия: вам должно быть больше 18 лет и вы должны много зарабатывать. Оформляем?<think><set name="topic">Требования_Премьер</set></think></template>
     </category>
         <topic name="Требования_Премьер">
             <category>
@@ -129,30 +197,47 @@
                 <pattern>^ <regex pattern="ДОРОГ.*|ЦЕН.*" /> ^</pattern>
                 <template>Потому что это продукт премиум сегмента и бонусы, которые содержатся в пакете услуг премьер, гораздо больше этой цены. Может быть поговорим об этом?</template>
             </category>
+            <category>
+                <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+                <that> ОФОРМЛЯЕМ </that>
+                <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
+            </category>
         </topic>
     <category>
         <pattern>^ <regex pattern="ПОЛУЧ.*|ВОЙТ.*" /> ^ ПРЕМЬЕР ^</pattern>
-        <template>Вы можете подать заявку на оформление услуги онлайн. Далее с вами свяжется наш оператор и проинструктирует о дальнейших шагах</template>
+        <template>Вы можете подать заявку на оформление услуги онлайн. Далее с вами свяжется наш оператор и проинструктирует о дальнейших шагах. Оформляем?</template>
     </category>
     <category>
         <pattern>^ <regex pattern="УСЛОВ.*" /> ^ ПРЕМЬЕР ^</pattern>
-        <template>Нет специальных условий использования пакета, только ежемесячная плата в размере 2500 рублей. Условия премьера также подразумевают использование пакета услуг бесплатно, то есть без списания абонентской платы. Вы хотите узнать об этом подробнее?<think><set name="topic">Условия_Премьер</set></think></template>
+        <template>Нет специальных условий использования пакета, только ежемесячная плата в размере 2500 рублей. 
+        Условия премьера также подразумевают использование пакета услуг бесплатно, то есть без списания абонентской платы. 
+        Также сейчас действует льготный период. Вы хотите узнать об этом подробнее?
+        <think><set name="topic">Условия_Премьер</set></think></template>
     </category>
     <topic name="Условия_Премьер">
         <category>
-            <pattern>^ <regex pattern="ДА.*" /> ^</pattern>
-            <template>Хорошо, бесплатное использование пакета услуг Премьер возможно при выполнении одного из трех условий: суммарный баланс на последний день месяца больше 2,5 миллионов, суммарный баланс на последний день месяца больше 1,5 млн и сумма покупок по картам, выпущенным в рамках пакета, больше 100 000; сумма покупок по картам, выпущенным в рамках пакета, больше 150 000</template>
+            <pattern>^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+            <template>
+            Хорошо, бесплатное использование пакета услуг Премьер возможно при выполнении одного из трех условий: 
+            суммарный баланс на последний день месяца больше 2,5 миллионов, суммарный баланс на последний день месяца больше 1,5 млн 
+            и сумма покупок по картам, выпущенным в рамках пакета, больше 100 000; 
+            сумма покупок по картам, выпущенным в рамках пакета, больше 150 000. Оформляем?</template>
         </category>
         <category>
             <pattern>^ <regex pattern="ЛЬГОТ.*" /> ^</pattern>
-            <template>Как раз сейчас вы можете получить льготный период использования пакета услуг премьер сроком на два месяца</template>
+            <template>Как раз сейчас вы можете получить льготный период использования пакета услуг премьер сроком на два месяца. Оформляем?</template>
         </category>
         <category>
             <pattern>^ <regex pattern="НЕ.*" /> ^</pattern>
-            <template>Жаль, что я не смогла вам ничем помочь</template>
+            <template>Жаль. Чем еще я могу вам помочь?</template>
+        </category>
+        <category>
+            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+            <that> ОФОРМЛЯЕМ </that>
+            <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
         </category>
     </topic>
-
+  
 </aiml> 
 
 

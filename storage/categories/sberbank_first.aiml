@@ -1,206 +1,266 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 <!-- вход в Сбербанк Первый. -->
+
     <category>
-        <pattern> ^ <regex pattern="ЧТО.*" /> ^ СБЕРБАНК ПЕРВЫЙ ^ </pattern>
-        <template>СБЕРБАНК ПЕРВЫЙ ПРЕДСТАВЛЯЕТ СОБОЙ СЕТЬ БАНКОВСКИХ ОТДЕЛЕНИЙ, КОТОРЫЕ ОБСЛУЖИВАЮТ КЛИЕНТОВ ПРЕМИУМ КЛАССА И ПРЕДОСТАВЛЯЮТ ШИРОКИЙ СПЕКТР БАНКОВСКИХ УСЛУГ И ПРОДУКТОВ НА БОЛЕЕ ВЫГОДНЫХ УСЛОВИЯХ, ЧЕМ В СТАНДАРТНЫХ ПРОГРАММАХ. Хотите услышать о предоставляемых услугах?</template>
+        <pattern> ^ <regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ СБЕРБАНК ПЕРВЫЙ ^ </pattern>
+        <template>
+            СБЕРБАНК ПЕРВЫЙ ПРЕДСТАВЛЯЕТ СОБОЙ СЕТЬ БАНКОВСКИХ ОТДЕЛЕНИЙ,
+            КОТОРЫЕ ОБСЛУЖИВАЮТ КЛИЕНТОВ ПРЕМИУМ КЛАССА И ПРЕДОСТАВЛЯЮТ
+            ШИРОКИЙ СПЕКТР БАНКОВСКИХ УСЛУГ И ПРОДУКТОВ НА БОЛЕЕ ВЫГОДНЫХ УСЛОВИЯХ,
+            ЧЕМ В СТАНДАРТНЫХ ПРОГРАММАХ. Хотите услышать о предоставляемых услугах?
+        </template>
     </category>
-    <category>
-        <pattern> ^ <regex pattern="ДА.*" /> ^ </pattern>
-        <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
-        <template><srai>УСЛУГ СБЕРБАНК ПЕРВЫЙ</srai></template>
-    </category>
+        <category>
+            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^ </pattern>
+            <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
+            <template><srai>OK001</srai><srai>УСЛУГ СБЕРБАНК ПЕРВЫЙ</srai></template>
+        </category>
+        <category>
+            <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+            <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
+            <template><think><set name="topic">unknown</set></think><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+        </category>
+        <category>
+            <pattern>*</pattern>
+            <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
+            <template><srai>MU001</srai> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ</template>
+        </category>
+
     <category>
             <pattern> ^ <regex pattern="УСЛУГ.*" /> ^ СБЕРБАНК ПЕРВЫЙ ^</pattern>
-            <template>Могу рассказать о картах, кредитах, вкладах, обмене валюты и бонусах. О чём хотите узнать?<think><set name="topic">dialog1_sb1_theme_choice</set></think></template>
+            <template>Могу рассказать о картах, кредитах, вкладах, обмене валюты и бонусах. О чём хотите узнать?<think><set name="topic">sb1_theme_choice</set></think></template>
     </category>
-    <category>
-        <pattern> ^ <regex pattern="РАССКАЖ.*" /> ^ СБЕРБАНК ПЕРВЫЙ ^</pattern>
-        <template><srai>УСЛУГ СБЕРБАНК ПЕРВЫЙ</srai></template>
-    </category>
-    <topic name="dialog1_sb1_theme_choice">
-    <!--карты-->
-        <category>
-            <pattern>^ <regex pattern="КАРТ.*" /> ^ </pattern>
-            <template>Я думаю, Вас порадуют условия для держателей карт: 
-                бесплатное обслуживание, бесплатный перевыпуск, выдача любой суммы без комиссии, где бы то ни было.
-                Хоть на Марсе, лишь бы были банки! В пакете Сбербанк первый есть две элитные карты:
-                WORLD MASTERCARD ELITE И VISA INFINITE. Какая информация вас интересует?
-            </template>
-        </category>
-
-    <!--кредиты-->
-        <category>
-            <pattern> ^ <regex pattern="КРЕДИТ.*" /> ^ </pattern>
-            <template>с поручителями или без поручителей?</template>
-        </category>
-        <category>
-            <pattern> ^ БЕЗ ^ <regex pattern="(ПОРУЧ)*.*" /></pattern>
-            <that>С ПОРУЧИТЕЛЯМИ ИЛИ БЕЗ ПОРУЧИТЕЛЕЙ</that>
-            <template>Есть премиум потребительский кредит на любые ваши нужды. Минимальная сумма 3 000 000. Оформим?<think><set name = "topic">sb_1card_credit_bp</set></think></template>
-        </category>
-        <category>
-            <pattern> ^ С ^ <regex pattern="(ПОРУЧ)*.*" /></pattern>
-            <that>С ПОРУЧИТЕЛЯМИ ИЛИ БЕЗ ПОРУЧИТЕЛЕЙ</that>
-            <template>Есть премиум потребительский кредит под поручительство физических лиц. Минимальная сумма 5 000 000. Оформим?<think><set name = "topic">sb_1card_credit_sp</set></think></template>
-        </category>
-    <!--вклады-->
-        <category>
-            <pattern> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-            <template>Для клиентов сбербанк первый доступны вклады лидер сохраняй, лидер пополняй, лидер управляй. Рассказать о вкладах?</template>
-        </category>
-        <category>
-            <pattern> ^ ДА ^ </pattern>
-            <that> Рассказать о вкладах</that>
-            <template><think><set name = "topic">sb_1card_vklad</set></think>ОК. <srai>DIALOG1 DEPOSITS</srai></template>
-        </category>
-        <category>
-            <pattern> ^ НЕТ ^ </pattern>
-            <that> Рассказать о вкладах</that>
-            <template>ОК. Чем еще могу помочь?</template>
-        </category>
-    <!--валюта-->
-        <category>
-            <pattern> ^ <regex pattern="ОБМЕН.*|ВАЛЮТ.*" /> ^ </pattern>
-            <template>Для клиентов сбербанк первый разница с биржевым курсом составляет 25 копеек. В пользу клиента, конечно. Но будьте внимательны:выгодные курсы действуют в интернет-банке и мобильном приложении сбербанк онлайн</template>
-        </category>
-        <!--бонусы-->
-        <category>
-            <pattern> ^ <regex pattern="БОНУС.*" /> ^ </pattern>
-            <template>Окей. В пакете услуг сбербанк первый priority pass, персональный финансовый консультант, если вы захотите начать инвестировать, услуги консьерж сервиса страхование всей семьи в путешествии</template>
-        </category>
-
-
-    <category>
-        <pattern>*</pattern>
-        <template>Извините, я не совсем Вас поняла. <srai>РАССКАЖИ ОБ УСЛУГАХ СБЕРБАНК ПЕРВЫЙ</srai></template>
-    </category>
-
-    </topic>
-    <!--кредит без поручителей-->
-        <topic name="sb_1card_credit_sp">
+        <topic name="sb1_theme_choice">
+        <!--карты-->
             <category>
-                <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="СТАВК.*" /> ^ </pattern>
-                <template>Минимальная ставка 13,9% в год. Оформим?</template>
+                <pattern> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+                <template>Я думаю, Вас порадуют условия для держателей карт: 
+                    бесплатное обслуживание, бесплатный перевыпуск, выдача любой суммы без комиссии, где бы то ни было. Оформляем?
+                </template>
+            </category>
+
+        <!--кредиты-->
+            <category>
+                <pattern> ^ <regex pattern="КРЕДИТ.*" /> ^ </pattern>
+                <template>с поручителями или без поручителей?</template>
             </category>
             <category>
-                <pattern> ^ <regex pattern="СКОЛЬК.*" /> ^ <regex pattern="ЗАЯВК.*" /> ^ </pattern>
-                <template>Срок рассмотрения заявки не более 2 рабочих дней. Оформим?</template>
+                <pattern> ^ БЕЗ ^ <regex pattern="(ПОРУЧ)*.*" /></pattern>
+                <that>С ПОРУЧИТЕЛЯМИ ИЛИ БЕЗ ПОРУЧИТЕЛЕЙ</that>
+                <template>
+                    Есть премиум потребительский кредит на любые ваши нужды. 
+                    Минимальная сумма 3 000 000. Я знаю, какая ставка, сколько обрабатывается заявка, и срок кредита.
+                    <think><set name = "topic">sb_1card_credit_bp</set></think></template>
             </category>
             <category>
-                <pattern> ^ <regex pattern="СРОК.*" /> ^ <regex pattern="КРЕДИТ.*" /> ^ </pattern>
-                <template>Срок кредита от 3 месяцев до 5 лет. Оформим?</template>
+                <pattern> ^ С ^ <regex pattern="(ПОРУЧ)*.*" /></pattern>
+                <that>С ПОРУЧИТЕЛЯМИ ИЛИ БЕЗ ПОРУЧИТЕЛЕЙ</that>
+                <template>
+                    Есть премиум потребительский кредит под поручительство физических лиц. 
+                    Минимальная сумма 5 000 000. Я знаю, какая ставка, сколько обрабатывается заявка, и срок кредита.
+                    <think><set name = "topic">sb_1card_credit_sp</set></think></template>
             </category>
+        <!--вклады-->
+            <category>
+                <pattern> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                <template>Для клиентов сбербанк первый доступны вклады лидер сохраняй, лидер пополняй, лидер управляй. Рассказать о вкладах?</template>
+            </category>
+            <category>
+                <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^ </pattern>
+                <that> РАССКАЗАТЬ О ВКЛАДАХ </that>
+                <template><think><set name = "topic">sb_1card_vklad</set></think><srai>OK001</srai><srai>DIALOG1 DEPOSITS</srai></template>
+            </category>
+            <category>
+                <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                <that> РАССКАЗАТЬ О ВКЛАДАХ </that>
+                <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+            </category>
+            <category>
+                <pattern>*</pattern>
+                <that> РАССКАЗАТЬ О ВКЛАДАХ </that>
+                <template><srai>MU001</srai> РАССКАЗАТЬ О ВКЛАДАХ?</template>
+            </category>
+        <!--валюта-->
+            <category>
+                <pattern> ^ <regex pattern="ОБМЕН.*|ВАЛЮТ.*" /> ^ </pattern>
+                <template>Для клиентов сбербанк первый разница с биржевым курсом составляет 25 копеек. В пользу клиента, конечно. Но будьте внимательны:выгодные курсы действуют в интернет-банке и мобильном приложении сбербанк онлайн</template>
+            </category>
+            <!--бонусы-->
+            <category>
+                <pattern> ^ <regex pattern="БОНУС.*" /> ^ </pattern>
+                <template>Окей. В пакете услуг сбербанк первый priority pass, персональный финансовый консультант, если вы захотите начать инвестировать, услуги консьерж сервиса страхование всей семьи в путешествии</template>
+            </category>
+
+            <category>
+                <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+                <that> ОФОРМЛЯЕМ </that>
+                <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
+            </category>
+        <!--не понятно-->
+            <category>
+                <pattern>*</pattern>
+                <template><srai>MU001</srai><srai>РАССКАЖИ ОБ УСЛУГАХ СБЕРБАНК ПЕРВЫЙ</srai></template>
+            </category>
+
         </topic>
-    <!--кредит с поручителями-->
-        <topic name="sb_1card_credit_bp">
-            <category>
-                <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="СТАВК.*" /> ^ </pattern>
-                <template>Минимальная ставка 14,9%. Оформим?</template>
-            </category>
-            <category>
-                <pattern> ^ <regex pattern="СКОЛЬК.*" /> ^ <regex pattern="ЗАЯВК.*" /> ^ </pattern>
-                <template>Срок рассмотрения заявки не более 2 рабочих дней. Оформим?</template>
-            </category>
-            <category>
-                <pattern> ^ <regex pattern="СРОК.*" /> ^ <regex pattern="КРЕДИТ.*" /> ^ </pattern>
-                <template>Срок кредита от 3 месяцев до 5 лет. Оформим?</template>
-            </category>
-        </topic>	
-    <!--вклад-->
-        <topic name="sb_1card_vklad">
-            <category>
-                <pattern>DIALOG1 DEPOSITS</pattern>
-                <template>О каком именно вкладе Вам рассказать? Лидер Сохраняй, Лидер Пополняй, Лидер Управляй</template>
-            </category>
-            <category>
-                <pattern> ^ <regex pattern="СОХРАН.*" /> ^ </pattern>
-                <template>Минимальная сумма вклада 5 000 000 рублей, 150 000 долларов, 150 000 евро. Минимальный процент данного вклада в рублях 4,75. Максимальный 6,30. Оформим?<think><set name = "topic">sb_1card_vklad_lsohranyai</set></think></template>
-                </category>
-            <category>
-                <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ </pattern>
-                <template>Минимальная сумма вклада 5 000 000 рублей, 150 000 долларов, 150 000 евро. Минимальный процент данного вклада в рублях 5,20, а максимальный 5,60. Оформим?<think><set name = "topic">sb_1card_vklad_lpopolnyai</set></think></template>
-            </category>
-            <category>
-                <pattern> ^ <regex pattern="УПРАВЛ.*" /> ^ </pattern>
-                <template>Минимальная сумма вклада 5 000 000 рублей, 150 000 долларов, 150 000 евро. Минимальный процент данного вклада в рублях 4,90, а максимальный 4,85. Оформим?<think><set name = "topic">sb_1card_vklad_luprvlyai</set></think></template>
-            </category>
-        </topic>
-        <!-- вклад сохраняй -->
-            <topic name="sb_1card_vklad_lsohranyai">
-                <category>
-                    <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                    <template>Валюта вклада рубли, доллары, евро.</template>
-                </category>
-                <category>
-                    <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
-                    <template>На данном вкладе такая опция не предусмотрена.</template>
-                </category>
-                
-                <category>
-                    <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                    <template>Пополнение данного вклада не предусмотрено.</template>
-                </category>
-                <category>
-                    <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
-                    <template><srai>ПОПОЛН ВКЛАД</srai></template>
-                </category>
+            <!--кредит без поручителей-->
+                <topic name="sb_1card_credit_sp">
+                    <category>
+                        <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="СТАВК.*" /> ^ </pattern>
+                        <template>Минимальная ставка 13,9% в год. Оформляем?</template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="СКОЛЬК.*" /> ^ <regex pattern="ЗАЯВК.*" /> ^ </pattern>
+                        <template>Срок рассмотрения заявки не более 2 рабочих дней. Оформляем?</template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="СРОК.*" /> ^ <regex pattern="КРЕДИТ.*" /> ^ </pattern>
+                        <template>Срок кредита от 3 месяцев до 5 лет. Оформляем?</template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+                        <that> ОФОРМЛЯЕМ </that>
+                        <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
+                    </category>
+                    <category>
+                        <pattern>*</pattern>
+                        <template><srai>MU001</srai> Я знаю, какая ставка, сколько обрабатывается заявка, и срок кредита</template>
+                    </category>
+                </topic>
+            <!--кредит с поручителями-->
+                <topic name="sb_1card_credit_bp">
+                    <category>
+                        <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="СТАВК.*" /> ^ </pattern>
+                        <template>Минимальная ставка 14,9%. Оформляем?</template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="СКОЛЬК.*" /> ^ <regex pattern="ЗАЯВК.*" /> ^ </pattern>
+                        <template>Срок рассмотрения заявки не более 2 рабочих дней. Оформляем?</template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="СРОК.*" /> ^ <regex pattern="КРЕДИТ.*" /> ^ </pattern>
+                        <template>Срок кредита от 3 месяцев до 5 лет. Оформляем?</template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+                        <that> ОФОРМЛЯЕМ </that>
+                        <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
+                    </category>                    
+                    <category>
+                        <pattern>*</pattern>
+                        <template><srai>MU001</srai> Могу рассказать, какая ставка, сколько обрабатывается заявка, и срок кредита</template>
+                    </category>
+                </topic>	
+            <!--вклад-->
+                <topic name="sb_1card_vklad">
+                    <category>
+                        <pattern>DIALOG1 DEPOSITS</pattern>
+                        <template>О каком именно вкладе Вам рассказать? Лидер Сохраняй, Лидер Пополняй, Лидер Управляй</template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="СОХРАН.*" /> ^ </pattern>
+                        <template>Минимальная сумма вклада 5 000 000 рублей, 150 000 долларов, 150 000 евро. Минимальный процент данного вклада в рублях 4,75. Максимальный 6,30. Могу рассказать про валюту вклада, снятие денег и пополнение вклада.<think><set name = "topic">sb_1card_vklad_lsohranyai</set></think></template>
+                        </category>
+                    <category>
+                        <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ </pattern>
+                        <template>Минимальная сумма вклада 5 000 000 рублей, 150 000 долларов, 150 000 евро. Минимальный процент данного вклада в рублях 5,20, а максимальный 5,60. Могу рассказать про валюту вклада, снятие денег и пополнение вклада.<think><set name = "topic">sb_1card_vklad_lpopolnyai</set></think></template>
+                    </category>
+                    <category>
+                        <pattern>^ <regex pattern="УПРАВЛ.*" /> ^ </pattern>
+                        <template>Минимальная сумма вклада 5 000 000 рублей, 150 000 долларов, 150 000 евро. Минимальный процент данного вклада в рублях 4,90, а максимальный 4,85. Могу рассказать про валюту вклада, снятие денег и пополнение вклада.<think><set name = "topic">sb_1card_vklad_luprvlyai</set></think></template>
+                    </category>                  
+                </topic>
+                <!-- вклад сохраняй -->
+                    <topic name="sb_1card_vklad_lsohranyai">
+                        <category>
+                            <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <template>На данном вкладе такая опция не предусмотрена. Оформляем?</template>
+                        </category>
+                        
+                        <category>
+                            <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>Пополнение данного вклада не предусмотрено. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
+                            <template><srai>ПОПОЛН ВКЛАД</srai></template>
+                        </category>
 
-                <category>
-                    <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
-                    <template>СРОК ВКЛАДА ЛИДЕР СОХРАНЯЙ ОТ 1 МЕСЯЦА ДО 3 ЛЕТ.</template>
-                </category>
-            </topic>
-        <!--вклад пополняй-->
-            <topic name="sb_1card_vklad_lpopolnyai">
-                <category>
-                    <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                    <template>ВАЛЮТА ВКЛАДА РУБЛИ, ДОЛЛАРЫ, ЕВРО.</template>
-                </category>
-                <category>
-                    <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
-                    <template> НА ДАННОМ ВКЛАДЕ ТАКАЯ ОПЦИЯ НЕ ПРЕДУСМОТРЕНА</template>
-                </category>
+                        <category>
+                            <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
+                            <template>СРОК ВКЛАДА ЛИДЕР СОХРАНЯЙ ОТ 1 МЕСЯЦА ДО 3 ЛЕТ. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+                            <that> ОФОРМЛЯЕМ </that>
+                            <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
+                        </category>
+                    </topic>
+                <!--вклад пополняй-->
+                    <topic name="sb_1card_vklad_lpopolnyai">
+                        <category>
+                            <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>ВАЛЮТА ВКЛАДА РУБЛИ, ДОЛЛАРЫ, ЕВРО. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <template> НА ДАННОМ ВКЛАДЕ ТАКАЯ ОПЦИЯ НЕ ПРЕДУСМОТРЕНА Оформляем?</template>
+                        </category>
 
-                <category>
-                    <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                    <template>ДА,ВЫ МОЖЕТЕ ПОПОЛНЯТЬ ВКЛАД, ПРОЦЕНТНАЯ СТАВКА УВЕЛИЧИВАЕТСЯ АВТОМАТИЧЕСКИ</template>
-                </category>
-                <category>
-                    <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
-                    <template><srai>ПОПОЛН ВКЛАД</srai></template>
-                </category>
+                        <category>
+                            <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>ДА,ВЫ МОЖЕТЕ ПОПОЛНЯТЬ ВКЛАД, ПРОЦЕНТНАЯ СТАВКА УВЕЛИЧИВАЕТСЯ АВТОМАТИЧЕСКИ Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
+                            <template><srai>ПОПОЛН ВКЛАД</srai></template>
+                        </category>
 
-                <category>
-                    <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
-                    <template>Срок вклада лидер пополняй от 1 месяца до 3 лет.</template>
-                </category>
-            </topic>
-        <!--вклад управляй-->
-            <topic name="sb_1card_vklad_luprvlyai">
-                <category>
-                    <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                    <template>ВАЛЮТА ВКЛАДА РУБЛИ, ДОЛЛАРЫ, ЕВРО.</template>
-                </category>
-                <category>
-                    <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
-                    <template>ДА,ВЫ МОЖЕТЕ СНЯТЬ ДЕНЬГИ ДО УРОВНЯ НЕСНИЖАЕМОГО ОСТАТКА.</template>
-                </category>
+                        <category>
+                            <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
+                            <template>Срок вклада лидер пополняй от 1 месяца до 3 лет. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+                            <that> ОФОРМЛЯЕМ </that>
+                            <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
+                        </category>
+                    </topic>
+                <!--вклад управляй-->
+                    <topic name="sb_1card_vklad_luprvlyai">
+                        <category>
+                            <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>ВАЛЮТА ВКЛАДА РУБЛИ, ДОЛЛАРЫ, ЕВРО. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <template>ДА,ВЫ МОЖЕТЕ СНЯТЬ ДЕНЬГИ ДО УРОВНЯ НЕСНИЖАЕМОГО ОСТАТКА. Оформляем?</template>
+                        </category>
 
-                <category>
-                    <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                    <template>ДА,ВЫ МОЖЕТЕ ПОПОЛНЯТЬ ВКЛАД, ПРОЦЕНТНАЯ СТАВКА УВЕЛИЧИВАЕТСЯ АВТОМАТИЧЕСКИ</template>
-                </category>
-                <category>
-                    <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
-                    <template><srai>ПОПОЛН ВКЛАД</srai></template>
-                </category>
+                        <category>
+                            <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>ДА,ВЫ МОЖЕТЕ ПОПОЛНЯТЬ ВКЛАД, ПРОЦЕНТНАЯ СТАВКА УВЕЛИЧИВАЕТСЯ АВТОМАТИЧЕСКИ Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
+                            <template><srai>ПОПОЛН ВКЛАД</srai></template>
+                        </category>
 
-                <category>
-                    <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
-                    <template>СРОК ВКЛАДА ЛИДЕР УПРАВЛЯЙ ОТ 1 МЕСЯЦА ДО 3 ЛЕТ.</template>
-                </category>
-            </topic>
+                        <category>
+                            <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
+                            <template>СРОК ВКЛАДА ЛИДЕР УПРАВЛЯЙ ОТ 1 МЕСЯЦА ДО 3 ЛЕТ. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*" /> ^</pattern>
+                            <that> ОФОРМЛЯЕМ </that>
+                            <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
+                        </category>
+                    </topic>
 
 
 
@@ -222,18 +282,7 @@
         <template>КОНЕЧНО, ЛИДЕР УПРАВЛЯЙ! ВЫ МОЖЕТЕ ПОПОЛНЯТЬ ВКЛАД, ПРОЦЕНТНАЯ СТАВКА БУДЕТ УВЕЛИЧИВАТЬСЯ. А ЕСЛИ СРОЧНО ПОНАДОБЯТСЯ ДЕНЬГИ, МОЖНО СНЯТЬ ДО УРОВНЯ НЕСНИЖАЕМОГО ОСТАТКА. ВОТ ТАК!</template>
     </category>
     <category>
-        <pattern> ^ <regex pattern="ДА.*" /> ^ </pattern>
-        <that> ОФОРМИМ </that>
-        <template>Отлично! Добавлено в личный кабинет. Хотите узнать что-то еще?</template>
-    </category>
-    <category>
-        <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
-        <that> ОФОРМИМ </that>
-        <template>Хорошо, чем я еще могу Вам помочь?</template>
-    </category>
-    <category>
         <pattern> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*"/> ^ </pattern>
-        <template><think><set name="topic">dialog1_sb1_theme_choice</set></think><srai><input/></srai></template>
+        <template><think><set name="topic">sb1_theme_choice</set></think><srai><input/></srai></template>
     </category>
-
 </aiml>
