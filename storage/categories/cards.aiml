@@ -23,6 +23,8 @@
                                 <template><think><set name="topic">unknown</set></think><srai>MU001</srai><srai>СКАЖИ КАРТА</srai></template>
                         </category>
                 </topic>
+
+                
         <category>
                 <pattern> ^ <regex pattern="ИНФИНИТ.*" /> ^ </pattern>
                 <template>Visa Infinite – это карта премиальной категории, выпускаемая платежной системой Виза. Она обладает широким кругом возможностей и имеет большие преимущества для своих владельцев.</template>

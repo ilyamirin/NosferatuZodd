@@ -92,7 +92,7 @@
                 <category>
                     <pattern>*</pattern>
                     <that> РАССКАЗАТЬ О ЧЕМ НИБУДЬ ИЗ ДОПОЛНИТЕЛЬНЫХ УСЛУГ ПОПОДРОБНЕЕ </that>
-                    <template><srai>YN001</srai>РАССКАЗАТЬ О ЧЕМ НИБУДЬ ИЗ ДОПОЛНИТЕЛЬНЫХ УСЛУГ ПОПОДРОБНЕЕ?</template>
+                    <template><srai>YN001</srai>Рассказать о чем-нибудь из дополнительных услуг поподробнее?</template>
                 </category>
 
             <category>
@@ -167,7 +167,7 @@
                     </template>
                 </category>
                 <category>
-                    <pattern> ^ <regex pattern="ЧТО.*" /> ^ <regex pattern="СПАСИБО" /> ^ </pattern>
+                    <pattern> ^ <regex pattern="ЧТО.*|КАК.*|" /> ^ <regex pattern="СПАСИБО" /> ^ </pattern>
                     <template>Это бонусная программа, в рамках которой за каждую покупку, на бонусный счёт начисляются бонусы «Спасибо». Оформляем?</template>
                 </category>
                 <category>
@@ -190,16 +190,17 @@
                     </template>
                 </category>
                 <category>
+                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                    <that> ОФОРМЛЯЕМ </that>
+                    <template><think><set name="topic_buff"><get name="topic"/></set><set name="topic">unknown</set></think><srai> ДА </srai></template>
+                </category>
+                <category>
                     <pattern>*</pattern>
                     <template>
                         <srai>MU001</srai> <think><set name="topic">sbpr_theme_choice</set></think><srai>ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</srai>
                     </template>
                 </category>
-                <category>
-                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
-                    <that> ОФОРМЛЯЕМ </that>
-                    <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
-                </category>
+
             </topic>
     <category>
         <pattern> ^ <regex pattern="ТРЕБОВАН.*" /> ^ СБЕРБАНК ПРЕМЬЕР</pattern>
@@ -251,7 +252,7 @@
         <category>
             <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
             <that> ОФОРМЛЯЕМ </that>
-            <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
+            <template><think><set name="topic_buff"><get name="topic"/></set><set name="topic">unknown</set></think><srai> ДА </srai></template>
         </category>
     </topic>
   

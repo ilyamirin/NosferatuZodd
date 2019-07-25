@@ -296,12 +296,12 @@
         <category>
             <pattern> ^ <regex pattern="ДА|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ИНТЕРЕС.*|ЛАД.*|ОКЕЙ"/> ^ </pattern>
             <that> ОФОРМЛЯЕМ</that>
-            <template><think><set name="topic">unknown</set></think>Зайдите в личный кабинет - все документы ждут вас там. Чем еще я могу Вам помочь?</template>
+            <template><think><set name="topic"><get name="topic_buff"/></set></think>Зайдите в личный кабинет - все документы ждут вас там. Чем еще я могу Вам помочь?</template>
         </category>
         <category>
             <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|СПАСИБО|БЛАГОДАРЮ|НИЧ.*"/> ^ </pattern>
             <that> ОФОРМЛЯЕМ</that>
-            <template><think><set name="topic">unknown</set></think>Я сохраню данные в личном документе. Вы можете вернуться к заполнению заявки позже. Чем еще я могу Вам помочь?</template>
+            <template><think><set name="topic"><get name="topic_buff"/></set></think>Я сохраню данные в личном документе. Вы можете вернуться к заполнению заявки позже. Чем еще я могу Вам помочь?</template>
         </category>
         <category>
             <pattern>*</pattern>
@@ -309,13 +309,17 @@
             <template><srai>MU001</srai> Оформляем?</template>
         </category>
         <category>
-            <pattern> ^ <regex pattern="ВСЕ|ДО|" /> ^ <regex pattern="ПОКА|СВИДАН.*|СПАСИБО|БЛАГОДАРЮ" /> ^ </pattern>
-            <template><think><set name="topic">unknown</set></think>До свидания</template>
+            <pattern><regex pattern="СПАСИБО"/> ^ </pattern>
+            <template>Это цель моего существования</template>
         </category>
         <category>
-            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|СПАСИБО|БЛАГОДАРЮ|НИЧ.*" /> ^ </pattern>
+            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*" /> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|" /> ^ </pattern>
+            <template>До свидания</template>
+        </category>
+        <category>
+            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*" /> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|" /> ^ </pattern>
             <that> ЧЕМ ЕЩЕ Я МОГУ ВАМ ПОМОЧЬ </that>
-            <template><think><set name="topic">unknown</set></think>До свидания</template>
+            <template>До свидания</template>
         </category>
     <!-- небольшой резолвер -->
         <category>

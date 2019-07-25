@@ -24,7 +24,7 @@
         <category>
             <pattern>*</pattern>
             <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
-            <template><srai>YN001</srai> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ</template>
+            <template><srai>YN001</srai> Хотите услышать о предоставляемых услугах?</template>
         </category>
 
     <category>
@@ -64,7 +64,7 @@
             <category>
                 <pattern> * </pattern>
                 <that>С ПОРУЧИТЕЛЯМИ ИЛИ БЕЗ ПОРУЧИТЕЛЕЙ</that>
-                <template><srai>YN001</srai>С ПОРУЧИТЕЛЯМИ ИЛИ БЕЗ ПОРУЧИТЕЛЕЙ?</template>
+                <template><srai>YN001</srai>С поручителями или без поручителей?</template>
             </category>
         <!--вклады-->
             <category>
@@ -200,11 +200,7 @@
                             <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
                             <template>Срок вклада лидер сохраняй от 1 месяца до 3 лет. Оформляем?</template>
                         </category>
-                        <category>
-                            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
-                            <that> ОФОРМЛЯЕМ </that>
-                            <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
-                        </category>
+
                     </topic>
                 <!--вклад пополняй-->
                     <topic name="sb_1card_vklad_lpopolnyai">
@@ -230,11 +226,7 @@
                             <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
                             <template>Срок вклада лидер пополняй от 1 месяца до 3 лет. Оформляем?</template>
                         </category>
-                        <category>
-                            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
-                            <that> ОФОРМЛЯЕМ </that>
-                            <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
-                        </category>
+
                     </topic>
                 <!--вклад управляй-->
                     <topic name="sb_1card_vklad_luprvlyai">
@@ -260,11 +252,7 @@
                             <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
                             <template>Срок вклада лидер управляй от 1 месяца до 3 лет. Оформляем?</template>
                         </category>
-                        <category>
-                            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
-                            <that> ОФОРМЛЯЕМ </that>
-                            <template><think><set name="topic">unknown</set></think><srai> ДА </srai></template>
-                        </category>
+
                     </topic>
 
 

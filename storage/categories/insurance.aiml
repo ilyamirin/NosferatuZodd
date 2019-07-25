@@ -87,7 +87,7 @@
             <category>
                     <pattern>*</pattern>
                     <that> ХОТИТЕ ВЫБРАТЬ СРОК СТРАХОВКИ</that>
-                    <template><srai>YN001</srai> Хотите выбрать срок страховки.</template>
+                    <template><srai>YN001</srai> Хотите выбрать срок страховки?</template>
             </category>
 
         <category>
