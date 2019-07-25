@@ -7,7 +7,7 @@
 
         <topic name="insurance_выбор_вклада">
             <category>
-                <pattern> ^ <regex pattern=".*ОБЫЧН.*"/> ^ </pattern>
+                <pattern> ^ <regex pattern=".*ОБЫЧН.*|ОБЩ.*"/> ^ </pattern>
                 <template>С удовольствием! <think><set name="topic" >sb_1card_vklad</set></think><srai>DIALOG1 DEPOSITS</srai></template>
             </category>
             <category>
@@ -87,7 +87,7 @@
             <category>
                     <pattern>*</pattern>
                     <that> ХОТИТЕ ВЫБРАТЬ СРОК СТРАХОВКИ</that>
-                    <template><srai>YN001</srai> ХОТИТЕ ВЫБРАТЬ СРОК СТРАХОВКИ</template>
+                    <template><srai>YN001</srai> Хотите выбрать срок страховки.</template>
             </category>
 
         <category>
