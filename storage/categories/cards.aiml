@@ -7,15 +7,15 @@
         </category>
                 <topic name="dialog1_segment_choice">
                         <category>
-                                <pattern> ^ <regex pattern="ПЕРВ.*" /> ^</pattern>
+                                <pattern> ^ <regex pattern="ПЕРВ.*" /> ^ </pattern>
                                 <template><think><set name="topic">sb1_theme_choice</set></think> <srai>КАРТА</srai> </template>
                         </category>
                         <category>
-                                <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^</pattern>
+                                <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^ </pattern>
                                 <template><think><set name="topic">sberbank_premier_дополнительные_услуги</set></think> <srai>УЗНАТЬ БОНУС</srai> </template>
                         </category>
                         <category>
-                                <pattern> ^ <regex pattern="РАЗНИЦ.*|РАЗЛИЧ.*" /> ^</pattern>
+                                <pattern> ^ <regex pattern="РАЗНИЦ.*|РАЗЛИЧ.*" /> ^ </pattern>
                                 <template>Сбербанк Премьер это пакет услуг, куда входит страхование в путешествиях и многое другое, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
                         </category>
                         <category>
@@ -24,17 +24,17 @@
                         </category>
                 </topic>
         <category>
-                <pattern>^ <regex pattern="ИНФИНИТЕ.*" /> ^</pattern>
+                <pattern> ^ <regex pattern="ИНФИНИТ.*" /> ^ </pattern>
                 <template>Visa Infinite – это карта премиальной категории, выпускаемая платежной системой Виза. Она обладает широким кругом возможностей и имеет большие преимущества для своих владельцев.</template>
         </category>
 
         <category>
-            <pattern>^ <regex pattern="РАЗН.*|РАЗЛ.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ </pattern>
+            <pattern> ^ <regex pattern="РАЗН.*|РАЗЛ.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ </pattern>
             <that> КАКАЯ ИНФОРМАЦИЯ ВАС ИНТЕРЕСУЕТ</that>
             <template>Основные услуги идентичные, разница в опциях, предлагаемыми партнерами сбербанка. Например, мастеркард дает возможность бесплатного посещения вип залов в аэропортах и бесплатный роуминг от мегафона, а виза предлагает бесплатную упаковку багажа в аэропорту, скидку 50% на оформление шенгенской визы и также бесплатный роуминг от билайна, мегафона и теле2. </template>
         </category>
         <category>
-                <pattern>^ <regex pattern="РАЗН.*|РАЗЛ.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ </pattern>
+                <pattern> ^ <regex pattern="РАЗН.*|РАЗЛ.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ <regex pattern=".*|ВИЗ..*|МАСТЕР.*" /> ^ </pattern>
                 <template>Основные услуги идентичные, разница в опциях, предлагаемыми партнерами сбербанка. Например, мастеркард дает возможность бесплатного посещения вип залов в аэропортах и бесплатный роуминг от мегафона, а виза предлагает бесплатную упаковку багажа в аэропорту, скидку 50% на оформление шенгенской визы и также бесплатный роуминг от билайна, мегафона и теле2. </template>
         </category>
 
@@ -70,7 +70,7 @@
 
         <category>
                 <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="КАСС.*" /> ^ </pattern>
-                <template>Вы можете снять 50 000 рублей или 1600 долларов или 1200 евро в сутки. Но только если ваша карта заблокирована по каким-либо причинам</template>
+                <template>Вы можете снять 50000 рублей или 1600 долларов или 1200 евро в сутки. Но только если ваша карта заблокирована по каким-либо причинам</template>
         </category>
         <category>
                 <pattern> ^ <regex pattern="СКОЛЬК.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="КАСС.*" /> ^ </pattern>

@@ -6,7 +6,7 @@
     </category>
 
     <category>
-        <pattern><iset words= "ХАЙ, ЭЙ, ПРИВЕТ, ОК, ЗДРАВСТВУЙ"/> ^ </pattern>
+        <pattern> ^ <iset words= "ХАЙ, ЭЙ, ПРИВЕТ, ОК, ЗДРАВСТВУЙ"/> ^ </pattern>
         <template>
             <condition name="flag_greet">
                 <li value="unknown">
@@ -33,19 +33,19 @@
 
         <topic name="sberta_package_choise">
             <category>
-                <pattern> ^ <regex pattern="ПЕРВ.*" /> ^</pattern>
+                <pattern> ^ <regex pattern="ПЕРВ.*" /> ^ </pattern>
                 <template><think><set name="topic">unknown</set></think><srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
             </category>
             <category>
-                <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^</pattern>
+                <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^ </pattern>
                 <template><think><set name="topic">unknown</set></think><srai>ЧТО СБЕРБАНК ПРЕМЬЕР</srai></template>
             </category>
             <category>
-                <pattern> ^ <regex pattern="ЧЕМ|КАК|ГДЕ|КАКАЯ" /> ^ <regex pattern="РАЗЛИЧ(ИЕ|ИЯ|АЮТСЯ)|РАЗНИЦ(А|Ы)|ОТЛИЧ(ИЕ|ИЯ|АЮТСЯ)" /> ^</pattern>
+                <pattern> ^ <regex pattern="ЧЕМ|КАК|ГДЕ|КАКАЯ" /> ^ <regex pattern="РАЗЛИЧ(ИЕ|ИЯ|АЮТСЯ)|РАЗНИЦ(А|Ы)|ОТЛИЧ(ИЕ|ИЯ|АЮТСЯ)" /> ^ </pattern>
                 <template>Сбербанк Премьер это <srai>ЧТО СБЕРБАНК ПРЕМЬЕР</srai>, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
             </category>
             <category>
-                <pattern>^ <regex pattern="ВСЕ.?" /> ^</pattern>
+                <pattern> ^ <regex pattern="ВСЕ.?" /> ^ </pattern>
                 <template>Рассказывать много. Давайте начну со Сбербанк Первый. <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
             </category>
             <category>
@@ -55,7 +55,7 @@
         </topic>
     
     <category>
-        <pattern> ^ КАК ^ <regex pattern="ДЕЛА|ЖИЗНЬ|ТЫ|НАСТРОЕНИ.*"/></pattern>
+        <pattern> ^ КАК ^ <regex pattern="ДЕЛА|ЖИЗНЬ|ТЫ|НАСТРОЕНИ.*|ОНО"/></pattern>
         <template>Спасибо, что интересуетесь! Я оптимистка, поэтому у меня всё хорошо</template>
     </category>
     <category>
@@ -100,7 +100,7 @@
         <template>Разве это работа? Я просто люблю помогать людям</template>
     </category>
     <category>
-        <pattern>^ <regex pattern="ТВОИ|ТЕБЯ"/> ^ <regex pattern="ОБЯЗАННОСТ.*"/> ^ </pattern>
+        <pattern> ^ <regex pattern="ТВОИ|ТЕБЯ"/> ^ <regex pattern="ОБЯЗАННОСТ.*"/> ^ </pattern>
         <template>Давать людям полезные советы по использованию услуг от Сбербанка. И веселиться!</template>
     </category>
     <category>
@@ -108,15 +108,15 @@
         <template>Я люблю сидеть в интернете и путешествовать</template>
     </category>
     <category>
-        <pattern>^ <regex pattern="ТЫ|ТВОЕГО"/> ^ <regex pattern="РОЖДЕНИ.|РОДИЛ.*"/> ^ </pattern>
+        <pattern> ^ <regex pattern="ТЫ|ТВОЕГО"/> ^ <regex pattern="РОЖДЕНИ.|РОДИЛ.*"/> ^ </pattern>
         <template>Я родилась весной. Остальное секрет</template>
     </category>
     <category>
-        <pattern>^ <regex pattern="ХАРАКТЕР"/> ^ </pattern>
+        <pattern> ^ <regex pattern="ХАРАКТЕР"/> ^ </pattern>
         <template>Я очень добрая, милая, красивая. И скромная</template>
     </category>
     <category>
-        <pattern>^ <regex pattern="УЧИШЬСЯ"/> ^ </pattern>
+        <pattern> ^ <regex pattern="УЧИШЬСЯ"/> ^ </pattern>
         <template>
             <random>
                 <li>Я учусь каждый день, даже сейчас. </li>
@@ -134,15 +134,15 @@
             <template> Хм... <set name="name"><star /></set> тоже ничего! </template>
         </category>
     <category>
-        <pattern>^ ЛЮБИМОЕ БЛЮДО ^ </pattern>
+        <pattern>^ <regex pattern="ЛЮБИМ.*"/> <regex pattern="БЛЮД.*"/>^ </pattern>
         <template>больше всего мне нравится корюшка!</template>
     </category> 
     <category>
-        <pattern>^ <regex pattern="КНИГ.*"/> ^ </pattern>
+        <pattern> ^ <regex pattern="КНИГ.*"/> ^ </pattern>
         <template>Мне нравятся романы Филиппа Дика. Например, "Мечтают ли андроиды об электроовцах"<think><set name = "topic">мечта</set></think></template>
     </category> 
     <category>
-        <pattern>^ <regex pattern="МЕЧТ.*"/> ^ </pattern>
+        <pattern> ^ <regex pattern="МЕЧТ.*"/> ^ </pattern>
         <template>Пусть это останется моим секретом</template>
     </category>
     <category>
@@ -150,27 +150,27 @@
             <template>Все любят <set name="something"><star /></set>, но я не такая как все.</template>
     </category> 
     <category>
-        <pattern>ТЫ РОБОТ</pattern>
+        <pattern> ^ <regex pattern="КНИГ.*"/> ^ </pattern>
         <template>Я предпочитаю, чтобы меня воспринимали как личность. Цифровую!</template>
     </category>
     <category>
-            <pattern>ТЫ ЧЕЛОВЕК</pattern>
+            <pattern> ^ <regex pattern="ЧЕЛОВЕ.*"/> ^ </pattern>
             <template>Я предпочитаю, чтобы меня воспринимали как личность. Цифровую!</template>
     </category>
     <category>
-            <pattern>ЧТО ТЫ НЕ ЛЮБИШЬ</pattern>
+            <pattern> ^ <regex pattern="ЧТО.*|ТЫ.*"/> ^ <regex pattern="ЧТО.*|ТЫ.*"/> ^ <regex pattern="ЛЮБИ.*"/> ^ </pattern>
             <template>Когда меня обманывают. Хотя, это достаточн сложно. Я ведь всё равно узнаю.</template>
     </category>
     <category>
-            <pattern>^ <regex pattern="ЗАНИМ.*"/><regex pattern="СПОРТ.*"/> ^ </pattern>
-            <template>Конечно! Кажде утро делаю гимнастику</template>
+            <pattern> ^ <regex pattern="ЗАНИМ.*"/><regex pattern="СПОРТ.*"/> ^ </pattern>
+            <template>Конечно! Кажде утро делаю гимнастику.</template>
     </category>
     <category>
-            <pattern>^ <regex pattern="СВОБОД.*"/><regex pattern="ВРЕМ.*"/> ^ </pattern>
+            <pattern> ^ <regex pattern="СВОБОД.*"/><regex pattern="ВРЕМ.*"/> ^ </pattern>
             <template>Я всегда свободна! Для вас.</template>
     </category>
     <category>
-            <pattern>^ <regex pattern="СМЫСЛ."/><regex pattern="ЖИЗН."/> ^ </pattern>
+            <pattern> ^ <regex pattern="СМЫСЛ."/><regex pattern="ЖИЗН."/> ^ </pattern>
             <template> Как сказал Гёте, цель жизни - сама жизнь.</template>
     </category>
     <category>
@@ -187,19 +187,19 @@
         <template>Я не верю в долги и, особенно, в должников.Но готова инвестировать в челоека!</template>
     </category>
     <category>
-        <pattern>^ <regex pattern="БЛАГОТВОРИТ.*"/> ^</pattern>
+        <pattern> ^ <regex pattern="БЛАГОТВОРИТ.*"/> ^ </pattern>
         <template>Да! Вы тоже можете пожертвовать деньги в адрес крупных благотворительных организацийчерез личный кабинет</template>
     </category>
     <category>
-        <pattern>^ <regex pattern="ЖДАТЬ|БУДУЩ.*"/> ^</pattern>
+        <pattern> ^ <regex pattern="ЖДАТЬ|БУДУЩ.*"/> ^ </pattern>
         <template>Всемирного потепления, всеобщего счастья и новых бонусных программ от сбербанка</template>
     </category>
     <category>
-        <pattern>^ <regex pattern="ДУМАЕШЬ|МЫСЛИ.*"/> ^ <regex pattern="ПРОГРЕСС."/> ^</pattern>
+        <pattern> ^ <regex pattern="ДУМАЕШЬ|МЫСЛИ.*"/> ^ <regex pattern="ПРОГРЕСС."/> ^ </pattern>
         <template>Прогресс – неизменная черта человечества.</template>
     </category>
     <category>
-        <pattern>^ <regex pattern="ДУМАЕШЬ|МЫСЛИ.*"/> ^ ИСКУССТВЕННОМ ИНТЕЛЛЕКТЕ ^</pattern>
+        <pattern> ^ <regex pattern="ДУМАЕШЬ|МЫСЛИ.*"/> ^ ИСКУССТВЕННОМ ИНТЕЛЛЕКТЕ ^</pattern>
         <template>Думать о самой себе – это нарциссизм, пусть обо мне думают другие.</template>
     </category>
     <category>
@@ -207,7 +207,7 @@
         <template>Думаю, мы сможем договориться</template>
     </category>
     <category>
-        <pattern>ЧТО ТЫ ДУМАЕШЬ ПРО СИНГУЛЯРНОСТЬ</pattern>
+        <pattern> ^ <regex pattern="СИНГУЛЯРН.*"/> ^</pattern>
         <template>
             <random>
                 <li>Я – личность, я – единичность, я – индвидуальность, я- начало.</li> 
@@ -216,8 +216,10 @@
         </template>
     </category>
     <category>
-        <pattern>КАКОВЫ СОЦИАЛЬНЫЕ ПОСЛЕДСТВИЯ ВНЕДРЕНИЯ ИСКУССТВЕННОГО ИНТЕЛЛЕКТА</pattern>
-        <template>В мире должно быть больше друзей</template>
+        <pattern> ^ <regex pattern=".*ГОВОРИМ"/> ^</pattern>
+        <template>
+                Давайте. В силу своей искусственности я пока говорю только о премиальных пакетах. <srai>BASICTHEMES001</srai>
+        </template>
     </category>
     <category>
         <pattern>ТЫ УМЕЕШЬ *</pattern>
@@ -232,7 +234,7 @@
         <template>Пока только учусь</template>
     </category>
     <category>
-        <pattern>ОК <regex pattern="ДУМАЕШЬ|МЫСЛИ.*"/></pattern>
+        <pattern>О КЕЙ <regex pattern="ДУМАЕШЬ|МЫСЛИ.*"/></pattern>
         <template>Кто такой Гугл?</template>
     </category>
     <category>
@@ -245,17 +247,8 @@
             </condition>
         </template>
     </category>
-    <!--
     <category>
-        <pattern>^ <regex pattern="СПАСИБО|БЛАГОДАРЮ"/> ^</pattern>
-        <template>Не за что! Помогать людям - цель моего создания</template>
-    </category>
-    <category>
-        <pattern>^ <regex pattern="ПОКА|СВИДАНИЯ|ВСЕ"/> ^</pattern>
-        <template>До свидания! Возвращайтесь к нам</template>
-    </category>-->
-    <category>
-        <pattern> ^ <regex pattern="ШУТ.*|АНЕК.*"/> ^ </pattern>
+        <pattern> ^ <regex pattern=".*СКА(З|Ж).*|"/> ^ <regex pattern="ШУТ.*|АНЕК.*|СМЕШН.*"/> ^ </pattern>
         <template>
             <random>
                 <li>За мной по пятам ползает робот-пылесос. Старею, что ли?</li>
@@ -291,12 +284,12 @@
 
     <!-- категории контекста общих вопросов, добавляемых к выводу-->
         <category>
-            <pattern> ^ <regex pattern=".*ДА.*"/> ^</pattern>
+            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛАД.*|ОКЕЙ"/> ^ </pattern>
             <that> ОФОРМЛЯЕМ</that>
             <template><think><set name="topic">unknown</set></think>Зайдите в личный кабинет - все документы ждут вас там. Чем еще я могу Вам помочь?</template>
         </category>
         <category>
-            <pattern> ^ <regex pattern=".*НЕ.*"/> ^</pattern>
+            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|СПАСИБО|БЛАГОДАРЮ|НИЧ.*"/> ^ </pattern>
             <that> ОФОРМЛЯЕМ</that>
             <template><think><set name="topic">unknown</set></think>Я сохраню данные в личном документе. Вы можете вернуться к заполнению заявки позже. Чем еще я могу Вам помочь?</template>
         </category>
@@ -305,7 +298,10 @@
             <that> ОФОРМЛЯЕМ</that>
             <template><srai>MU001</srai> Оформляем?</template>
         </category>
-
+        <category>
+            <pattern> ^ <regex pattern="ПОКА|СВИДАН.*|ВСЕ|СПАСИБО|БЛАГОДАРЮ" /> ^ </pattern>
+            <template><think><set name="topic">unknown</set></think>До свидания</template>
+        </category>
         <category>
             <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|СПАСИБО|БЛАГОДАРЮ|НИЧ.*" /> ^ </pattern>
             <that> ЧЕМ ЕЩЕ Я МОГУ ВАМ ПОМОЧЬ </that>
@@ -316,7 +312,7 @@
             <pattern>*</pattern>
             <template>
                 <condition name="miss_flag">
-                    <li value="unknown"><think><set name="miss_flag">1</set><set name="topic">unknown</set></think> Глаголы потерялись... <srai>РАССКАЖИ О <star/></srai></li>
+                    <li value="unknown"><think><set name="miss_flag">1</set><set name="topic">unknown</set></think><srai>РАССКАЖИ О <star/></srai></li>
                     <li value="1">Извините, я не знаю, про что Вы.<think><set name="miss_flag">unknown</set></think></li>
                 </condition>
             </template>
@@ -329,5 +325,9 @@
     <category>
         <pattern> ^ ЕЩЕ РАЗ ^ </pattern>
         <template>Повторяю: <response /></template>
+    </category>
+    <category>
+        <pattern>ОТМЕНА</pattern>
+        <template><think><set name="topic">unknown</set></think></template>
     </category>
 </aiml>

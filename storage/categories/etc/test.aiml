@@ -69,7 +69,7 @@
     </category>
 <topic name="Выбор_услуги">
     <category>
-        <pattern> ^ <regex pattern=".*ВКЛАД.*"/> ^</pattern>
+        <pattern> ^ <regex pattern=".*ВКЛАД.*"/> ^ </pattern>
         <template>В сбербанке есть обычные вклады, особые и вклады для премьер-сегмента.<think><set name = "topic">Выбор_вклада</set></think></template>
     </category>
     <category>
@@ -101,7 +101,7 @@
         <template>Ага</template>
     </category>
     <category>
-        <pattern>^ ТЫ ^ <set name="obscene_language"/> ^</pattern>
+        <pattern>^ ТЫ ^ <set name="obscene_language"/> ^ </pattern>
         <template>Вы мной недовольны?</template>
     </category>
     <category>

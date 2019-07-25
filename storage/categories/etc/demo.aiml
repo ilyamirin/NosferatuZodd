@@ -12,11 +12,11 @@
     </category>
 <topic name="Выбор_услуги">
     <category>
-        <pattern> ^ <regex pattern=".*ВКЛАД.*"/> ^</pattern>
+        <pattern> ^ <regex pattern=".*ВКЛАД.*"/> ^ </pattern>
         <template>В сбербанке есть обычные вклады, особые и вклады для премьер-сегмента.<think><set name="topic">Выбор_вклада</set></think></template>
     </category>
     <category>
-        <pattern> ^ <regex pattern=".*СТРАХОВ.*"/> ^</pattern>
+        <pattern> ^ <regex pattern=".*СТРАХОВ.*"/> ^ </pattern>
         <template>
             <think><set name="topic">Страхование</set></think>
             <srai>СТРАХОВАНИЕ</srai>
@@ -36,21 +36,21 @@
 </topic>
 <topic name="Выбор_вклада">
     <category>
-        <pattern> ^ <regex pattern=".*ОБЫЧН.*"/> ^</pattern>
+        <pattern> ^ <regex pattern=".*ОБЫЧН.*"/> ^ </pattern>
         <template>С удовольствием! На данный момент, я могу рассказать вам про следующие вклады: Сохраняй, Пополняй, Управляй</template>
     </category>
     <category>
-        <pattern> ^ <regex pattern=".*ОСОБ.*"/> ^</pattern>
+        <pattern> ^ <regex pattern=".*ОСОБ.*"/> ^ </pattern>
         <template>Особые вклады, это вклады с особыми условиями. Сейчас у нас есть следующие виды особых вкладов: Социальный, Пенсионный плюс, Подари жизнь</template>
     </category>
     <category>
-        <pattern> ^ <regex pattern=".*ПРЕМЬЕР.*"/> ^</pattern>
+        <pattern> ^ <regex pattern=".*ПРЕМЬЕР.*"/> ^ </pattern>
         <template>Они доступны только клиентам, которые приобрели пакеты услуг сбербанк Первый или Сбербанк премьер</template>
     </category>
 </topic>
 <topic name="условия">
     <category>
-        <pattern> ^ <regex pattern=".*ДА.*"/> ^</pattern>
+        <pattern> ^ <regex pattern=".*ДА.*"/> ^ </pattern>
             <template>Страхование гарантирует медицинскую помощь, госпитализацию, услуги переводчика, оплату сотовой связи и  даже стоматологию! Вы путешествуете по России или зарубеж?<think><set name = "topic">страна</set></think></template>
     </category>
 </topic>
@@ -108,21 +108,21 @@
 </topic>
 <topic name="сроки">
     <category>
-        <pattern> ^ <regex pattern=".*ДА.*"/> ^</pattern>
+        <pattern> ^ <regex pattern=".*ДА.*"/> ^ </pattern>
             <template>Есть одноразовая и многоразовая страховка. Какая вас интересует? <think><set name = "topic">сроки_страховки</set></think></template>
     </category>
     <category>
-        <pattern> ^ <regex pattern=".*НЕТ.*"/> ^</pattern>
+        <pattern> ^ <regex pattern=".*НЕТ.*"/> ^ </pattern>
             <template>Хорошо, рада была помочь!<think><set name = "topic">сроки_страховки</set></think></template>
     </category>
 </topic>
 <topic name="оформление">
         <category>
-            <pattern> ^ <regex pattern=".*ДА.*"/> ^</pattern>
+            <pattern> ^ <regex pattern=".*ДА.*"/> ^ </pattern>
                 <template>Зайдите в личный кабинет - все документы ждут вас там!</template>
         </category>
         <category>
-            <pattern> ^ <regex pattern=".*НЕТ.*"/> ^</pattern>
+            <pattern> ^ <regex pattern=".*НЕТ.*"/> ^ </pattern>
                 <template>Я сохраню данные в личном документе. Вы можете вернуться к заполнению заявки позже</template>
         </category>
 </topic>

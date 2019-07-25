@@ -73,7 +73,7 @@
 </category>
 <topic name="priority_free_город">
     <category>
-        <pattern>^ В ^ <set name="city_prioritypass"/> ^</pattern>
+        <pattern>^ В ^ <set name="city_prioritypass"/> ^ </pattern>
         <template>
             <random>
             <li>Сейчас проверим... Да, в этом аэропорту есть место для вас</li>
@@ -92,7 +92,7 @@
 </category>
 <topic name="город">
 <category>
-        <pattern>^ В ^ <set name="city_prioritypass"/> ^</pattern>
+        <pattern>^ В ^ <set name="city_prioritypass"/> ^ </pattern>
         <template>Да! Мы рады предоставить вам вип-услуги здесь!</template>
     </category>
 <category>
