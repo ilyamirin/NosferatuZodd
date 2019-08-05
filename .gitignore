@@ -8,3 +8,4 @@ storage/conversations/Console_Console.conv
 *.log*
 storage/conversations/Console_Console.conv
 *.conv
+.idea
