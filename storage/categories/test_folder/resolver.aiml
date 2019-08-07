@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <think><set name="topic">subj</set></think>
+            <srai><request index="0"/></srai>
+        </template>
+    </category>
+    <topic name="subj">
+            <category>
+                <pattern> ^ Я ^ </pattern>
+                <template>
+                    <think><set name="subj">client</set></think>
+                    <srai>out_of_topic_subj</srai>
+                </template>
+            </category>
+            <category>
+                <pattern>*</pattern>
+                <template>
+                    <think><set name="subj">sberta</set></think>
+                    <srai>out_of_topic_subj</srai>
+                </template>
+            </category>
+
+            <category>
+                <pattern>out_of_topic_subj</pattern>
+                <template>
+                    <think><set name="topic">pred</set></think>
+                    <srai><request index="1"/></srai>
+                </template>
+            </category>
+        </topic>
+
+        <topic name="pred">
+
+            <category>
+                <pattern> ^ НЕ <iset words="МОГУ, ПОЛУЧАЕТСЯ, ПРОБЛЕМЫ"/> ^ </pattern>
+                <template>
+                    <think><set name="pred">can_not</set></think>
+                    <think><set name="subj">client</set></think>
+                    <srai>out_of_topic_pred</srai>
+                </template>
+            </category>
+
+            <category>
+                <pattern> ^ <iset words="КАК"/> ^ <regex pattern="Я|МНЕ|"/> ^ </pattern>
+                <template>
+                    <think><set name="pred">can_not</set></think>
+                    <think><set name="subj">client</set></think>
+                    <srai>out_of_topic_pred</srai>
+                </template>
+            </category>
+
+            <category>
+                <pattern> ^ <regex pattern=".*СКА(З|Ж).*"/> ^ </pattern>
+                <template>
+                    <think><set name="pred">tell_about</set></think>
+                    <srai>out_of_topic_pred</srai>
+                </template>
+            </category>
+
+            <category>
+                <pattern>out_of_topic_pred</pattern>
+                <template>
+                    <think><set name="topic">obj</set></think>
+                    <srai><request index="1"/></srai>
+                </template>
+            </category>
+        </topic>
+        
+
+        <topic name="obj">
+            <category>
+                <pattern> ^ <regex pattern="КАРТ.*"/> ^ </pattern>
+                <template>
+                    <think><set name="obj">card</set></think>
+                    <srai>out_of_topic_obj</srai>
+                </template>
+            </category>
+
+            <category>
+                <pattern>out_of_topic_obj</pattern>
+                <template>
+                    <think><set name="topic">concl</set></think>
+                    <srai><request index="1"/></srai>
+                </template>
+            </category>
+        </topic>
+        <topic name="concl">
+            <category>
+                <pattern>*</pattern>
+                <template>
+                    субъект: <get name="subj"/>, предикат: <get name="pred"/>, объект:<get name="obj"/>
+                    <think><set name="topic">unknown</set></think>
+                </template>
+            </category>
+        </topic>
+</aiml>

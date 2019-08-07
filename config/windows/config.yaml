@@ -136,13 +136,13 @@ bot:
     brain: brain
     root: $BOT_ROOT
 
-    initial_question: Приветствую, чем я могу Вам помочь?
-    initial_question_srai: YINITIALQUESTION
-    default_response: Я не совсем Вас понимаю
-    default_response_srai: YEMPTY
-    empty_string: YEMPTY
-    exit_response: До свидания!
-    exit_response_srai: YEXITRESPONSE
+    #initial_question: Приветствую, чем я могу Вам помочь?
+    #initial_question_srai: YINITIALQUESTION
+    #default_response: Я не совсем Вас понимаю
+    #default_response_srai: YEMPTY
+    #empty_string: YEMPTY
+    #exit_response: До свидания!
+    #exit_response_srai: YEXITRESPONSE
 
     override_properties: true
 
@@ -160,8 +160,14 @@ bot:
     #  check_and_retry: false
 
     conversations:
-      save: true
+      save: false
       load: false
+      type: file
+      config_name: file_storage
+      empty_on_start: true
+
+    file_storage:
+      dir: $BOT_ROOT/conversations
 
 
 #####################################################################################################
@@ -179,6 +185,12 @@ brain:
       properties: 
         files: $BOT_ROOT/properties
         extension: .txt
+      rdf:
+        files: $BOT_ROOT/rdfs
+        extension: .txt
+        directories: false
+      triples: $BOT_ROOT/rdfs/triples.txt
+
     
     # Overrides
     overrides:
@@ -204,7 +216,7 @@ brain:
 
     # Braintree
     braintree:
-      create: False
+      create: false
 
     services:
         REST:
@@ -268,4 +280,3 @@ brain:
         maps:
             romantodec: programy.dynamic.maps.roman.MapRomanToDecimal
             dectoroman: programy.dynamic.maps.roman.MapDecimalToRoman
-
