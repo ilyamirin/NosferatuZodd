@@ -6,6 +6,11 @@
     </category>
 
     <category>
+        <pattern> ^ <regex pattern=".*БЕРТ(А|Ы|У|Е|ОЙ)"/> ^ </pattern>
+        <template>Да, чем могу помочь? <srai>BASICTHEMES001</srai></template>
+    </category>
+
+    <category>
         <pattern> ^ <regex pattern=".*СКА(З|Ж).*|"/> ^ <regex pattern="СБЕРБАНК"/> ^ </pattern>
         <template>
             Публичное акционерное общество «Сбербанк России» — российский финансовый конгломерат, 

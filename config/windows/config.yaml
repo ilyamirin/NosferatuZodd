@@ -53,7 +53,7 @@ console:
               config:
                 categories_storage:
                   dirs: $BOT_ROOT/categories
-                  subdirs: true
+                  subdirs: false
                   extension: .aiml
                 errors_storage:
                   file: ..\..\storage/debug/errors.txt
@@ -151,12 +151,13 @@ bot:
     max_search_depth: 100
     max_search_timeout: 60
 
-    spelling:
-      load: true
-      classname: programy.spelling.norvig.NorvigSpellingChecker
-      corpus: file
-      check_before: false
-      check_and_retry: false
+    #we don't need spelling checker right now because of its existence in speech-to-text module
+    #spelling:
+    #  load: true
+    #  classname: programy.spelling.norvig.NorvigSpellingChecker
+    #  corpus: file
+    #  check_before: false
+    #  check_and_retry: false
 
     conversations:
       save: true
