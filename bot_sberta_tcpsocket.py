@@ -15,6 +15,7 @@ class Args(args.ClientArguments):
     def parse_args(self, client):
         pass
 
+
 class SocketBotClientMod(client.SocketBotClient):
 
     def parse_arguments(self, *args, **kwargs):

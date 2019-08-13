@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    
+
     <category>
         <pattern> ^ <regex pattern=".*БЕРТ(А|Ы|У|Е|ОЙ)"/> ^ </pattern>
         <template>Да, чем могу помочь? <srai>BASICTHEMES001</srai></template>
@@ -315,7 +315,7 @@
         </category>
         <category>
             <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*" /> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|" /> ^ </pattern>
-            <template>До свидания</template>
+            <template><set name="flag_greet">0</set>До свидания</template>
         </category>
         <category>
             <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*" /> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|" /> ^ </pattern>

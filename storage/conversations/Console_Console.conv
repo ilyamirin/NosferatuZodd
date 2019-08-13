@@ -10,7 +10,514 @@
         {
             "sentences": [
                 {
-                    "question": "YEMPTY",
+                    "question": "\u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043f\u043e\u0434 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 5000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0421",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u0421 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u0421 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043f\u043e\u0434 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 5000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043d\u0430 \u043b\u044e\u0431\u044b\u0435 \u0432\u0430\u0448\u0438 \u043d\u0443\u0436\u0434\u044b. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 3000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430 14,9%. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043f\u043e\u0434 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 5000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "cnfdrf",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043f\u0440\u043e \u0441\u0442\u0430\u0432\u043a\u0443",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430 13,9% \u0432 \u0433\u043e\u0434. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0434\u0444\u044b\u0432\u0430 \u043f\u044b\u0432 \u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0442\u0432\u0448\u0449\u044b\u043e\u0430\u0442\u043f\u043e\u0443\u043a\u0442 \u0441\u0442\u0430\u0432\u043a\u0430 \u044b\u0430\u043f\u0446\u0443\u043f\u043b\u0448\u044c",
+                    "response": "\u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430 13,9% \u0432 \u0433\u043e\u0434. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043f\u043e\u0434 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 5000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0445\u043e\u0447\u0443 \u0443\u0441\u043b\u044b\u0448\u0430\u0442\u044c \u043f\u0440\u043e \u0441\u0442\u0430\u0432\u043a\u0443",
+                    "response": "\u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430 13,9% \u0432 \u0433\u043e\u0434. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0437\u0430\u044f\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0440\u0430\u0441\u0441\u043c\u0430\u0442\u0440\u0438\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0440\u0430\u0441\u0441\u043c\u0430\u0442\u0440\u0438\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430",
+                    "response": "\u0421\u0440\u043e\u043a \u0440\u0430\u0441\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u0438\u044f \u0437\u0430\u044f\u0432\u043a\u0438 \u043d\u0435 \u0431\u043e\u043b\u0435\u0435 2 \u0440\u0430\u0431\u043e\u0447\u0438\u0445 \u0434\u043d\u0435\u0439. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0437\u0430\u044f\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0440\u0430\u0441\u0441\u043c\u0430\u0442\u0440\u0438\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430",
+                    "response": "\u0421\u0440\u043e\u043a \u0440\u0430\u0441\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u0438\u044f \u0437\u0430\u044f\u0432\u043a\u0438 \u043d\u0435 \u0431\u043e\u043b\u0435\u0435 2 \u0440\u0430\u0431\u043e\u0447\u0438\u0445 \u0434\u043d\u0435\u0439. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043f\u043e\u0434 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 5000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u0442\u0430\u0432\u043a\u0443",
                     "response": "",
                     "positivity": 0.0,
                     "subjectivity": 0.5
@@ -23,72 +530,7 @@
         {
             "sentences": [
                 {
-                    "question": "\u044f \u043d\u0435 \u043c\u043e\u0433\u0443",
-                    "response": "0 Out_of_topic_subj",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "YEMPTY",
-                    "response": "1 YEMPTY",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u044f \u043d\u0435 \u043c\u043e\u0433\u0443",
-                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u044b",
-                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u043d\u0438\u0447\u0435\u043c",
-                    "response": "\u042f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u0438\u043c\u0430\u044e",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u043c\u043d\u0435 \u043d\u0435 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442\u0441\u044f \u043a\u0430\u0440\u0442\u0430",
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
                     "response": "",
                     "positivity": 0.0,
                     "subjectivity": 0.5
@@ -101,8 +543,8 @@
         {
             "sentences": [
                 {
-                    "question": "sgdf",
-                    "response": "",
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
                     "positivity": 0.0,
                     "subjectivity": 0.5
                 }
@@ -114,8 +556,8 @@
         {
             "sentences": [
                 {
-                    "question": "qer",
-                    "response": "",
+                    "question": "\u043e \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
                     "positivity": 0.0,
                     "subjectivity": 0.5
                 }
@@ -127,8 +569,8 @@
         {
             "sentences": [
                 {
-                    "question": "asdf",
-                    "response": "",
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043f\u043e\u0434 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 5000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
                     "positivity": 0.0,
                     "subjectivity": 0.5
                 }
@@ -140,8 +582,8 @@
         {
             "sentences": [
                 {
-                    "question": "as",
-                    "response": "",
+                    "question": "\u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "response": "\u0421\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430 \u043e\u0442 3 \u043c\u0435\u0441\u044f\u0446\u0435\u0432 \u0434\u043e 5 \u043b\u0435\u0442. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
                     "positivity": 0.0,
                     "subjectivity": 0.5
                 }
@@ -153,8 +595,8 @@
         {
             "sentences": [
                 {
-                    "question": "asfqwe",
-                    "response": "",
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
                     "positivity": 0.0,
                     "subjectivity": 0.5
                 }
@@ -166,8 +608,8 @@
         {
             "sentences": [
                 {
-                    "question": "dash 1",
-                    "response": "-1",
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u0421\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u0441\u043e\u0431\u043e\u0439 \u0441\u0435\u0442\u044c \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0445 \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u0439, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u044e\u0442 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432 \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043a\u043b\u0430\u0441\u0441\u0430 \u0438 \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u044e\u0442 \u0448\u0438\u0440\u043e\u043a\u0438\u0439 \u0441\u043f\u0435\u043a\u0442\u0440 \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0445 \u0443\u0441\u043b\u0443\u0433 \u0438 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u043e\u0432 \u043d\u0430 \u0431\u043e\u043b\u0435\u0435 \u0432\u044b\u0433\u043e\u0434\u043d\u044b\u0445 \u0443\u0441\u043b\u043e\u0432\u0438\u044f\u0445, \u0447\u0435\u043c \u0432 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u044b\u0445 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0430\u0445. \u0425\u043e\u0442\u0438\u0442\u0435 \u0443\u0441\u043b\u044b\u0448\u0430\u0442\u044c \u043e \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u043c\u044b\u0445 \u0443\u0441\u043b\u0443\u0433\u0430\u0445?",
                     "positivity": 0.0,
                     "subjectivity": 0.5
                 }
@@ -175,227 +617,6 @@
             "srai": false,
             "properties": {},
             "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "dash 1",
-                    "response": "-1",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u044f \u043d\u0435 \u043c\u043e\u0433\u0443 \u043a\u0430\u0440\u0442\u0430",
-                    "response": "0 1 1 \u0414\u043e\u0448\u043b\u043e! client can_not client",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u044f \u043d\u0435 \u043c\u043e\u0433\u0443 \u043a\u0430\u0440\u0442\u0430",
-                    "response": "0 1 1 \u0421\u0443\u0431\u044a\u0435\u043a\u0442: client \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: can_not \u043e\u0431\u044a\u0435\u043a\u0442: \u043a\u0430\u0440\u0442\u0430",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u044f \u043d\u0435 \u043c\u043e\u0433\u0443 \u043a\u0430\u0440\u0442\u0430",
-                    "response": "0 1 1 \u0421\u0443\u0431\u044a\u0435\u043a\u0442: client \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: can_not \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043e \u043a\u0430\u0440\u0442\u0430\u0445",
-                    "response": "\u0421\u0443\u0431\u044a\u0435\u043a\u0442: sberta , \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: tell_about , \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u044f \u043d\u0435 \u043c\u043e\u0433\u0443 \u043a\u0430\u0440\u0442\u0430",
-                    "response": "\u0441\u0443\u0431\u044a\u0435\u043a\u0442: sberta , \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: tell_about , \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043e \u043a\u0430\u0440\u0442\u0430\u0445",
-                    "response": "\u0421\u0443\u0431\u044a\u0435\u043a\u0442: sberta , \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: tell_about , \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u044f \u043d\u0435 \u043c\u043e\u0433\u0443 \u043a\u0430\u0440\u0442\u0430",
-                    "response": "\u0441\u0443\u0431\u044a\u0435\u043a\u0442: sberta , \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: tell_about , \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u044f \u043d\u0435 \u043c\u043e\u0433\u0443 \u043a\u0430\u0440\u0442\u0430",
-                    "response": "\u0421\u0443\u0431\u044a\u0435\u043a\u0442: client , \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: can_not , \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043e \u043a\u0430\u0440\u0442\u0430\u0445",
-                    "response": "\u0441\u0443\u0431\u044a\u0435\u043a\u0442: client , \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: can_not , \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043e \u043a\u0430\u0440\u0442\u0430\u0445",
-                    "response": "\u0441\u0443\u0431\u044a\u0435\u043a\u0442: client , \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: can_not , \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043e \u043a\u0430\u0440\u0442\u0430\u0445",
-                    "response": "\u0441\u0443\u0431\u044a\u0435\u043a\u0442: client , \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: can_not , \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u043a\u0430\u0440\u0442\u0430",
-                    "response": "\u0441\u0443\u0431\u044a\u0435\u043a\u0442: client , \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: can_not , \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u044f \u043d\u0435 \u043c\u043e\u0433\u0443 \u043a\u0430\u0440\u0442\u0430",
-                    "response": "\u0421\u0443\u0431\u044a\u0435\u043a\u0442: client , \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: can_not , \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043e \u043a\u0430\u0440\u0442\u0430\u0445",
-                    "response": "\u0421\u0443\u0431\u044a\u0435\u043a\u0442: sberta , \u043f\u0440\u0435\u0434\u0438\u043a\u0430\u0442: tell_about , \u043e\u0431\u044a\u0435\u043a\u0442: card",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": -1
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u0441\u0431\u0435\u0440\u0442\u0430",
-                    "response": "\u0414\u0430, \u0447\u0435\u043c \u043c\u043e\u0433\u0443 \u043f\u043e\u043c\u043e\u0447\u044c? \u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043f\u0440\u0435\u043c\u0438\u0430\u043b\u044c\u043d\u044b\u0445 \u043f\u0430\u043a\u0435\u0442\u0430\u0445: \u0421\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u041f\u0435\u0440\u0432\u044b\u0439 \u0438 \u0421\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u041f\u0440\u0435\u043c\u044c\u0435\u0440. \u041e \u0447\u0435\u043c \u0432\u0430\u043c \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c?",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": 0
-        },
-        {
-            "sentences": [
-                {
-                    "question": "\u0420\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043e \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
-                    "response": "\u0421\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u0441\u043e\u0431\u043e\u0439 \u0441\u0435\u0442\u044c \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0445 \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u0439, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u044e\u0442 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432 \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043a\u043b\u0430\u0441\u0441\u0430 \u0438 \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u044e\u0442 \u0448\u0438\u0440\u043e\u043a\u0438\u0439 \u0441\u043f\u0435\u043a\u0442\u0440 \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0445 \u0443\u0441\u043b\u0443\u0433 \u0438 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u043e\u0432 \u043d\u0430 \u0431\u043e\u043b\u0435\u0435 \u0432\u044b\u0433\u043e\u0434\u043d\u044b\u0445 \u0443\u0441\u043b\u043e\u0432\u0438\u044f\u0445, \u0447\u0435\u043c \u0432 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u044b\u0445 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0430\u0445. \u0425\u043e\u0442\u0438\u0442\u0435 \u0443\u0441\u043b\u044b\u0448\u0430\u0442\u044c \u043e \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u043c\u044b\u0445 \u0443\u0441\u043b\u0443\u0433\u0430\u0445?",
-                    "positivity": 0.0,
-                    "subjectivity": 0.5
-                }
-            ],
-            "srai": false,
-            "properties": {},
-            "current_sentence_no": 0
         },
         {
             "sentences": [
@@ -408,13 +629,637 @@
             ],
             "srai": false,
             "properties": {},
-            "current_sentence_no": 0
+            "current_sentence_no": -1
         },
         {
             "sentences": [
                 {
-                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043e \u043a\u0430\u0440\u0442\u0430\u0445",
-                    "response": "\u0412 \u043a\u0430\u043a\u043e\u043c \u043f\u0440\u0435\u043c\u0438\u0430\u043b\u044c\u043d\u043e\u043c \u043f\u0430\u043a\u0435\u0442\u0435: \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 \u0438\u043b\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0440\u0435\u043c\u044c\u0435\u0440?",
+                    "question": "\u043e \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043f\u043e\u0434 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 5000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u0421\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u0441\u043e\u0431\u043e\u0439 \u0441\u0435\u0442\u044c \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0445 \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u0439, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u044e\u0442 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432 \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043a\u043b\u0430\u0441\u0441\u0430 \u0438 \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u044e\u0442 \u0448\u0438\u0440\u043e\u043a\u0438\u0439 \u0441\u043f\u0435\u043a\u0442\u0440 \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0445 \u0443\u0441\u043b\u0443\u0433 \u0438 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u043e\u0432 \u043d\u0430 \u0431\u043e\u043b\u0435\u0435 \u0432\u044b\u0433\u043e\u0434\u043d\u044b\u0445 \u0443\u0441\u043b\u043e\u0432\u0438\u044f\u0445, \u0447\u0435\u043c \u0432 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u044b\u0445 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0430\u0445. \u0425\u043e\u0442\u0438\u0442\u0435 \u0443\u0441\u043b\u044b\u0448\u0430\u0442\u044c \u043e \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u043c\u044b\u0445 \u0443\u0441\u043b\u0443\u0433\u0430\u0445?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043f\u043e\u0434 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 5000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u044b\u0432\u0430\u043f\u043f \u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430 13,9% \u0432 \u0433\u043e\u0434. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430",
+                    "response": "\u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430 13,9% \u0432 \u0433\u043e\u0434. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043d\u0435\u0442",
+                    "response": "\u042f \u0441\u043e\u0445\u0440\u0430\u043d\u044e \u0434\u0430\u043d\u043d\u044b\u0435 \u0432 \u043b\u0438\u0447\u043d\u043e\u043c \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0435. \u0412\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u0432\u0435\u0440\u043d\u0443\u0442\u044c\u0441\u044f \u043a \u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044e \u0437\u0430\u044f\u0432\u043a\u0438 \u043f\u043e\u0437\u0436\u0435. \u0427\u0435\u043c \u0435\u0449\u0435 \u044f \u043c\u043e\u0433\u0443 \u0412\u0430\u043c \u043f\u043e\u043c\u043e\u0447\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043f\u043e\u0434 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 5000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430",
+                    "response": "\u0421\u0440\u043e\u043a \u0440\u0430\u0441\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u0438\u044f \u0437\u0430\u044f\u0432\u043a\u0438 \u043d\u0435 \u0431\u043e\u043b\u0435\u0435 2 \u0440\u0430\u0431\u043e\u0447\u0438\u0445 \u0434\u043d\u0435\u0439. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430",
+                    "response": "\u0421\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430 \u043e\u0442 3 \u043c\u0435\u0441\u044f\u0446\u0435\u0432 \u0434\u043e 5 \u043b\u0435\u0442. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u0440\u0435\u0434\u0438\u0442",
+                    "response": "\u0421 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043f\u043e\u0434 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043b\u0438\u0446. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 5000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u0440\u0435\u0434\u0438\u0442",
+                    "response": "\u0421\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430 \u043e\u0442 3 \u043c\u0435\u0441\u044f\u0446\u0435\u0432 \u0434\u043e 5 \u043b\u0435\u0442. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0434\u0430",
+                    "response": "\u0417\u0430\u0439\u0434\u0438\u0442\u0435 \u0432 \u043b\u0438\u0447\u043d\u044b\u0439 \u043a\u0430\u0431\u0438\u043d\u0435\u0442 - \u0432\u0441\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u0436\u0434\u0443\u0442 \u0432\u0430\u0441 \u0442\u0430\u043c. \u0427\u0435\u043c \u0435\u0449\u0435 \u044f \u043c\u043e\u0433\u0443 \u0412\u0430\u043c \u043f\u043e\u043c\u043e\u0447\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043f\u0440\u0438\u0432\u0435\u0442",
+                    "response": "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435, \u043e \u0447\u0435\u043c \u0412\u044b \u0445\u043e\u0442\u0438\u0442\u0435 \u0441\u043e \u043c\u043d\u043e\u0439 \u043f\u043e\u0433\u043e\u0432\u043e\u0440\u0438\u0442\u044c? \u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043f\u0440\u0435\u043c\u0438\u0430\u043b\u044c\u043d\u044b\u0445 \u043f\u0430\u043a\u0435\u0442\u0430\u0445: \u0421\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u041f\u0435\u0440\u0432\u044b\u0439 \u0438 \u0421\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u041f\u0440\u0435\u043c\u044c\u0435\u0440. \u041e \u0447\u0435\u043c \u0432\u0430\u043c \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u043f\u0435\u0440\u0432\u043e\u043c",
+                    "response": "\u0421\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u0441\u043e\u0431\u043e\u0439 \u0441\u0435\u0442\u044c \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0445 \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u0439, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u044e\u0442 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432 \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043a\u043b\u0430\u0441\u0441\u0430 \u0438 \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u044e\u0442 \u0448\u0438\u0440\u043e\u043a\u0438\u0439 \u0441\u043f\u0435\u043a\u0442\u0440 \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0445 \u0443\u0441\u043b\u0443\u0433 \u0438 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u043e\u0432 \u043d\u0430 \u0431\u043e\u043b\u0435\u0435 \u0432\u044b\u0433\u043e\u0434\u043d\u044b\u0445 \u0443\u0441\u043b\u043e\u0432\u0438\u044f\u0445, \u0447\u0435\u043c \u0432 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u044b\u0445 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0430\u0445. \u0425\u043e\u0442\u0438\u0442\u0435 \u0443\u0441\u043b\u044b\u0448\u0430\u0442\u044c \u043e \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u043c\u044b\u0445 \u0443\u0441\u043b\u0443\u0433\u0430\u0445?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0434\u0430",
+                    "response": "\u042f \u0442\u0430\u043a \u0438 \u0434\u0443\u043c\u0430\u043b\u0430. \u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u0432\u043a\u043b\u0430\u0434\u0430\u0445",
+                    "response": "\u0414\u043b\u044f \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 \u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b \u0432\u043a\u043b\u0430\u0434\u044b \u043b\u0438\u0434\u0435\u0440 \u0441\u043e\u0445\u0440\u0430\u043d\u044f\u0439, \u043b\u0438\u0434\u0435\u0440 \u043f\u043e\u043f\u043e\u043b\u043d\u044f\u0439, \u043b\u0438\u0434\u0435\u0440 \u0443\u043f\u0440\u0430\u0432\u043b\u044f\u0439. \u0420\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u0432\u043a\u043b\u0430\u0434\u0430\u0445?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0434\u0430",
+                    "response": "\u041e\u041a. \u041e \u043a\u0430\u043a\u043e\u043c \u0438\u043c\u0435\u043d\u043d\u043e \u0432\u043a\u043b\u0430\u0434\u0435 \u0412\u0430\u043c \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c? \u041b\u0438\u0434\u0435\u0440 \u0421\u043e\u0445\u0440\u0430\u043d\u044f\u0439, \u041b\u0438\u0434\u0435\u0440 \u041f\u043e\u043f\u043e\u043b\u043d\u044f\u0439, \u041b\u0438\u0434\u0435\u0440 \u0423\u043f\u0440\u0430\u0432\u043b\u044f\u0439",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u043b\u0438\u0434\u0435\u0440 \u0441\u043e\u0445\u0440\u0430\u043d\u044f\u0439",
+                    "response": "\u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 \u0432\u043a\u043b\u0430\u0434\u0430 5000000 \u0440\u0443\u0431\u043b\u0435\u0439, 150000 \u0434\u043e\u043b\u043b\u0430\u0440\u043e\u0432, 150000 \u0435\u0432\u0440\u043e. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u044b\u0439 \u043f\u0440\u043e\u0446\u0435\u043d\u0442 \u0434\u0430\u043d\u043d\u043e\u0433\u043e \u0432\u043a\u043b\u0430\u0434\u0430 \u0432 \u0440\u0443\u0431\u043b\u044f\u0445 4,75. \u041c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u044b\u0439 6,30. \u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043f\u0440\u043e \u0432\u0430\u043b\u044e\u0442\u0443 \u0432\u043a\u043b\u0430\u0434\u0430, \u0441\u043d\u044f\u0442\u0438\u0435 \u0434\u0435\u043d\u0435\u0433 \u0438 \u043f\u043e\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u0432\u043a\u043b\u0430\u0434\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043f\u0440\u043e \u0432\u0430\u043b\u044e\u0442\u0443 \u0432\u043a\u043b\u0430\u0434\u0430",
+                    "response": "\u0412\u0430\u043b\u044e\u0442\u0430 \u0432\u043a\u043b\u0430\u0434\u0430 \u0440\u0443\u0431\u043b\u0438, \u0434\u043e\u043b\u043b\u0430\u0440\u044b, \u0435\u0432\u0440\u043e. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u0430\u043a \u0441\u043d\u044f\u0442\u044c \u0434\u0435\u043d\u044c\u0433\u0438",
+                    "response": "\u041d\u0430 \u0434\u0430\u043d\u043d\u043e\u043c \u0432\u043a\u043b\u0430\u0434\u0435 \u0442\u0430\u043a\u0430\u044f \u043e\u043f\u0446\u0438\u044f \u043d\u0435 \u043f\u0440\u0435\u0434\u0443\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u0430. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u0430\u043a \u043f\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u0432\u043a\u043b\u0430\u0434",
+                    "response": "\u041f\u043e\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u0434\u0430\u043d\u043d\u043e\u0433\u043e \u0432\u043a\u043b\u0430\u0434\u0430 \u043d\u0435 \u043f\u0440\u0435\u0434\u0443\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u043e. \u041e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043d\u04355\u0442",
+                    "response": "\u042f \u0441\u043e\u0445\u0440\u0430\u043d\u044e \u0434\u0430\u043d\u043d\u044b\u0435 \u0432 \u043b\u0438\u0447\u043d\u043e\u043c \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0435. \u0412\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u0432\u0435\u0440\u043d\u0443\u0442\u044c\u0441\u044f \u043a \u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044e \u0437\u0430\u044f\u0432\u043a\u0438 \u043f\u043e\u0437\u0436\u0435. \u0427\u0435\u043c \u0435\u0449\u0435 \u044f \u043c\u043e\u0433\u0443 \u0412\u0430\u043c \u043f\u043e\u043c\u043e\u0447\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043f\u0440\u043e \u0431\u043e\u043d\u0443\u0441\u044b",
+                    "response": "",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u0430\u043a\u043e\u0439 \u0432\u043a\u043b\u0430\u0434 \u043f\u043e\u0441\u043e\u0432\u0435\u0442\u0443\u0435\u0448\u044c",
+                    "response": "",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u0430\u043a\u043e\u0439 \u043f\u043e\u0441\u043e\u0432\u0435\u0442\u0443\u0435\u0448\u044c \u0432\u043a\u043b\u0430\u0434",
+                    "response": "",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u0430\u043a\u043e\u0439 \u0441\u043e\u0432\u0435\u0442 \u043f\u043e \u0432\u043a\u043b\u0430\u0434\u0430\u043c",
+                    "response": "\u041a\u043e\u043d\u0435\u0447\u043d\u043e, \u043b\u0438\u0434\u0435\u0440 \u0443\u043f\u0440\u0430\u0432\u043b\u044f\u0439! \u0412\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u043f\u043e\u043f\u043e\u043b\u043d\u044f\u0442\u044c \u0432\u043a\u043b\u0430\u0434, \u043f\u0440\u043e\u0446\u0435\u043d\u0442\u043d\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430 \u0431\u0443\u0434\u0435\u0442 \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0442\u044c\u0441\u044f. \u0410 \u0435\u0441\u043b\u0438 \u0441\u0440\u043e\u0447\u043d\u043e \u043f\u043e\u043d\u0430\u0434\u043e\u0431\u044f\u0442\u0441\u044f \u0434\u0435\u043d\u044c\u0433\u0438, \u043c\u043e\u0436\u043d\u043e \u0441\u043d\u044f\u0442\u044c \u0434\u043e \u0443\u0440\u043e\u0432\u043d\u044f \u043d\u0435\u0441\u043d\u0438\u0436\u0430\u0435\u043c\u043e\u0433\u043e \u043e\u0441\u0442\u0430\u0442\u043a\u0430. \u0412\u043e\u0442 \u0442\u0430\u043a!",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043f\u0440\u043e \u0432\u043a\u043b\u0430\u0434\u044b",
+                    "response": "",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0432\u043a\u043b\u0430\u0434\u044b",
+                    "response": "",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0432\u043a\u043b\u0430\u0434",
+                    "response": "",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043f\u0440\u043e \u043a\u0440\u0435\u0434\u0438\u0442\u044b",
+                    "response": "\u0421 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043f\u0440\u043e \u0432\u0430\u043b\u044e\u0442\u0443",
+                    "response": "\u0414\u043b\u044f \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 \u0440\u0430\u0437\u043d\u0438\u0446\u0430 \u0441 \u0431\u0438\u0440\u0436\u0435\u0432\u044b\u043c \u043a\u0443\u0440\u0441\u043e\u043c \u0441\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 25 \u043a\u043e\u043f\u0435\u0435\u043a. \u0412 \u043f\u043e\u043b\u044c\u0437\u0443 \u043a\u043b\u0438\u0435\u043d\u0442\u0430, \u043a\u043e\u043d\u0435\u0447\u043d\u043e. \u041d\u043e \u0431\u0443\u0434\u044c\u0442\u0435 \u0432\u043d\u0438\u043c\u0430\u0442\u0435\u043b\u044c\u043d\u044b:\u0432\u044b\u0433\u043e\u0434\u043d\u044b\u0435 \u043a\u0443\u0440\u0441\u044b \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0442 \u0432 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442-\u0431\u0430\u043d\u043a\u0435 \u0438 \u043c\u043e\u0431\u0438\u043b\u044c\u043d\u043e\u043c \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043e\u043d\u043b\u0430\u0439\u043d",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0432\u0430\u043b\u044e\u0442\u0430",
+                    "response": "\u0414\u043b\u044f \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 \u0440\u0430\u0437\u043d\u0438\u0446\u0430 \u0441 \u0431\u0438\u0440\u0436\u0435\u0432\u044b\u043c \u043a\u0443\u0440\u0441\u043e\u043c \u0441\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 25 \u043a\u043e\u043f\u0435\u0435\u043a. \u0412 \u043f\u043e\u043b\u044c\u0437\u0443 \u043a\u043b\u0438\u0435\u043d\u0442\u0430, \u043a\u043e\u043d\u0435\u0447\u043d\u043e. \u041d\u043e \u0431\u0443\u0434\u044c\u0442\u0435 \u0432\u043d\u0438\u043c\u0430\u0442\u0435\u043b\u044c\u043d\u044b:\u0432\u044b\u0433\u043e\u0434\u043d\u044b\u0435 \u043a\u0443\u0440\u0441\u044b \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0442 \u0432 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442-\u0431\u0430\u043d\u043a\u0435 \u0438 \u043c\u043e\u0431\u0438\u043b\u044c\u043d\u043e\u043c \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043e\u043d\u043b\u0430\u0439\u043d",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u0440\u0435\u0434\u0438\u0442",
+                    "response": "\u0441 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u044f\u043c\u0438 \u0438\u043b\u0438 \u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0439?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0431\u0435\u0437 \u043f\u043e\u0440\u0443\u0447\u0438\u0442\u0435\u043b\u0435\u0446\u0439",
+                    "response": "\u0415\u0441\u0442\u044c \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043f\u043e\u0442\u0440\u0435\u0431\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u0438\u0439 \u043a\u0440\u0435\u0434\u0438\u0442 \u043d\u0430 \u043b\u044e\u0431\u044b\u0435 \u0432\u0430\u0448\u0438 \u043d\u0443\u0436\u0434\u044b. \u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0443\u043c\u043c\u0430 3000000. \u042f \u0437\u043d\u0430\u044e, \u043a\u0430\u043a\u0430\u044f \u0441\u0442\u0430\u0432\u043a\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043e\u0431\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0437\u0430\u044f\u0432\u043a\u0430, \u0438 \u0441\u0440\u043e\u043a \u043a\u0440\u0435\u0434\u0438\u0442\u0430.",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0440\u0430\u0441\u0441\u043a\u0430\u0436\u0438 \u043f\u0440\u043e \u0432\u0430\u043b\u044e\u0442\u0443",
+                    "response": "\u0414\u043b\u044f \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 \u0440\u0430\u0437\u043d\u0438\u0446\u0430 \u0441 \u0431\u0438\u0440\u0436\u0435\u0432\u044b\u043c \u043a\u0443\u0440\u0441\u043e\u043c \u0441\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 25 \u043a\u043e\u043f\u0435\u0435\u043a. \u0412 \u043f\u043e\u043b\u044c\u0437\u0443 \u043a\u043b\u0438\u0435\u043d\u0442\u0430, \u043a\u043e\u043d\u0435\u0447\u043d\u043e. \u041d\u043e \u0431\u0443\u0434\u044c\u0442\u0435 \u0432\u043d\u0438\u043c\u0430\u0442\u0435\u043b\u044c\u043d\u044b:\u0432\u044b\u0433\u043e\u0434\u043d\u044b\u0435 \u043a\u0443\u0440\u0441\u044b \u0434\u0435\u0439\u0441\u0442\u0432\u0443\u044e\u0442 \u0432 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442-\u0431\u0430\u043d\u043a\u0435 \u0438 \u043c\u043e\u0431\u0438\u043b\u044c\u043d\u043e\u043c \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043e\u043d\u043b\u0430\u0439\u043d",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043e \u0431\u043e\u043d\u0443\u0441\u0430\u0445",
+                    "response": "\u041e\u043a\u0435\u0439. \u0412 \u043f\u0430\u043a\u0435\u0442\u0435 \u0443\u0441\u043b\u0443\u0433 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 priority pass, \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0444\u0438\u043d\u0430\u043d\u0441\u043e\u0432\u044b\u0439 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442, \u0435\u0441\u043b\u0438 \u0432\u044b \u0437\u0430\u0445\u043e\u0442\u0438\u0442\u0435 \u043d\u0430\u0447\u0430\u0442\u044c \u0438\u043d\u0432\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c, \u0443\u0441\u043b\u0443\u0433\u0438 \u043a\u043e\u043d\u0441\u044c\u0435\u0440\u0436 \u0441\u0435\u0440\u0432\u0438\u0441\u0430 \u0441\u0442\u0440\u0430\u0445\u043e\u0432\u0430\u043d\u0438\u0435 \u0432\u0441\u0435\u0439 \u0441\u0435\u043c\u044c\u0438 \u0432 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0438",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u043a\u043e\u043d\u0441\u044c\u0435\u0440\u0436 \u0441\u0435\u0440\u0432\u0438\u0441",
+                    "response": "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u044f \u043d\u0435 \u0441\u043e\u0432\u0441\u0435\u043c \u0412\u0430\u0441 \u043f\u043e\u043d\u044f\u043b\u0430. \u0421\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 \u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u0441\u043e\u0431\u043e\u0439 \u0441\u0435\u0442\u044c \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0445 \u043e\u0442\u0434\u0435\u043b\u0435\u043d\u0438\u0439, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u044e\u0442 \u043a\u043b\u0438\u0435\u043d\u0442\u043e\u0432 \u043f\u0440\u0435\u043c\u0438\u0443\u043c \u043a\u043b\u0430\u0441\u0441\u0430 \u0438 \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u044e\u0442 \u0448\u0438\u0440\u043e\u043a\u0438\u0439 \u0441\u043f\u0435\u043a\u0442\u0440 \u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0438\u0445 \u0443\u0441\u043b\u0443\u0433 \u0438 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u043e\u0432 \u043d\u0430 \u0431\u043e\u043b\u0435\u0435 \u0432\u044b\u0433\u043e\u0434\u043d\u044b\u0445 \u0443\u0441\u043b\u043e\u0432\u0438\u044f\u0445, \u0447\u0435\u043c \u0432 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u044b\u0445 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0430\u0445. \u0425\u043e\u0442\u0438\u0442\u0435 \u0443\u0441\u043b\u044b\u0448\u0430\u0442\u044c \u043e \u043f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u043c\u044b\u0445 \u0443\u0441\u043b\u0443\u0433\u0430\u0445?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": -1
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0443\u0441\u043b\u0443\u0433\u0438 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439",
+                    "response": "\u041c\u043e\u0433\u0443 \u0440\u0430\u0441\u0441\u043a\u0430\u0437\u0430\u0442\u044c \u043e \u043a\u0430\u0440\u0442\u0430\u0445, \u043a\u0440\u0435\u0434\u0438\u0442\u0430\u0445, \u0432\u043a\u043b\u0430\u0434\u0430\u0445, \u043e\u0431\u043c\u0435\u043d\u0435 \u0432\u0430\u043b\u044e\u0442\u044b \u0438 \u0431\u043e\u043d\u0443\u0441\u0430\u0445. \u041e \u0447\u0451\u043c \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c?",
                     "positivity": 0.0,
                     "subjectivity": 0.5
                 }
@@ -426,8 +1271,21 @@
         {
             "sentences": [
                 {
-                    "question": "\u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0440\u0435\u043c\u044c\u0435\u0440",
-                    "response": "\u041d\u0443\u0436\u043d\u0430 \u043c\u043e\u044f \u043f\u043e\u043c\u043e\u0449\u044c \u0438\u043b\u0438 \u0432\u044b \u0443\u0436\u0435 \u0433\u043e\u0442\u043e\u0432\u044b \u0441\u0434\u0435\u043b\u0430\u0442\u044c \u0432\u044b\u0431\u043e\u0440?",
+                    "question": "\u0431\u043e\u043d\u0443\u0441",
+                    "response": "\u041e\u043a\u0435\u0439. \u0412 \u043f\u0430\u043a\u0435\u0442\u0435 \u0443\u0441\u043b\u0443\u0433 \u0441\u0431\u0435\u0440\u0431\u0430\u043d\u043a \u043f\u0435\u0440\u0432\u044b\u0439 priority pass, \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0444\u0438\u043d\u0430\u043d\u0441\u043e\u0432\u044b\u0439 \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442, \u0435\u0441\u043b\u0438 \u0432\u044b \u0437\u0430\u0445\u043e\u0442\u0438\u0442\u0435 \u043d\u0430\u0447\u0430\u0442\u044c \u0438\u043d\u0432\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c, \u0443\u0441\u043b\u0443\u0433\u0438 \u043a\u043e\u043d\u0441\u044c\u0435\u0440\u0436 \u0441\u0435\u0440\u0432\u0438\u0441\u0430 \u0438 \u0441\u0442\u0440\u0430\u0445\u043e\u0432\u0430\u043d\u0438\u0435 \u0432\u0441\u0435\u0439 \u0441\u0435\u043c\u044c\u0438 \u0432 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0438. \u0425\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c \u043e \u0431\u043e\u043d\u0443\u0441\u0430\u0445 \u043f\u043e\u043f\u043e\u0434\u0440\u043e\u0431\u043d\u0435\u0435?",
+                    "positivity": 0.0,
+                    "subjectivity": 0.5
+                }
+            ],
+            "srai": false,
+            "properties": {},
+            "current_sentence_no": 0
+        },
+        {
+            "sentences": [
+                {
+                    "question": "\u0434\u0430",
+                    "response": "\u042f \u0442\u0430\u043a \u0438 \u0434\u0443\u043c\u0430\u043b\u0430. \u041f\u0440\u043e \u0447\u0442\u043e \u0412\u044b \u0445\u043e\u0442\u0438\u0442\u0435 \u0443\u0437\u043d\u0430\u0442\u044c? \u041f\u0440\u043e priority pass, \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u0444\u0438\u043d\u0430\u043d\u0441\u043e\u0432\u043e\u0433\u043e \u043a\u043e\u043d\u0441\u0443\u043b\u044c\u0442\u0430\u043d\u0442\u0430, \u043a\u043e\u043d\u0441\u044c\u0435\u0440\u0436 \u0441\u0435\u0440\u0432\u0438\u0441 \u0438\u043b\u0438 \u0441\u0442\u0440\u0430\u0445\u043e\u0432\u0430\u043d\u0438\u0435 \u0432\u0441\u0435\u0439 \u0441\u0435\u043c\u044c\u0438 \u0432 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0438?",
                     "positivity": 0.0,
                     "subjectivity": 0.5
                 }
@@ -439,7 +1297,7 @@
     ],
     "max_histories": 100,
     "properties": {
-        "topic": "card_premier_help",
+        "topic": "sb_1_bonuses",
         "positivity": "0.0",
         "subjectivity": "0.5"
     }

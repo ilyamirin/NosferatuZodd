@@ -14,4 +14,25 @@
                 <srai>ХЕЙО1</srai><srai>ХЕЙО2</srai>
         </template>
     </category>
+    <category>
+        <pattern>СБПР111</pattern>
+        <template>
+            <set name="package">first</set>
+        </template>
+    </category>
+    <category>
+        <pattern>КАРТЫ111</pattern>
+        <template>
+            В пакете 
+            <condition name="package">
+                <li value="first">Первый</li>
+                <li value="premier">Премьер</li>
+            </condition> 
+            есть карты 
+            <condition name="package">
+                <li value="first">Такие-то у первого</li>
+                <li value="premier">такие-то у второго</li>
+            </condition>
+        </template>
+    </category>
 </aiml>
