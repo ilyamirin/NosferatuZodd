@@ -1,7 +1,7 @@
 socket:
   bot: personality
   host: 0.0.0.0
-  port: 80
+  port: 8080
   queue: 5
   max_buffer: 1024
   debug: true
@@ -56,76 +56,76 @@ socket:
               type:   file
               config:
                 categories_storage:
-                  dirs: ..\..\storage\categories
-                  subdirs: true
+                  dirs: $BOT_ROOT\categories
+                  subdirs: false
                   extension: .aiml
                 errors_storage:
-                  file: ..\..\storage\debug\errors.txt
+                  file: $BOT_ROOT\debug\errors.txt
                 duplicates_storage:
-                  file: ..\..\storage\debug\duplicates.txt
+                  file: $BOT_ROOT\debug\duplicates.txt
                 learnf_storage:
-                  dirs: ..\..\storage\categories\learnf
+                  dirs: $BOT_ROOT\categories\learnf
 
                 conversation_storage:
-                  dirs: ..\..\storage\conversations
+                  dirs: $BOT_ROOT\conversations
 
                 sets_storage:
-                  dirs: ..\..\storage\sets
+                  dirs: $BOT_ROOT\sets
                   extension: txt
                 maps_storage:
-                  dirs: ..\..\storage\maps
+                  dirs: $BOT_ROOT\maps
                   extension: txt
                 rdf_storage:
-                  dirs: ..\..\storage\rdfs
+                  dirs: $BOT_ROOT\rdfs
                   subdirs: true
                   extension: txt
 
                 denormal_storage:
-                  file: ..\..\storage\lookups\denormal.txt
+                  file: $BOT_ROOT\lookups\denormal.txt
                 normal_storage:
-                  file: ..\..\storage\lookups\normal.txt
+                  file: $BOT_ROOT\lookups\normal.txt
                 gender_storage:
-                  file: ..\..\storage\lookups\gender.txt
+                  file: $BOT_ROOT\lookups\gender.txt
                 person_storage:
-                  file: ..\..\storage\lookups\person.txt
+                  file: $BOT_ROOT\lookups\person.txt
                 person2_storage:
-                  file: ..\..\storage\lookups\person2.txt
+                  file: $BOT_ROOT\lookups\person2.txt
                 regex_storage:
-                  file: ..\..\storage\regex\regex-templates.txt
+                  file: $BOT_ROOT\regex\regex-templates.txt
 
                 properties_storage:
-                  file: ..\..\storage\properties\properties.txt
+                  file: $BOT_ROOT\properties\properties.txt
                 defaults_storage:
-                  file: ..\..\storage\properties\defaults.txt
+                  file: $BOT_ROOT\properties\defaults.txt
                 variables_storage:
-                  dirs: ..\..\storage\variables
+                  dirs: $BOT_ROOT\variables
 
                 twitter_storage:
-                  dirs: ..\..\storage\twitter
+                  dirs: $BOT_ROOT\twitter
 
                 spelling_storage:
-                  file: ..\..\storage\spelling\corpus.txt
+                  file: $BOT_ROOT\spelling\corpus.txt
 
                 license_storage:
-                  file: ..\..\storage\licenses\license.keys
+                  file: $BOT_ROOT\licenses\license.keys
 
                 pattern_nodes_storage:
-                  file: ..\..\storage\nodes\pattern_nodes.conf
+                  file: $BOT_ROOT\nodes\pattern_nodes.conf
                 template_nodes_storage:
-                  file: ..\..\storage\nodes\template_nodes.conf
+                  file: $BOT_ROOT\nodes\template_nodes.conf
 
                 binaries_storage:
-                  file: ..\..\storage\braintree\braintree.bin
+                  file: $BOT_ROOT\braintree\braintree.bin
                 braintree_storage:
-                  file: ..\..\storage\braintree\braintree.xml
+                  file: $BOT_ROOT\braintree\braintree.xml
 
                 preprocessors_storage:
-                  file: ..\..\storage\processing\preprocessors.conf
+                  file: $BOT_ROOT\processing\preprocessors.conf
                 postprocessors_storage:
-                  file: ..\..\storage\processing\postprocessors.conf
+                  file: $BOT_ROOT\processing\postprocessors.conf
 
                 usergroups_storage:
-                  file: ..\..\storage\security\usergroups.yaml
+                  file: $BOT_ROOT\security\usergroups.yaml
 
           logger:
               type:   logger
