@@ -54,7 +54,7 @@ console:
               config:
                 categories_storage:
                   dirs: ../../storage/categories
-                  subdirs: true
+                  subdirs: false
                   extension: .aiml
                 errors_storage:
                   file: ../../storage/debug/errors.txt
