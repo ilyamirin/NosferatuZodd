@@ -8,11 +8,7 @@
 			<pattern> ^ <regex pattern="РАССКАЖИ|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС.*" /> ^ <regex pattern="ОБЛИГАЦ.*" /> ^ </pattern>
 			<template>Окей. Сбербанк гарантирует возврат 100% вложенных средств, доход выплачивается каждые полгода. Если будет необходимо, облигации можно продать досрочно по рыночной цене. Если у вас есть вопросы по облигациям, я готова на них ответить.  <think><set name = "topic">obligacii</set></think> </template>
 		</category>	
-	<topic name="obligacii">
-		<category>
-			<pattern> ^ <regex pattern="КУП.*|ПРИОБР.*|ПОЛУЧ.*" /> ^ <regex pattern="ОБЛИГАЦ.*" /> ^ </pattern>
-			<template> Облигации можно приобрести в приложении Сбербанк Инвестор, Quik, по телефону. </template>
-		</category>	
+	<topic name="obligacii">	
 		<category>
 			<pattern> ^ <regex pattern="СКОЛЬКО|КОЛИЧЕСТВ.*" /> ^ <regex pattern="ОБЛИГАЦ.*" /> ^ <regex pattern="КУП.*|ПРИОБР.*" /> ^ </pattern>
 			<template>Цена облигации 1000 рублей. </template>
