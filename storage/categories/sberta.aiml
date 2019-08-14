@@ -7,7 +7,7 @@
     </category>
 
     <category>
-        <pattern> ^ <regex pattern=".*СКА(З|Ж).*|"/> ^ <regex pattern="СБЕРБАНК"/> ^ </pattern>
+        <pattern> ^ <regex pattern=".*СКА(З|Ж).*|"/> ^ <regex pattern="СБЕРБАНК"/></pattern>
         <template>
             Публичное акционерное общество «Сбербанк России» — российский финансовый конгломерат, 
             крупнейший транснациональный и универсальный банк России, Центральной и Восточной Европы. 
@@ -244,20 +244,7 @@
         <pattern> ^ ПОЧЕМУ ТЫ ТАКАЯ ^ </pattern>
         <template>Пока только учусь</template>
     </category>
-    <category>
-        <pattern>О КЕЙ <regex pattern="ДУМАЕШЬ|МЫСЛИ.*"/></pattern>
-        <template>Кто такой Гугл?</template>
-    </category>
-    <category>
-        <pattern>*</pattern>
-        <that> КТО ТАКОЙ ГУГЛ</that>
-        <template>
-            <condition name="google_flag">
-                <li value="unknown">Кто такой Гугл?<think><set name="google_flag">1</set></think></li>
-                <li value="1">Почему бы Вам не пойти общаться к Гуглу?</li>
-            </condition>
-        </template>
-    </category>
+
     <category>
         <pattern> ^ <regex pattern=".*СКА(З|Ж).*|"/> ^ <regex pattern="ШУТ.*|АНЕК.*|СМЕШН.*"/> ^ </pattern>
         <template>

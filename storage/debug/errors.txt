@@ -1,1 +1,2 @@
 Error,File,Start Line,End Line
+Multiple <template> nodes found in category,..\..\storage\/categories\obligacii.aiml,11,25
