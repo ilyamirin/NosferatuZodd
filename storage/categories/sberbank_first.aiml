@@ -676,14 +676,82 @@
                         <pattern> ^ <regex pattern="СТРАХОВ.*" /></pattern>
                         <template></template>
                     </category>
+                    <!--
+                        <category>
+                            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                            <that> ВАС ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО МЕДИЦИНСКИМ УСЛУГАМ </that>
+                            <template><think><set name = "topic">sb_1_medic_services</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES</srai></template>
+                        </category>
 
-                    
+                        <category>
+                            <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                            <that> ВАС ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО МЕДИЦИНСКИМ УСЛУГАМ </that>
+                            <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+                        </category>
+                        <category>
+                            <pattern>*</pattern>
+                            <that> ВАС ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО МЕДИЦИНСКИМ УСЛУГАМ </that>
+                            <template>
+                                <condition name="flag_MU">
+                                    <li value="unknown">
+                                        <think>
+                                            <set name="flag_MU">1</set>
+                                        </think>
+                                        <srai>YN001</srai>Если вклады Вам не интересны, повторите вопрос. Вас интересуют подробности по медицинским услугам?
+                                    </li>
+                                    <li value="1">
+                                        <think>
+                                            <set name="flag_MU">unknown</set>
+                                            <set name="topic">unknown</set>
+                                        </think>
+                                        <sr />
+                                    </li>
+                                </condition>
+                            </template>
+                        </category>
+                    -->
                 <!--приорити пасс-->
                     <category>
                         <pattern> ^ <regex pattern="ПРИОРИТИ|PRIORITY" /> ^ <regex pattern="ПАСС|PASS" /> ^ </pattern>
-                        <template></template>
+                        <template>
+                            Это программа доступа в бизнес-залы аэропортов, 
+                            где Вы можете насладиться комфортом, ожидая рейс. 
+                            Она работает в более чем 1000  аэропортах по всему миру. Хотите поподробнее про priority pass?
+                        </template>
                     </category>
 
+                        <category>
+                            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                            <that> ХОТИТЕ ПОПОДРОБНЕЕ ПРО PRIORITY PASS </that>
+                            <template><think><set name = "topic">sb_1_priority_pass</set></think><srai>OK001</srai><srai>DIALOG1 PRIORITY PASS</srai></template>
+                        </category>
+
+                        <category>
+                            <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                            <that> ХОТИТЕ ПОПОДРОБНЕЕ ПРО PRIORITY PASS </that>
+                            <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+                        </category>
+                        <category>
+                            <pattern>*</pattern>
+                            <that> ХОТИТЕ ПОПОДРОБНЕЕ ПРО PRIORITY PASS </that>
+                            <template>
+                                <condition name="flag_MU">
+                                    <li value="unknown">
+                                        <think>
+                                            <set name="flag_MU">1</set>
+                                        </think>
+                                        <srai>YN001</srai>Если услуга priority pass Вам не интересна, повторите вопрос. Хотите поподробнее про priority pass?
+                                    </li>
+                                    <li value="1">
+                                        <think>
+                                            <set name="flag_MU">unknown</set>
+                                            <set name="topic">unknown</set>
+                                        </think>
+                                        <sr />
+                                    </li>
+                                </condition>
+                            </template>
+                        </category>
                 <!--не понятно-->
                     <category>
                         <pattern>*</pattern>
@@ -798,136 +866,459 @@
                                     </template>
                                 </category>
                         </topic>
-                    <!--телемедицина-->
-                        <topic name="sb_1card_medic_services_tvmed">
-                            <category>
-                                    <pattern>DIALOG1 MEDIC SERVICES TELE</pattern>
-                                    <template>Я могу рассказать Вам, сколько раз, где и с кем можно проконсультироваться.</template>
-                            </category>
-                            <category>
-                                    <pattern> ^ <regex pattern="СКОЛЬКО|МНОГО|ЧАСТО" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ|УЗНАТЬ|ИСПОЛЬЗ.*|ПОЛЬЗ.*|" /> ^ </pattern>
-                                    <template>Консультации врача- терапевта не ограничены, консультации узкопрофильных специалистов доступны 4 раза в год. </template>
-                            </category>
-                            <category>
-                                    <pattern> ^ <regex pattern="ГДЕ|КАК.*" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ" /> ^ </pattern>
-                                    <template>Зарегистрируйтесь на сайте DocDoс. При регистрации укажите номер мобильного телефона, который вы сообщили в Банк. Услуги телемедицины доступны на 7 день после оформления премиального пакета услуг.</template>
-                            </category>
-                            <category>
-                                    <pattern> ^ <regex pattern="ХОЧ.*|НУЖ.*|МО(Ж|Г).*|КАК(ОЙ|ИЕ|ОГО|ИХ|ИМ)" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ|УЗНАТЬ|ИСПОЛЬЗ.*|ПОЛЬЗ.*|ПОГОВОР.*|ОБЩ.*" /></pattern>
-                                    <template>Вы можете получить онлайн-консультацию врача-терапевта в любое время и консультацию узкопрофильных специалистов по записи.</template>
-                            </category>
-                        <!--MU-->
-                            <category>
-                                <pattern>*</pattern>
-                                <template>
-                                    <condition name="flag_MU">
-                                        <li value="unknown">
-                                            <think>
-                                                <set name="flag_MU">1</set>
-                                            </think>
-                                            <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES TELE</srai>Если медицинская услуга больше Вам не интересны, повторите вопрос.
-                                        </li>
-                                        <li value="1">
-                                            <think>
-                                                <set name="flag_MU">unknown</set>
-                                                <set name="topic">unknown</set>
-                                            </think>
-                                            <sr />
-                                        </li>
-                                    </condition>
-                                </template>
-                            </category>
-                        </topic>
-                    <!--второе экспертное мнение-->
-                        <topic name="sb_1card_medic_expert_opinion">
-                            <category>
-                                    <pattern>DIALOG1 MEDIC SERVICES EXPERT</pattern>
-                                    <template>Я могу рассказать Вам, сколько раз предоставляется данная услуга и какие врачи консультируют.</template>
-                            </category>
-                            <category>
-                                    <pattern> ^ СКОЛЬКО ^ </pattern>
-                                    <template>Данная возможность предоставляется 2 раза в год на семью. </template>
-                            </category> 
+                        <!--телемедицина-->
+                            <topic name="sb_1card_medic_services_tvmed">
+                                <category>
+                                        <pattern>DIALOG1 MEDIC SERVICES TELE</pattern>
+                                        <template>Я могу рассказать Вам, сколько раз, где и с кем можно проконсультироваться.</template>
+                                </category>
+                                <category>
+                                        <pattern> ^ <regex pattern="СКОЛЬКО|МНОГО|ЧАСТО" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ|УЗНАТЬ|ИСПОЛЬЗ.*|ПОЛЬЗ.*|" /> ^ </pattern>
+                                        <template>Консультации врача- терапевта не ограничены, консультации узкопрофильных специалистов доступны 4 раза в год. </template>
+                                </category>
+                                <category>
+                                        <pattern> ^ <regex pattern="ГДЕ|КАК.*" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ" /> ^ </pattern>
+                                        <template>Зарегистрируйтесь на сайте DocDoс. При регистрации укажите номер мобильного телефона, который вы сообщили в Банк. Услуги телемедицины доступны на 7 день после оформления премиального пакета услуг.</template>
+                                </category>
+                                <category>
+                                        <pattern> ^ <regex pattern="ХОЧ.*|НУЖ.*|МО(Ж|Г).*|КАК(ОЙ|ИЕ|ОГО|ИХ|ИМ)" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ|УЗНАТЬ|ИСПОЛЬЗ.*|ПОЛЬЗ.*|ПОГОВОР.*|ОБЩ.*" /></pattern>
+                                        <template>Вы можете получить онлайн-консультацию врача-терапевта в любое время и консультацию узкопрофильных специалистов по записи.</template>
+                                </category>
+                            <!--MU-->
+                                <category>
+                                    <pattern>*</pattern>
+                                    <template>
+                                        <condition name="flag_MU">
+                                            <li value="unknown">
+                                                <think>
+                                                    <set name="flag_MU">1</set>
+                                                </think>
+                                                <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES TELE</srai>Если медицинская услуга больше Вам не интересны, повторите вопрос.
+                                            </li>
+                                            <li value="1">
+                                                <think>
+                                                    <set name="flag_MU">unknown</set>
+                                                    <set name="topic">unknown</set>
+                                                </think>
+                                                <sr />
+                                            </li>
+                                        </condition>
+                                    </template>
+                                </category>
+                            </topic>
+                        <!--второе экспертное мнение-->
+                            <topic name="sb_1card_medic_expert_opinion">
+                                <category>
+                                        <pattern>DIALOG1 MEDIC SERVICES EXPERT</pattern>
+                                        <template>Я могу рассказать Вам, сколько раз предоставляется данная услуга и какие врачи консультируют.</template>
+                                </category>
+                                <category>
+                                        <pattern> ^ СКОЛЬКО ^ </pattern>
+                                        <template>Данная возможность предоставляется 2 раза в год на семью. </template>
+                                </category> 
+
+                                <category>
+                                        <pattern> ^ <regex pattern="ВРАЧ.*|ДОКТОР.*" /> ^ </pattern>
+                                        <template>Вы можете получить онлайн-консультацию врача-терапевта, невролога, нефролога, онколога, эндокринолога, офтальмолога, пульмунолога, ортопеда.</template>   
+                                </category>
+                            <!--MU-->
+                                <category>
+                                    <pattern>*</pattern>
+                                    <template>
+                                        <condition name="flag_MU">
+                                            <li value="unknown">
+                                                <think>
+                                                    <set name="flag_MU">1</set>
+                                                </think>
+                                                <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES EXPERT</srai>Если услуга больше Вам не интересна, повторите вопрос.
+                                            </li>
+                                            <li value="1">
+                                                <think>
+                                                    <set name="flag_MU">unknown</set>
+                                                    <set name="topic">unknown</set>
+                                                </think>
+                                                <sr />
+                                            </li>
+                                        </condition>
+                                    </template>
+                                </category>
+                            </topic>
+                        <!--опасные заболевания-->
+                            <topic name="sb_1_medic_dangerous_desease">
+                                <category>
+                                        <pattern>DIALOG1 MEDIC SERVICES DESEASE</pattern>
+                                        <template>Я могу рассказать Вам про программы "лечение для детей" и "лечение для взрослых"</template>
+                                </category>
+                                <category>
+                                        <pattern> ^ <regex pattern="ДЕТ.*" /> ^ </pattern>
+                                        <template>
+                                            Это программа для детей, больных раком. 
+                                            Она включает лечение заболевания, поиск донора и трансплантацию костного мозга, 
+                                            а также возмещение расходов по транспортировке и проживанию.
+                                            Вам нужно лишь обратиться в страховую компанию. 
+                                            Я могу рассказать Вам, где происходит лечение и какую сумму покрывает страхование. Про что Вы хотите спросить?
+                                        </template>
+                                </category>
+                                    <category>
+                                            <pattern> ^ ГДЕ ^ <regex pattern="ЛЕЧ.*" /> ^ </pattern>
+                                            <that> ПРО ЧТО ВЫ ХОТИТЕ СПРОСИТЬ </that>
+                                            <template> 
+                                                Лечение онкологического заболевания в ведущих клиниках России. 
+                                                Организация проведения трансплантации костного мозга на территории Европы (за исключением Швейцарии), Израиля, Южной Кореи, России. 
+                                            </template>
+                                    </category>      
+                                        <category>
+                                            <that> ПРО ЧТО ВЫ ХОТИТЕ СПРОСИТЬ </that>
+                                            <pattern> ^ <regex pattern="СКОЛЬКО|КАК.*" /> ^ <regex pattern="СТОИТ|ЛЕЧ.*|СТРАХ.*" /> ^ </pattern>
+                                            <template> Страховая сумма составляет шесть миллионов рублей. Лимит возобновляется ежегодно. </template>
+                                    </category>
+
+                                <category>
+                                        <pattern> ^ <regex pattern="ВЗРОСЛ.*" /> ^ </pattern>
+                                        <template> 
+                                            Вы оплачиваете ежегодный страховой взнос, если у вас не находят заболевание, то сумма компенсируется через программу "Дожитие". 
+                                            Если у вас обнаружили заболевание, то лечение будет оплачено страховкой.
+                                            Я могу рассказать Вам, где происходит лечение и сколько стоит страхование.
+                                            Про что Вы спросите?
+                                        </template>    
+                                </category>
+                                    <category>
+                                            <pattern> ^ ГДЕ ^ <regex pattern="ЛЕЧ.*" /> ^ </pattern>
+                                            <that> ПРО ЧТО ВЫ СПРОСИТЕ </that>
+                                            <template> 
+                                                Лечение онкологического заболевания в ведущих клиниках России. 
+                                                Организация проведения трансплантации костного мозга на территории Европы (за исключением Швейцарии), Израиля, Южной Кореи, России. 
+                                            </template>
+                                    </category>      
+                                        <category>
+                                            <that> ПРО ЧТО ВЫ СПРОСИТЕ </that>
+                                            <pattern> ^ <regex pattern="СКОЛЬКО|КАК.*" /> ^ <regex pattern="СТОИТ|ЛЕЧ.*|СТРАХ.*" /> ^ </pattern>
+                                            <template> Страховая сумма составляет шесть миллионов рублей. Лимит возобновляется ежегодно. </template>
+                                    </category>
+                            <!--MU-->
+                                <category>
+                                    <pattern>*</pattern>
+                                    <template>
+                                        <condition name="flag_MU">
+                                            <li value="unknown">
+                                                <think>
+                                                    <set name="flag_MU">1</set>
+                                                </think>
+                                                <srai>MU001</srai>Если медицинская услуга больше Вам не интересна, повторите вопрос.<srai>DIALOG1 MEDIC SERVICES DESEASE</srai>
+                                            </li>
+                                            <li value="1">
+                                                <think>
+                                                    <set name="flag_MU">unknown</set>
+                                                    <set name="topic">unknown</set>
+                                                </think>
+                                                <sr />
+                                            </li>
+                                        </condition>
+                                    </template>
+                                </category>
+
+                            </topic>
+                    <!--Priority pass-->
+                        <topic name="sb_1_priority_pass">
 
                             <category>
-                                    <pattern> ^ <regex pattern="ВРАЧ.*|ДОКТОР.*" /> ^ </pattern>
-                                    <template>Вы можете получить онлайн-консультацию врача-терапевта, невролога, нефролога, онколога, эндокринолога, офтальмолога, пульмунолога, ортопеда.</template>   
-                            </category>
-                        <!--MU-->
-                            <category>
-                                <pattern>*</pattern>
+                                <pattern>DIALOG1 PRIORITY PASS</pattern>
                                 <template>
-                                    <condition name="flag_MU">
-                                        <li value="unknown">
-                                            <think>
-                                                <set name="flag_MU">1</set>
-                                            </think>
-                                            <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES EXPERT</srai>Если услуга больше Вам не интересна, повторите вопрос.
-                                        </li>
-                                        <li value="1">
-                                            <think>
-                                                <set name="flag_MU">unknown</set>
-                                                <set name="topic">unknown</set>
-                                            </think>
-                                            <sr />
-                                        </li>
-                                    </condition>
+                                    Это программа доступа в бизнес-залы аэропортов, где Вы можете насладиться комфортом, ожидая рейс. 
+                                    Она работает в более чем 1000  аэропортах по всему миру. Для того, чтобы воспользоваться услугой, Вам нужна карта Priority Pass.
+                                    Я могу рассказать Вам поподробнее про карты Priority Pass, условия предоставления услуги, управление услугой и рассказать, 
+                                    в каких городах действует priority pass и свободны ли бизнес-залы. Про что в Приорити Пасс Вы хотите услышать поподробнее?
                                 </template>
                             </category>
-                        </topic>
-                    <!--опасные заболевания-->
-                        <topic name="sb_1_medic_dangerous_desease">
+
                             <category>
-                                    <pattern>DIALOG1 MEDIC SERVICES DESEASE</pattern>
-                                    <template>Я могу рассказать Вам про программы "лечение для детей" и "лечение для взрослых"</template>
+                                <pattern> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+                                <template><srai>OK001</srai><think><set name="topic">priority_pass_cards</set></think><srai>PRIORITY PASS CARDS</srai></template>
                             </category>
+
                             <category>
-                                    <pattern> ^ <regex pattern="ДЕТ.*" /> ^ </pattern>
-                                    <template>
-                                        Это программа для детей, больных раком. 
-                                        Она включает лечение заболевания, поиск донора и трансплантацию костного мозга, 
-                                        а также возмещение расходов по транспортировке и проживанию.
-                                        Вам нужно лишь обратиться в страховую компанию. 
-                                        Я могу рассказать Вам, где происходит лечение и какую сумму покрывает страхование. Про что Вы хотите спросить?
-                                    </template>
+                                <pattern> ^ <regex pattern="УСЛОВ.*" /> ^ </pattern>
+                                <template><srai>OK001</srai><think><set name="topic">priority_pass_cond</set></think><srai>PRIORITY PASS COND</srai></template>
                             </category>
+
+                            <category>
+                                <pattern> ^ <regex pattern="УПРАВЛЕН.*" /> ^ </pattern>
+                                <template><srai>OK001</srai><think><set name="topic">priority_pass_manage</set></think><srai>PRIORITY PASS MANAGE</srai></template>
+                            </category>
+
+                            <category>
+                                <pattern> ^ <regex pattern="МЕСТ.*"/> ^ <regex pattern="ЗАЛ.*"/> ^ </pattern>
+                                <template>В какой город вы летите?</template>
+                            </category>
+
                                 <category>
-                                        <pattern> ^ ГДЕ ^ <regex pattern="ЛЕЧ.*" /> ^ </pattern>
-                                        <that> ПРО ЧТО ВЫ ХОТИТЕ СПРОСИТЬ </that>
-                                        <template> 
-                                            Лечение онкологического заболевания в ведущих клиниках России. 
-                                            Организация проведения трансплантации костного мозга на территории Европы (за исключением Швейцарии), Израиля, Южной Кореи, России. 
-                                        </template>
-                                </category>      
-                                    <category>
-                                        <that> ПРО ЧТО ВЫ ХОТИТЕ СПРОСИТЬ </that>
-                                        <pattern> ^ <regex pattern="СКОЛЬКО|КАК.*" /> ^ <regex pattern="СТОИТ|ЛЕЧ.*|СТРАХ.*" /> ^ </pattern>
-                                        <template> Страховая сумма составляет шесть миллионов рублей. Лимит возобновляется ежегодно. </template>
+                                    <pattern> * </pattern>
+                                    <that>В КАКОЙ ГОРОД ВЫ ЛЕТИТЕ</that>
+                                    <template>
+                                        <random>
+                                        <li>Сейчас проверим... Да, в этом аэропорту есть место для вас</li>
+                                        <li>Так, посмотрим... Нет, к сожалению, на данный момент всё занято!</li>
+                                        </random>
+                                    </template>
                                 </category>
 
                             <category>
-                                    <pattern> ^ <regex pattern="ВЗРОСЛ.*" /> ^ </pattern>
-                                    <template> 
-                                        Вы оплачиваете ежегодный страховой взнос, если у вас не находят заболевание, то сумма компенсируется через программу "Дожитие". 
-                                        Если у вас обнаружили заболевание, то лечение будет оплачено страховкой.
-                                        Я могу рассказать Вам, где происходит лечение и сколько стоит страхование.
-                                        Про что Вы спросите?
-                                    </template>    
+                                <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="ГОРОД.*|АЭРОПОРТ.*" /> ^ </pattern>
+                                <template>Какой город Вам интересен?</template>
                             </category>
+
                                 <category>
-                                        <pattern> ^ ГДЕ ^ <regex pattern="ЛЕЧ.*" /> ^ </pattern>
-                                        <that> ПРО ЧТО ВЫ СПРОСИТЕ </that>
-                                        <template> 
-                                            Лечение онкологического заболевания в ведущих клиниках России. 
-                                            Организация проведения трансплантации костного мозга на территории Европы (за исключением Швейцарии), Израиля, Южной Кореи, России. 
-                                        </template>
-                                </category>      
-                                    <category>
-                                        <that> ПРО ЧТО ВЫ СПРОСИТЕ </that>
-                                        <pattern> ^ <regex pattern="СКОЛЬКО|КАК.*" /> ^ <regex pattern="СТОИТ|ЛЕЧ.*|СТРАХ.*" /> ^ </pattern>
-                                        <template> Страховая сумма составляет шесть миллионов рублей. Лимит возобновляется ежегодно. </template>
-                                </category>    
+                                    <pattern> ^ <set name="city_prioritypass" /> ^ </pattern>
+                                    <that> КАКОЙ ГОРОД ВАМ ИНТЕРЕСЕН </that>
+                                    <template>Да! Мы рады предоставить вам вип-услуги здесь!</template>
+                                </category>
+
+                                <category>
+                                    <pattern> * </pattern>
+                                    <that> КАКОЙ ГОРОД ВАМ ИНТЕРЕСЕН </that>
+                                    <template> Нет, к сожалению в <star /> нет вип-зала!</template>
+                                </category>
+
+                            <!--MU priority pass-->
+
+                                <category>
+                                    <pattern>*</pattern>
+                                    <template>
+                                        <condition name="flag_MU">
+                                            <li value="unknown">
+                                                <think>
+                                                    <set name="flag_MU">1</set>
+                                                </think>
+                                                <srai>MU001</srai> Если услуга Priority Pass больше Вам не интересна, повторите вопрос. Я могу рассказать Вам поподробнее про карты Priority Pass, условия предоставления услуги и рассказать, 
+                                    в каких городах действует priority pass и свободны ли бизнес-залы. Про что в Приорити Пасс Вы хотите услышать поподробнее?
+                                            </li>
+                                            <li value="1">
+                                                <think>
+                                                    <set name="flag_MU">unknown</set>
+                                                    <set name="topic">unknown</set>
+                                                </think>
+                                                <sr />
+                                            </li>
+                                        </condition>
+                                    </template>
+                                </category>
                         </topic>
+                        <!--карты PP-->
+                            <topic name="priority_pass_cards">
+
+                                <category>
+                                    <pattern>
+                                        PRIORITY PASS CARDS
+                                    </pattern>
+                                    <template>
+                                        Для того, чтобы воспользоваться услугой, Вам нужна карта Priority Pass. 
+                                        Я могу рассказать Вам,
+                                        как получить карту Priority Pass,
+                                        подробности использования членами семьи,
+                                        кто может пользоваться картой,
+                                        и как получить карту Priority Pass без оформления премиальных пакетов.
+                                    </template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="ПОЛУЧИТ.*|ОФОРМИТ.*" /> ^ </pattern>
+                                    <template> Для того, чтобы получить карту доступа в бизнес-залы, вам нужно оформить пакет услуг «Сбербанк Премьер» и выпустить премиальную банковскую карту!  </template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="СЕМЬ.*" /> ^ </pattern>
+                                    <template> Карта доступна только основному владельцу пакета услуг «Сбербанк Премьер», однако Вы можете посещать бизнес-залы совместно со своими спутниками</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="ПОЛЬЗОВАТЬ.*" /> ^ </pattern>
+                                    <template> Картой не могут пользоваться другие лица... </template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="ОФОРМЛЕН.*" /> ^ </pattern>
+                                    <template>
+                                        В этом случае обращаться нужно  непосредственно на официальный сайт проекта  Приорити пасс и оформлять карту именно там. 
+                                        Зато вы сможете выбрать тип карты: стандартная, стандартная плюс или престиж. Могу рассказать про одну из карт Priority Pass.</template>
+                                </category>
+
+                                    <category>
+                                        <pattern> ^ СТАНДАРТНАЯ ^ </pattern>
+                                        <that> МОГУ РАССКАЗАТЬ ПРО ОДНУ ИЗ КАРТ PRIORITY PASS </that>
+                                        <template>Обойдется в 89 евро в год. За каждое посещения вип-зала придется дополнительно заплатить 29 евро.</template>
+                                    </category>
+
+                                    <category>
+                                        <pattern> ^ СТАНДАРТНАЯ ПЛЮС ^ </pattern>
+                                        <that> МОГУ РАССКАЗАТЬ ПРО ОДНУ ИЗ КАРТ PRIORITY PASS </that>
+                                        <template>Обойдется в 259 евро в год. Условия – как и у стандартной карты, однако первые 10 посещений вип-залов – бесплатные.</template>
+                                    </category>
+
+                                    <category>
+                                        <pattern> ^ ПРЕСТИЖ ^ </pattern>
+                                        <template>Обойдется в 399 евро в год. При этом все посещения ВИП-залов – бесплатные. За гостей и сопровождающих придется доплатить по 29 евро.</template>
+                                    </category>
+
+                                <!--MU-->
+                                    <category>
+                                        <pattern>*</pattern>
+                                        <template>
+                                            <condition name="flag_MU">
+                                                <li value="unknown">
+                                                    <think>
+                                                        <set name="flag_MU">1</set>
+                                                    </think>
+                                                    <srai>MU001</srai>Если услуга больше Вам не интересна, повторите вопрос.<srai>PRIORITY PASS CARDS</srai>
+                                                </li>
+                                                <li value="1">
+                                                    <think>
+                                                        <set name="flag_MU">unknown</set>
+                                                        <set name="topic">unknown</set>
+                                                    </think>
+                                                    <sr />
+                                                </li>
+                                            </condition>
+                                        </template>
+                                    </category>
+                            </topic>
+                        <!--условия PP-->
+                            <topic name="priority_pass_cond">
+
+                                <category>
+                                    <pattern>
+                                        PRIORITY PASS COND
+                                    </pattern>
+                                    <template>
+                                        Я могу рассказать Вам, 
+                                        в какой период можно воспользоваться бесплатными проходами,
+                                        сколько стоят посещения бизнес-залов,
+                                        подробности о переносе проходов на следующий период,
+                                        что будет, если проходы кончатся,
+                                        когда списывается плата и
+                                        что будет при задолженности
+                                        Что Вам интересно?
+                                    </template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="ПЕРИОД|КОГДА" /> ^ <regex pattern=".*ПОЛЬЗОВ.*|ПРОХОД.*" /> ^ </pattern>
+                                    <template>Воспользоваться восмью бесплатными проходами можно в течение календарного квартала. С наступлением нового календарного квартала бесплатные проходы возобновляются!</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="СТО(И|Я).*" /> ^ <regex pattern=".*ПОЛЬЗОВ.*|ПРОХОД.*" /> ^ </pattern>
+                                    <template> Вы являетесь клиентом "Сбербанк Премьер" или "Сбербанк Первый"?</template>
+                                </category>
+
+                                        <category>
+                                            <pattern> ^ ДА ^ </pattern>
+                                            <that> ВЫ ЯВЛЯЕТЕСЬ КЛИЕНТОМ СБЕРБАНК ПРЕМЬЕР ИЛИ СБЕРБАНК ПЕРВЫЙ </that>
+                                            <template>Для владельцев пакета услуг «Сбербанк Премьер» доступно 8 бесплатных посещений бизнес-залов в календарный квартал. В эти бесплатные 8 посещений так же включены проходы гостей.  </template>
+                                        </category>
+
+                                        <category>
+                                            <pattern>^ НЕТ ^ </pattern>
+                                            <that> ВЫ ЯВЛЯЕТЕСЬ КЛИЕНТОМ СБЕРБАНК ПРЕМЬЕР ИЛИ СБЕРБАНК ПЕРВЫЙ </that>
+                                            <template>Тогда каждое посещение зала стоит от 20 до 80 долларов</template>
+                                        </category>
+                                
+                                <category>
+                                    <pattern> ^ <regex pattern="ПЕРЕНОС.*" /> ^ </pattern>
+                                    <template>Нет, неиспользованные бесплатные проходы не переносятся на следующий квартал. </template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern=".*КОНЧИЛ.*|.*РАСХОД.*" /> ^ </pattern>
+                                    <template> После того, как бесплатные проходы закончатся, можно продолжать пользоваться вашей картой. Стоимость посещения бизнес-зала будет составлять 27 долларов.</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern=".*ПЛА(Ч|Т).*|ПРОХОД.*" /> ^ <regex pattern=".*ПЛА(Ч|Т).*|ПРОХОД.*" /> ^ </pattern>
+                                    <template>Списание платы за проходы осуществляется после того как я получу информацию о посещении бизнес-зала. </template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern=".*ДОЛ(Ж|Г).*" /> ^ </pattern>
+                                    <template> Тогда на вашем счету образуется задолженность перед банком. Если задолженность превысит пять тысяч, то банк может разорвать договор... </template>
+                                </category>
+
+                            <!--MU-->
+                                <category>
+                                    <pattern>*</pattern>
+                                    <template>
+                                        <condition name="flag_MU">
+                                            <li value="unknown">
+                                                <think>
+                                                    <set name="flag_MU">1</set>
+                                                </think>
+                                                <srai>MU001</srai>Если услуга больше Вам не интересна, повторите вопрос.<srai>PRIORITY PASS COND</srai>
+                                            </li>
+                                            <li value="1">
+                                                <think>
+                                                    <set name="flag_MU">unknown</set>
+                                                    <set name="topic">unknown</set>
+                                                </think>
+                                                <sr />
+                                            </li>
+                                        </condition>
+                                    </template>
+                                </category>
+                            </topic>
+                        <!-- управление PP-->
+                            <topic name="priority_pass_manage">
+
+                                <category>
+                                    <pattern>
+                                        PRIORITY PASS MANAGE
+                                    </pattern>
+                                    <template>
+                                        Я могу рассказать Вам,
+                                        как отслеживать количество проходов в бизнес-зал,
+                                        как контролировать объем транзакций,
+                                        как оплатить проходы.
+                                        Что Вам интересно?
+                                    </template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern=".*СЛЕ(Д|Ж).*" /> ^ <regex pattern="ПРОХОД.*" /> ^ </pattern>
+                                    <template> Мы отправим вам уведоление о количестве посещенных бизнес-залов в конце месяца</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="КОНТРОЛ.*" /> ^ </pattern>
+                                    <template> По истечении календарного квартала Банк направит уведомление о выполнении условий  безлимитного использования бизнес-залов</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern=".*ПЛАТ.*" /> ^ <regex pattern="ПРОХОД.*" /></pattern>
+                                    <template> Плата за проходы сверх лимита будет списана Банком со счета указанной вами карты. </template>
+                                </category>
+                            <!--MU-->
+                                <category>
+                                    <pattern>*</pattern>
+                                    <template>
+                                        <condition name="flag_MU">
+                                            <li value="unknown">
+                                                <think>
+                                                    <set name="flag_MU">1</set>
+                                                </think>
+                                                <srai>MU001</srai>Если услуга больше Вам не интересна, повторите вопрос.<srai>PRIORITY PASS MANAGE</srai>
+                                            </li>
+                                            <li value="1">
+                                                <think>
+                                                    <set name="flag_MU">unknown</set>
+                                                    <set name="topic">unknown</set>
+                                                </think>
+                                                <sr />
+                                            </li>
+                                        </condition>
+                                    </template>
+                                </category>
+
+                            </topic>
+
+
 <!--остальное-->
     <category>
         <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="КЛИЕНТ.*" /> ^ СБЕРБАНК ПЕРВЫЙ ^ </pattern>
