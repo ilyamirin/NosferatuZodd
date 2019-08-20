@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<!-- вход в Сбербанк Премьер. -->
+
+    <category>
+        <pattern> ^ <regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ СБЕРБАНК ПРЕМЬЕР ^ </pattern>
+        <template>
+            Это специально разработанный пакет услуг для наших состоятельных клиентов. Хотите услышать о предоставляемых услугах?
+        </template>
+    </category>
+    <!--да\нет-->
+        <category>
+            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+            <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
+            <template><srai>OK001</srai><srai>УСЛУГ СБЕРБАНК ПРЕМЬЕР</srai></template>
+        </category>
+
+        <category>
+            <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+            <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
+            <template><think><set name="topic">unknown</set></think><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+        </category>
+
+        <category>
+            <pattern>*</pattern>
+            <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
+            <template>
+                <condition name="flag_MU">
+                    <li value="unknown">
+                        <think>
+                            <set name="flag_MU">1</set>
+                        </think>
+                        <srai>YN001</srai>. Если Вам не интересно, повторите вопрос. Хотите услышать о предоставляемых услугах?
+                    </li>
+                    <li value="1">
+                        <think>
+                            <set name="flag_MU">unknown</set>
+                            <set name="topic">unknown</set>
+                        </think>
+                        <sr />
+                    </li>
+                </condition>
+            </template>
+        </category>
+
+<!-- услуги Сбербанк Премьер-->
+    <category>
+        <pattern> ^ <regex pattern="УСЛУГ.*|БОНУС.*" /> ^ СБЕРБАНК ПРЕМЬЕР ^</pattern>
+        <template>
+            В пакет услуг входят особые карты, вклады, выгодный
+            обмен валюты, перональная сейфововая ячейка, страхование и партнёрские услуги.   
+            О чём хотите узнать? <think><set name="topic">sbpr_theme_choice</set></think>
+        </template>
+    </category>
+        <topic name="sbpr_theme_choice">
+            <category>
+                <pattern> ^ ВСЕ ^ </pattern>
+                <template> Не многовато? Давайте остановимся на чём-нибудь одном. <srai>УСЛУГ СБЕРБАНК ПРЕМЬЕР</srai></template>
+            </category>
+
+    <!--карты -->
+            <category>
+                <pattern> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+                <template>В пакете Сбербанк премьер есть две элитные карты: одна с MASTERCARD, вторая с VISA. Я думаю, Вас порадуют условия для держателей карт: 
+                    бесплатное обслуживание, бесплатный перевыпуск, выдача любой суммы без комиссии, где бы то ни было. Оформляем?
+                </template>
+            </category>
+
+        
+        <!--вклады сделал по структуре первого, там немного другие условия -->
+            <category>
+                <pattern> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                <template>Для клиентов сбербанк прьемьер доступны вклады особый сохраняй, особый пополняй, особый управляй. Хотите узнать о вкладах больше?</template>
+            </category>
+                <category>
+                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                    <that> ХОТИТЕ УЗНАТЬ О ВКЛАДАХ БОЛЬШЕ </that>
+                    <template><think><set name = "topic">sbpr_card_vklad</set></think><srai>OK001</srai><srai>DIALOG2 DEPOSITS</srai></template>
+                </category>
+                <category>
+                    <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                    <that> ХОТИТЕ УЗНАТЬ О ВКЛАДАХ БОЛЬШЕ </that>
+                    <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+                </category>
+                <category>
+                    <pattern>*</pattern>
+                    <that> ХОТИТЕ УЗНАТЬ О ВКЛАДАХ БОЛЬШЕ </that>
+                    <template>
+                        <condition name="flag_MU">
+                            <li value="unknown">
+                                <think>
+                                    <set name="flag_MU">1</set>
+                                </think>
+                                <srai>YN001</srai>Если вклады Вам не интересны, повторите вопрос. Рассказать о вкладах?
+                            </li>
+                            <li value="1">
+                                <think>
+                                    <set name="flag_MU">unknown</set>
+                                    <set name="topic">unknown</set>
+                                </think>
+                                <sr />
+                            </li>
+                        </condition>
+                    </template>
+                </category>
+
+        <!--валюта-->
+        <!-- здесь как раз можно было прикрутить механизм представления актуального курса для премьер клиентов
+        например, он есь здесь: https://www.sberbank.ru/ru/quotes/currenciespremier -->
+            <category>
+                <pattern> ^ <regex pattern="ОБМЕН.*|ВАЛЮТ.*" /> ^ </pattern>
+                <template> Для клиентов Сбербанк Премьер обмен валюты производится по специальному курсу
+                  разница с биржевым  составляет 25 копеек. В пользу клиента, конечно.</template>
+            </category>
+            <category>
+                <pattern> ^ <regex pattern="КАК(УЮ|ИЕ|АЯ)" /> <regex pattern="ВАЛЮТ.*" /> ^ </pattern>
+                <template>В отделениях Сбербанка вы можете обменять американские и канадские доллары, евро, английские фунты, йены, швейцарские франки, юани, чешские и норвежские кроны, казахстанский тенгэ.</template>
+            </category>
+        <!--сейфовая ячейка-->
+         <category>
+                <pattern> ^ <regex pattern="СЕЙФ.*|ЯЧЕЙК.*"/> ^ </pattern>
+                <template>сбербанк предоставляет своим клиентам индивидуальные банковские сейфы 
+                для надежного хранения ценностей и документов со скидкой в 20 %. Рассказать о сейфе? </template>     
+        </category>
+        ategory>
+                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                    <that> РАССКАЗАТЬ О СЕЙФЕ </that>
+                    <template><think><set name = "topic">sbpr_vault</set></think><srai>OK001</srai><srai>DIALOG2 VAULT</srai></template>
+                </category>
+                <category>
+                    <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                    <that> РАССКАЗАТЬ О СЕЙФЕ </that>
+                    <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+                </category>
+                <category>
+                    <pattern>*</pattern>
+                    <that> РАССКАЗАТЬ О СЕЙФЕ </that>
+                    <template>
+                        <condition name="flag_MU">
+                            <li value="unknown">
+                                <think>
+                                    <set name="flag_MU">1</set>
+                                </think>
+                                <srai>YN001</srai>Если услуга сейф вам не интересна, повторите вопрос. Рассказать о сейфе?
+                            </li>
+                            <li value="1">
+                                <think>
+                                    <set name="flag_MU">unknown</set>
+                                    <set name="topic">unknown</set>
+                                </think>
+                                <sr />
+                            </li>
+                        </condition>
+                    </template>
+                </category>
+        </topic>
+        
+
+        <!--Партнерские услуги-->
+            <category>
+                <pattern> ^ <regex pattern="ПАРТНЕР.*" /> ^ <regex pattern="УСЛУГ.*" /> ^ </pattern>
+                <template><srai>OK001</srai> Партнёрские услуги, которые предоставляет сбербанк,- это медицинские услуги, личный юрист и приорити пасс. Хотите узнать о партнерских услугах поподробнее? </template>
+            </category>
+                <category>
+                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                    <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОПОДРОБНЕЕ </that>
+                    <template><think><set name = "topic">sbpr_partners_services</set></think><srai>OK001</srai><srai>DIALOG2 PARTNER</srai></template>
+                </category>
+                <category>
+                    <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                    <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОПОДРОБНЕЕ </that>
+                    <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+                </category>
+                <category>
+                    <pattern>*</pattern>
+                    <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОПОДРОБНЕЕ </that>
+                    <template>
+                        <condition name="flag_MU">
+                            <li value="unknown">
+                                <think>
+                                    <set name="flag_MU">1</set>
+                                </think>
+                                <srai>YN001</srai>Если подробности Вам не интересны, повторите вопрос. Хотите узнать о партнерских услугах поподробнее?
+                            </li>
+                            <li value="1">
+                                <think>
+                                    <set name="flag_MU">unknown</set>
+                                    <set name="topic">unknown</set>
+                                </think>
+                                <sr />
+                            </li>
+                        </condition>
+                    </template>
+                </category>
+
+        <!--не понятно-->
+            <category>
+                <pattern>*</pattern>
+                <template>
+                    <condition name="flag_MU">
+                        <li value="unknown">
+                            <think>
+                                <set name="flag_MU">1</set>
+                            </think>
+                            <srai>MU001</srai><srai>РАССКАЖИ ОБ УСЛУГАХ СБЕРБАНК ПРЕМЬЕР</srai>
+                        </li>
+                        <li value="1">
+                            <think>
+                                <set name="flag_MU">unknown</set>
+                                <set name="topic">unknown</set>
+                            </think>
+                            <sr />
+                        </li>
+                    </condition>
+                </template>
+            </category>
+
+            
+            <!--вклад-->
+                <topic name="sbpr_card_vklad">
+
+                    <category>
+                        <pattern>DIALOG1 DEPOSITS</pattern>
+                        <template>О каком именно вкладе Вам рассказать? Особый Сохраняй, Особый Пополняй, Особый Управляй</template>
+                    </category>
+
+                    <category>
+                        <pattern> ^ <regex pattern="СОХРАН.*" /> ^ </pattern>
+                        <template>
+                           Минимальная сумма вклада 700 000 рублей, 50 000 долларов. 
+                           Минимальный процент по данному вкладу в рублях 4,20%. Максимальный 5,65% 
+                            Могу рассказать про валюту вклада, снятие денег и пополнение вклада.
+                            <think><set name = "topic">sbpr_card_vklad_lsohranyai</set></think>
+                        </template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ </pattern>
+                        <template>
+                            Минимальная сумма вклада 700 000 рублей, 50 000 долларов. 
+                            Минимальный процент по данному вкладу в рублях 4,75%. Максимальный 5,20%.
+                            Могу рассказать про валюту вклада, снятие денег и пополнение вклада.
+                            <think><set name = "topic">sbpr_card_vklad_lpopolnyai</set></think>
+                        </template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="УПРАВЛ.*" /> ^ </pattern>
+                        <template>
+                            Минимальная сумма вклада 700 000 рублей, 50 000 долларов. 
+                            Минимальный процент по данному вкладу в рублях 4,10%. Максимальный 4,90%.
+                            Могу рассказать про валюту вклада, снятие денег и пополнение вклада.
+                            <think><set name = "topic">sbpr_card_vklad_luprvlyai</set></think>
+                        </template>
+                    </category>
+
+                    <category>
+                        <pattern>*</pattern>
+                        <template>
+                            <condition name="flag_MU">
+                                <li value="unknown">
+                                    <think>
+                                        <set name="flag_MU">1</set>
+                                    </think>
+                                    <srai>MU001</srai><srai>DIALOG1 DEPOSITS</srai> Если вклады Вам не интересны, повторите вопрос.
+                                </li>
+                                <li value="1">
+                                    <think>
+                                        <set name="flag_MU">unknown</set>
+                                        <set name="topic">unknown</set>
+                                    </think>
+                                    <sr />
+                                </li>
+                            </condition>
+                        </template>
+                    </category>
+                </topic>
+
+                <!-- вклад особый сохраняй отличается от первый -->
+                    <topic name="sbpr_card_vklad_lsohranyai">
+                        <category>
+                            <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>Валюта вклада рубли и доллары. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <template>На этом вкладе такая опция не предусмотрена. Оформляем?</template>
+                        </category>
+                        
+                        <category>
+                            <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>Этот вклад пополнть нельзя. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
+                            <template><srai>ПОПОЛН ВКЛАД</srai></template>
+                        </category>
+
+                        <category>
+                            <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
+                            <template>Срок вклада особый сохраняй от 1 месяца до 3 лет включительно. Оформляем?</template>
+                        </category>
+
+                        <category>
+                            <pattern>*</pattern>
+                            <template>
+                                <condition name="flag_MU">
+                                    <li value="unknown">
+                                        <think>
+                                            <set name="flag_MU">1</set>
+                                        </think>
+                                        <srai>MU001</srai>Могу рассказать про валюту вклада, снятие денег и пополнение вклада. Если вклад Вам не интересен, повторите вопрос.
+                                    </li>
+                                    <li value="1">
+                                        <think>
+                                            <set name="flag_MU">unknown</set>
+                                            <set name="topic">unknown</set>
+                                        </think>
+                                        <sr />
+                                    </li>
+                                </condition>
+                            </template>
+                        </category>
+
+                    </topic>
+                <!--вклад особый поплняй-->
+                    <topic name="sbpr_card_vklad_lpopolnyai">
+                        <category>
+                            <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>Валюта вклада рубли и доллары. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="СНЯТ.*|СНИМ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <template>Пополнение данного вклада не предусмотрено. Оформляем?</template>
+                        </category>
+
+                        <category>
+                            <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>Да, вы можете пополнять вклад, процентная ставка увеличивается автоматически. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
+                            <template><srai>ПОПОЛН ВКЛАД</srai></template>
+                        </category>
+
+                        <category>
+                            <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
+                            <template>Срок вклада особый пополняй от 3 месяцев до 3 лет. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern>*</pattern>
+                            <template>
+                                <condition name="flag_MU">
+                                    <li value="unknown">
+                                        <think>
+                                            <set name="flag_MU">1</set>
+                                        </think>
+                                        <srai>MU001</srai>Могу рассказать про валюту вклада, снятие денег и пополнение вклада. Если вклад Вам не интересен, повторите вопрос.
+                                    </li>
+                                    <li value="1">
+                                        <think>
+                                            <set name="flag_MU">unknown</set>
+                                            <set name="topic">unknown</set>
+                                        </think>
+                                        <sr />
+                                    </li>
+                                </condition>
+                            </template>
+                        </category>
+                    </topic>
+                <!--вклад особый управляй-->
+                    <topic name="sbpr_card_vklad_luprvlyai">
+                        <category>
+                            <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>Валюта вклада рубли и доллары. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <template>Да,вы можете снять деньги до уровня неснижаемого остатка. Оформляем?</template>
+                        </category>
+
+                        <category>
+                            <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+                            <template>Да, вы можете пополнять вклад, процентная ставка увеличивается автоматически. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
+                            <template><srai>ПОПОЛН ВКЛАД</srai></template>
+                        </category>
+
+                        <category>
+                            <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
+                            <template>Срок вклада особый управляй от 3 месяцев до 3 лет. Оформляем?</template>
+                        </category>
+                        <category>
+                            <pattern>*</pattern>
+                            <template>
+                                <condition name="flag_MU">
+                                    <li value="unknown">
+                                        <think>
+                                            <set name="flag_MU">1</set>
+                                        </think>
+                                        <srai>MU001</srai>Могу рассказать про валюту вклада, снятие денег и пополнение вклада. Если вклад Вам не интересен, повторите вопрос.
+                                    </li>
+                                    <li value="1">
+                                        <think>
+                                            <set name="flag_MU">unknown</set>
+                                            <set name="topic">unknown</set>
+                                        </think>
+                                        <sr />
+                                    </li>
+                                </condition>
+                            </template>
+                        </category>
+                    </topic>
+
+
+            <!-- сейф -->
+                <topic name="sbpr_vault">
+                    <category>
+                        <pattern>DIALOG2 VAULT</pattern>
+                        <template>
+                            Я могу рассказать о том, что можно хранить в сейфе, сроках аренды и размерах ячейки
+                        </template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="ЧТО|ХРАН.*" /> ^ <regex pattern="ХРАН.*" /></pattern>
+                        <template>Вы можете хранить драгоценности, наличные деньги, ценные бумаги, монеты 
+                        и слитки, важные документы и даже личную переписку</template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="СКОЛЬКО|СРОК.*" /> ^  </pattern>
+                        <template>Вы можете выбрать срок от одного дня до трех лет.  С возможностью продления! </template>
+                    </category>
+
+                    <category>
+                        <pattern> ^ <regex pattern="РАЗМЕР.*" /> ^ </pattern>
+                        <template>
+                             Вы можете выбрпть размер ячейки от 31 до 62 сантиметров, высота от 4 до 60 сантиметров. 
+                        </template>
+                    </category>
+                    </topic>
+
+                    
+
+                    
+            <!-- партнерские услуги -->
+                <topic name="sb_1_partners_services">
+                    <category>
+                        <pattern>DIALOG2 PARTNER</pattern>
+                        <template>
+                            Я могу рассказать Вам про  медицинские услуги, личного юриста и приорити пасс.
+                        </template>
+                    </category>
+                <!--медицинские услуги-->
+                    <category>
+                        <pattern> ^ <regex pattern="МЕДИЦИНСК.*" /> ^ </pattern>
+                        <template>
+                            Пакет медицинских услуг включает телемедицину, 
+                            второе экспертное мнение, а также оплату и организацию лечения при особо опасных заболеваниях. 
+                            Вас интересуют подробности по медицинским услугам?
+                        </template>
+                    </category>
+
+                        <category>
+                            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                            <that> ВАС ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО МЕДИЦИНСКИМ УСЛУГАМ </that>
+                            <template><think><set name = "topic">sbpr_medic_services</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES</srai></template>
+                        </category>
+
+                        <category>
+                            <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                            <that> ВАС ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО МЕДИЦИНСКИМ УСЛУГАМ </that>
+                            <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+                        </category>
+                        <category>
+                            <pattern>*</pattern>
+                            <that> ВАС ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО МЕДИЦИНСКИМ УСЛУГАМ </that>
+                            <template>
+                                <condition name="flag_MU">
+                                    <li value="unknown">
+                                        <think>
+                                            <set name="flag_MU">1</set>
+                                        </think>
+                                        <srai>YN001</srai>Если вклады Вам не интересны, повторите вопрос. Вас интересуют подробности по медицинским услугам?
+                                    </li>
+                                    <li value="1">
+                                        <think>
+                                            <set name="flag_MU">unknown</set>
+                                            <set name="topic">unknown</set>
+                                        </think>
+                                        <sr />
+                                    </li>
+                                </condition>
+                            </template>
+                        </category>
+
+
+                <!--страховка  -->
+                <!-- думаю, надо выносить на уровень основных услуг. Тем более, нам рассказывала оператор, что это 
+                одна из самых востребованных услуг -->
+                    <category>
+                        <pattern> ^ <regex pattern="СТРАХОВ.*" /></pattern>
+                        <template></template>
+                    </category>
+
+                    
+                <!--приорити пасс-->
+                    <category>
+                        <pattern> ^ <regex pattern="ПРИОРИТИ|PRIORITY" /> ^ <regex pattern="ПАСС|PASS" /> ^ </pattern>
+                        <template></template>
+                    </category>
+                
+                <!--юрист-->
+
+                <!--не понятно-->
+                    <category>
+                        <pattern>*</pattern>
+                        <template>
+                            <condition name="flag_MU">
+                                <li value="unknown">
+                                    <think>
+                                        <set name="flag_MU">1</set>
+                                    </think>
+                                    <srai>MU001</srai><srai>DIALOG1 PARTNER</srai>Если партнерские услуги больше Вам не интересны, повторите вопрос.
+                                </li>
+                                <li value="1">
+                                    <think>
+                                        <set name="flag_MU">unknown</set>
+                                        <set name="topic">unknown</set>
+                                    </think>
+                                    <sr />
+                                </li>
+                            </condition>
+                        </template>
+                    </category>
+                </topic>
+                    <!--медицинские услуги -->
+                        <topic name="sb_1_medic_services">
+
+                            <category>
+                                <pattern>DIALOG1 MEDIC SERVICES</pattern>
+                                <template>
+                                    Я могу рассказать Вам подробнее про телемедицину, 
+                                    второе экспертное мнение, а также оплату и организацию лечения при особо опасных заболеваниях.
+                                </template>
+                            </category>
+
+                            <category>
+                                <pattern> ^ <regex pattern="ТЕЛЕ.*" /> ^ </pattern>
+                                <template>
+                                    Вы можете получить онлайн-консультацию врача-терапевта 
+                                    для Вас и вашей семьи в любое время или получить плановые онлайн-консультации узкопрофильных  специалистов. 
+                                    Интересуют подробности по телемедицине?
+                                </template>
+                            </category>
+                            <!-- YN tele -->
+                                <category>
+                                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО ТЕЛЕМЕДИЦИНЕ </that>
+                                    <template><think><set name = "topic">sb_1card_medic_services_tvmed</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES TELE</srai></template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО ТЕЛЕМЕДИЦИНЕ </that>
+                                    <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+                                </category>
+
+                            <category>
+                                <pattern> ^ <regex pattern="ЭКСПЕРТ.*|МНЕНИ*" /> ^ <regex pattern="МНЕНИ.*|ЭКСПЕРТ.*" /> ^ </pattern>
+                                <template> 
+                                    Если у вас есть сомнения по поводу своего диагноза, вы можете получить независимое экспертное мнение. 
+                                    Также услуга включает бесплатные лабораторные исследования стоимостью до тысячи долларов. 
+                                    Кроме того, эксперты могут порекомендовать и организовать лечение в лучших клиниках мира. 
+                                    Интересуют подробности по услуге второе экспертное мнение? 
+                                </template>
+                            </category>
+                                <category>
+                                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО УСЛУГЕ ВТОРОЕ ЭКСПЕРТНОЕ МНЕНИЕ </that>
+                                    <template><think><set name = "topic">sb_1card_medic_expert_opinion</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES EXPERT</srai></template>
+                                </category>
+                                <category>
+                                    <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО УСЛУГЕ ВТОРОЕ ЭКСПЕРТНОЕ МНЕНИЕ </that>
+                                    <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+                                </category>
+
+                            <category>
+                                <pattern> ^ <regex pattern="ОПАСН.*" /> ^ <regex pattern="(ЗА|)БОЛЕВА.*" /> ^ </pattern>
+                                <template> 
+                                    Это программа для оплаты и организации лечения при опасных заболеваниях. Интересуют подробности по программе?  
+                                </template>
+                            </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО ПРОГРАММЕ </that>
+                                    <template><think><set name = "topic">sb_1_medic_dangerous_desease</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES DESEASE</srai></template>
+                                </category>
+                                <category>
+                                    <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО ПРОГРАММЕ </that>
+                                    <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+                                </category>
+
+                            <!--MU med-->
+                                <category>
+                                    <pattern>*</pattern>
+                                    <template>
+                                        <condition name="flag_MU">
+                                            <li value="unknown">
+                                                <think>
+                                                    <set name="flag_MU">1</set>
+                                                </think>
+                                                <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES</srai>Если медицинские услуги больше Вам не интересны, повторите вопрос.
+                                            </li>
+                                            <li value="1">
+                                                <think>
+                                                    <set name="flag_MU">unknown</set>
+                                                    <set name="topic">unknown</set>
+                                                </think>
+                                                <sr />
+                                            </li>
+                                        </condition>
+                                    </template>
+                                </category>
+                        </topic>
+                    <!--телемедицина-->
+                        <topic name="sb_1card_medic_services_tvmed">
+                            <category>
+                                    <pattern>DIALOG1 MEDIC SERVICES TELE</pattern>
+                                    <template>Я могу рассказать Вам, сколько раз, где и с кем можно проконсультироваться.</template>
+                            </category>
+                            <category>
+                                    <pattern> ^ <regex pattern="СКОЛЬКО|МНОГО|ЧАСТО" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ|УЗНАТЬ|ИСПОЛЬЗ.*|ПОЛЬЗ.*|" /> ^ </pattern>
+                                    <template>Консультации врача- терапевта не ограничены, консультации узкопрофильных специалистов доступны 4 раза в год. </template>
+                            </category>
+                            <category>
+                                    <pattern> ^ <regex pattern="ГДЕ|КАК.*" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ" /> ^ </pattern>
+                                    <template>Зарегистрируйтесь на сайте DocDoс. При регистрации укажите номер мобильного телефона, который вы сообщили в Банк. Услуги телемедицины доступны на 7 день после оформления премиального пакета услуг.</template>
+                            </category>
+                            <category>
+                                    <pattern> ^ <regex pattern="ХОЧ.*|НУЖ.*|МО(Ж|Г).*|КАК(ОЙ|ИЕ|ОГО|ИХ|ИМ)" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ|УЗНАТЬ|ИСПОЛЬЗ.*|ПОЛЬЗ.*|ПОГОВОР.*|ОБЩ.*" /></pattern>
+                                    <template>Вы можете получить онлайн-консультацию врача-терапевта в любое время и консультацию узкопрофильных специалистов по записи.</template>
+                            </category>
+                        <!--MU-->
+                            <category>
+                                <pattern>*</pattern>
+                                <template>
+                                    <condition name="flag_MU">
+                                        <li value="unknown">
+                                            <think>
+                                                <set name="flag_MU">1</set>
+                                            </think>
+                                            <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES TELE</srai>Если медицинская услуга больше Вам не интересны, повторите вопрос.
+                                        </li>
+                                        <li value="1">
+                                            <think>
+                                                <set name="flag_MU">unknown</set>
+                                                <set name="topic">unknown</set>
+                                            </think>
+                                            <sr />
+                                        </li>
+                                    </condition>
+                                </template>
+                            </category>
+                        </topic>
+                    <!--второе экспертное мнение-->
+                        <topic name="sb_1card_medic_expert_opinion">
+                            <category>
+                                    <pattern>DIALOG1 MEDIC SERVICES EXPERT</pattern>
+                                    <template>Я могу рассказать Вам, сколько раз предоставляется данная услуга и какие врачи консультируют.</template>
+                            </category>
+                            <category>
+                                    <pattern> ^ СКОЛЬКО ^ </pattern>
+                                    <template>Данная возможность предоставляется 2 раза в год на семью. </template>
+                            </category> 
+
+                            <category>
+                                    <pattern> ^ <regex pattern="ВРАЧ.*|ДОКТОР.*" /> ^ </pattern>
+                                    <template>Вы можете получить онлайн-консультацию врача-терапевта, невролога, нефролога, онколога, эндокринолога, офтальмолога, пульмунолога, ортопеда.</template>   
+                            </category>
+                        <!--MU-->
+                            <category>
+                                <pattern>*</pattern>
+                                <template>
+                                    <condition name="flag_MU">
+                                        <li value="unknown">
+                                            <think>
+                                                <set name="flag_MU">1</set>
+                                            </think>
+                                            <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES EXPERT</srai>Если услуга больше Вам не интересна, повторите вопрос.
+                                        </li>
+                                        <li value="1">
+                                            <think>
+                                                <set name="flag_MU">unknown</set>
+                                                <set name="topic">unknown</set>
+                                            </think>
+                                            <sr />
+                                        </li>
+                                    </condition>
+                                </template>
+                            </category>
+                        </topic>
+                    <!--опасные заболевания-->
+                        <topic name="sb_1_medic_dangerous_desease">
+                            <category>
+                                    <pattern>DIALOG1 MEDIC SERVICES DESEASE</pattern>
+                                    <template>Я могу рассказать Вам про программы "лечение для детей" и "лечение для взрослых"</template>
+                            </category>
+                            <category>
+                                    <pattern> ^ <regex pattern="ДЕТ.*" /> ^ </pattern>
+                                    <template>
+                                        Это программа для детей, больных раком. 
+                                        Она включает лечение заболевания, поиск донора и трансплантацию костного мозга, 
+                                        а также возмещение расходов по транспортировке и проживанию.
+                                        Вам нужно лишь обратиться в страховую компанию. 
+                                        Я могу рассказать Вам, где происходит лечение и какую сумму покрывает страхование. Про что Вы хотите спросить?
+                                    </template>
+                            </category>
+                                <category>
+                                        <pattern> ^ ГДЕ ^ <regex pattern="ЛЕЧ.*" /> ^ </pattern>
+                                        <that> ПРО ЧТО ВЫ ХОТИТЕ СПРОСИТЬ </that>
+                                        <template> 
+                                            Лечение онкологического заболевания в ведущих клиниках России. 
+                                            Организация проведения трансплантации костного мозга на территории Европы (за исключением Швейцарии), Израиля, Южной Кореи, России. 
+                                        </template>
+                                </category>      
+                                    <category>
+                                        <that> ПРО ЧТО ВЫ ХОТИТЕ СПРОСИТЬ </that>
+                                        <pattern> ^ <regex pattern="СКОЛЬКО|КАК.*" /> ^ <regex pattern="СТОИТ|ЛЕЧ.*|СТРАХ.*" /> ^ </pattern>
+                                        <template> Страховая сумма составляет шесть миллионов рублей. Лимит возобновляется ежегодно. </template>
+                                </category>
+
+                            <category>
+                                    <pattern> ^ <regex pattern="ВЗРОСЛ.*" /> ^ </pattern>
+                                    <template> 
+                                        Вы оплачиваете ежегодный страховой взнос, если у вас не находят заболевание, то сумма компенсируется через программу "Дожитие". 
+                                        Если у вас обнаружили заболевание, то лечение будет оплачено страховкой.
+                                        Я могу рассказать Вам, где происходит лечение и сколько стоит страхование.
+                                        Про что Вы спросите?
+                                    </template>    
+                            </category>
+                                <category>
+                                        <pattern> ^ ГДЕ ^ <regex pattern="ЛЕЧ.*" /> ^ </pattern>
+                                        <that> ПРО ЧТО ВЫ СПРОСИТЕ </that>
+                                        <template> 
+                                            Лечение онкологического заболевания в ведущих клиниках России. 
+                                            Организация проведения трансплантации костного мозга на территории Европы (за исключением Швейцарии), Израиля, Южной Кореи, России. 
+                                        </template>
+                                </category>      
+                                    <category>
+                                        <that> ПРО ЧТО ВЫ СПРОСИТЕ </that>
+                                        <pattern> ^ <regex pattern="СКОЛЬКО|КАК.*" /> ^ <regex pattern="СТОИТ|ЛЕЧ.*|СТРАХ.*" /> ^ </pattern>
+                                        <template> Страховая сумма составляет шесть миллионов рублей. Лимит возобновляется ежегодно. </template>
+                                </category>    
+                        </topic>
+<!--остальное-->
+    <category>
+        <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="КЛИЕНТ.*" /> ^ ПРЕМЬЕР ^ </pattern>
+        <template>
+            Услуги Премьер подключаются автоматически, если на васших счетах хранится болше двух миллионов рублей, 
+            вы инвестировали более 500 тысяч рублей, а также, если ваша зарплата достигает двухсот тысяч рублей в месяц. 
+        </template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ОТЛИЧ.*" /> ^ <regex pattern="ПРЕМИУМ.*" /> ^ </pattern>
+        <template>
+        Для клиентов сбербанк первый мы предоставляем сервис высочайшего уровня, 
+        возможность приобрести банковские продукты на выгоднях условиях, специальные условия и 
+        программы страхования, возможность открытия депозитов под более высокий процент, получение премиальных пластиковых карт, 
+        получение карты priority pass.
+        </template>
+    </category>
+     <category>
+            <pattern> ^ <regex pattern="ЛЬГОТ.*" /> ^ </pattern>
+            <template>Как раз сейчас вы можете получить льготный период использования пакета услуг премьер сроком на два месяца. Оформляем?</template>
+    <category>
+        <pattern> ^ <regex pattern="ДОСТУП.*" /> ^ <regex pattern="ПРЕМИАЛЬН.*" /> ^ БЕЗ СБЕРБАНК ПРЕМЬЕР^ </pattern>
+        <template>Тогда вас ждёт  ежемесячная плата в размере 2500 рублей</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern=".*СОВЕТ.*|ВКЛАД.*" /> ^ <regex pattern=".*СОВЕТ.*|ВКЛАД.*" /> ^ </pattern>
+        <template>Конечно, особый управляй! Вы можете пополнять вклад, процентная ставка будет увеличиваться. А если срочно понадобятся деньги, можно снять до уровня неснижаемого остатка. Вот так!</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|БОНУС.*"/> ^ </pattern>
+        <template><think><set name="topic">sbpr_theme_choice</set></think><srai><input/></srai></template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ПОЛУЧ.*|ВОЙТ.*" /> ^ ПРЕМЬЕР ^</pattern>
+        <template>Вы можете подать заявку на оформление услуги онлайн. Далее с вами свяжется наш оператор и проинструктирует о дальнейших шагах. Оформляем?</template>
+    </category>
+    <category>
+         <pattern> ^ <regex pattern="УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="БОНУС*" />  ^ </pattern>
+            <template>
+                Получив статус премьер в нашем банке, вы также получите карту с большими бонусами! 
+                На эту карту будет больше начисляться бонусов Спасибо, и поэтому вы будете больше экономить. Оформляем?
+            </template>
+    </category>
+    
+</aiml>

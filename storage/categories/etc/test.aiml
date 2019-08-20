@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<!-- вход в Сбербанк Премьер. -->
+
+    <category>
+        <pattern> ^ <regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ СБЕРБАНК ПРЕМЬЕР ^ </pattern>
+        <template>
+            Это специально разработанный пакет услуг для наших состоятельных клиентов. Хотите услышать о предоставляемых услугах?
+        </template>
+    </category>
+
+    <!--да\нет-->
+
+        <category>
+            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+            <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
+            <template><srai>OK001</srai><srai>УСЛУГ СБЕРБАНК ПРЕМЬЕР</srai></template>
+        </category>
+
+        <category>
+            <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+            <that>ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ</that>
+            <template><think><set name="topic">unknown</set></think><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+        </category>
+
+        <category>
+            <pattern>*</pattern>
+            <that>ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ</that>
+            <template>
+                <condition name="flag_MU">
+                    <li value="unknown">
+                        <think>
+                            <set name="flag_MU">1</set>
+                        </think>
+                        <srai>YN001</srai>. Если Вам не интересно, повторите вопрос. Хотите услышать о предоставляемых услугах?
+                    </li>
+                    <li value="1">
+                        <think>
+                            <set name="flag_MU">unknown</set>
+                            <set name="topic">unknown</set>
+                        </think>
+                        <sr />
+                    </li>
+                </condition>
+            </template>
+        </category>
+
+<!-- услуги Сбербанк Премьер-->
+
+    <category>
+        <pattern> ^ <regex pattern="УСЛУГ.*|БОНУС.*" /> ^ СБЕРБАНК ПРЕМЬЕР ^</pattern>
+        <template>
+            В пакет услуг входят особые карты, вклады, выгодный
+            обмен валюты, перональная сейфововая ячейка, страхование и партнёрские услуги.   
+            О чём хотите узнать? <think><set name="topic">sbpr_theme_choice</set></think>
+        </template>
+    </category>
+
+    <topic name="sbpr_theme_choice">
+            <category>
+                <pattern> ^ ВСЕ ^ </pattern>
+                <template> Не многовато? Давайте остановимся на чём-нибудь одном. <srai>УСЛУГ СБЕРБАНК ПРЕМЬЕР</srai></template>
+            </category>
+
+    <!--карты -->
+
+        <category>
+            <pattern> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+            <template>В пакете Сбербанк премьер есть две элитные карты: одна с MASTERCARD, вторая с VISA. Я думаю, Вас порадуют условия для держателей карт: 
+                бесплатное обслуживание, бесплатный перевыпуск, выдача любой суммы без комиссии, где бы то ни было. Оформляем?
+            </template>
+        </category>
+
+        <!--вклады сделал по структуре первого, там немного другие условия -->
+
+        <category>
+            <pattern> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
+            <template>Для клиентов сбербанк прьемьер доступны вклады особый сохраняй, особый пополняй, особый управляй. Хотите узнать о вкладах больше?</template>
+        </category>
+
+            <category>
+                <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                <that> ХОТИТЕ УЗНАТЬ О ВКЛАДАХ БОЛЬШЕ </that>
+                <template><think><set name = "topic">sbpr_card_vklad</set></think><srai>OK001</srai><srai>DIALOG2 DEPOSITS</srai></template>
+            </category>
+
+            <category>
+                <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                <that> ХОТИТЕ УЗНАТЬ О ВКЛАДАХ БОЛЬШЕ </that>
+                <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+            </category>
+
+            <category>
+                <pattern>*</pattern>
+                <that> ХОТИТЕ УЗНАТЬ О ВКЛАДАХ БОЛЬШЕ </that>
+                <template>
+                    <condition name="flag_MU">
+                        <li value="unknown">
+                            <think>
+                                <set name="flag_MU">1</set>
+                            </think>
+                            <srai>YN001</srai>Если вклады Вам не интересны, повторите вопрос. Рассказать о вкладах?
+                        </li>
+                        <li value="1">
+                            <think>
+                                <set name="flag_MU">unknown</set>
+                                <set name="topic">unknown</set>
+                            </think>
+                            <sr />
+                        </li>
+                    </condition>
+                </template>
+            </category>
+
+    <!--валюта-->
+        <!-- здесь как раз можно было прикрутить механизм представления актуального курса для премьер клиентов
+        например, он есь здесь: https://www.sberbank.ru/ru/quotes/currenciespremier -->
+
+        <category>
+            <pattern> ^ <regex pattern="ОБМЕН.*|ВАЛЮТ.*" /> ^ </pattern>
+            <template> Для клиентов Сбербанк Премьер обмен валюты производится по специальному курсу
+                разница с биржевым  составляет 25 копеек. В пользу клиента, конечно.
+            </template>
+        </category>
+
+        <category>
+            <pattern> ^ <regex pattern="КАК(УЮ|ИЕ|АЯ)" /> ^ <regex pattern="ВАЛЮТ.*" /> ^ </pattern>
+            <template>
+                В отделениях Сбербанка вы можете обменять американские и канадские доллары, евро, английские фунты, 
+                йены, швейцарские франки, юани, чешские и норвежские кроны, казахстанский тенгэ.
+            </template>
+        </category>
+
+        <category>
+            <pattern> ^ <regex pattern="СЕЙФ.*|ЯЧЕЙК.*" /> ^ </pattern>
+            <template>
+                сбербанк предоставляет своим клиентам индивидуальные банковские сейфы для надежного хранения ценностей и 
+                документов со скидкой в 20 %. Рассказать о сейфе?
+            </template>     
+        </category>
+
+            <category>
+                <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                <that> РАССКАЗАТЬ О СЕЙФЕ </that>
+                <template>
+                    <think>
+                        <set name="topic">sbpr_vault</set>
+                    </think>
+                    <srai>OK001</srai>
+                    <srai>DIALOG2 VAULT</srai>
+                </template>
+            </category>
+
+    </topic>
+
+        <!-- сейф -->
+
+            <topic name="sbpr_vault">
+
+                <category>
+                    <pattern>DIALOG2 VAULT</pattern>
+                    <template>Я могу рассказать о том, что можно хранить в сейфе, сроках аренды и размерах ячейки</template>
+                </category>
+
+                <category>
+                    <pattern> ^ <regex pattern="ЧТО|ХРАН.*" /> ^ <regex pattern="ХРАН.*" /></pattern>
+                    <template>
+                        Вы можете хранить драгоценности, наличные деньги, ценные бумаги, монеты 
+                        и слитки, важные документы и даже личную переписку
+                    </template>
+                </category>
+
+                <category>
+                    <pattern> ^ <regex pattern="СКОЛЬКО|СРОК.*" /> ^  </pattern>
+                    <template>Вы можете выбрать срок от одного дня до трех лет. С возможностью продления! </template>
+                </category>
+
+                <category>
+                    <pattern> ^ <regex pattern="РАЗМЕР.*" /> ^ </pattern>
+                    <template>Вы можете выбрпть размер ячейки от 31 до 62 сантиметров, высота от 4 до 60 сантиметров.</template>
+                </category>
+                
+            </topic>
+        
+</aiml>
