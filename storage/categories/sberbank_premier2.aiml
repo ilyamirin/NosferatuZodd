@@ -9,7 +9,7 @@
         </template>
     </category>
     <!--да\нет-->
-        <category>
+       <category>
             <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
             <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
             <template><srai>OK001</srai><srai>УСЛУГ СБЕРБАНК ПРЕМЬЕР</srai></template>
@@ -17,13 +17,13 @@
 
         <category>
             <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
-            <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
+            <that>ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ</that>
             <template><think><set name="topic">unknown</set></think><srai>OK001</srai> Чем еще я могу вам помочь?</template>
         </category>
 
         <category>
             <pattern>*</pattern>
-            <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ </that>
+            <that>ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ</that>
             <template>
                 <condition name="flag_MU">
                     <li value="unknown">
@@ -120,9 +120,9 @@
          <category>
                 <pattern> ^ <regex pattern="СЕЙФ.*|ЯЧЕЙК.*"/> ^ </pattern>
                 <template>сбербанк предоставляет своим клиентам индивидуальные банковские сейфы 
-                для надежного хранения ценностей и документов со скидкой в 20 %. Рассказать о сейфе? </template>     
+                для надежного хранения ценностей и документов со скидкой в 20 %. Рассказать о сейфе?</template>     
         </category>
-        ategory>
+                <сategory>
                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                     <that> РАССКАЗАТЬ О СЕЙФЕ </that>
                     <template><think><set name = "topic">sbpr_vault</set></think><srai>OK001</srai><srai>DIALOG2 VAULT</srai></template>
@@ -417,9 +417,7 @@
                 <topic name="sbpr_vault">
                     <category>
                         <pattern>DIALOG2 VAULT</pattern>
-                        <template>
-                            Я могу рассказать о том, что можно хранить в сейфе, сроках аренды и размерах ячейки
-                        </template>
+                        <template>Я могу рассказать о том, что можно хранить в сейфе, сроках аренды и размерах ячейки</template>
                     </category>
                     <category>
                         <pattern> ^ <regex pattern="ЧТО|ХРАН.*" /> ^ <regex pattern="ХРАН.*" /></pattern>
@@ -433,13 +431,9 @@
 
                     <category>
                         <pattern> ^ <regex pattern="РАЗМЕР.*" /> ^ </pattern>
-                        <template>
-                             Вы можете выбрпть размер ячейки от 31 до 62 сантиметров, высота от 4 до 60 сантиметров. 
-                        </template>
+                        <template>Вы можете выбрпть размер ячейки от 31 до 62 сантиметров, высота от 4 до 60 сантиметров.</template>
                     </category>
                     </topic>
-
-                    
 
                     
             <!-- партнерские услуги -->
@@ -509,8 +503,6 @@
                         <template></template>
                     </category>
                 
-                <!--юрист-->
-
                 <!--не понятно-->
                     <category>
                         <pattern>*</pattern>
@@ -534,227 +526,7 @@
                     </category>
                 </topic>
                     <!--медицинские услуги -->
-                        <topic name="sb_1_medic_services">
-
-                            <category>
-                                <pattern>DIALOG1 MEDIC SERVICES</pattern>
-                                <template>
-                                    Я могу рассказать Вам подробнее про телемедицину, 
-                                    второе экспертное мнение, а также оплату и организацию лечения при особо опасных заболеваниях.
-                                </template>
-                            </category>
-
-                            <category>
-                                <pattern> ^ <regex pattern="ТЕЛЕ.*" /> ^ </pattern>
-                                <template>
-                                    Вы можете получить онлайн-консультацию врача-терапевта 
-                                    для Вас и вашей семьи в любое время или получить плановые онлайн-консультации узкопрофильных  специалистов. 
-                                    Интересуют подробности по телемедицине?
-                                </template>
-                            </category>
-                            <!-- YN tele -->
-                                <category>
-                                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
-                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО ТЕЛЕМЕДИЦИНЕ </that>
-                                    <template><think><set name = "topic">sb_1card_medic_services_tvmed</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES TELE</srai></template>
-                                </category>
-
-                                <category>
-                                    <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
-                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО ТЕЛЕМЕДИЦИНЕ </that>
-                                    <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
-                                </category>
-
-                            <category>
-                                <pattern> ^ <regex pattern="ЭКСПЕРТ.*|МНЕНИ*" /> ^ <regex pattern="МНЕНИ.*|ЭКСПЕРТ.*" /> ^ </pattern>
-                                <template> 
-                                    Если у вас есть сомнения по поводу своего диагноза, вы можете получить независимое экспертное мнение. 
-                                    Также услуга включает бесплатные лабораторные исследования стоимостью до тысячи долларов. 
-                                    Кроме того, эксперты могут порекомендовать и организовать лечение в лучших клиниках мира. 
-                                    Интересуют подробности по услуге второе экспертное мнение? 
-                                </template>
-                            </category>
-                                <category>
-                                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
-                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО УСЛУГЕ ВТОРОЕ ЭКСПЕРТНОЕ МНЕНИЕ </that>
-                                    <template><think><set name = "topic">sb_1card_medic_expert_opinion</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES EXPERT</srai></template>
-                                </category>
-                                <category>
-                                    <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
-                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО УСЛУГЕ ВТОРОЕ ЭКСПЕРТНОЕ МНЕНИЕ </that>
-                                    <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
-                                </category>
-
-                            <category>
-                                <pattern> ^ <regex pattern="ОПАСН.*" /> ^ <regex pattern="(ЗА|)БОЛЕВА.*" /> ^ </pattern>
-                                <template> 
-                                    Это программа для оплаты и организации лечения при опасных заболеваниях. Интересуют подробности по программе?  
-                                </template>
-                            </category>
-
-                                <category>
-                                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
-                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО ПРОГРАММЕ </that>
-                                    <template><think><set name = "topic">sb_1_medic_dangerous_desease</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES DESEASE</srai></template>
-                                </category>
-                                <category>
-                                    <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
-                                    <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО ПРОГРАММЕ </that>
-                                    <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
-                                </category>
-
-                            <!--MU med-->
-                                <category>
-                                    <pattern>*</pattern>
-                                    <template>
-                                        <condition name="flag_MU">
-                                            <li value="unknown">
-                                                <think>
-                                                    <set name="flag_MU">1</set>
-                                                </think>
-                                                <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES</srai>Если медицинские услуги больше Вам не интересны, повторите вопрос.
-                                            </li>
-                                            <li value="1">
-                                                <think>
-                                                    <set name="flag_MU">unknown</set>
-                                                    <set name="topic">unknown</set>
-                                                </think>
-                                                <sr />
-                                            </li>
-                                        </condition>
-                                    </template>
-                                </category>
-                        </topic>
-                    <!--телемедицина-->
-                        <topic name="sb_1card_medic_services_tvmed">
-                            <category>
-                                    <pattern>DIALOG1 MEDIC SERVICES TELE</pattern>
-                                    <template>Я могу рассказать Вам, сколько раз, где и с кем можно проконсультироваться.</template>
-                            </category>
-                            <category>
-                                    <pattern> ^ <regex pattern="СКОЛЬКО|МНОГО|ЧАСТО" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ|УЗНАТЬ|ИСПОЛЬЗ.*|ПОЛЬЗ.*|" /> ^ </pattern>
-                                    <template>Консультации врача- терапевта не ограничены, консультации узкопрофильных специалистов доступны 4 раза в год. </template>
-                            </category>
-                            <category>
-                                    <pattern> ^ <regex pattern="ГДЕ|КАК.*" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ" /> ^ </pattern>
-                                    <template>Зарегистрируйтесь на сайте DocDoс. При регистрации укажите номер мобильного телефона, который вы сообщили в Банк. Услуги телемедицины доступны на 7 день после оформления премиального пакета услуг.</template>
-                            </category>
-                            <category>
-                                    <pattern> ^ <regex pattern="ХОЧ.*|НУЖ.*|МО(Ж|Г).*|КАК(ОЙ|ИЕ|ОГО|ИХ|ИМ)" /> ^ <regex pattern="КОНСУЛЬТ.*|ПРОКОНСУЛЬТ.*|СПРОСИТЬ|УЗНАТЬ|ИСПОЛЬЗ.*|ПОЛЬЗ.*|ПОГОВОР.*|ОБЩ.*" /></pattern>
-                                    <template>Вы можете получить онлайн-консультацию врача-терапевта в любое время и консультацию узкопрофильных специалистов по записи.</template>
-                            </category>
-                        <!--MU-->
-                            <category>
-                                <pattern>*</pattern>
-                                <template>
-                                    <condition name="flag_MU">
-                                        <li value="unknown">
-                                            <think>
-                                                <set name="flag_MU">1</set>
-                                            </think>
-                                            <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES TELE</srai>Если медицинская услуга больше Вам не интересны, повторите вопрос.
-                                        </li>
-                                        <li value="1">
-                                            <think>
-                                                <set name="flag_MU">unknown</set>
-                                                <set name="topic">unknown</set>
-                                            </think>
-                                            <sr />
-                                        </li>
-                                    </condition>
-                                </template>
-                            </category>
-                        </topic>
-                    <!--второе экспертное мнение-->
-                        <topic name="sb_1card_medic_expert_opinion">
-                            <category>
-                                    <pattern>DIALOG1 MEDIC SERVICES EXPERT</pattern>
-                                    <template>Я могу рассказать Вам, сколько раз предоставляется данная услуга и какие врачи консультируют.</template>
-                            </category>
-                            <category>
-                                    <pattern> ^ СКОЛЬКО ^ </pattern>
-                                    <template>Данная возможность предоставляется 2 раза в год на семью. </template>
-                            </category> 
-
-                            <category>
-                                    <pattern> ^ <regex pattern="ВРАЧ.*|ДОКТОР.*" /> ^ </pattern>
-                                    <template>Вы можете получить онлайн-консультацию врача-терапевта, невролога, нефролога, онколога, эндокринолога, офтальмолога, пульмунолога, ортопеда.</template>   
-                            </category>
-                        <!--MU-->
-                            <category>
-                                <pattern>*</pattern>
-                                <template>
-                                    <condition name="flag_MU">
-                                        <li value="unknown">
-                                            <think>
-                                                <set name="flag_MU">1</set>
-                                            </think>
-                                            <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES EXPERT</srai>Если услуга больше Вам не интересна, повторите вопрос.
-                                        </li>
-                                        <li value="1">
-                                            <think>
-                                                <set name="flag_MU">unknown</set>
-                                                <set name="topic">unknown</set>
-                                            </think>
-                                            <sr />
-                                        </li>
-                                    </condition>
-                                </template>
-                            </category>
-                        </topic>
-                    <!--опасные заболевания-->
-                        <topic name="sb_1_medic_dangerous_desease">
-                            <category>
-                                    <pattern>DIALOG1 MEDIC SERVICES DESEASE</pattern>
-                                    <template>Я могу рассказать Вам про программы "лечение для детей" и "лечение для взрослых"</template>
-                            </category>
-                            <category>
-                                    <pattern> ^ <regex pattern="ДЕТ.*" /> ^ </pattern>
-                                    <template>
-                                        Это программа для детей, больных раком. 
-                                        Она включает лечение заболевания, поиск донора и трансплантацию костного мозга, 
-                                        а также возмещение расходов по транспортировке и проживанию.
-                                        Вам нужно лишь обратиться в страховую компанию. 
-                                        Я могу рассказать Вам, где происходит лечение и какую сумму покрывает страхование. Про что Вы хотите спросить?
-                                    </template>
-                            </category>
-                                <category>
-                                        <pattern> ^ ГДЕ ^ <regex pattern="ЛЕЧ.*" /> ^ </pattern>
-                                        <that> ПРО ЧТО ВЫ ХОТИТЕ СПРОСИТЬ </that>
-                                        <template> 
-                                            Лечение онкологического заболевания в ведущих клиниках России. 
-                                            Организация проведения трансплантации костного мозга на территории Европы (за исключением Швейцарии), Израиля, Южной Кореи, России. 
-                                        </template>
-                                </category>      
-                                    <category>
-                                        <that> ПРО ЧТО ВЫ ХОТИТЕ СПРОСИТЬ </that>
-                                        <pattern> ^ <regex pattern="СКОЛЬКО|КАК.*" /> ^ <regex pattern="СТОИТ|ЛЕЧ.*|СТРАХ.*" /> ^ </pattern>
-                                        <template> Страховая сумма составляет шесть миллионов рублей. Лимит возобновляется ежегодно. </template>
-                                </category>
-
-                            <category>
-                                    <pattern> ^ <regex pattern="ВЗРОСЛ.*" /> ^ </pattern>
-                                    <template> 
-                                        Вы оплачиваете ежегодный страховой взнос, если у вас не находят заболевание, то сумма компенсируется через программу "Дожитие". 
-                                        Если у вас обнаружили заболевание, то лечение будет оплачено страховкой.
-                                        Я могу рассказать Вам, где происходит лечение и сколько стоит страхование.
-                                        Про что Вы спросите?
-                                    </template>    
-                            </category>
-                                <category>
-                                        <pattern> ^ ГДЕ ^ <regex pattern="ЛЕЧ.*" /> ^ </pattern>
-                                        <that> ПРО ЧТО ВЫ СПРОСИТЕ </that>
-                                        <template> 
-                                            Лечение онкологического заболевания в ведущих клиниках России. 
-                                            Организация проведения трансплантации костного мозга на территории Европы (за исключением Швейцарии), Израиля, Южной Кореи, России. 
-                                        </template>
-                                </category>      
-                                    <category>
-                                        <that> ПРО ЧТО ВЫ СПРОСИТЕ </that>
-                                        <pattern> ^ <regex pattern="СКОЛЬКО|КАК.*" /> ^ <regex pattern="СТОИТ|ЛЕЧ.*|СТРАХ.*" /> ^ </pattern>
-                                        <template> Страховая сумма составляет шесть миллионов рублей. Лимит возобновляется ежегодно. </template>
-                                </category>    
-                        </topic>
+                    
 <!--остальное-->
     <category>
         <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="КЛИЕНТ.*" /> ^ ПРЕМЬЕР ^ </pattern>
@@ -797,6 +569,6 @@
                 Получив статус премьер в нашем банке, вы также получите карту с большими бонусами! 
                 На эту карту будет больше начисляться бонусов Спасибо, и поэтому вы будете больше экономить. Оформляем?
             </template>
-    </category>
-    
+    </category> 
+
 </aiml>
