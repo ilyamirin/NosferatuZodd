@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    <category>
-        <pattern> ^ <regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="ВКЛАД.*"/> ^ </pattern>
-        <template>В сбербанке есть обычные вклады, особые и вклады для премьер-сегмента. О каком Вам рассказать?<think><set name="topic">insurance_выбор_вклада</set></think></template>
-    </category>
 
-        <topic name="insurance_выбор_вклада">
-            <category>
-                <pattern> ^ <regex pattern=".*ОБЫЧН.*|ОБЩ.*"/> ^ </pattern>
-                <template>С удовольствием! <think><set name="topic" >sb_1card_vklad</set></think><srai>DIALOG1 DEPOSITS</srai></template>
-            </category>
-            <category>
-                <pattern> ^ <regex pattern=".*ОСОБ.*"/> ^ </pattern>
-                <template>Особые вклады, это вклады с особыми условиями. Сейчас у нас есть следующие виды особых вкладов: Социальный, Пенсионный плюс, Подари жизнь, но у меня пока нет по ним информации.</template>
-            </category>
-            
-            <category>
-                <pattern> ^ <regex pattern=".*ПРЕМЬЕР.*"/> ^ </pattern>
-                <template>Они доступны только клиентам, которые приобрели пакеты услуг сбербанк Первый или Сбербанк премьер. <think><set name="topic" >sberbank_premier_банковские_продукты</set></think><srai>ВКЛАД</srai></template>
-            </category>
-        </topic>
-        
     <category>
         <pattern> ^ <regex pattern=".*СТРАХОВ.*"/> ^ </pattern>
         <template>
@@ -30,6 +10,7 @@
             </random>
         </template>
     </category>
+    
         <category>
             <pattern> ^ <regex pattern="НЕ.*"/> ^ </pattern>
             <that> ВАС ИНТЕРЕСУЮТ УСЛОВИЯ ПО СТРАХОВАНИЮ </that>
