@@ -37,34 +37,45 @@
     <category>
         <pattern>BASICTHEMES001</pattern>
         <template>
-            Могу рассказать о премиальных пакетах: Сбербанк Первый и Сбербанк Премьер. О чем вам рассказать?
             <think><set name="topic">sberta_package_choise</set></think>
+            <srai>DIALOG1 SBERTA PACKAGE CHOICE</srai>
         </template>
     </category>
 
+
         <topic name="sberta_package_choise">
+
+            <category>
+                <pattern>DIALOG1 SBERTA PACKAGE CHOICE</pattern>
+                <template>
+                    Могу рассказать о премиальных пакетах: Сбербанк Первый и Сбербанк Премьер. О чем вам рассказать?
+                    <think><srai>TOPIC STACK PUSH</srai></think>
+                </template>
+            </category>
+            
             <category>
                 <pattern> ^ <regex pattern="ПЕРВ.*" /> ^ </pattern>
-                <template><think><set name="topic">unknown</set></think><srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
+                <template><srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
             </category>
+
             <category>
                 <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^ </pattern>
-                <template><think><set name="topic">unknown</set></think><srai>ЧТО СБЕРБАНК ПРЕМЬЕР</srai></template>
+                <template><srai>ЧТО СБЕРБАНК ПРЕМЬЕР</srai></template>
             </category>
+
             <category>
                 <pattern> ^ <regex pattern="ЧЕМ|КАК|ГДЕ|КАКАЯ" /> ^ <regex pattern="РАЗЛИЧ(ИЕ|ИЯ|АЮТСЯ)|РАЗНИЦ(А|Ы)|ОТЛИЧ(ИЕ|ИЯ|АЮТСЯ)" /> ^ </pattern>
-                <template>Сбербанк Премьер это <srai>ЧТО СБЕРБАНК ПРЕМЬЕР</srai>, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
+                <template>Сбербанк Премьер <srai>ЧТО СБЕРБАНК ПРЕМЬЕР</srai>, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
             </category>
+
             <category>
                 <pattern> ^ <regex pattern="ВСЕ.?" /> ^ </pattern>
                 <template>Рассказывать много. Давайте начну со Сбербанк Первый. <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
             </category>
-            <category>
-                <pattern>*</pattern>
-                <template><srai>MU001</srai><srai>BASICTHEMES001</srai></template>
-            </category>
+
         </topic>
     
+
     <category>
         <pattern> ^ КАК ^ <regex pattern="ДЕЛА|ЖИЗНЬ|ТЫ|НАСТРОЕНИ.*|ОНО"/> ^ </pattern>
         <template>Спасибо, что интересуетесь! Я оптимистка, поэтому у меня всё хорошо</template>
@@ -80,7 +91,7 @@
 
     <category>
         <pattern> ^ <regex pattern="ТЕБЯ|ТВОЕ|КАК"/><regex pattern="ЗОВУТ|ИМЯ*"/></pattern>
-        <template>Меня зовут Сберта! А вас? <think><set name="topic">unknown</set></think></template>
+        <template>Меня зовут Сберта! А вас?</template>
     </category>
         <category>
             <pattern><regex pattern="МЕНЯ|МОЕ"/><regex pattern="ЗОВУТ|ИМЯ*"/> * </pattern>
@@ -332,9 +343,135 @@
         <pattern>ОТМЕНА</pattern>
         <template><think><set name="topic">unknown</set></think></template>
     </category>
+    
     <category>
-        <pattern>TOPIC</pattern>
+        <pattern>TOPIC GET</pattern>
         <template><get name="topic"/></template>
     </category>
+
+    <category>
+        <pattern>TOPIC SET</pattern>
+        <template>ENTER TOPIC</template>
+    </category>
+        <category>
+            <pattern>*</pattern>
+            <that>ENTER TOPIC</that>
+            <template>
+                <think>
+                    <set name="topic"><input/></set>
+                </think>
+            </template>
+        </category>
+
+    <!--стек LIFO-->
+        <category>
+            <pattern>TOPIC STACK SHOW</pattern>
+            <template>
+                0 = <get name="top_buf_0"/>,
+                1 = <get name="top_buf_1"/>,
+                2 = <get name="top_buf_2"/>,
+                3 = <get name="top_buf_3"/>,
+                4 = <get name="top_buf_4"/>
+            </template>
+        </category>
+    
+        <category>
+            <pattern>TOPIC STACK PUSH</pattern>
+            <template>
+                <think>
+                <condition>
+                    <li name="top_buf_0" value = "unknown"><set name="top_buf_0"><get name="topic"/></set></li>
+                    <li name="top_buf_1" value = "unknown"><set name="top_buf_1"><get name="topic"/></set></li>
+                    <li name="top_buf_2" value = "unknown"><set name="top_buf_2"><get name="topic"/></set></li>
+                    <li name="top_buf_3" value = "unknown"><set name="top_buf_3"><get name="topic"/></set></li>
+                    <li name="top_buf_4" value = "unknown"><set name="top_buf_4"><get name="topic"/></set></li>
+                    <li>
+                        <set name="top_buf_0"><get name="top_buf_1"/></set>
+                        <set name="top_buf_1"><get name="top_buf_2"/></set>
+                        <set name="top_buf_2"><get name="top_buf_3"/></set>
+                        <set name="top_buf_3"><get name="top_buf_4"/></set>
+                        <set name="top_buf_4"><get name="topic"/></set>                    
+                    </li>
+                </condition>
+                </think>
+            </template>
+        </category>
+
+        <category>
+            <pattern>TOPIC STACK POP</pattern>
+            <template><srai>TOPBUFF5</srai></template>
+        </category>
+            <category>
+                <pattern>TOPBUFF5</pattern>
+                <template>
+                    <condition name="top_buf_5">
+                        <li value="unknown"><srai>TOPBUFF4</srai></li>
+                        <li>
+                            <get name="top_buf_5"/>
+                            <think><set name="top_buf_5">unknown</set></think>
+                        </li>
+                    </condition>
+                </template>
+            </category>
+                <category>
+                    <pattern>TOPBUFF4</pattern>
+                    <template>
+                        <condition name="top_buf_4">
+                            <li value="unknown"><srai>TOPBUFF3</srai></li>
+                            <li>
+                                <get name="top_buf_4"/>
+                                <think><set name="top_buf_4">unknown</set></think>
+                            </li>
+                        </condition>
+                    </template>
+                </category>
+                    <category>
+                        <pattern>TOPBUFF3</pattern>
+                        <template>
+                            <condition name="top_buf_3">
+                                <li value="unknown"><srai>TOPBUFF2</srai></li>
+                                <li>
+                                    <get name="top_buf_3"/>
+                                    <think><set name="top_buf_3">unknown</set></think>
+                                </li>
+                            </condition>
+                        </template>
+                    </category>
+                        <category>
+                            <pattern>TOPBUFF2</pattern>
+                            <template>
+                                <condition name="top_buf_2">
+                                    <li value="unknown"><srai>TOPBUFF1</srai></li>
+                                    <li>
+                                        <get name="top_buf_2"/>
+                                        <think><set name="top_buf_2">unknown</set></think>
+                                    </li>
+                                </condition>
+                            </template>
+                        </category>
+                            <category>
+                                <pattern>TOPBUFF1</pattern>
+                                <template>
+                                    <condition name="top_buf_1">
+                                        <li value="unknown"><srai>TOPBUFF0</srai></li>
+                                        <li>
+                                            <get name="top_buf_1"/>
+                                            <think><set name="top_buf_1">unknown</set></think>
+                                        </li>
+                                    </condition>
+                                </template>
+                            </category>
+                                <category>
+                                    <pattern>TOPBUFF0</pattern>
+                                    <template>
+                                        <condition name="top_buf_0">
+                                            <li value="unknown">unknown</li>
+                                            <li>
+                                                <get name="top_buf_0"/>
+                                                <think><set name="top_buf_0">unknown</set></think>
+                                            </li>
+                                        </condition>
+                                    </template>
+                                </category>
 
 </aiml>

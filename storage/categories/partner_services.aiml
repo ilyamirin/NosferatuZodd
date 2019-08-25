@@ -21,7 +21,7 @@
                         <category>
                             <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                             <that> ВАС ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО МЕДИЦИНСКИМ УСЛУГАМ </that>
-                            <template><think><set name = "topic">sb_1_medic_services</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES</srai></template>
+                            <template><think><srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1_medic_services</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES</srai></template>
                         </category>
 
                         <category>
@@ -43,7 +43,7 @@
                                     <li value="1">
                                         <think>
                                             <set name="flag_MU">unknown</set>
-                                            <set name="topic">sb1_theme_choice</set>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                         </think>
                                         <sr />
                                     </li>
@@ -66,7 +66,7 @@
                         <category>
                             <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                             <that>  ВАС ИНТЕРЕСУЮТ УСЛОВИЯ ПО СТРАХОВАНИЮ </that>
-                            <template><think><set name = "topic">sb_1_insurance</set></think><srai>OK001</srai><srai>DIALOG1 INSURANCE</srai></template>
+                            <template><think><srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1_insurance</set></think><srai>OK001</srai><srai>DIALOG1 INSURANCE</srai></template>
                         </category>
 
                         <category>
@@ -88,7 +88,7 @@
                                     <li value="1">
                                         <think>
                                             <set name="flag_MU">unknown</set>
-                                            <set name="topic">unknown</set>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                         </think>
                                         <sr />
                                     </li>
@@ -109,7 +109,7 @@
                         <category>
                             <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                             <that> ХОТИТЕ ПОПОДРОБНЕЕ ПРО PRIORITY PASS </that>
-                            <template><think><set name = "topic">sb_1_priority_pass</set></think><srai>OK001</srai><srai>DIALOG1 PRIORITY PASS</srai></template>
+                            <template><think><srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1_priority_pass</set></think><srai>OK001</srai><srai>DIALOG1 PRIORITY PASS</srai></template>
                         </category>
 
                         <category>
@@ -131,7 +131,7 @@
                                     <li value="1">
                                         <think>
                                             <set name="flag_MU">unknown</set>
-                                            <set name="topic">sb1_theme_choice</set>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                         </think>
                                         <sr />
                                     </li>
@@ -142,21 +142,10 @@
                     <category>
                         <pattern>*</pattern>
                         <template>
-                            <condition name="flag_MU">
-                                <li value="unknown">
-                                    <think>
-                                        <set name="flag_MU">1</set>
-                                    </think>
-                                    <srai>MU001</srai><srai>DIALOG1 PARTNER</srai>Если партнерские услуги больше Вам не интересны, повторите вопрос.
-                                </li>
-                                <li value="1">
-                                    <think>
-                                        <set name="flag_MU">unknown</set>
-                                        <set name="topic">sb1_theme_choice</set>
-                                    </think>
-                                    <sr />
-                                </li>
-                            </condition>
+                            <think>
+                                <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                            </think>
+                            <sr />
                         </template>
                     </category>
                 </topic>
@@ -183,7 +172,8 @@
                                 <pattern> ^ <regex pattern="ДОПОЛНИТ.*"/> ^ </pattern>
                                 <template>
                                     <think>
-                                        <set name = "topic">insurance_extra_options</set>
+                                        <srai>TOPIC STACK PUSH</srai>
+                                        <set name="topic">insurance_extra_options</set>
                                     </think>
                                     <srai>OK001</srai>
                                     <srai>DIALOG1 INSURANCE EXTRA OPTIONS</srai>
@@ -250,21 +240,10 @@
                                 <category>
                                     <pattern>*</pattern>
                                     <template>
-                                        <condition name="flag_MU">
-                                            <li value="unknown">
-                                                <think>
-                                                    <set name="flag_MU">1</set>
-                                                </think>
-                                                <srai>MU001</srai> Если страховка больше Вам не интересна, повторите вопрос. <srai>DIALOG1 INSURANCE</srai>
-                                            </li>
-                                            <li value="1">
-                                                <think>
-                                                    <set name="flag_MU">unknown</set>
-                                                    <set name="topic">sb_1_partners_services</set>
-                                                </think>
-                                                <sr />
-                                            </li>
-                                        </condition>
+                                        <think>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                        </think>
+                                        <sr />
                                     </template>
                                 </category>
                                 
@@ -377,21 +356,10 @@
                                 <category>
                                     <pattern>*</pattern>
                                     <template>
-                                        <condition name="flag_MU">
-                                            <li value="unknown">
-                                                <think>
-                                                    <set name="flag_MU">1</set>
-                                                </think>
-                                                <srai>MU001</srai>Если дополнительные пакеты больше Вам не интересны, повторите вопрос.<srai>DIALOG1 INSURANCE EXTRA OPTIONS</srai>
-                                            </li>
-                                            <li value="1">
-                                                <think>
-                                                    <set name="flag_MU">unknown</set>
-                                                    <set name="topic">sb_1_insurance</set>
-                                                </think>
-                                                <sr />
-                                            </li>
-                                        </condition>
+                                        <think>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                        </think>
+                                        <sr />
                                     </template>
                                 </category>
                             </topic>
@@ -419,7 +387,14 @@
                                 <category>
                                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                                     <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО ТЕЛЕМЕДИЦИНЕ </that>
-                                    <template><think><set name = "topic">sb_1card_medic_services_tvmed</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES TELE</srai></template>
+                                    <template>
+                                        <think>
+                                            <srai>TOPIC STACK PUSH</srai>
+                                            <set name = "topic">sb_1card_medic_services_tvmed</set>
+                                        </think>
+                                        <srai>OK001</srai>
+                                        <srai>DIALOG1 MEDIC SERVICES TELE</srai>
+                                    </template>
                                 </category>
 
                                 <category>
@@ -437,10 +412,18 @@
                                     Интересуют подробности по услуге второе экспертное мнение? 
                                 </template>
                             </category>
+                            <!-- YN expert opinion -->
                                 <category>
                                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                                     <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО УСЛУГЕ ВТОРОЕ ЭКСПЕРТНОЕ МНЕНИЕ </that>
-                                    <template><think><set name = "topic">sb_1card_medic_expert_opinion</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES EXPERT</srai></template>
+                                    <template>
+                                        <think>
+                                            <srai>TOPIC STACK PUSH</srai>
+                                            <set name = "topic">sb_1card_medic_expert_opinion</set>
+                                        </think>
+                                        <srai>OK001</srai>
+                                        <srai>DIALOG1 MEDIC SERVICES EXPERT</srai>
+                                        </template>
                                 </category>
                                 <category>
                                     <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
@@ -454,11 +437,17 @@
                                     Это программа для оплаты и организации лечения при опасных заболеваниях. Интересуют подробности по программе?  
                                 </template>
                             </category>
-
+                            <!-- YN dangerous deseases -->
                                 <category>
                                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                                     <that> ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО ПРОГРАММЕ </that>
-                                    <template><think><set name = "topic">sb_1_medic_dangerous_desease</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES DESEASE</srai></template>
+                                    <template>
+                                        <think>
+                                            <srai>TOPIC STACK PUSH</srai>
+                                            <set name="topic">sb_1_medic_dangerous_desease</set>
+                                        </think>
+                                        <srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES DESEASE</srai>
+                                    </template>
                                 </category>
                                 <category>
                                     <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
@@ -470,21 +459,10 @@
                                 <category>
                                     <pattern>*</pattern>
                                     <template>
-                                        <condition name="flag_MU">
-                                            <li value="unknown">
-                                                <think>
-                                                    <set name="flag_MU">1</set>
-                                                </think>
-                                                <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES</srai>Если медицинские услуги больше Вам не интересны, повторите вопрос.
-                                            </li>
-                                            <li value="1">
-                                                <think>
-                                                    <set name="flag_MU">unknown</set>
-                                                    <set name="topic">sb_1_partners_services</set>
-                                                </think>
-                                                <sr />
-                                            </li>
-                                        </condition>
+                                        <think>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                        </think>
+                                        <sr />
                                     </template>
                                 </category>
                         </topic>
@@ -510,21 +488,10 @@
                                 <category>
                                     <pattern>*</pattern>
                                     <template>
-                                        <condition name="flag_MU">
-                                            <li value="unknown">
-                                                <think>
-                                                    <set name="flag_MU">1</set>
-                                                </think>
-                                                <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES TELE</srai>Если медицинская услуга больше Вам не интересны, повторите вопрос.
-                                            </li>
-                                            <li value="1">
-                                                <think>
-                                                    <set name="flag_MU">unknown</set>
-                                                    <set name="topic">sb_1_medic_services</set>
-                                                </think>
-                                                <sr />
-                                            </li>
-                                        </condition>
+                                        <think>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                        </think>
+                                        <sr />
                                     </template>
                                 </category>
                             </topic>
@@ -547,21 +514,10 @@
                                 <category>
                                     <pattern>*</pattern>
                                     <template>
-                                        <condition name="flag_MU">
-                                            <li value="unknown">
-                                                <think>
-                                                    <set name="flag_MU">1</set>
-                                                </think>
-                                                <srai>MU001</srai><srai>DIALOG1 MEDIC SERVICES EXPERT</srai>Если услуга больше Вам не интересна, повторите вопрос.
-                                            </li>
-                                            <li value="1">
-                                                <think>
-                                                    <set name="flag_MU">unknown</set>
-                                                    <set name="topic">sb_1_medic_services</set>
-                                                </think>
-                                                <sr />
-                                            </li>
-                                        </condition>
+                                        <think>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                        </think>
+                                        <sr />
                                     </template>
                                 </category>
                             </topic>
@@ -621,21 +577,10 @@
                                 <category>
                                     <pattern>*</pattern>
                                     <template>
-                                        <condition name="flag_MU">
-                                            <li value="unknown">
-                                                <think>
-                                                    <set name="flag_MU">1</set>
-                                                </think>
-                                                <srai>MU001</srai>Если медицинская услуга больше Вам не интересна, повторите вопрос.<srai>DIALOG1 MEDIC SERVICES DESEASE</srai>
-                                            </li>
-                                            <li value="1">
-                                                <think>
-                                                    <set name="flag_MU">unknown</set>
-                                                    <set name="topic">sb_1_medic_services</set>
-                                                </think>
-                                                <sr />
-                                            </li>
-                                        </condition>
+                                        <think>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                        </think>
+                                        <sr />
                                     </template>
                                 </category>
 
@@ -655,17 +600,38 @@
 
                             <category>
                                 <pattern> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
-                                <template><srai>OK001</srai><think><set name="topic">priority_pass_cards</set></think><srai>PRIORITY PASS CARDS</srai></template>
+                                <template>
+                                    <think>
+                                        <srai>TOPIC STACK PUSH</srai>
+                                        <set name="topic">priority_pass_cards</set>
+                                    </think>
+                                    <srai>OK001</srai>
+                                    <srai>PRIORITY PASS CARDS</srai>
+                                </template>
                             </category>
 
                             <category>
                                 <pattern> ^ <regex pattern="УСЛОВ.*" /> ^ </pattern>
-                                <template><srai>OK001</srai><think><set name="topic">priority_pass_cond</set></think><srai>PRIORITY PASS COND</srai></template>
+                                <template>
+                                    <think>
+                                        <srai>TOPIC STACK PUSH</srai>
+                                        <set name="topic">priority_pass_cond</set>
+                                    </think>
+                                    <srai>OK001</srai>
+                                    <srai>PRIORITY PASS COND</srai>
+                                </template>
                             </category>
 
                             <category>
                                 <pattern> ^ <regex pattern="УПРАВЛЕН.*" /> ^ </pattern>
-                                <template><srai>OK001</srai><think><set name="topic">priority_pass_manage</set></think><srai>PRIORITY PASS MANAGE</srai></template>
+                                <template>
+                                    <srai>OK001</srai>
+                                    <think>
+                                        <srai>TOPIC STACK PUSH</srai>
+                                        <set name="topic">priority_pass_manage</set>
+                                    </think>
+                                    <srai>PRIORITY PASS MANAGE</srai>
+                                </template>
                             </category>
 
                             <category>
@@ -706,22 +672,10 @@
                                 <category>
                                     <pattern>*</pattern>
                                     <template>
-                                        <condition name="flag_MU">
-                                            <li value="unknown">
-                                                <think>
-                                                    <set name="flag_MU">1</set>
-                                                </think>
-                                                <srai>MU001</srai> Если услуга Priority Pass больше Вам не интересна, повторите вопрос. Я могу рассказать Вам поподробнее про карты Priority Pass, условия предоставления услуги и рассказать, 
-                                    в каких городах действует priority pass и свободны ли бизнес-залы. Про что в Приорити Пасс Вы хотите услышать поподробнее?
-                                            </li>
-                                            <li value="1">
-                                                <think>
-                                                    <set name="flag_MU">unknown</set>
-                                                    <set name="topic">sb_1_partners_services</set>
-                                                </think>
-                                                <sr />
-                                            </li>
-                                        </condition>
+                                        <think>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                        </think>
+                                        <sr />
                                     </template>
                                 </category>
                         </topic>
@@ -744,12 +698,18 @@
 
                                 <category>
                                     <pattern> ^ <regex pattern="ПОЛУЧИТ.*|ОФОРМИТ.*" /> ^ </pattern>
-                                    <template> Для того, чтобы получить карту доступа в бизнес-залы, вам нужно оформить пакет услуг «Сбербанк Премьер» и выпустить премиальную банковскую карту!  </template>
+                                    <template> 
+                                        Для того, чтобы получить карту доступа в бизнес-залы, 
+                                        вам нужно оформить пакет услуг «Сбербанк Премьер» и выпустить премиальную банковскую карту!  
+                                    </template>
                                 </category>
 
                                 <category>
                                     <pattern> ^ <regex pattern="СЕМЬ.*" /> ^ </pattern>
-                                    <template> Карта доступна только основному владельцу пакета услуг «Сбербанк Премьер», однако Вы можете посещать бизнес-залы совместно со своими спутниками</template>
+                                    <template> 
+                                        Карта доступна только основному владельцу пакета услуг «Сбербанк Премьер»,
+                                        однако Вы можете посещать бизнес-залы совместно со своими спутниками
+                                    </template>
                                 </category>
 
                                 <category>
@@ -785,21 +745,10 @@
                                     <category>
                                         <pattern>*</pattern>
                                         <template>
-                                            <condition name="flag_MU">
-                                                <li value="unknown">
-                                                    <think>
-                                                        <set name="flag_MU">1</set>
-                                                    </think>
-                                                    <srai>MU001</srai>Если услуга больше Вам не интересна, повторите вопрос.<srai>PRIORITY PASS CARDS</srai>
-                                                </li>
-                                                <li value="1">
-                                                    <think>
-                                                        <set name="flag_MU">unknown</set>
-                                                        <set name="topic">sb_1_priority_pass</set>
-                                                    </think>
-                                                    <sr />
-                                                </li>
-                                            </condition>
+                                            <think>
+                                                <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                            </think>
+                                            <sr />
                                         </template>
                                     </category>
                             </topic>
@@ -824,7 +773,9 @@
 
                                 <category>
                                     <pattern> ^ <regex pattern="ПЕРИОД|КОГДА" /> ^ <regex pattern=".*ПОЛЬЗОВ.*|ПРОХОД.*" /> ^ </pattern>
-                                    <template>Воспользоваться восмью бесплатными проходами можно в течение календарного квартала. С наступлением нового календарного квартала бесплатные проходы возобновляются!</template>
+                                    <template>
+                                        Воспользоваться восмью бесплатными проходами можно в течение календарного квартала. 
+                                        С наступлением нового календарного квартала бесплатные проходы возобновляются!</template>
                                 </category>
 
                                 <category>
@@ -835,7 +786,10 @@
                                         <category>
                                             <pattern> ^ ДА ^ </pattern>
                                             <that> ВЫ ЯВЛЯЕТЕСЬ КЛИЕНТОМ СБЕРБАНК ПРЕМЬЕР ИЛИ СБЕРБАНК ПЕРВЫЙ </that>
-                                            <template>Для владельцев пакета услуг «Сбербанк Премьер» доступно 8 бесплатных посещений бизнес-залов в календарный квартал. В эти бесплатные 8 посещений так же включены проходы гостей.  </template>
+                                            <template>
+                                                Для владельцев пакета услуг «Сбербанк Премьер» доступно 8 
+                                                бесплатных посещений бизнес-залов в календарный квартал. В эти бесплатные 8 посещений так же включены проходы гостей.  
+                                            </template>
                                         </category>
 
                                         <category>
@@ -851,7 +805,10 @@
 
                                 <category>
                                     <pattern> ^ <regex pattern=".*КОНЧИЛ.*|.*РАСХОД.*" /> ^ </pattern>
-                                    <template> После того, как бесплатные проходы закончатся, можно продолжать пользоваться вашей картой. Стоимость посещения бизнес-зала будет составлять 27 долларов.</template>
+                                    <template>
+                                        После того, как бесплатные проходы закончатся, можно продолжать пользоваться вашей картой. 
+                                        Стоимость посещения бизнес-зала будет составлять 27 долларов.
+                                    </template>
                                 </category>
 
                                 <category>
@@ -861,28 +818,20 @@
 
                                 <category>
                                     <pattern> ^ <regex pattern=".*ДОЛ(Ж|Г).*" /> ^ </pattern>
-                                    <template> Тогда на вашем счету образуется задолженность перед банком. Если задолженность превысит пять тысяч, то банк может разорвать договор... </template>
+                                    <template>
+                                        Тогда на вашем счету образуется задолженность перед банком. 
+                                        Если задолженность превысит пять тысяч, то банк может разорвать договор... 
+                                    </template>
                                 </category>
 
                             <!--MU-->
                                 <category>
                                     <pattern>*</pattern>
                                     <template>
-                                        <condition name="flag_MU">
-                                            <li value="unknown">
-                                                <think>
-                                                    <set name="flag_MU">1</set>
-                                                </think>
-                                                <srai>MU001</srai>Если услуга больше Вам не интересна, повторите вопрос.<srai>PRIORITY PASS COND</srai>
-                                            </li>
-                                            <li value="1">
-                                                <think>
-                                                    <set name="flag_MU">unknown</set>
-                                                    <set name="topic">sb_1_priority_pass</set>
-                                                </think>
-                                                <sr />
-                                            </li>
-                                        </condition>
+                                        <think>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                        </think>
+                                        <sr />
                                     </template>
                                 </category>
                             </topic>
@@ -909,7 +858,9 @@
 
                                 <category>
                                     <pattern> ^ <regex pattern="КОНТРОЛ.*" /> ^ </pattern>
-                                    <template> По истечении календарного квартала Банк направит уведомление о выполнении условий  безлимитного использования бизнес-залов</template>
+                                    <template>
+                                        По истечении календарного квартала Банк направит уведомление о выполнении условий 
+                                        безлимитного использования бизнес-залов</template>
                                 </category>
 
                                 <category>
@@ -920,21 +871,10 @@
                                 <category>
                                     <pattern>*</pattern>
                                     <template>
-                                        <condition name="flag_MU">
-                                            <li value="unknown">
-                                                <think>
-                                                    <set name="flag_MU">1</set>
-                                                </think>
-                                                <srai>MU001</srai>Если услуга больше Вам не интересна, повторите вопрос.<srai>PRIORITY PASS MANAGE</srai>
-                                            </li>
-                                            <li value="1">
-                                                <think>
-                                                    <set name="flag_MU">unknown</set>
-                                                    <set name="topic">sb_1_priority_pass</set>
-                                                </think>
-                                                <sr />
-                                            </li>
-                                        </condition>
+                                        <think>
+                                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                        </think>
+                                        <sr />
                                     </template>
                                 </category>
 
