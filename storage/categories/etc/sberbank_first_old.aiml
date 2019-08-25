@@ -234,7 +234,7 @@
                             <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
                         </category>
                         <category>
-                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
                             <template>На данном вкладе такая опция не предусмотрена. Оформляем?</template>
                         </category>
                         
@@ -260,7 +260,7 @@
                             <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
                         </category>
                         <category>
-                            <pattern> ^ <regex pattern="СНЯТ.*|СНИМ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <pattern> ^ <regex pattern="СНЯТ.*|СНИМ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
                             <template>На данном вкладе такая опция не предусмотрена. Оформляем?</template>
                         </category>
 
@@ -286,7 +286,7 @@
                             <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
                         </category>
                         <category>
-                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
                             <template>Да,вы можете снять деньги до уровня неснижаемого остатка. Оформляем?</template>
                         </category>
 
@@ -515,7 +515,7 @@
                     <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
             </category>
             <category>
-                    <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                    <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
                     <template>На данном вкладе такая опция не предусмотрена. Оформляем?</template>
             </category>
                         
@@ -541,7 +541,7 @@
                     <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
             </category>
             <category>
-                    <pattern> ^ <regex pattern="СНЯТ.*|СНИМ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                    <pattern> ^ <regex pattern="СНЯТ.*|СНИМ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
                     <template>На данном вкладе такая опция не предусмотрена. Оформляем?</template>
             </category>
 
@@ -567,7 +567,7 @@
                     <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
             </category>
             <category>
-                    <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                    <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
                     <template>Да,вы можете снять деньги до уровня неснижаемого остатка. Оформляем?</template>
              </category>
 

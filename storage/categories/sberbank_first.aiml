@@ -18,7 +18,7 @@
         <category>
             <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
             <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ В ПАКЕТЕ СБЕРБАНК ПЕРВЫЙ </that>
-            <template><think><set name="topic">unknown</set></think><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+            <template><think><set name="topic"><srai>TOPIC STACK POP</srai></set></think><srai>OK001</srai> Чем еще я могу вам помочь?</template>
         </category>
 
         <category>
@@ -35,7 +35,7 @@
                     <li value="1">
                         <think>
                             <set name="flag_MU">unknown</set>
-                            <set name="topic">unknown</set>
+                            <set name="topic"><srai>TOPIC STACK POP</srai></set>
                         </think>
                         <sr />
                     </li>
@@ -46,9 +46,19 @@
 <!-- услуги Сбербанк Первый-->
     <category>
             <pattern> ^ <regex pattern="УСЛУГ.*" /> ^ СБЕРБАНК ПЕРВЫЙ ^ </pattern>
-            <template>Могу рассказать о кредитах, картах, вкладах, обмене валюты, облигациях и партнёрских услугах. О чём хотите узнать?<think><set name="topic">sb1_theme_choice</set></think></template>
+            <template><think><set name="topic">sb1_theme_choice</set></think><srai>DIALOG1 FIRST THEME CHOICE</srai></template>
     </category>
+
         <topic name="sb1_theme_choice">
+            <category>
+                <pattern>DIALOG1 FIRST THEME CHOICE</pattern>
+                <template>
+                    Могу рассказать о кредитах, картах, вкладах, обмене валюты, 
+                    облигациях и партнёрских услугах. О чём хотите узнать?
+
+                </template>
+            </category>
+                
         <!--карты-->
             <category>
                 <pattern> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
@@ -76,17 +86,15 @@
                     <pattern> ^ БЕЗ ^ <regex pattern="ПОРУЧ.*|" /></pattern>
                     <that>С ПОРУЧИТЕЛЯМИ ИЛИ БЕЗ ПОРУЧИТЕЛЕЙ</that>
                     <template>
-                        Есть премиум потребительский кредит на любые ваши нужды. 
-                        Минимальная сумма 3000000. Я могу рассказать Вам, какая ставка, сколько обрабатывается заявка, и срок кредита.
-                        <think><set name = "topic">sb_1card_credit_bp</set></think></template>
+                        <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb_1card_credit_bp</set></think><srai>SB1 CREDIT WITHOUT GUARANTOR</srai>
+                    </template>
                 </category>
                 <category>
                     <pattern> ^ С <regex pattern="ПОРУЧ.*|"/> ^ </pattern>
                     <that>С ПОРУЧИТЕЛЯМИ ИЛИ БЕЗ ПОРУЧИТЕЛЕЙ</that>
                     <template>
-                        Есть премиум потребительский кредит под поручительство физических лиц. 
-                        Минимальная сумма 5000000. Я могу рассказать Вам, какая ставка, сколько обрабатывается заявка, и срок кредита.
-                        <think><set name = "topic">sb_1card_credit_sp</set></think></template>
+                        <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb_1card_credit_sp</set></think><srai>SB1 CREDIT WITH GUARANTOR</srai>
+                    </template>
                 </category>
 
                 <!--не понятно-->
@@ -94,21 +102,10 @@
                         <pattern>*</pattern>
                         <that>С ПОРУЧИТЕЛЯМИ ИЛИ БЕЗ ПОРУЧИТЕЛЕЙ</that>
                         <template>
-                            <condition name="flag_MU">
-                                <li value="unknown">
-                                    <think>
-                                        <set name="flag_MU">1</set>
-                                    </think>
-                                    <srai>MU001</srai> Не можете определиться? Выбирайте "без поручителей"! Если больше не хотите слушать про кредиты, повторите вопрос
-                                </li>
-                                <li value="1">
-                                    <think>
-                                        <set name="flag_MU">unknown</set>
-                                        <set name="topic">unknown</set>
-                                    </think>
-                                    <sr />
-                                </li>
-                            </condition>
+                            <think>
+                                <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                            </think>
+                            <sr />
                         </template>
                     </category>
         <!--вклады-->
@@ -119,7 +116,7 @@
                 <category>
                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                     <that> РАССКАЗАТЬ О ВКЛАДАХ </that>
-                    <template><think><set name = "topic">sb_1card_vklad</set></think><srai>OK001</srai><srai>DIALOG1 DEPOSITS</srai></template>
+                    <template><think><srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1card_vklad</set></think><srai>OK001</srai><srai>DIALOG1 DEPOSITS</srai></template>
                 </category>
                 <category>
                     <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
@@ -140,7 +137,7 @@
                             <li value="1">
                                 <think>
                                     <set name="flag_MU">unknown</set>
-                                    <set name="topic">unknown</set>
+                                   <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />
                             </li>
@@ -171,7 +168,7 @@
                 <category>
                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                     <that> ХОТИТЕ УЗНАТЬ ОБ ОБЛИГАЦИЯХ ПОПОДРОБНЕЕ </that>
-                    <template><think><set name = "topic">sb_1_obligations</set></think><srai>OK001</srai><srai>DIALOG1 OBLIGATIONS</srai></template>
+                    <template><think><srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1_obligations</set></think><srai>OK001</srai><srai>DIALOG1 OBLIGATIONS</srai></template>
                 </category>
                 <category>
                     <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
@@ -192,7 +189,7 @@
                             <li value="1">
                                 <think>
                                     <set name="flag_MU">unknown</set>
-                                    <set name="topic">unknown</set>
+                                    <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />
                             </li>
@@ -208,7 +205,7 @@
                 <category>
                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                     <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОПОДРОБНЕЕ </that>
-                    <template><think><set name = "topic">sb_1_partners_services</set></think><srai>OK001</srai><srai>DIALOG1 PARTNER</srai></template>
+                    <template><think><srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1_partners_services</set></think><srai>OK001</srai><srai>DIALOG1 PARTNER</srai></template>
                 </category>
                 <category>
                     <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
@@ -229,7 +226,7 @@
                             <li value="1">
                                 <think>
                                     <set name="flag_MU">unknown</set>
-                                    <set name="topic">unknown</set>
+                                    <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />
                             </li>
@@ -241,27 +238,25 @@
             <category>
                 <pattern>*</pattern>
                 <template>
-                    <condition name="flag_MU">
-                        <li value="unknown">
-                            <think>
-                                <set name="flag_MU">1</set>
-                            </think>
-                            <srai>MU001</srai><srai>РАССКАЖИ ОБ УСЛУГАХ СБЕРБАНК ПЕРВЫЙ</srai>
-                        </li>
-                        <li value="1">
-                            <think>
-                                <set name="flag_MU">unknown</set>
-                                <set name="topic">unknown</set>
-                            </think>
-                            <sr />
-                        </li>
-                    </condition>
+                    <think>
+                        <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                    </think>
+                    <sr />
                 </template>
             </category>
 
         </topic>
             <!--кредит без поручителей-->
                 <topic name="sb_1card_credit_bp">
+                    <category>
+                        <pattern>SB1 CREDIT WITHOUT GUARANTOR</pattern>
+                        <template>
+                            Есть премиум потребительский кредит под поручительство физических лиц. 
+                            Минимальная сумма 5000000. 
+                            Я могу рассказать Вам, какая ставка, сколько обрабатывается заявка, и срок кредита.
+                        </template>
+                    </category>
+                    
                     <category>
                         <pattern><regex pattern="СТАВК.*" /></pattern>
                         <template><srai>РАССКАЖИ ПРО СТАВКУ</srai></template>
@@ -291,27 +286,25 @@
                         <category>
                             <pattern>*</pattern>
                             <template>
-                                <condition name="flag_MU">
-                                    <li value="unknown">
-                                        <think>
-                                            <set name="flag_MU">1</set>
-                                        </think>
-                                        <srai>MU001</srai><srai>Я могу рассказать Вам, какая ставка, сколько обрабатывается заявка, и какой срок кредита. Если Вам это неинтересно, повторите вопрос.</srai>
-                                    </li>
-                                    <li value="1">
-                                        <think>
-                                            <set name="flag_MU">unknown</set>
-                                            <set name="topic">sb1_theme_choice</set>
-                                        </think>
-                                        <sr />
-                                    </li>
-                                </condition>
+                                <think>
+                                    <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                </think>
+                                <sr />
                             </template>
                         </category>
                 </topic>
 
             <!--кредит с поручителями-->
                 <topic name="sb_1card_credit_sp">
+                    <category>
+                        <pattern>SB1 CREDIT WITH GUARANTOR</pattern>
+                        <template>
+                            Есть премиум потребительский кредит на любые ваши нужды.
+                            Минимальная сумма 3000000. 
+                            Я могу рассказать Вам, какая ставка, сколько обрабатывается заявка, и срок кредита.
+                        </template>
+                    </category>
+
                     <category>
                         <pattern><regex pattern="СТАВК.*" /></pattern>
                         <template><srai>РАССКАЖИ ПРО СТАВКУ</srai></template>
@@ -341,79 +334,62 @@
                         <category>
                             <pattern>*</pattern>
                             <template>
-                                <condition name="flag_MU">
-                                    <li value="unknown">
-                                        <think>
-                                            <set name="flag_MU">1</set>
-                                        </think>
-                                        <srai>MU001</srai><srai>Я могу рассказать Вам, какая ставка, сколько обрабатывается заявка, и какой срок кредита. Если Вам это неинтересно, повторите вопрос.</srai>
-                                    </li>
-                                    <li value="1">
-                                        <think>
-                                            <set name="flag_MU">unknown</set>
-                                            <set name="topic">sb1_theme_choice</set>
-                                        </think>
-                                        <sr />
-                                    </li>
-                                </condition>
+                                <think>
+                                    <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                </think>
+                                <sr />
                             </template>
                         </category>
 
-                </topic>	
+                </topic>
             <!--вклад-->
                 <topic name="sb_1card_vklad">
 
                     <category>
                         <pattern>DIALOG1 DEPOSITS</pattern>
-                        <template>О каком именно вкладе Вам рассказать? Лидер Сохраняй, Лидер Пополняй, Лидер Управляй</template>
+                        <template>
+                            О каком именно вкладе Вам рассказать? Лидер Сохраняй, Лидер Пополняй, Лидер Управляй
+                        </template>
                     </category>
 
                     <category>
                         <pattern> ^ <regex pattern="СОХРАН.*" /> ^ </pattern>
                         <template>
-                            Минимальная сумма вклада 5000000 рублей, 150000 долларов, 150000 евро. 
-                            Минимальный процент данного вклада в рублях 4,75. Максимальный 6,30. 
-                            Могу рассказать про валюту вклада, снятие денег и пополнение вклада.
-                            <think><set name = "topic">sb_1card_vklad_lsohranyai</set></think>
+                            <think>
+                                <think><srai>TOPIC STACK PUSH</srai></think>
+                                <set name = "topic">sb_1card_vklad_lsohranyai</set>
+                            </think>
+                            <srai>DIALOG1 PREMIER DEPOSIT SOHRANYAI</srai>
                         </template>
                     </category>
                     <category>
                         <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ </pattern>
                         <template>
-                            Минимальная сумма вклада 5000000 рублей, 150000 долларов, 150000 евро. 
-                            Минимальный процент данного вклада в рублях 5,20, а максимальный 5,60. 
-                            Могу рассказать про валюту вклада, снятие денег и пополнение вклада.
-                            <think><set name = "topic">sb_1card_vklad_lpopolnyai</set></think>
+                            <think>
+                                <think><srai>TOPIC STACK PUSH</srai></think>
+                                <set name = "topic">sb_1card_vklad_lpopolnyai</set>
+                            </think>
+                            <srai>DIALOG1 PREMIER DEPOSIT POPOLNYAI</srai>
                         </template>
                     </category>
                     <category>
                         <pattern> ^ <regex pattern="УПРАВЛ.*" /> ^ </pattern>
                         <template>
-                            Минимальная сумма вклада 5000000 рублей, 150000 долларов, 150000 евро. 
-                            Минимальный процент данного вклада в рублях 4,90, а максимальный 4,85. 
-                            Могу рассказать про валюту вклада, снятие денег и пополнение вклада.
-                            <think><set name = "topic">sb_1card_vklad_luprvlyai</set></think>
+                            <think>
+                                <think><srai>TOPIC STACK PUSH</srai></think>
+                                <set name = "topic">sb_1card_vklad_luprvlyai</set>
+                            </think>
+                            <srai>DIALOG1 PREMIER DEPOSIT UPRVLYAI</srai>
                         </template>
                     </category>
 
                     <category>
                         <pattern>*</pattern>
                         <template>
-                            <condition name="flag_MU">
-                                <li value="unknown">
-                                    <think>
-                                        <set name="flag_MU">1</set>
-                                    </think>
-                                    <srai>MU001</srai><srai>DIALOG1 DEPOSITS</srai> Если вклады Вам не интересны, повторите вопрос.
-                                </li>
-                                <li value="1">
-                                    <think>
-                                        <set name="flag_MU">unknown</set>
-                                        <set name="topic">unknown</set>
-                                    </think>
-                                    <sr />
-                                </li>
-                            </condition>
+                            <think>
+                                <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                            </think>
+                            <sr />
                         </template>
                     </category>
                 </topic>
@@ -421,11 +397,19 @@
                 <!-- вклад сохраняй -->
                     <topic name="sb_1card_vklad_lsohranyai">
                         <category>
+                            <pattern>DIALOG1 PREMIER DEPOSIT SOHRANYAI</pattern>
+                            <template>
+                                Минимальная сумма вклада 5000000 рублей, 150000 долларов, 150000 евро. 
+                                Минимальный процент данного вклада в рублях 4,75. Максимальный 6,30. 
+                                Могу рассказать про валюту вклада, снятие денег и пополнение вклада.
+                            </template>
+                        </category>
+                        <category>
                             <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
                             <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
                         </category>
                         <category>
-                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
                             <template>На данном вкладе такая опция не предусмотрена. Оформляем?</template>
                         </category>
                         
@@ -446,21 +430,10 @@
                         <category>
                             <pattern>*</pattern>
                             <template>
-                                <condition name="flag_MU">
-                                    <li value="unknown">
-                                        <think>
-                                            <set name="flag_MU">1</set>
-                                        </think>
-                                        <srai>MU001</srai>Могу рассказать про валюту вклада, снятие денег и пополнение вклада. Если вклад Вам не интересен, повторите вопрос.
-                                    </li>
-                                    <li value="1">
-                                        <think>
-                                            <set name="flag_MU">unknown</set>
-                                            <set name="topic">unknown</set>
-                                        </think>
-                                        <sr />
-                                    </li>
-                                </condition>
+                                <think>
+                                    <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                </think>
+                                <sr />
                             </template>
                         </category>
 
@@ -468,11 +441,19 @@
                 <!--вклад пополняй-->
                     <topic name="sb_1card_vklad_lpopolnyai">
                         <category>
+                            <pattern>DIALOG1 PREMIER DEPOSIT POPOLNYAI</pattern>
+                            <template>
+                                Минимальная сумма вклада 5000000 рублей, 150000 долларов, 150000 евро. 
+                                Минимальный процент данного вклада в рублях 5,20, а максимальный 5,60. 
+                                Могу рассказать про валюту вклада, снятие денег и пополнение вклада.
+                            </template>
+                        </category>
+                        <category>
                             <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
                             <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
                         </category>
                         <category>
-                            <pattern> ^ <regex pattern="СНЯТ.*|СНИМ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <pattern> ^ <regex pattern="СНЯТ.*|СНИМ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
                             <template>На данном вкладе такая опция не предусмотрена. Оформляем?</template>
                         </category>
 
@@ -492,32 +473,29 @@
                         <category>
                             <pattern>*</pattern>
                             <template>
-                                <condition name="flag_MU">
-                                    <li value="unknown">
-                                        <think>
-                                            <set name="flag_MU">1</set>
-                                        </think>
-                                        <srai>MU001</srai>Могу рассказать про валюту вклада, снятие денег и пополнение вклада. Если вклад Вам не интересен, повторите вопрос.
-                                    </li>
-                                    <li value="1">
-                                        <think>
-                                            <set name="flag_MU">unknown</set>
-                                            <set name="topic">unknown</set>
-                                        </think>
-                                        <sr />
-                                    </li>
-                                </condition>
+                                <think>
+                                    <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                </think>
+                                <sr />
                             </template>
                         </category>
                     </topic>
                 <!--вклад управляй-->
                     <topic name="sb_1card_vklad_luprvlyai">
                         <category>
+                            <pattern>DIALOG1 PREMIER DEPOSIT UPRVLYAI</pattern>
+                            <template>
+                                Минимальная сумма вклада 5000000 рублей, 150000 долларов, 150000 евро. 
+                                Минимальный процент данного вклада в рублях 4,90, а максимальный 4,85. 
+                                Могу рассказать про валюту вклада, снятие денег и пополнение вклада.
+                            </template>
+                        </category>
+                        <category>
                             <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
                             <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
                         </category>
                         <category>
-                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕНЬГ.*" /> ^ </pattern>
+                            <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
                             <template>Да,вы можете снять деньги до уровня неснижаемого остатка. Оформляем?</template>
                         </category>
 
@@ -537,21 +515,10 @@
                         <category>
                             <pattern>*</pattern>
                             <template>
-                                <condition name="flag_MU">
-                                    <li value="unknown">
-                                        <think>
-                                            <set name="flag_MU">1</set>
-                                        </think>
-                                        <srai>MU001</srai>Могу рассказать про валюту вклада, снятие денег и пополнение вклада. Если вклад Вам не интересен, повторите вопрос.
-                                    </li>
-                                    <li value="1">
-                                        <think>
-                                            <set name="flag_MU">unknown</set>
-                                            <set name="topic">unknown</set>
-                                        </think>
-                                        <sr />
-                                    </li>
-                                </condition>
+                                <think>
+                                    <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                </think>
+                                <sr />
                             </template>
                         </category>
                     </topic>
@@ -598,21 +565,10 @@
                         <category>
                             <pattern>*</pattern>
                             <template>
-                                <condition name="flag_MU">
-                                    <li value="unknown">
-                                        <think>
-                                            <set name="flag_MU">1</set>
-                                        </think>
-                                        <srai>MU001</srai><srai>DIALOG1 OBLIGATIONS</srai>Если облигации больше Вам не интересны, повторите вопрос.
-                                    </li>
-                                    <li value="1">
-                                        <think>
-                                            <set name="flag_MU">unknown</set>
-                                            <set name="topic">unknown</set>
-                                        </think>
-                                        <sr />
-                                    </li>
-                                </condition>
+                                <think>
+                                    <set name="topic"><srai>TOPIC STACK POP</srai></set>
+                                </think>
+                                <sr />
                             </template>
                         </category>
                 </topic>
