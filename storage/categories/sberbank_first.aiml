@@ -62,8 +62,8 @@
         <!--карты-->
             <category>
                 <pattern> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
-                <template>В пакете Сбербанк первый есть две элитные карты: одна с MASTERCARD, вторая с VISA. Я думаю, Вас порадуют условия для держателей карт: 
-                    бесплатное обслуживание, бесплатный перевыпуск, выдача любой суммы без комиссии, где бы то ни было. Оформляем?
+                <template>
+                    <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_cards</set></think><srai> DIALOG1 CARDS </srai>
                 </template>
             </category>
 
