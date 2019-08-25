@@ -3,7 +3,7 @@
 <!-- вход в Сбербанк Первый. -->
 
     <category>
-        <pattern> ^ <regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="ПЕРВ(ОМ|ЫЙ|ОМУ)" /> ^ </pattern>
+        <pattern> ^ <regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
         <template>
             Сбербанк первый представляет собой сеть банковских отделений для клиентов премиум-класса. Хотите услышать о предоставляемых услугах в пакете Сбербанк Первый?
         </template>
@@ -45,7 +45,7 @@
 
 <!-- услуги Сбербанк Первый-->
     <category>
-            <pattern> ^ <regex pattern="УСЛУГ.*" /> ^ СБЕРБАНК ПЕРВЫЙ ^ </pattern>
+            <pattern> ^ <regex pattern="УСЛУГ.*" /> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
             <template><think><set name="topic">sb1_theme_choice</set></think><srai>DIALOG1 FIRST THEME CHOICE</srai></template>
     </category>
 
@@ -638,7 +638,7 @@
             
 <!--остальное-->
     <category>
-        <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="КЛИЕНТ.*" /> ^ СБЕРБАНК ПЕРВЫЙ ^ </pattern>
+        <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="КЛИЕНТ.*" /> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
         <template>Для этого размер ваших средств, размещённых в продуктах сбербанка, должен превышать 4 миллиона рублей.</template>
     </category>
     <category>
@@ -651,7 +651,7 @@
         </template>
     </category>
     <category>
-        <pattern> ^ <regex pattern="ДОСТУП.*" /> ^ <regex pattern="ПРЕМИАЛЬН.*" /> ^ БЕЗ СБЕРБАНК ПЕРВЫЙ ^ </pattern>
+        <pattern> ^ <regex pattern="ДОСТУП.*" /> ^ <regex pattern="ПРЕМИАЛЬН.*" /> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
         <template>Если на ваших счетах менее 4 миллионов рублей, но вы хотите получить доступ к премиальным услугам, то членство в клубе будет стоить 10000 в месяц.</template>
     </category>
     <category>
