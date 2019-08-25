@@ -30,7 +30,7 @@
                         <think>
                             <set name="flag_MU">1</set>
                         </think>
-                        <srai>YN001</srai> Если Вам не интересно, повторите вопрос. Хотите услышать о предоставляемых услугах?
+                        <srai>YN001</srai> Если Вам не интересно, повторите вопрос. Хотите услышать о предоставляемых услугах в пакете Сбербанк Первый?
                     </li>
                     <li value="1">
                         <think>
@@ -103,6 +103,13 @@
                         <that>С ПОРУЧИТЕЛЯМИ ИЛИ БЕЗ ПОРУЧИТЕЛЕЙ</that>
                         <template>
                             <think>
+                                <condition name="active_topic">
+                                    <li value="unknown">
+                                        <think>
+                                            <set name="active_topic"><get name="topic"/></set>
+                                        </think>
+                                    </li>
+                                </condition>                            
                                 <set name="topic"><srai>TOPIC STACK POP</srai></set>
                             </think>
                             <sr />
@@ -239,6 +246,13 @@
                 <pattern>*</pattern>
                 <template>
                     <think>
+                        <condition name="active_topic">
+                            <li value="unknown">
+                                <think>
+                                    <set name="active_topic"><get name="topic"/></set>
+                                </think>
+                            </li>
+                        </condition>
                         <set name="topic"><srai>TOPIC STACK POP</srai></set>
                     </think>
                     <sr />
@@ -287,6 +301,13 @@
                             <pattern>*</pattern>
                             <template>
                                 <think>
+                                    <condition name="active_topic">
+                                        <li value="unknown">
+                                            <think>
+                                                <set name="active_topic"><get name="topic"/></set>
+                                            </think>
+                                        </li>
+                                    </condition>
                                     <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />
@@ -335,6 +356,13 @@
                             <pattern>*</pattern>
                             <template>
                                 <think>
+                                    <condition name="active_topic">
+                                        <li value="unknown">
+                                            <think>
+                                                <set name="active_topic"><get name="topic"/></set>
+                                            </think>
+                                        </li>
+                                    </condition>
                                     <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />
@@ -387,6 +415,13 @@
                         <pattern>*</pattern>
                         <template>
                             <think>
+                                <condition name="active_topic">
+                                    <li value="unknown">
+                                        <think>
+                                            <set name="active_topic"><get name="topic"/></set>
+                                        </think>
+                                    </li>
+                                </condition>
                                 <set name="topic"><srai>TOPIC STACK POP</srai></set>
                             </think>
                             <sr />
@@ -431,6 +466,13 @@
                             <pattern>*</pattern>
                             <template>
                                 <think>
+                                    <condition name="active_topic">
+                                        <li value="unknown">
+                                            <think>
+                                                <set name="active_topic"><get name="topic"/></set>
+                                            </think>
+                                        </li>
+                                    </condition>
                                     <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />
@@ -474,6 +516,13 @@
                             <pattern>*</pattern>
                             <template>
                                 <think>
+                                    <condition name="active_topic">
+                                        <li value="unknown">
+                                            <think>
+                                                <set name="active_topic"><get name="topic"/></set>
+                                            </think>
+                                        </li>
+                                    </condition>
                                     <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />
@@ -516,6 +565,13 @@
                             <pattern>*</pattern>
                             <template>
                                 <think>
+                                    <condition name="active_topic">
+                                        <li value="unknown">
+                                            <think>
+                                                <set name="active_topic"><get name="topic"/></set>
+                                            </think>
+                                        </li>
+                                    </condition>
                                     <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />
@@ -566,6 +622,13 @@
                             <pattern>*</pattern>
                             <template>
                                 <think>
+                                    <condition name="active_topic">
+                                        <li value="unknown">
+                                            <think>
+                                                <set name="active_topic"><get name="topic"/></set>
+                                            </think>
+                                        </li>
+                                    </condition>
                                     <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />

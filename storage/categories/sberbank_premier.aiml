@@ -100,6 +100,13 @@
                     <that> РАССКАЗАТЬ О СЕЙФЕ </that>
                     <template>
                         <think>
+                            <condition name="active_topic">
+                                <li value="unknown">
+                                    <think>
+                                        <set name="active_topic"><get name="topic"/></set>
+                                    </think>
+                                </li>
+                            </condition>
                             <set name="topic"><srai>TOPIC STACK POP</srai></set>
                         </think>
                     </template>
@@ -138,7 +145,13 @@
                                 <li value="1">
                                     <think>
                                         <set name="flag_MU">unknown</set>
-                                        <srai>TOPIC STACK POP</srai>
+                                        <condition name="active_topic">
+                                            <li value="unknown">
+                                                <think>
+                                                    <set name="active_topic"><get name="topic"/></set>
+                                                </think>
+                                            </li>
+                                        </condition>
                                         <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                     </think>
                                     <sr />
@@ -152,6 +165,13 @@
                 <pattern>*</pattern>
                 <template>
                     <think>
+                        <condition name="active_topic">
+                            <li value="unknown">
+                                <think>
+                                    <set name="active_topic"><get name="topic"/></set>
+                                </think>
+                            </li>
+                        </condition>
                         <set name="topic"><srai>TOPIC STACK POP</srai></set>
                     </think>
                     <sr />

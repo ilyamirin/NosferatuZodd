@@ -269,7 +269,13 @@
 
     <category>
         <pattern>*</pattern>
-        <template><srai>MU001</srai></template>
+        <template>
+            <srai>MU001</srai>
+            <think>
+                <set name="topic"><get name="active_topic"/></set>
+                <set name="active_topic">unknown</set>
+            </think>
+        </template>
     </category>
 
 
