@@ -6,6 +6,7 @@ debug\
 storage/conversations/Console_Console.conv
 *.1
 *.log*
-storage/conversations/Console_Console.conv
+*.conv
 *.conv
 .idea
+storage/debug/duplicates.txt
