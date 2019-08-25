@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<!-- вход в карты-->
+
+<topic name="sb1_cards">
+
+    <category>
+        <pattern> DIALOG1 CARDS </pattern>
+        <template>
+                В пакете Сбербанк Премьер клиентам предоставляется карта Visa Infinite или MasterCard Elite.
+                Я могу рассказать Вам про стоимость обслуживания, валюты карты, срок действия, про оплату бесконтактно, 
+                действие карты за границей, комиссию при превышении лимита, снятии денег с банкомата другого банка, 
+                сколько бонусов начисляется, их обмен, какой лимит на снятие денег.
+                <think><srai>TOPIC STACK PUSH</srai></think>
+        </template>
+    </category>
+
+    <category>
+            <pattern> ^ <regex pattern="ИНФИНИТ.*|INFINIT.*" /> ^ </pattern>
+            <template>
+                В пакете Сбербанк Первый клиентам предоставляется карта Виза Infinite, с которой,
+                помимо особых условий обслуживания и услуг, о которых Вы можете спросить меня, 
+                предоставляются огромные привилегии и скидки, о которых Вы можете узнать на сайте sberbank.ru
+            </template>
+    </category>
+        
+
+    <category>
+            <pattern> ^ <regex pattern="РАЗН.*|РАЗЛ.*|ОТЛИЧ.*" /> ^ </pattern>
+            <template>
+                    Основные услуги идентичные, разница в опциях, предлагаемыми партнерами сбербанка. 
+                    Например, мастеркард дает возможность бесплатного посещения вип залов в аэропортах и бесплатный роуминг от мегафона, 
+                    а виза предлагает бесплатную упаковку багажа в аэропорту, скидку 50% на оформление шенгенской визы и также бесплатный 
+                    роуминг от билайна, мегафона и теле2.
+            </template>
+    </category>
+
+    <category>
+            <pattern> ^ <regex pattern="ИНФИНИТ.*|INFINIT.*|УСЛУГ.*|ВИЗ." /> ^ <regex pattern="ИНФИНИТ.*|INFINIT.*|ВИЗ.|УСЛУГ.*" /> ^ </pattern>
+            <template>
+                    Виза предлагает бесплатную упаковку багажа в аэропорту, 
+                    скидку 50% на оформление шенгенской визы и также бесплатный роуминг от билайна, 
+                    мегафона и теле2.
+            </template>
+    </category>
+
+
+    <category>
+            <pattern> ^ <regex pattern="УСЛУГ.*|МАСТЕР|ЭЛИТ|ELITE" /> ^ <regex pattern="ЭЛИТ|ELITE|МАСТЕР|УСЛУГ.*"/> ^ </pattern>
+            <template>
+                    Мастеркард дает возможность бесплатного посещения вип залов в аэропортах и бесплатный роуминг от мегафона.
+            </template>
+    </category>
+
+    <category>
+            <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern=".*|БАНКОМАТ.*" /> ^ </pattern>
+            <template>
+                В сутки вы можете снять до 1000000 рублей или 25000 долларов США или 20000 евро,
+                в месяц до 3000000 рублей или 1000000 долларов США или 75000 евро.
+        </template>
+    </category>
+
+    <category>
+            <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="КАСС.*" /> ^ </pattern>
+            <template>
+                    Вы можете снять 50000 рублей или 1600 долларов или 1200 евро в сутки. 
+                    Но только если ваша карта заблокирована по каким-либо причинам
+            </template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="СКОЛЬК.*" /> ^ <regex pattern="БОНУС.*" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+        <template>10% при оплате в кафе и ресторанах, 5% за покупки в супермаркете и 0,5% за всё остальное</template>
+    </category>
+
+    <category>
+        <pattern> ^ <regex pattern="ОБМЕН.*" /> ^ <regex pattern="БОНУС.*" /> ^ </pattern>
+        <template>Их можно обменять на авиабилеты, билеты в театр, на концерты и на покупки на маркетплейсе беру.</template>
+    </category>
+
+    <category>
+        <pattern> ^ <regex pattern="ОБСЛУЖИВ.*" /> ^ </pattern>
+        <template>Обслуживание премиальных карт бесплатно.</template>
+    </category>
+
+    <category>
+            <pattern> ^ <regex pattern="ГОД.*" /> ^ <regex pattern="ОБСЛУЖ.*|РАБОТ.*" /> ^ </pattern>
+            <template>Для клиентов Сбербанк Премьер годовое обслуживание бесплатно</template>
+    </category>    
+    <category>
+            <pattern> ^ <regex pattern="ВАЛЮТ.*|ДЕНЬГ.*" /> ^ </pattern>
+            <template>В евро,долларах и рублях.</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="РАБ.*|СРОК.*|СЛУЖ.*|ФУНКЦ.*|ДЕЙСТВ.*" /> ^ </pattern>
+            <template>Карта действует 3 года</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="ПЛАТ.*|ОПЛА(Т|Ч).*|ЗАПЛАТ.*|БЕСКОНТАКТ.*|ТЕЛЕФОН.*|КОНТАКТ.*" /> ^ <regex pattern="ПЛАТ.*|ОПЛА(Т|Ч).*|ЗАПЛАТ.*|БЕСКОНТАКТ.*|ТЕЛЕФОН.*|КОНТАКТ.*" /> ^ </pattern>
+            <template>Да, у карты есть бесконтактная оплата, вы можете оплачивать покупки телефоном.</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="ГРАНИЦ.*|РУБЕЖ.*" /> ^ </pattern>
+            <template>Конечно, вы можете платить картой за границей</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="КОМИСС.*|СН(Я|И).*" /> ^ <regex pattern="БОЛЬШЕ|ПРЕВЫ(С|Ш).*" /> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="КАРТ.*" /> ^  </pattern>
+            <template>При снятии денег сверх лимита с карты комиссия 0,5% от суммы превышения лимита</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="КОМИСС.*|ВЫД.*|СН(Я|И).*|БАНКОМАТ.*" /> ^ <regex pattern="КОМИСС.*|ВЫД.*|СН(Я|И).*|БАНКОМАТ.*|ДРУГ.*|ЧУЖ.*" /> ^ <regex pattern="КОМИСС.*|ВЫД.*|СН(Я|И).*|БАНКОМАТ.*" /> ^ </pattern>
+            <template>При снятии денег с карты комиссия 1% от суммы, но не менее 100 рублей.</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="СКОЛЬК.*|КОЛИЧЕСТВ.*" /> ^ <regex pattern="БОНУС.*" /> ^ </pattern>
+            <template>На карту начисляется до 10% от суммы покупки</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="ПЕРЕВЫПУС.*" /> ^ </pattern>
+            <template>Бесплатно</template>
+    </category>
+    <category>
+            <pattern>^ <regex pattern="ОБМЕН.*|МЕН.*|ПОМЕН.*|ИСПОЛЬЗ.*|ДЕЛ.*|БОНУС.*" /> ^ <regex pattern="ОБМЕН.*|МЕН.*|ПОМЕН.*|ИСПОЛЬЗ.*|ДЕЛ.*|БОНУС.*" /> ^ </pattern>
+            <template>Их можно обменять на авиабилеты, билеты в театр, на концерты и на покупки на маркетплейсе беру.</template>
+    </category>	
+    <category>
+            <pattern> ^ <regex pattern="СН.*" /> ^ <regex pattern="ДЕНЬГ.*|КАРТ.*" /> ^ </pattern>
+            <template>
+                С банкомата или из кассы?
+            </template>
+    </category>
+        <category>
+                <pattern> ^ <regex pattern="БАНКОМАТ.*" /> ^ </pattern>
+                <that> С БАНКОМАТА ИЛИ ИЗ КАССЫ </that>
+                <template>
+                    Вы можете снять не больше 500 000 рублей в сутки и не больше 5 000 000 рублей в месяц
+                </template>
+        </category>
+        <category>
+                <pattern> ^ <regex pattern="КАСС.*" /> ^ </pattern>
+                <that> С БАНКОМАТА ИЛИ ИЗ КАССЫ </that>
+                <template>
+                        Вы можете снять 50000 рублей или 1600 долларов или 1200 евро в сутки. 
+                        Но только если ваша карта заблокирована по каким-либо причинам
+                </template>
+        </category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <think>
+                <condition name="active_topic">
+                    <li value="unknown">
+                        <think>
+                            <set name="active_topic"><get name="topic"/></set>
+                        </think>
+                    </li>
+                </condition>                                
+                <set name="topic"><srai>TOPIC STACK POP</srai></set>
+            </think>
+            <sr />
+        </template>
+    </category>
+
+</topic>
+
+<topic name="sbpr_card">
+
+    <category>
+        <pattern>DIALOG2 CARDS</pattern>
+        <template>
+            В пакете Сбербанк Премьер клиентам предоставляется карта Виза Платинум или Ворлд мастеркард Блэк Эдишн.
+            Я могу рассказать Вам про годовое обслуживание, валюты карты, срок действия, про оплату бесконтактно, 
+            действие карты за границей, комиссию при превышении лимита, снятии денег с банкомата другого банка, 
+            сколько бонусов начисляется, их обмен, какой лимит на снятие денег.
+            <think><srai>TOPIC STACK PUSH</srai></think>
+        </template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="РАЗН.*|РАЗЛ.*|ОТЛИЧ.*" /> ^ </pattern>
+            <template>
+                    Основные услуги идентичные, разница в опциях, предлагаемыми партнерами сбербанка. 
+                    Например, мастеркард дает возможность бесплатного посещения вип залов в аэропортах и бесплатный роуминг от мегафона, 
+                    а виза предлагает бесплатную упаковку багажа в аэропорту, скидку 50% на оформление шенгенской визы и также бесплатный 
+                    роуминг от билайна, мегафона и теле2.
+            </template>
+    </category>
+
+    <category>
+        <pattern> ^ <regex pattern="ОБСЛУЖИВ.*" /> ^ </pattern>
+        <template>Обслуживание премиальных карт бесплатно.</template>
+    </category> 
+    <category>
+            <pattern> ^ <regex pattern="ВАЛЮТ.*|ДЕНЬГ.*" /> ^ </pattern>
+            <template>В евро,долларах и рублях.</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="РАБ.*|СРОК.*|СЛУЖ.*|ФУНКЦ.*|ДЕЙСТВ.*" /> ^ </pattern>
+            <template>Карта действует 3 года</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="ПЛАТ.*|ОПЛА(Т|Ч).*|ЗАПЛАТ.*|БЕСКОНТАКТ.*|ТЕЛЕФОН.*|КОНТАКТ.*" /> ^ <regex pattern="ПЛАТ.*|ОПЛА(Т|Ч).*|ЗАПЛАТ.*|БЕСКОНТАКТ.*|ТЕЛЕФОН.*|КОНТАКТ.*" /> ^ </pattern>
+            <template>Да, у карты есть бесконтактная оплата, вы можете оплачивать покупки телефоном.</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="ГРАНИЦ.*|РУБЕЖ.*" /> ^ </pattern>
+            <template>Конечно, вы можете платить картой за границей</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="КОМИСС.*|СН(Я|И).*" /> ^ <regex pattern="БОЛЬШЕ|ПРЕВЫ(С|Ш).*" /> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="КАРТ.*" /> ^  </pattern>
+            <template>При снятии денег сверх лимита с карты комиссия 0,5% от суммы превышения лимита</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="КОМИСС.*|ВЫД.*|СН(Я|И).*|БАНКОМАТ.*" /> ^ <regex pattern="КОМИСС.*|ВЫД.*|СН(Я|И).*|БАНКОМАТ.*|ДРУГ.*|ЧУЖ.*" /> ^ <regex pattern="КОМИСС.*|ВЫД.*|СН(Я|И).*|БАНКОМАТ.*" /> ^ </pattern>
+            <template>При снятии денег с карты комиссия 1% от суммы, но не менее 100 рублей.</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="СКОЛЬК.*|КОЛИЧЕСТВ.*" /> ^ <regex pattern="БОНУС.*" /> ^ </pattern>
+            <template>На карту начисляется до 10% от суммы покупки</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="ПЕРЕВЫПУС.*" /> ^ </pattern>
+            <template>Бесплатно</template>
+    </category>
+    <category>
+            <pattern>^ <regex pattern="ОБМЕН.*|МЕН.*|ПОМЕН.*|ИСПОЛЬЗ.*|ДЕЛ.*|БОНУС.*" /> ^ <regex pattern="ОБМЕН.*|МЕН.*|ПОМЕН.*|ИСПОЛЬЗ.*|ДЕЛ.*|БОНУС.*" /> ^ </pattern>
+            <template>Их можно обменять на авиабилеты, билеты в театр, на концерты и на покупки на маркетплейсе беру.</template>
+    </category>	
+    <category>
+            <pattern> ^ <regex pattern="СН.*" /> ^ <regex pattern="ДЕНЬГ.*|КАРТ.*" /> ^ </pattern>
+            <template>
+                С банкомата или из кассы?
+            </template>
+    </category>
+        <category>
+                <pattern> ^ <regex pattern="БАНКОМАТ.*" /> ^ </pattern>
+                <that> С БАНКОМАТА ИЛИ ИЗ КАССЫ </that>
+                <template>
+                    В сутки вы можете снять до 1000000 рублей или 25000 долларов США или 20000 евро,
+                    в месяц до 3000000 рублей или 1000000 долларов США или 75000 евро.
+                </template>
+        </category>
+        <category>
+                <pattern> ^ <regex pattern="КАСС.*" /> ^ </pattern>
+                <that> С БАНКОМАТА ИЛИ ИЗ КАССЫ </that>
+                <template>
+                        Вы можете снять 50000 рублей или 1600 долларов или 1200 евро в сутки. 
+                        Но только если ваша карта заблокирована по каким-либо причинам
+                </template>
+        </category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <think>
+                <condition name="active_topic">
+                    <li value="unknown">
+                        <think>
+                            <set name="active_topic"><get name="topic"/></set>
+                        </think>
+                    </li>
+                </condition>                                
+                <set name="topic"><srai>TOPIC STACK POP</srai></set>
+            </think>
+            <sr />
+        </template>
+    </category>
+</topic>
+
+<category>
+        <pattern> ^ <regex pattern="СН(Я|И).*|ПОЛУЧ.*" /> ^  <regex pattern="ДЕН.*|НАЛИЧ.*" /> ^ <regex pattern="КАРТ.*" /> ^ <regex pattern="СРОК.*" /> ^ </pattern>
+        <template>Получить деньги со счета карты можно в любом офисе банка при предъявлении документа, удостоверяющего личность, данные которого вы предоставляли в банк. </template>
+</category>
+<category>
+        <pattern> ^ <regex pattern="СКОЛЬКО|КАК.*|ПОЧЕМУ" /> ^ <regex pattern="ПЕРЕВОД.*" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+        <template>
+                При переводе на дебетовую карту Сбербанка по ее номеру, деньги обычно поступают моментально, максимум — через сутки. 
+                Если вы переводите на дебетовую карту по номеру счета или на кредитную карту, деньги поступят не позднее следующего рабочего дня.
+        </template>
+</category>
+<category>
+        <pattern> ^ <regex pattern="КАРТ.*|УКР.*|ПОТЕР.*|ЗАСТР.*|ОТД.*" /> ^ <regex pattern="КАРТ.*|УКР.*|ПОТЕР.*|ЗАСТР.*|ОТД.*" /> ^  </pattern>
+        <template>
+                Сразу заблокируйте карту. Это можно сделать в мобильном приложении Сбербанк Онлайн.Или позвоните по номеру 900
+        </template>
+</category>
+<category>
+        <pattern>^ <regex pattern="ПЕРЕВ.*|ОТПР.*|ПОСЛА.*|" /> ^ <regex pattern="ДЕНЬГ.*|СУММ.*|РУБЛ.*|ЕВР.*|ДОЛЛАР.*" /> ^ <regex pattern="ТУДА|НЕПРАВ.*|ОШИБ.*|НЕВЕРН.*" /> ^ <regex pattern="ВЕРН.*|ОТМЕН.*|ПОЛУЧ.*" /> ^  </pattern>
+        <template>
+                По закону банк не имеет права списывать деньги со счёта или карты получателя без его согласия, поэтому если вы совершили ошибку в переводе, 
+                рекомендуем обратиться к получателю. В любом отделении банка можно оформить заявление (скачайте бланк в PDF) для получения копии платежного поручения, подтверждающего перевод.
+        </template>
+</category>
+<category>
+        <pattern> ^ <regex pattern="ПОЛУЧАТ.*|ЧЕЛОВЕК.*|АДРЕСАТ.*" /> ^  <regex pattern="ДОШ.*|ПРИШЛ.*|ПОЛУЧ.*|ПОСТУП.*" /> ^  <regex pattern="ПЕРЕВОД.*|ДЕН.*|РУБЛ.*|ДОЛЛАР.*|ЕВРО.*" /> ^ </pattern>
+        <template>По телефону 900 или в любом офисе банка попросите оформить заявление на розыск перевода. Если деньги получателю пришли, вам выдадут подтверждающий документ.</template>
+</category>
+<category>
+                <pattern> ^  <regex pattern="ПЕРЕВ.*|ОТПР.*|ЗАЧИСЛ.*" /> ^ <regex pattern="ДЕН.*" /> ^ <regex pattern="КАРТ.*|ТЕЛЕФОН.*|НОМЕР.*" /> ^ <regex pattern="КАРТ.*|ТЕЛЕФОН.*|НОМЕР.*" /> ^ </pattern>
+        <template>Чтобы перевести деньги со счёта мобильного телефона на банковскую карту, воспользуйтесь сервисом перевода на сайте вашего мобильного оператора: Мегафон, Билайн, МТС, Теле2.</template>
+</category>
+<category>
+        <pattern> ^ <regex pattern="СН.*|ПОЛУЧ.*|ЗАБР.*" /> ^ <regex pattern="ДЕН.*|РУБЛ.*|ЕВРО.|ДОЛЛАР.*" /> ^ <regex pattern="КАРТ.*" /> ^ <regex pattern="СРОК.*" /> ^ </pattern>
+        <template>Получить деньги со счета карты можно в любом офисе банка при предъявлении документа, удостоверяющего личность, данные которого вы предоставляли в банк. </template>
+</category>
+<category>
+        <pattern> ^ <regex pattern="СПИС.*|ВЗЯ|(Л|ЛА)|СНЯ(Л|ЛА|ЛИ)|ЗАБР.*" /> ^ <regex pattern="ДЕН.*|РУБЛ.*|ЕВРО.|ДОЛЛАР.*" /> ^ <regex pattern="КАРТ.*" />  ^ </pattern>
+        <template>
+                Вероятно, вы оформили подписку и автоматическую оплату услуг с карты. 
+                Если это так, то для ее отключения необходимо обратиться в организацию, где подключена подписка 
+                (например, служба поддержки сайта/интернет-магазина).Если же вы не пользовались услугами этой компании, 
+                рекомендую как можно скорее заблокировать карту и позвонить в контактный центр по номеру 900 (для федеральных операторов связи: 
+                Теле2, МТС, Билайн, Мегафон, Yota, Мотив). 
+        </template>
+</category>
+<category>
+        <pattern> ^ <regex pattern="СКОЛЬК.*|КАК.*" /> ^ <regex pattern="ХРАН.*|ЛЕЖ.*|ДЕРЖ.*|НАХОДИТ.*" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+        <template>Карта хранится в течение трёх месяцев</template>
+</category>
+<category>
+        <pattern> ^ <regex pattern="ЗАКАЗА(Л|ЛА)" /> ^ <regex pattern="КАРТ.*" /> ^ <regex pattern="ЗАБРА(Л|ЛА)|ПОЛУЧ.*" /> ^ </pattern>
+        <template>Карта хранится в течение трёх месяцев</template>
+</category>
+<category>
+        <pattern> ^ <regex pattern="СМЕНИТЬ|ПОМЕНЯТЬ|ИЗМЕНИТЬ|ПЕРЕСТИ|ПЕРЕДЕЛАТЬ" /> ^ <regex pattern="ВИЗ.*|МАСТЕРКАРД.*|МИР.*" /> ^ <regex pattern="ВИЗ.*|МАСТЕРКАРД.*|МИР.*" /> ^ </pattern>
+        <template>
+                Изменить платёжную систему невозможно. 
+                Вы можете заказать новую карту в Сбербанк онлайн или в любом офисе Сберанка.
+        </template>
+</category>
+<category>
+        <pattern> ^ <regex pattern="ОТПРАВ.*|ПОСЛ.*|ПОЛУЧ.*|БЫ(Л|А)" /> ^ <regex pattern="ДЕН.*|ЗАРПЛАТ.*|ЕВРО|РУБЛ.*|ДОЛЛАР.*|ПЕРЕВОД.*" /> ^ <regex pattern="ПОЛУЧ.*|ПРИШЛ(А|И)|ПОСТУПИЛ(А|И)|ДОШЛ(А|И)" /> ^ </pattern>
+        <template>Сбербанк зачисляет деньги не позднее следующего рабочего дня.</template>
+</category>
+<category>
+        <pattern> ^ <regex pattern="ПЕРЕВЫПУС.*" /> ^ <regex pattern="КАРТ.*" /> ^ <regex pattern="ДОВЕРЕННОСТ.*" /> ^ </pattern>
+        <template>
+                Доверенное лицо может оформить перевыпуск карты в офисе банка. 
+                Для этого необходимо предъявить паспорт и нотариально заверенную доверенность, в которой будет прописана эта операция. 
+        </template>
+</category>
+<category>
+        <pattern> ^ <regex pattern="ПОДКЛЮЧ.*|ПРИВЯЗАТЬ" /> ^ <regex pattern="КАРТ.*" /> ^ <regex pattern="НОМЕР.*|ТЕЛЕФОН.*|МОБИЛЬН.*" /> ^ </pattern>
+        <template>
+                Если новый номер уже содержится в ваших персональных данных, то подключить его можно по номеру 900. 
+                Если же номера в базе банка нет, то подключение возможно в любом нашем банкомате.
+        </template>
+</category>
+</aiml>

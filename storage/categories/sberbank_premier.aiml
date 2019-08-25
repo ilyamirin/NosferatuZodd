@@ -39,10 +39,11 @@
             <category>
                 <pattern> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
                 <template>
-                    В пакете Сбербанк премьер есть две элитные карты: одна с MASTERCARD, вторая с VISA. 
-                    Я думаю, Вас порадуют условия для держателей карт: 
-                    бесплатное обслуживание, бесплатный перевыпуск, выдача любой суммы без комиссии, где бы то ни было. 
-                    Оформляем?
+                    <think>
+                        <srai>TOPIC STACK PUSH</srai>
+                        <set name = "topic">sbpr_card</set>
+                    </think>
+                        <srai>DIALOG2 CARDS</srai>
                 </template>
             </category>
 
@@ -100,6 +101,13 @@
                     <that> РАССКАЗАТЬ О СЕЙФЕ </that>
                     <template>
                         <think>
+                            <condition name="active_topic">
+                                <li value="unknown">
+                                    <think>
+                                        <set name="active_topic"><get name="topic"/></set>
+                                    </think>
+                                </li>
+                            </condition>
                             <set name="topic"><srai>TOPIC STACK POP</srai></set>
                         </think>
                     </template>
@@ -138,7 +146,13 @@
                                 <li value="1">
                                     <think>
                                         <set name="flag_MU">unknown</set>
-                                        <srai>TOPIC STACK POP</srai>
+                                        <condition name="active_topic">
+                                            <li value="unknown">
+                                                <think>
+                                                    <set name="active_topic"><get name="topic"/></set>
+                                                </think>
+                                            </li>
+                                        </condition>
                                         <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                     </think>
                                     <sr />
@@ -152,6 +166,13 @@
                 <pattern>*</pattern>
                 <template>
                     <think>
+                        <condition name="active_topic">
+                            <li value="unknown">
+                                <think>
+                                    <set name="active_topic"><get name="topic"/></set>
+                                </think>
+                            </li>
+                        </condition>
                         <set name="topic"><srai>TOPIC STACK POP</srai></set>
                     </think>
                     <sr />
@@ -159,6 +180,7 @@
             </category>
 
         </topic>
+            <!--карты перенес на cards.aiml-->
 
             <!--вклад-->
 
@@ -207,7 +229,13 @@
                         <pattern>*</pattern>
                         <template>
                             <think>
-                                <set name="flag_MU">unknown</set>
+                                <condition name="active_topic">
+                                    <li value="unknown">
+                                        <think>
+                                            <set name="active_topic"><get name="topic"/></set>
+                                        </think>
+                                    </li>
+                                </condition>                            
                                 <set name="topic"><srai>TOPIC STACK POP</srai></set>
                             </think>
                             <sr />
@@ -255,6 +283,13 @@
                             <pattern>*</pattern>
                             <template>
                                 <think>
+                                    <condition name="active_topic">
+                                        <li value="unknown">
+                                            <think>
+                                                <set name="active_topic"><get name="topic"/></set>
+                                            </think>
+                                        </li>
+                                    </condition>                                
                                     <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />
@@ -302,6 +337,13 @@
                             <pattern>*</pattern>
                             <template>
                                 <think>
+                                    <condition name="active_topic">
+                                        <li value="unknown">
+                                            <think>
+                                                <set name="active_topic"><get name="topic"/></set>
+                                            </think>
+                                        </li>
+                                    </condition>
                                     <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />
@@ -350,6 +392,13 @@
                             <pattern>*</pattern>
                             <template>
                                 <think>
+                                    <condition name="active_topic">
+                                        <li value="unknown">
+                                            <think>
+                                                <set name="active_topic"><get name="topic"/></set>
+                                            </think>
+                                        </li>
+                                    </condition>
                                     <set name="topic"><srai>TOPIC STACK POP</srai></set>
                                 </think>
                                 <sr />
@@ -386,6 +435,13 @@
                         <pattern>*</pattern>
                         <template>
                             <think>
+                                <condition name="active_topic">
+                                    <li value="unknown">
+                                        <think>
+                                            <set name="active_topic"><get name="topic"/></set>
+                                        </think>
+                                    </li>
+                                </condition>
                                 <set name="topic"><srai>TOPIC STACK POP</srai></set>
                             </think>
                             <sr />
@@ -403,16 +459,6 @@
         </template>
     </category>
 
-    <category>
-        <pattern> ^ <regex pattern="ОТЛИЧ.*" /> ^ <regex pattern="ПРЕМИУМ.*" /> ^ </pattern>
-        <template>
-        Для клиентов сбербанк первый мы предоставляем сервис высочайшего уровня, 
-        возможность приобрести банковские продукты на выгоднях условиях, специальные условия и 
-        программы страхования, возможность открытия депозитов под более высокий процент, получение премиальных пластиковых карт, 
-        получение карты priority pass.
-        </template>
-    </category>
-
      <category>
             <pattern> ^ <regex pattern="ЛЬГОТ.*" /> ^ </pattern>
             <template>Как раз сейчас вы можете получить льготный период использования пакета услуг премьер сроком на два месяца. Оформляем?</template>
@@ -421,12 +467,6 @@
     <category>
         <pattern> ^ <regex pattern="ДОСТУП.*" /> ^ <regex pattern="ПРЕМИАЛЬН.*" /> ^ БЕЗ <regex pattern="ПРЕМЬЕР.*" /> ^ </pattern>
         <template>Тогда вас ждёт  ежемесячная плата в размере 2500 рублей</template>
-    </category>
-
-
-    <category>
-        <pattern> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|БОНУС.*"/> ^ </pattern>
-        <template><think><set name="topic">sbpr_theme_choice</set></think><srai><input/></srai></template>
     </category>
 
     <category>

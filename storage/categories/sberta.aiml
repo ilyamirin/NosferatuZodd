@@ -7,16 +7,6 @@
     </category>
 
     <category>
-        <pattern> ^ <regex pattern=".*СКА(З|Ж).*|"/> ^ <regex pattern="СБЕРБАНК"/></pattern>
-        <template>
-            Публичное акционерное общество «Сбербанк России» — российский финансовый конгломерат, 
-            крупнейший транснациональный и универсальный банк России, Центральной и Восточной Европы. 
-            Контролируется Центральным банком Российской Федерации, 
-            которому принадлежит 50 % уставного капитала плюс одна голосующая акция. 
-        <srai>BASICTHEMES001</srai></template>
-    </category>
-
-    <category>
         <pattern> ^ <iset words= "ХАЙ, ЭЙ, ПРИВЕТ, ОК, ЗДРАВСТВУЙ"/> ^ </pattern>
         <template>
             <condition name="flag_greet">
@@ -54,7 +44,7 @@
             </category>
             
             <category>
-                <pattern> ^ <regex pattern="ПЕРВ.*" /> ^ </pattern>
+                <pattern> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
                 <template><srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
             </category>
 
@@ -73,8 +63,71 @@
                 <template>Рассказывать много. Давайте начну со Сбербанк Первый. <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
             </category>
 
+            <!--вещи, которые могут спросить, не заходя в топики-->
+
+                <category>
+                    <pattern> ^ <regex pattern="СТРАХОВ.*" /></pattern>
+                    <template>
+                        <think>
+                            <srai>TOPIC STACK PUSH</srai>
+                            <set name="topic">sb_1_partners_services</set>
+                        </think>
+                        <srai> СТРАХОВАНИЕ </srai>
+                    </template>
+                </category>
+
+                <category>
+                    <pattern> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*"/> ^ </pattern>
+                    <template>
+                        В каком премиальном сегменте, Сбербанк Первый или Сбербанк Премьер?
+                    </template>
+                </category>
+                    <category>
+                        <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^ </pattern>
+                        <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
+                        <template>
+                            <srai>OK001</srai>
+                            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sbpr_theme_choice</set></think>
+                            <srai><input index="1"/></srai>
+                        </template>
+                    </category>
+                    <category>
+                        <pattern> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
+                        <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
+                        <template>
+                            <srai>OK001</srai>
+                            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+                            <srai><input index="1"/></srai>
+                        </template>
+                    </category>
+                    <category>
+                        <pattern>*</pattern>
+                        <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
+                        <template>
+                            <srai>OK001</srai> я думаю, расскажу Вам про Сбербанк Первый
+                            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+                            <srai><input index="1"/></srai>
+                        </template>
+                    </category>
+
         </topic>
     
+    
+    <category>
+        <pattern> ^ <regex pattern=".*СКА(З|Ж).*|.*"/> ^ <regex pattern="СБЕРБАНК"/></pattern>
+        <template>
+            Публичное акционерное общество «Сбербанк России» — российский финансовый конгломерат, 
+            крупнейший транснациональный и универсальный банк России, Центральной и Восточной Европы. 
+            Контролируется Центральным банком Российской Федерации, 
+            которому принадлежит 50 % уставного капитала плюс одна голосующая акция. 
+        <srai>BASICTHEMES001</srai></template>
+    </category>
+
+    <category>
+        <pattern> СБЕРБАНК </pattern>
+        <template><srai>РАССКАЖИ ПРО СБЕРБАНК</srai></template>
+    </category>
+
 
     <category>
         <pattern> ^ КАК ^ <regex pattern="ДЕЛА|ЖИЗНЬ|ТЫ|НАСТРОЕНИ.*|ОНО"/> ^ </pattern>
@@ -269,7 +322,13 @@
 
     <category>
         <pattern>*</pattern>
-        <template><srai>MU001</srai></template>
+        <template>
+            <srai>MU001</srai>
+            <think>
+                <set name="topic"><get name="active_topic"/></set>
+                <set name="active_topic">unknown</set>
+            </think>
+        </template>
     </category>
 
 
@@ -474,4 +533,9 @@
                                     </template>
                                 </category>
 
+        
+    <category>
+        <pattern> ^ <regex pattern="СКОЛЬК.*"/> ^ <regex pattern="ЗНАЕШ.*|КАТЕГОР.*"/></pattern>
+        <template> Мне задано <size/> категорий.</template>
+    </category>
 </aiml>
