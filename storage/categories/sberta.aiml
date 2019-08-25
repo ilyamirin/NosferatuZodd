@@ -305,12 +305,14 @@
             <pattern><regex pattern="СПАСИБО"/> ^ </pattern>
             <template>Это цель моего существования</template>
         </category>
+
         <category>
-            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*" /> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|" /> ^ </pattern>
+            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|ДО" /> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|" /> ^ </pattern>
             <template><set name="flag_greet">0</set>До свидания</template>
         </category>
+
         <category>
-            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*" /> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|" /> ^ </pattern>
+            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|СПАСИБО" /> ^ </pattern>
             <that> ЧЕМ ЕЩЕ Я МОГУ ВАМ ПОМОЧЬ </that>
             <template>До свидания</template>
         </category>

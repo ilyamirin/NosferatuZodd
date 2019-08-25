@@ -55,30 +55,35 @@
                 <!--страховка-->
                     <category>
                         <pattern> ^ <regex pattern="СТРАХОВ.*" /></pattern>
-                        <template></template>
+                        <template>
+                            <random>
+                                <li>Мы предоставляем бесплатное страхование на время путешествий клиентам премиальных пакетов. Вас интересуют условия по страхованию?</li>
+                                <li>Для клиентов премиальных пакетов страхование на время путешествий бесплатное. Вас интересуют условия по страхованию?</li>
+                            </random>
+                        </template>
                     </category>
-                    <!--
+
                         <category>
                             <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
-                            <that> ВАС ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО МЕДИЦИНСКИМ УСЛУГАМ </that>
-                            <template><think><set name = "topic">sb_1_medic_services</set></think><srai>OK001</srai><srai>DIALOG1 MEDIC SERVICES</srai></template>
+                            <that>  ВАС ИНТЕРЕСУЮТ УСЛОВИЯ ПО СТРАХОВАНИЮ </that>
+                            <template><think><set name = "topic">sb_1_insurance</set></think><srai>OK001</srai><srai>DIALOG1 INSURANCE</srai></template>
                         </category>
 
                         <category>
                             <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
-                            <that> ВАС ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО МЕДИЦИНСКИМ УСЛУГАМ </that>
+                            <that> ВАС ИНТЕРЕСУЮТ УСЛОВИЯ ПО СТРАХОВАНИЮ </that>
                             <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
                         </category>
                         <category>
                             <pattern>*</pattern>
-                            <that> ВАС ИНТЕРЕСУЮТ ПОДРОБНОСТИ ПО МЕДИЦИНСКИМ УСЛУГАМ </that>
+                            <that>  ВАС ИНТЕРЕСУЮТ УСЛОВИЯ ПО СТРАХОВАНИЮ </that>
                             <template>
                                 <condition name="flag_MU">
                                     <li value="unknown">
                                         <think>
                                             <set name="flag_MU">1</set>
                                         </think>
-                                        <srai>YN001</srai>Если вклады Вам не интересны, повторите вопрос. Вас интересуют подробности по медицинским услугам?
+                                        <srai>YN001</srai>Если страхование Вам не интересно, повторите вопрос. Вас интересуют условия по страхованию?
                                     </li>
                                     <li value="1">
                                         <think>
@@ -155,6 +160,242 @@
                         </template>
                     </category>
                 </topic>
+                    <!--страхование -->
+                        <topic name="sb_1_insurance">
+
+                            <category>
+                                <pattern>DIALOG1 INSURANCE</pattern>
+                                <template>
+                                        В страхование входят: медицинская помощь, госпитализация, услуги переводчика, оплата сотовой связи и  даже стоматология!
+                                        Я могу рассказать Вам про дополнительные опции.
+                                        Вы путешествуете по России или зарубеж?
+                                </template>
+                            </category>
+
+                            <category>
+                                <pattern> ^ <regex pattern="МЕДИЦИН.*|ГОСПИТАЛ.*|ПЕРЕВОД.*|СВЯЗ.|ТЕЛЕФОН.|СТОМАТОЛОГ.*"/> ^ </pattern>
+                                <template>
+                                    Да, это входит в пакеты страхования, но есть широчайшая свобода выбора, в котором вам поможет менеджер. Можно оформить заявку. Оформляем?
+                                </template>
+                            </category>
+
+                            <category>
+                                <pattern> ^ <regex pattern="ДОПОЛНИТ.*"/> ^ </pattern>
+                                <template>
+                                    <think>
+                                        <set name = "topic">insurance_extra_options</set>
+                                    </think>
+                                    <srai>OK001</srai>
+                                    <srai>DIALOG1 INSURANCE EXTRA OPTIONS</srai>
+                                </template>
+                            </category>
+                            
+                                <category>
+                                    <pattern> ^ <regex pattern=".*РУБЕЖ.*|.*ГРАН.*"/> ^ </pattern>
+                                    <that> ВЫ ПУТЕШЕСТВУЕТЕ ПО РОССИИ ИЛИ ЗАРУБЕЖ </that>
+                                    <template>А в какую именно страну? Для США и Финляндии оформляется особая страховка</template>
+                                </category>
+
+                                    <category>
+                                        <pattern> ^ <regex pattern=".*АМЕРИК.*|США|ШТАТ.*"/> ^ </pattern>
+                                        <that> ДЛЯ США И ФИНЛЯНДИИ ОФОРМЛЯЕТСЯ ОСОБАЯ СТРАХОВКА </that>
+                                        <template>Хот-доги, красивые машины и девушки! Что-то я замечталась... Хотите выбрать срок страховки?</template>
+                                    </category>
+                                    
+                                    <category>
+                                        <pattern> ^ <regex pattern=".*ФИНЛЯНД.*"/> ^ </pattern>
+                                        <that> ДЛЯ США И ФИНЛЯНДИИ ОФОРМЛЯЕТСЯ ОСОБАЯ СТРАХОВКА </that>
+                                        <template> Хотите выбрать срок страховки?</template>
+                                    </category>
+                                    
+                                    <category>
+                                        <pattern>*</pattern>
+                                        <that> ДЛЯ США И ФИНЛЯНДИИ ОФОРМЛЯЕТСЯ ОСОБАЯ СТРАХОВКА </that>
+                                        <template>Хм, я пока не знаю всех стран. Я передам эту информацию менеджеру. Хотите выбрать срок страховки?</template>
+                                    </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern=".*РОСС.*|РОДИН.*"/> ^ </pattern>
+                                    <template>Отлично! Я тоже люблю путешествовать по России. Хотите выбрать срок страховки?</template>
+                                </category>
+
+                            <!-- YN term -->
+                                <category>
+                                    <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
+                                    <that> ХОТИТЕ ВЫБРАТЬ СРОК СТРАХОВКИ </that>
+                                    <template>
+                                        <srai>OK001</srai> Есть одноразовая и многоразовая страховка. Какая Вас интересует?
+                                    </template>
+                                </category>
+
+                                    <category>
+                                        <pattern> ^ <regex pattern=".*МНОГО.*"/> ^ </pattern>
+                                        <that> КАКАЯ ВАС ИНТЕРЕСУЕТ </that>
+                                        <template>Многоразовая длится 90 дней. Оформляем?</template>
+                                    </category>
+                                    
+                                    <category>
+                                        <pattern> ^ <regex pattern=".*ОДНОРА.*"/> ^ </pattern>
+                                        <that> КАКАЯ ВАС ИНТЕРЕСУЕТ </that>
+                                        <template>Одноразовая на 15 дней. Оформляем?</template>
+                                    </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
+                                    <that> ХОТИТЕ ВЫБРАТЬ СРОК СТРАХОВКИ </that>
+                                    <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
+                                </category>
+
+                            <!--MU insurance-->
+                                <category>
+                                    <pattern>*</pattern>
+                                    <template>
+                                        <condition name="flag_MU">
+                                            <li value="unknown">
+                                                <think>
+                                                    <set name="flag_MU">1</set>
+                                                </think>
+                                                <srai>MU001</srai> Если страховка больше Вам не интересна, повторите вопрос. <srai>DIALOG1 INSURANCE</srai>
+                                            </li>
+                                            <li value="1">
+                                                <think>
+                                                    <set name="flag_MU">unknown</set>
+                                                    <set name="topic">sb_1_partners_services</set>
+                                                </think>
+                                                <sr />
+                                            </li>
+                                        </condition>
+                                    </template>
+                                </category>
+                                
+                                <category>
+                                    <pattern> ^ <regex pattern="КТО.*"/> ^ <regex pattern="СТРАХ.*"/> ^ </pattern>
+                                    <template>Страховщиком выступает общество с ограниченной ответственностью Страховая компания «Сбербанк страхование»</template>
+                                </category>
+                                
+                                <category>
+                                        <pattern> ^ УЖЕ ^ <regex pattern="ПУТЕШ.*"/> ^ <regex pattern="СТРАХ.*"/> ^ </pattern>
+                                        <template>Страховку можно купить только до пересечения границы России. Куда вы отправляетесь?<think><set name = "topic">страна</set></think></template>
+                                </category>
+
+                                <category>
+                                        <pattern> ^ <regex pattern="КОГ.*"/> ^ <regex pattern="СТРАХ.*"/> ^ </pattern>
+                                        <template>Страховка распространяется на вас и всю вашу семью: супргу и детей. Вы можете добавить в страховку двух человек! Оформляем?</template>
+                                </category>
+
+                                <category>
+                                        <pattern> ^ <regex pattern="ОФОРМ.*"/> ^ <regex pattern="ВИЗ.*"/> ^ </pattern>
+                                        <template>Наш страховой сертификат компании признается всеми иностранными посольствами. Оформляем?</template>
+                                </category>
+
+                                <category>
+                                        <pattern> ^ <regex pattern="СТОМАТОЛ.*"/> ^ </pattern>
+                                        <template>Да! Сбербанк заботится о ваших улыбках. Оформляем?</template>
+                                </category>
+
+                                <category>
+                                        <pattern> ^ <regex pattern="СОЛНЕЧ.*"/><regex pattern="ОЖОГ.*"/> ^ </pattern>
+                                        <template>Да, стаховка покрывает солнечные ожоги. Берегите себя. Хотите выбрать срок страховки?</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="СТРАХ.*"/> ^ <regex pattern="ЖЕН.*|ДЕТ.*"/> ^ </pattern>
+                                    <template>Да, страховка распространяется на супругов и детей. Оформляем?</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="ЗАДЕРЖ.*"/> ^ <regex pattern="РЕЙС.*"/> ^ </pattern>
+                                    <template>Оплачиваются расходы на питание, напитки и размещение в гостинице. Вы путешествуете по России или зарубеж?<think><set name = "topic">страна</set></think></template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="СТРАХОВ.*"/> ^ <set name="sports_insurance_case"/> ^ </pattern>
+                                    <template>Да, входит! Я тоже люблю спорт!</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="СТРАХОВ.*"/> *</pattern>
+                                    <template> К сожалению,<set name="insurance_case"><star /></set> не входит в страховые случаи</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="СТРАХОВ.*"/><regex pattern="СОБЫТ.*"/></pattern>
+                                    <template>Необходимо связаться с вашей страховой компанией. Диктую телефон?</template>
+                                </category>
+
+                                        <category>
+                                            <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ|ДИКТ.*"/> ^ </pattern>
+                                            <that> ДИКТУЮ ТЕЛЕФОН</that>
+                                            <template>восемь два нуля пятьcот пятьдесят пять пятьсот пятьдесят пять семерка! </template>
+                                        </category>
+
+                                        <category>
+                                            <pattern> ^ <regex pattern="НЕ.*"/> ^ </pattern>
+                                            <that> ДИКТУЮ ТЕЛЕФОН</that>
+                                            <template>Хорошо, рада, что вы знаете номер</template>
+                                        </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="ГОВОР.*"/><regex pattern="СПЕЦИАЛИСТ.*"/></pattern>
+                                    <template>Расскажите, что у вас произошло. Подробно опишите ситуацию!</template>
+                                </category>
+                        </topic>
+
+                        <!-- insurance_extra_options-->
+                            <topic name="insurance_extra_options">
+                                <category>
+                                    <pattern>DIALOG1 INSURANCE EXTRA OPTIONS</pattern>
+                                    <template>У нас вы можете оформить дополнительные пакеты: Спортивный, Защита багажа, Личный адвокат,  Особый случай, Предусмотрительный. Какой вас интересует?</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="СПОРТИВН.*"/> ^ </pattern>
+                                    <template>Распространяется на активные виды спорта, защита спортинвентаря и внезапную лавину. Любите спорт?</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="БАГАЖ.*"/> ^ </pattern>
+                                    <template>Сработает в случае задержки или утраты багажа, задержки рейса. Хотите выбрать срок страховки?</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="АДВОКАТ.*"/> ^ </pattern>
+                                    <template>Бесплатная консультация от нашего юриста. Хотите выбрать срок страховки?</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="СЛУЧА.*"/> ^ </pattern>
+                                    <template> Пригодится, если решите вернуться с отдыха раньше, чем планировалось. Хотите выбрать срок страховки?</template>
+                                </category>
+
+                                <category>
+                                    <pattern> ^ <regex pattern="ПРЕДУСМОТР.*"/> ^ </pattern>
+                                    <template>Если захотите отменить поездку, то вам пригодится эта страховка! Я сама иногда резко меняю планы. Хотите выбрать срок страховки?</template>
+                                </category>
+
+                            <!--MU extra-->
+                                <category>
+                                    <pattern>*</pattern>
+                                    <template>
+                                        <condition name="flag_MU">
+                                            <li value="unknown">
+                                                <think>
+                                                    <set name="flag_MU">1</set>
+                                                </think>
+                                                <srai>MU001</srai>Если дополнительные пакеты больше Вам не интересны, повторите вопрос.<srai>DIALOG1 INSURANCE EXTRA OPTIONS</srai>
+                                            </li>
+                                            <li value="1">
+                                                <think>
+                                                    <set name="flag_MU">unknown</set>
+                                                    <set name="topic">sb_1_insurance</set>
+                                                </think>
+                                                <sr />
+                                            </li>
+                                        </condition>
+                                    </template>
+                                </category>
+                            </topic>
+
                     <!--медицинские услуги -->
                         <topic name="sb_1_medic_services">
 
