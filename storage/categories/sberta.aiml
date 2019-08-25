@@ -68,6 +68,31 @@
                 <template>Сбербанк Премьер <srai>ЧТО СБЕРБАНК ПРЕМЬЕР</srai>, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
             </category>
 
+            <!--вещи, которые могут спросить, не заходя в топики-->
+                <category>
+                    <pattern> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*"/> ^ </pattern>
+                    <template>
+                        В каком премиальном сегменте, Сбербанк Первый или Сбербанк Премьер?
+                    </template>
+                </category>
+                    <category>
+                        <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^ </pattern>
+                        <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
+                        <template>
+                            <srai>OK001</srai>
+                            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sbpr_theme_choice</set></think>
+                            <srai><input index="1"/></srai>
+                        </template>
+                    </category>
+                    <category>
+                        <pattern>*</pattern>
+                        <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
+                        <template>
+                            <srai>OK001</srai> я думаю, расскажу Вам про Сбербанк Первый
+                            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+                            <srai><input index="1"/></srai>
+                        </template>
+                    </category>
             <category>
                 <pattern> ^ <regex pattern="ВСЕ.?" /> ^ </pattern>
                 <template>Рассказывать много. Давайте начну со Сбербанк Первый. <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>

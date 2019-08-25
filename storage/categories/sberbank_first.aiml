@@ -658,8 +658,5 @@
         <pattern> ^ <regex pattern=".*СОВЕТ.*|ВКЛАД.*" /> ^ <regex pattern=".*СОВЕТ.*|ВКЛАД.*" /> ^ </pattern>
         <template>Конечно, лидер управляй! Вы можете пополнять вклад, процентная ставка будет увеличиваться. А если срочно понадобятся деньги, можно снять до уровня неснижаемого остатка. Вот так!</template>
     </category>
-    <category>
-        <pattern> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|БОНУС.*"/> ^ </pattern>
-        <template><think><set name="topic">sb1_theme_choice</set></think><srai><input/></srai></template>
-    </category>
+
 </aiml>
