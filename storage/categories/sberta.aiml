@@ -143,6 +143,12 @@
     </category>
 
     <category>
+        <pattern><regex pattern="МЕНЯ|МОЕ"/><regex pattern="ЗОВУТ|ИМЯ*"/> * </pattern>
+        <that>МЕНЯ ЗОВУТ СБЕРТА А ВАС</that>
+        <template>Прекрасное имя! Рада нашему знакомству, <set name="name"><star index="3"/></set>!</template>
+    </category>
+
+    <category>
         <pattern> ^ <regex pattern="ТЕБЯ|ТВОЕ|КАК"/><regex pattern="ЗОВУТ|ИМЯ*"/></pattern>
         <template>Меня зовут Сберта! А вас?</template>
     </category>
