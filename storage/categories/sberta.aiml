@@ -20,6 +20,9 @@
                 <li value="1">
                     Вроде бы мы уже здоровались... Ну да ладно. Чем могу помочь? <srai>BASICTHEMES001</srai>
                 </li>
+                <li value="0">
+                    Хе-ей, Вы вернулись! Чем могу помочь? <srai>BASICTHEMES001</srai>
+                </li>
             </condition>
         </template>
     </category>
@@ -384,7 +387,7 @@
 
         <category>
             <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|ДО" /> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|" /> ^ </pattern>
-            <template><set name="flag_greet">0</set>До свидания</template>
+            <template><think><set name="flag_greet">0</set></think>До свидания</template>
         </category>
 
         <category>
