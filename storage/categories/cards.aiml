@@ -355,6 +355,14 @@
         <pattern> ^ <regex pattern="СН(Я|И).*|ПОЛУЧ.*" /> ^  <regex pattern="ДЕН.*|НАЛИЧ.*" /> ^ <regex pattern="КАРТ.*" /> ^ <regex pattern="СРОК.*" /> ^ </pattern>
         <template>Получить деньги со счета карты можно в любом офисе банка при предъявлении документа, удостоверяющего личность, данные которого вы предоставляли в банк. </template>
 </category>
+
+<category>
+        <pattern> ^ <regex pattern="СКОЛЬКО|ДОЛГО" /> ^ <regex pattern="ДЕЛА.*|.*ГОТ(О|А)В(ЛИВАЮ|Я)Т" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+        <template>
+                Обычно карты готовятся до недели, но в случае премиум-сегмента ее сделают в течение 3 дней
+        </template>
+</category>
+
 <category>
         <pattern> ^ <regex pattern="СКОЛЬКО|КАК.*|ПОЧЕМУ" /> ^ <regex pattern="ПЕРЕВОД.*" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
         <template>
