@@ -98,6 +98,13 @@
                         <pattern> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
                         <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
                         <template>
+                            <srai>СБЕРБАНК ПЕРВЫЙ</srai>
+                        </template>
+                    </category>
+                    <category>
+                        <pattern> ^ СБЕРБАНК <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
+                        <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
+                        <template>
                             <srai>OK001</srai>
                             <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
                             <srai><input index="1"/></srai>

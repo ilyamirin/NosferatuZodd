@@ -647,7 +647,7 @@
                     </category>
                     <category>
                       
-                        <pattern> ^ <regex pattern="СКОЛЬКО|КОЛИЧЕСТВ.*" /> ^ <regex pattern="КУП.*|ПРИОБР.*|ОБЛИГАЦ.*|ИХ" /> ^ <regex pattern="КУП.*|ПРИОБР.*|ОБЛИГАЦ.*|ИХ" /> ^ </pattern>
+                        <pattern> ^ <regex pattern="СКОЛЬКО|КОЛИЧЕСТВ.*" /> ^ <regex pattern="МО(ЖНО|ГУ|ЖЕМ)|КУП.*|ПРИОБР.*|ОБЛИГАЦ.*|ИХ" /> ^ <regex pattern="МО(ЖНО|ГУ|ЖЕМ)|КУП.*|ПРИОБР.*|ОБЛИГАЦ.*|ИХ" /> ^ </pattern>
                         <template>Количество облигаций, которые вы можете приобрести, не ограничено. </template>
 
                     </category>

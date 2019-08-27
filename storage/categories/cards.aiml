@@ -71,7 +71,7 @@
     </category>
 
         <category>
-                <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern=".*|БАНКОМАТ.*" /> ^ </pattern>
+                <pattern> ^ <regex pattern=".*|БАНКОМАТ.*" /> ^ </pattern>
                 <that> В БАНКОМАТЕ ИЛИ КАССЕ </that>
                 <template>
                     В сутки вы можете снять до 1000000 рублей или 25000 долларов США или 20000 евро,
@@ -80,7 +80,7 @@
         </category>
 
         <category>
-                <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="КАСС.*" /> ^ </pattern>
+                <pattern> ^ <regex pattern="КАСС.*" /> ^ </pattern>
                 <that> В БАНКОМАТЕ ИЛИ КАССЕ </that>
                 <template>
                         Вы можете снять 50000 рублей или 1600 долларов или 1200 евро в сутки. 
@@ -160,7 +160,7 @@
             <template>Их можно обменять на авиабилеты, билеты в театр, на концерты и на покупки на маркетплейсе беру.</template>
     </category>	
     <category>
-            <pattern> ^ <regex pattern="СН.*" /> ^ <regex pattern="ДЕНЬГ.*|КАРТ.*" /> ^ </pattern>
+            <pattern> ^ <regex pattern="СН.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*|КАРТ.*" /> ^ </pattern>
             <template>
                 С банкомата или из кассы?
             </template>
@@ -215,6 +215,31 @@
             <think><srai>TOPIC STACK PUSH</srai></think>
         </template>
     </category>
+
+        <category>
+            <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ </pattern>
+            <template>
+                В банкомате или кассе?
+            </template>
+    </category>
+
+        <category>
+                <pattern> ^ <regex pattern=".*|БАНКОМАТ.*" /> ^ </pattern>
+                <that> В БАНКОМАТЕ ИЛИ КАССЕ </that>
+                <template>
+                    В сутки вы можете снять до 1000000 рублей или 25000 долларов США или 20000 евро,
+                    в месяц до 3000000 рублей или 1000000 долларов США или 75000 евро.
+            </template>
+        </category>
+
+        <category>
+                <pattern> ^ <regex pattern="КАСС.*" /> ^ </pattern>
+                <that> В БАНКОМАТЕ ИЛИ КАССЕ </that>
+                <template>
+                        Вы можете снять 50000 рублей или 1600 долларов или 1200 евро в сутки. 
+                        Но только если ваша карта заблокирована по каким-либо причинам
+                </template>
+        </category>
     <category>
         <pattern> ^ <regex pattern="ЧТО" /> ^ <regex pattern="РАССКАЗ.*" /> ^ </pattern>
         <template>
@@ -330,6 +355,14 @@
         <pattern> ^ <regex pattern="СН(Я|И).*|ПОЛУЧ.*" /> ^  <regex pattern="ДЕН.*|НАЛИЧ.*" /> ^ <regex pattern="КАРТ.*" /> ^ <regex pattern="СРОК.*" /> ^ </pattern>
         <template>Получить деньги со счета карты можно в любом офисе банка при предъявлении документа, удостоверяющего личность, данные которого вы предоставляли в банк. </template>
 </category>
+
+<category>
+        <pattern> ^ <regex pattern="СКОЛЬКО|ДОЛГО" /> ^ <regex pattern="ДЕЛА.*|.*ГОТ(О|А)В(ЛИВАЮ|Я)Т" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
+        <template>
+                Обычно карты готовятся до недели, но в случае премиум-сегмента ее сделают в течение 3 дней
+        </template>
+</category>
+
 <category>
         <pattern> ^ <regex pattern="СКОЛЬКО|КАК.*|ПОЧЕМУ" /> ^ <regex pattern="ПЕРЕВОД.*" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
         <template>
