@@ -8,6 +8,14 @@
             Сбербанк первый представляет собой сеть банковских отделений для клиентов премиум-класса. Хотите услышать о предоставляемых услугах в пакете Сбербанк Первый?
         </template>
     </category>
+    
+    <category>
+        <pattern> ^ СБЕРБАНК <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
+        <template>
+            <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>
+        </template>
+    </category>
+
     <!--да\нет-->
         <category>
             <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
@@ -50,6 +58,8 @@
     </category>
 
         <topic name="sb1_theme_choice">
+
+
             <category>
                 <pattern>DIALOG1 FIRST THEME CHOICE</pattern>
                 <template>
@@ -106,9 +116,15 @@
                                 <condition name="active_topic">
                                     <li value="unknown">
                                         <think>
+                                            <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+                                            <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+                                            <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+                                            <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+                                            <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                                             <set name="active_topic"><get name="topic"/></set>
                                         </think>
                                     </li>
+
                                 </condition>                            
                                 <set name="topic"><srai>TOPIC STACK POP</srai></set>
                             </think>
@@ -249,6 +265,11 @@
                         <condition name="active_topic">
                             <li value="unknown">
                                 <think>
+                                    <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+                                    <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+                                    <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+                                    <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+                                    <set name="top_buf_4_buf"><get name="top_buf_4" /></set>                                
                                     <set name="active_topic"><get name="topic"/></set>
                                 </think>
                             </li>
@@ -304,6 +325,11 @@
                                     <condition name="active_topic">
                                         <li value="unknown">
                                             <think>
+                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                                                 <set name="active_topic"><get name="topic"/></set>
                                             </think>
                                         </li>
@@ -359,6 +385,11 @@
                                     <condition name="active_topic">
                                         <li value="unknown">
                                             <think>
+                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                                                 <set name="active_topic"><get name="topic"/></set>
                                             </think>
                                         </li>
@@ -418,6 +449,11 @@
                                 <condition name="active_topic">
                                     <li value="unknown">
                                         <think>
+                                            <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+                                            <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+                                            <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+                                            <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+                                            <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                                             <set name="active_topic"><get name="topic"/></set>
                                         </think>
                                     </li>
@@ -470,6 +506,11 @@
                                         <li value="unknown">
                                             <think>
                                                 <set name="active_topic"><get name="topic"/></set>
+                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                                             </think>
                                         </li>
                                     </condition>
@@ -520,6 +561,11 @@
                                         <li value="unknown">
                                             <think>
                                                 <set name="active_topic"><get name="topic"/></set>
+                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                                             </think>
                                         </li>
                                     </condition>
@@ -569,6 +615,11 @@
                                         <li value="unknown">
                                             <think>
                                                 <set name="active_topic"><get name="topic"/></set>
+                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                                             </think>
                                         </li>
                                     </condition>
@@ -591,16 +642,18 @@
                         </template>
                     </category>
                     <category>
-                        <pattern> ^ <regex pattern="СКОЛЬКО|ЦЕН.*" /> ^ <regex pattern="ОБЛИГАЦ.*" /></pattern>
+                        <pattern> ^ <regex pattern="КАКОВА|СКОЛЬКО|ЦЕН.*|ОБЛИГАЦ.*|ИХ.*" /> ^ <regex pattern="СКОЛЬКО|ЦЕН.*|ОБЛИГАЦ.*|ИХ.*" /></pattern>
                         <template>Цена облигации 1000 рублей.</template>
                     </category>
                     <category>
-                        <pattern> ^ <regex pattern="СКОЛЬКО|КОЛИЧЕСТВ.*" /> ^ <regex pattern="ОБЛИГАЦ.*" /> ^ <regex pattern="КУП.*|ПРИОБР.*" /> ^ </pattern>
-                        <template>Количество облигаций, которое вы можете приобрести, не ограничено. </template>
+                      
+                        <pattern> ^ <regex pattern="СКОЛЬКО|КОЛИЧЕСТВ.*" /> ^ <regex pattern="КУП.*|ПРИОБР.*|ОБЛИГАЦ.*|ИХ" /> ^ <regex pattern="КУП.*|ПРИОБР.*|ОБЛИГАЦ.*|ИХ" /> ^ </pattern>
+                        <template>Количество облигаций, которые вы можете приобрести, не ограничено. </template>
+
                     </category>
 
                     <category>
-                        <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="КУП.*|ПРИОБР.*|ПОЛУЧ.*" /> ^ <regex pattern="ОБЛИГАЦ.*" /> ^ </pattern>
+                        <pattern> ^ <regex pattern="КАК.*" /> ^ <regex pattern="КУП.*|ПРИОБР.*|ПОЛУЧ.*|ОБЛИГАЦ.*|ИХ" /> ^ <regex pattern="КУП.*|ПРИОБР.*|ПОЛУЧ.*|ОБЛИГАЦ.*|ИХ" /> ^ </pattern>
                         <template>
                             Вам нужно открыть брокерский счёт. 
                             Это можно сделать в Сбербанк онлайн или в офисе Сбербанк Первый. 
@@ -625,6 +678,11 @@
                                     <condition name="active_topic">
                                         <li value="unknown">
                                             <think>
+                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                                                 <set name="active_topic"><get name="topic"/></set>
                                             </think>
                                         </li>

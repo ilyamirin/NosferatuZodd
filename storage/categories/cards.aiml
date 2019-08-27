@@ -7,14 +7,26 @@
     <category>
         <pattern> DIALOG1 CARDS </pattern>
         <template>
-                В пакете Сбербанк Премьер клиентам предоставляется карта Visa Infinite или MasterCard Elite.
-                Я могу рассказать Вам про стоимость обслуживания, валюты карты, срок действия, про оплату бесконтактно, 
-                действие карты за границей, комиссию при превышении лимита, снятии денег с банкомата другого банка, 
-                сколько бонусов начисляется, их обмен, какой лимит на снятие денег.
+                В пакете Сбербанк Первый клиентам предоставляется карта Visa Infinite или MasterCard Elite.
+                Я могу рассказать Вам например, какой лимит на снятие денег, и многое другое.
                 <think><srai>TOPIC STACK PUSH</srai></think>
         </template>
     </category>
 
+    <category>
+        <pattern> ^ <regex pattern="ЧТО" /> ^ <regex pattern="РАССКАЗ.*" /> ^ </pattern>
+        <template>
+            Я могу рассказать Вам про годовое обслуживание, валюты карты, срок действия, про оплату бесконтактно, 
+            действие карты за границей, комиссию при превышении лимита, снятии денег с банкомата другого банка, 
+            сколько бонусов начисляется, их обмен, какой лимит на снятие денег.
+        </template>
+    </category>
+    <category>
+        <pattern> ^ МНОГОЕ ДРУГОЕ ^ </pattern>
+        <template>
+                <srai>ЧТО РАССКАЗ</srai>
+        </template>
+    </category>
     <category>
             <pattern> ^ <regex pattern="ИНФИНИТ.*|INFINIT.*" /> ^ </pattern>
             <template>
@@ -51,6 +63,30 @@
                     Мастеркард дает возможность бесплатного посещения вип залов в аэропортах и бесплатный роуминг от мегафона.
             </template>
     </category>
+    <category>
+            <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ </pattern>
+            <template>
+                В банкомате или кассе?
+            </template>
+    </category>
+
+        <category>
+                <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern=".*|БАНКОМАТ.*" /> ^ </pattern>
+                <that> В БАНКОМАТЕ ИЛИ КАССЕ </that>
+                <template>
+                    В сутки вы можете снять до 1000000 рублей или 25000 долларов США или 20000 евро,
+                    в месяц до 3000000 рублей или 1000000 долларов США или 75000 евро.
+            </template>
+        </category>
+
+        <category>
+                <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="КАСС.*" /> ^ </pattern>
+                <that> В БАНКОМАТЕ ИЛИ КАССЕ </that>
+                <template>
+                        Вы можете снять 50000 рублей или 1600 долларов или 1200 евро в сутки. 
+                        Но только если ваша карта заблокирована по каким-либо причинам
+                </template>
+        </category>
 
     <category>
             <pattern> ^ <regex pattern="ЛИМИТ.*" /> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern=".*|БАНКОМАТ.*" /> ^ </pattern>
@@ -67,6 +103,7 @@
                     Но только если ваша карта заблокирована по каким-либо причинам
             </template>
     </category>
+
     <category>
         <pattern> ^ <regex pattern="СКОЛЬК.*" /> ^ <regex pattern="БОНУС.*" /> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
         <template>10% при оплате в кафе и ресторанах, 5% за покупки в супермаркете и 0,5% за всё остальное</template>
@@ -151,6 +188,11 @@
                 <condition name="active_topic">
                     <li value="unknown">
                         <think>
+                            <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+                            <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+                            <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+                            <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+                            <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                             <set name="active_topic"><get name="topic"/></set>
                         </think>
                     </li>
@@ -168,13 +210,26 @@
     <category>
         <pattern>DIALOG2 CARDS</pattern>
         <template>
-            В пакете Сбербанк Премьер клиентам предоставляется карта Виза Платинум или Ворлд мастеркард Блэк Эдишн.
-            Я могу рассказать Вам про годовое обслуживание, валюты карты, срок действия, про оплату бесконтактно, 
-            действие карты за границей, комиссию при превышении лимита, снятии денег с банкомата другого банка, 
-            сколько бонусов начисляется, их обмен, какой лимит на снятие денег.
+            В пакете Сбербанк Премьер клиентам предоставляется карта Visa Infinite или MasterCard Elite.
+            Я могу рассказать Вам например, какой лимит на снятие денег, и многое другое.
             <think><srai>TOPIC STACK PUSH</srai></think>
         </template>
     </category>
+    <category>
+        <pattern> ^ <regex pattern="ЧТО" /> ^ <regex pattern="РАССКАЗ.*" /> ^ </pattern>
+        <template>
+            Я могу рассказать Вам про годовое обслуживание, валюты карты, срок действия, про оплату бесконтактно, 
+            действие карты за границей, комиссию при превышении лимита, снятии денег с банкомата другого банка, 
+            сколько бонусов начисляется, их обмен, какой лимит на снятие денег.
+        </template>
+    </category>
+    <category>
+        <pattern> ^ МНОГОЕ ДРУГОЕ ^ </pattern>
+        <template>
+                <srai>ЧТО РАССКАЗ</srai>
+        </template>
+    </category>
+
     <category>
             <pattern> ^ <regex pattern="РАЗН.*|РАЗЛ.*|ОТЛИЧ.*" /> ^ </pattern>
             <template>
@@ -256,6 +311,11 @@
                     <li value="unknown">
                         <think>
                             <set name="active_topic"><get name="topic"/></set>
+                            <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+                            <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+                            <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+                            <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+                            <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                         </think>
                     </li>
                 </condition>                                
