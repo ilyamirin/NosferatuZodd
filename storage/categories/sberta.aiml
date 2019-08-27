@@ -7,7 +7,7 @@
     </category>
 
     <category>
-        <pattern> ^ <iset words= "ХАЙ, ЭЙ, ПРИВЕТ, ОК, ЗДРАВСТВУЙ"/> ^ </pattern>
+        <pattern> ^ <iset words= "ХАЙ, ЭЙ, ПРИВЕТ, ОК, ЗДРАВСТВУЙ, ЗДРАВСТВУЙТЕ"/> ^ </pattern>
         <template>
             <condition name="flag_greet">
                 <li value="unknown">
@@ -62,7 +62,7 @@
             </category>
 
             <category>
-                <pattern> ^ <regex pattern="ВСЕ.?" /> ^ </pattern>
+                <pattern> ^ <regex pattern="ВСЕ.?|.*НИБУДЬ" /> ^ </pattern>
                 <template>Рассказывать много. Давайте начну со Сбербанк Первый. <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
             </category>
 
@@ -336,6 +336,11 @@
             <think>
                 <set name="topic"><get name="active_topic"/></set>
                 <set name="active_topic">unknown</set>
+                <set name="top_buf_0"><get name="top_buf_0_buf" /></set>
+                <set name="top_buf_1"><get name="top_buf_1_buf" /></set>
+                <set name="top_buf_2"><get name="top_buf_2_buf" /></set>
+                <set name="top_buf_3"><get name="top_buf_3_buf" /></set>
+                <set name="top_buf_4"><get name="top_buf_4_buf" /></set>
             </think>
         </template>
     </category>
@@ -354,7 +359,6 @@
                 </random>
             </template>
         </category>
-
         <category>
             <pattern>MU001</pattern>
             <template>Извините, я не совсем Вас поняла.</template>
@@ -387,6 +391,11 @@
 
         <category>
             <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|ДО" /> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|" /> ^ </pattern>
+            <template><think><set name="flag_greet">0</set></think>До свидания</template>
+        </category>
+
+        <category>
+            <pattern> ^ <regex pattern="ПОКА|СВИДАН.*|БЛАГОДАРЮ" /> ^ </pattern>
             <template><think><set name="flag_greet">0</set></think>До свидания</template>
         </category>
 
@@ -467,80 +476,68 @@
 
         <category>
             <pattern>TOPIC STACK POP</pattern>
-            <template><srai>TOPBUFF5</srai></template>
-        </category>
+            <template><srai>TOPBUFF4</srai></template>
+    </category>
             <category>
-                <pattern>TOPBUFF5</pattern>
+                <pattern>TOPBUFF4</pattern>
                 <template>
-                    <condition name="top_buf_5">
-                        <li value="unknown"><srai>TOPBUFF4</srai></li>
+                    <condition name="top_buf_4">
+                        <li value="unknown"><srai>TOPBUFF3</srai></li>
                         <li>
-                            <get name="top_buf_5"/>
-                            <think><set name="top_buf_5">unknown</set></think>
+                            <get name="top_buf_4"/>
+                            <think><set name="top_buf_4">unknown</set></think>
                         </li>
                     </condition>
                 </template>
             </category>
                 <category>
-                    <pattern>TOPBUFF4</pattern>
+                    <pattern>TOPBUFF3</pattern>
                     <template>
-                        <condition name="top_buf_4">
-                            <li value="unknown"><srai>TOPBUFF3</srai></li>
+                        <condition name="top_buf_3">
+                            <li value="unknown"><srai>TOPBUFF2</srai></li>
                             <li>
-                                <get name="top_buf_4"/>
-                                <think><set name="top_buf_4">unknown</set></think>
+                                <get name="top_buf_3"/>
+                                <think><set name="top_buf_3">unknown</set></think>
                             </li>
                         </condition>
                     </template>
                 </category>
                     <category>
-                        <pattern>TOPBUFF3</pattern>
+                        <pattern>TOPBUFF2</pattern>
                         <template>
-                            <condition name="top_buf_3">
-                                <li value="unknown"><srai>TOPBUFF2</srai></li>
+                            <condition name="top_buf_2">
+                                <li value="unknown"><srai>TOPBUFF1</srai></li>
                                 <li>
-                                    <get name="top_buf_3"/>
-                                    <think><set name="top_buf_3">unknown</set></think>
+                                    <get name="top_buf_2"/>
+                                    <think><set name="top_buf_2">unknown</set></think>
                                 </li>
                             </condition>
                         </template>
                     </category>
                         <category>
-                            <pattern>TOPBUFF2</pattern>
+                            <pattern>TOPBUFF1</pattern>
                             <template>
-                                <condition name="top_buf_2">
-                                    <li value="unknown"><srai>TOPBUFF1</srai></li>
+                                <condition name="top_buf_1">
+                                    <li value="unknown"><srai>TOPBUFF0</srai></li>
                                     <li>
-                                        <get name="top_buf_2"/>
-                                        <think><set name="top_buf_2">unknown</set></think>
+                                        <get name="top_buf_1"/>
+                                        <think><set name="top_buf_1">unknown</set></think>
                                     </li>
                                 </condition>
                             </template>
                         </category>
                             <category>
-                                <pattern>TOPBUFF1</pattern>
+                                <pattern>TOPBUFF0</pattern>
                                 <template>
-                                    <condition name="top_buf_1">
-                                        <li value="unknown"><srai>TOPBUFF0</srai></li>
+                                    <condition name="top_buf_0">
+                                        <li value="unknown">unknown</li>
                                         <li>
-                                            <get name="top_buf_1"/>
-                                            <think><set name="top_buf_1">unknown</set></think>
+                                            <get name="top_buf_0"/>
+                                            <think><set name="top_buf_0">unknown</set></think>
                                         </li>
                                     </condition>
                                 </template>
                             </category>
-                                <category>
-                                    <pattern>TOPBUFF0</pattern>
-                                    <template>
-                                        <condition name="top_buf_0">
-                                            <li value="unknown">unknown</li>
-                                            <li>
-                                                <get name="top_buf_0"/>
-                                                <think><set name="top_buf_0">unknown</set></think>
-                                            </li>
-                                        </condition>
-                                    </template>
-                                </category>
 
         
     <category>

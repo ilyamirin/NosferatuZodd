@@ -243,7 +243,7 @@
         <category>
             <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
             <that> ОФОРМЛЯЕМ </that>
-            <template><think><set name="topic_buff"><get name="topic"/></set><set name="topic">unknown</set></think><srai> ДА </srai></template>
+            <template><think><set name="top_buff"><get name="topic"/></set><set name="topic">unknown</set></think><srai> ДА </srai></template>
         </category>
     </topic>
   
