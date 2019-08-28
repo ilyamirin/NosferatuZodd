@@ -151,7 +151,10 @@
         <pattern> ^ <regex pattern="ЧТО|ЧЕМ|КАК.+"/> ^ <regex pattern="УМЕЕШЬ|УДИВИШЬ|ФУНКЦИОНАЛ|НАВЫК..?"/></pattern>
         <template>Я ваша личная финансовая помощница от сбера! <srai>BASICTHEMES001</srai></template>
     </category>
-
+    <category>
+        <pattern><regex pattern="МЕНЯ|МОЕ"/><regex pattern="ЗОВУТ|ИМЯ*"/> * </pattern>
+        <template>Прекрасное имя! Рада нашему знакомству, <set name="name"><star index="3"/></set>!</template>
+    </category>
     <category>
         <pattern><regex pattern="МЕНЯ|МОЕ"/><regex pattern="ЗОВУТ|ИМЯ*"/> * </pattern>
         <that>МЕНЯ ЗОВУТ СБЕРТА А ВАС</that>
