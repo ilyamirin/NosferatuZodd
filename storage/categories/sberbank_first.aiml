@@ -12,7 +12,7 @@
     <category>
         <pattern> ^ СБЕРБАНК <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
         <template>
-            <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>
+            <srai>ЧТО ПЕРВЫЙ</srai>
         </template>
     </category>
 
@@ -139,7 +139,19 @@
                 <category>
                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                     <that> РАССКАЗАТЬ О ВКЛАДАХ </that>
-                    <template><think><srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1card_vklad</set></think><srai>OK001</srai><srai>DIALOG1 DEPOSITS</srai></template>
+                    <template>
+                        <think>
+                            <srai>TOPIC STACK PUSH</srai>
+                            <addtriple>
+                                <subj>клиент</subj>
+                                <pred>заинтересован</pred>
+                                <obj>вклады</obj>
+                            </addtriple>
+                            <set name = "topic">sb_1card_vklad</set>
+                        </think>
+                        <srai>OK001</srai>
+                        <srai>DIALOG1 DEPOSITS</srai>
+                    </template>
                 </category>
                 <category>
                     <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
@@ -191,7 +203,18 @@
                 <category>
                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                     <that> ХОТИТЕ УЗНАТЬ ОБ ОБЛИГАЦИЯХ ПОПОДРОБНЕЕ </that>
-                    <template><think><srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1_obligations</set></think><srai>OK001</srai><srai>DIALOG1 OBLIGATIONS</srai></template>
+                    <template>
+                        <think>
+                            <addtriple>
+                                <subj>клиент</subj>
+                                <pred>заинтересован</pred>
+                                <obj>облигации</obj>
+                            </addtriple>
+                            <srai>TOPIC STACK PUSH</srai>
+                            <set name = "topic">sb_1_obligations</set>
+                        </think>
+                        <srai>OK001</srai><srai>DIALOG1 OBLIGATIONS</srai>
+                    </template>
                 </category>
                 <category>
                     <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
@@ -228,7 +251,17 @@
                 <category>
                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                     <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОПОДРОБНЕЕ </that>
-                    <template><think><srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1_partners_services</set></think><srai>OK001</srai><srai>DIALOG1 PARTNER</srai></template>
+                    <template>
+                        <think>
+                            <srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1_partners_services</set>
+                            <addtriple>
+                                <subj>клиент</subj>
+                                <pred>заинтересован</pred>
+                                <obj>Партнерские услуги</obj>
+                            </addtriple>
+                        </think>
+                        <srai>OK001</srai><srai>DIALOG1 PARTNER</srai>
+                    </template>
                 </category>
                 <category>
                     <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>

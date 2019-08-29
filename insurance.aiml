@@ -115,7 +115,7 @@
     </category>
     <category>
         <pattern>ОДНОРАЗОВАЯ</pattern>
-            <template>Одноразовая на 15 дней. Подходит?<think><set name = "topic">оформление</set></think></template>
+            <template>Одноразовая на 15 дней. Оформляем?<think><set name = "topic">оформление</set></think></template>
     </category>
 </topic>
 <topic name="сроки">
