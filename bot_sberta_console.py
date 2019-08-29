@@ -27,4 +27,6 @@ class ConsoleBotClientMod(client.ConsoleBotClient):
 
 
 a = ConsoleBotClientMod()
-a.run()
+#a.run()
+client_context = a.create_client_context("1")
+print(client_context.brain.rdf.matched_as_tuples("МИР", None, None))

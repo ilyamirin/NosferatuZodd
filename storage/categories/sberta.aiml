@@ -30,7 +30,9 @@
     <category>
         <pattern>BASICTHEMES001</pattern>
         <template>
-            <think><set name="topic">sberta_package_choise</set></think>
+            <think>
+                <set name="topic">sberta_package_choise</set>
+            </think>
             <srai>DIALOG1 SBERTA PACKAGE CHOICE</srai>
         </template>
     </category>
@@ -42,7 +44,13 @@
                 <pattern>DIALOG1 SBERTA PACKAGE CHOICE</pattern>
                 <template>
                     Могу рассказать о премиальных пакетах: Сбербанк Первый и Сбербанк Премьер. О чем вам рассказать?
-                    <think><srai>TOPIC STACK PUSH</srai></think>
+                    <think><srai>TOPIC STACK PUSH</srai>
+                        <addtriple>
+                            <subj>клиент</subj>
+                            <pred>начал</pred>
+                            <obj>диалог</obj>
+                        </addtriple>
+                    </think>
                 </template>
             </category>
             
@@ -94,13 +102,14 @@
                             <srai><input index="1"/></srai>
                         </template>
                     </category>
+                    <!--Loop
                     <category>
                         <pattern> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
                         <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
                         <template>
                             <srai>СБЕРБАНК ПЕРВЫЙ</srai>
                         </template>
-                    </category>
+                    </category>-->
                     <category>
                         <pattern> ^ СБЕРБАНК <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
                         <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
@@ -342,7 +351,7 @@
     <category>
         <pattern>*</pattern>
         <template>
-            <srai>MU001</srai>
+            Ок, вот что я нашла в интернете:
             <think>
                 <set name="topic"><get name="active_topic"/></set>
                 <set name="active_topic">unknown</set>
@@ -352,6 +361,9 @@
                 <set name="top_buf_3"><get name="top_buf_3_buf" /></set>
                 <set name="top_buf_4"><get name="top_buf_4_buf" /></set>
             </think>
+            <search>
+                <star/>
+            </search>
         </template>
     </category>
 
@@ -384,7 +396,101 @@
         <category>
             <pattern> ^ <regex pattern="ДА|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ИНТЕРЕС.*|ЛАД.*|ОКЕЙ"/> ^ </pattern>
             <that> ОФОРМЛЯЕМ</that>
-            <template><think><set name="topic">unknown</set></think>Зайдите в личный кабинет - все документы ждут вас там. Чем еще я могу Вам помочь?</template>
+            <template>
+                <think>
+                    <condition name="topic">
+                    <!-- клиент заказал-->
+                        <!--Партнерские услуги-->                   
+                        <li value="sb_1_insurance">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>страховка</obj>
+                                </addtriple>
+                        </li>
+                        <li value="sb_1card_medic_services_tvmed">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>ТВ медицина</obj>
+                                </addtriple>
+                        </li>
+                        <li value="sb_1card_medic_expert_opinion">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Второе экспертное мнение</obj>
+                                </addtriple>
+                        </li>
+                        <!--Сбербанк Первый-->
+                        <li value="sb_1card_vklad_lsohranyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Лидер Сохраняй</obj>
+                                </addtriple>
+                        </li>
+                        <li value="sb_1card_vklad_lpopolnyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Лидер Пополняй</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sb_1card_vklad_luprvlyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Лидер Управляй</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sb_1card_credit_bp">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Кредит без поручителей</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sb_1card_credit_sp">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Кредит с поручителями</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sb_1_obligations">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Облигации</obj>
+                                </addtriple>
+                        </li>
+                        <!--Сбербанк Премьер-->
+                        <li value="sbpr_card_vklad_lsohranyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Особый Сохраняй</obj>
+                                </addtriple>
+                        </li>
+                        <li value="sbpr_card_vklad_lpopolnyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Особый Пополняй</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sbpr_card_vklad_luprvlyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Особый Управляй</obj>
+                                </addtriple>
+                        </li>                        
+                    </condition>
+                </think>
+                Зайдите в личный кабинет - все документы ждут вас там. Чем еще я могу Вам помочь?
+            </template>
         </category>
         
         <category>
@@ -425,6 +531,75 @@
     </category>
 
     <!--служебные-->
+    <!--категория для определения оформления-->
+        <category>
+            <pattern>ОФОРМЛЯЕМ ЛИ *</pattern>
+            <template>
+                <think>
+                    <set name="ussued"><srai>КТО ЗАКАЗАЛ <star/></srai></set>
+                </think>
+                <condition name="ussued">
+                    <li value="КЛИЕНТ">Дальнейшее оформление ждет Вас в личном кабинете<think><set name="ussued">unknown</set></think></li>
+                    <li>Оформляем?</li>
+                </condition>
+            </template>
+        </category>
+    <category>
+        <pattern>КТО ЗАКАЗАЛ *</pattern>
+        <template>
+            <think>
+                <set var="tuples">
+                    <select>
+                        <vars>?name</vars>
+                        <q><subj>?name</subj><pred>ЗАКАЗАЛ</pred><obj><star/></obj></q>
+                    </select>
+                </set>
+            </think>
+            <get var="?name">
+                <tuple>
+                    <first><get var="tuples" /></first>
+                </tuple>
+            </get>
+        </template>
+    </category>
+
+<!--категория для определения интереса-->
+        <category>
+            <pattern>ИНТЕРЕСОВАЛИСЬ ЛИ *</pattern>
+            <template>
+                <think>
+                    <set name="interested"><srai>КТО ЗАИНТЕРЕСОВАН <star/></srai></set>
+                </think>
+                <condition name="interested">
+                    <li value="КЛИЕНТ">
+                        <random>
+                            <li>По-моему, мы уже об этом говорили, разве нет?</li>
+                            <li>Я уже это упоминала, повторю ради Вас.</li>
+                            <li>Мне кажется, что мы об этом уже говорили.</li>
+                        </random>
+                    <think><set name="interested">unknown</set></think></li>
+                    <li></li>
+                </condition>
+            </template>
+        </category>
+    <category>
+        <pattern>КТО ЗАИНТЕРЕСОВАН *</pattern>
+        <template>
+            <think>
+                <set var="tuples">
+                    <select>
+                        <vars>?name</vars>
+                        <q><subj>?name</subj><pred>ЗАИНТЕРЕСОВАН</pred><obj><star/></obj></q>
+                    </select>
+                </set>
+            </think>
+            <get var="?name">
+                <tuple>
+                    <first><get var="tuples" /></first>
+                </tuple>
+            </get>
+        </template>
+    </category>
 
     <category>
         <pattern>ОТМЕНА</pattern>
