@@ -6,6 +6,7 @@
     <category>
         <pattern> ^ <regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="ПРЕМЬЕР.*" /> ^ </pattern>
         <template>
+            <srai>ИНТЕРЕСОВАЛИСЬ ЛИ Сбербанк Премьер</srai>
             Это специально разработанный пакет услуг для наших состоятельных клиентов. 
             <think>
                 <set name="topic">sbpr_theme_choice</set>
@@ -73,6 +74,7 @@
                             <obj>Вклады</obj>
                         </addtriple>
                     </think>
+                        <srai>ИНТЕРЕСОВАЛИСЬ ЛИ Вклады</srai>
                         <srai>DIALOG2 DEPOSITS</srai>
                 </template>
             </category>
@@ -95,7 +97,7 @@
         <!--сейфовая ячейка-->
             <category>
                     <pattern> ^ <regex pattern="СЕЙФ.*|ЯЧЕЙК.*"/> ^ </pattern>
-                    <template>сбербанк предоставляет своим клиентам индивидуальные банковские сейфы 
+                    <template><srai>ИНТЕРЕСОВАЛИСЬ ЛИ Сейф</srai>сбербанк предоставляет своим клиентам индивидуальные банковские сейфы 
                     для надежного хранения ценностей и документов со скидкой в 20 %. Рассказать о сейфе?</template>     
             </category>
             
@@ -109,7 +111,7 @@
                         <addtriple>
                             <subj>клиент</subj>
                             <pred>заинтересован</pred>
-                            <obj>Сбербанк Первый</obj>
+                            <obj>Сейф</obj>
                         </addtriple>
                         </think>
                         <srai>OK001</srai><srai>DIALOG2 VAULT</srai></template>
@@ -146,7 +148,7 @@
             <category>
                     <pattern> ^ <regex pattern="ПАРТНЕР.*" /> ^ <regex pattern="УСЛУГ.*" /> ^ </pattern>
                     <template>
-                        <srai>OK001</srai> 
+                        <srai>OK001</srai> <srai>ИНТЕРЕСОВАЛИСЬ ЛИ Партнерские услуги</srai>
                         Партнёрские услуги, которые предоставляет сбербанк,
                         - это страхование, медицинские услуги и приорити пасс. 
                         Хотите узнать о партнерских услугах поподробнее?
@@ -161,7 +163,7 @@
                                 <addtriple>
                                     <subj>клиент</subj>
                                     <pred>заинтересован</pred>
-                                    <obj>Сбербанк Первый</obj>
+                                    <obj>Партнерские услуги</obj>
                                 </addtriple>                                
                             </think>
                             <srai>OK001</srai><srai>DIALOG1 PARTNER</srai></template>
@@ -247,6 +249,7 @@
                     <category>
                         <pattern> ^ <regex pattern="СОХРАН.*" /> ^ </pattern>
                         <template>
+                            <srai>ИНТЕРЕСОВАЛИСЬ ЛИ Вклад Особый Сохраняй</srai>
                            Минимальная сумма вклада 700 000 рублей, 50 000 долларов. 
                            Минимальный процент по данному вкладу в рублях 4,20%. Максимальный 5,65%
                             <think>
@@ -254,7 +257,7 @@
                                 <addtriple>
                                     <subj>клиент</subj>
                                     <pred>заинтересован</pred>
-                                    <obj>Сбербанк Первый</obj>
+                                    <obj>Вклад Особый Сохраняй</obj>
                                 </addtriple>
                             </think>
                             <srai>DIALOG1 FIRST DEPOSIT SOHRANYAI</srai>
@@ -264,6 +267,7 @@
                     <category>
                         <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ </pattern>
                         <template>
+                            <srai>ИНТЕРЕСОВАЛИСЬ ЛИ Вклад Особый Пополняй</srai>
                             Минимальная сумма вклада 700 000 рублей, 50 000 долларов. 
                             Минимальный процент по данному вкладу в рублях 4,75%. Максимальный 5,20%.
                             <think>
@@ -271,7 +275,7 @@
                                 <addtriple>
                                     <subj>клиент</subj>
                                     <pred>заинтересован</pred>
-                                    <obj>Сбербанк Первый</obj>
+                                    <obj>Вклад Особый Пополняй</obj>
                                 </addtriple>
                             </think>
                             <srai>DIALOG1 FIRST DEPOSIT POPOLNYAI</srai>
@@ -281,6 +285,7 @@
                     <category>
                         <pattern> ^ <regex pattern="УПРАВЛ.*" /> ^ </pattern>
                         <template>
+                            <srai>ИНТЕРЕСОВАЛИСЬ ЛИ Вклад Особый Управляй</srai>
                             Минимальная сумма вклада 700 000 рублей, 50 000 долларов. 
                             Минимальный процент по данному вкладу в рублях 4,10%. Максимальный 4,90%.
                             <think>
@@ -288,7 +293,7 @@
                                 <addtriple>
                                     <subj>клиент</subj>
                                     <pred>заинтересован</pred>
-                                    <obj>Сбербанк Первый</obj>
+                                    <obj>Вклад Особый Управляй</obj>
                                 </addtriple>
                             </think>
                             <srai>DIALOG1 FIRST DEPOSIT UPRVLYAI</srai>
@@ -331,17 +336,17 @@
 
                         <category>
                             <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Валюта вклада рубли и доллары. Оформляем?</template>
+                            <template>Валюта вклада рубли и доллары. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Сохраняй</srai></template>
                         </category>
 
                         <category>
                             <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
-                            <template>На этом вкладе такая опция не предусмотрена. Оформляем?</template>
+                            <template>На этом вкладе такая опция не предусмотрена. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Сохраняй</srai></template>
                         </category>
                         
                         <category>
                             <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Этот вклад пополнть нельзя. Оформляем?</template>
+                            <template>Этот вклад пополнть нельзя. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Сохраняй</srai></template>
                         </category>
 
                         <category>
@@ -351,7 +356,7 @@
 
                         <category>
                             <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
-                            <template>Срок вклада особый сохраняй от 1 месяца до 3 лет включительно. Оформляем?</template>
+                            <template>Срок вклада особый сохраняй от 1 месяца до 3 лет включительно. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Сохраняй</srai></template>
                         </category>
 
                         <category>
@@ -390,17 +395,17 @@
 
                         <category>
                             <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Валюта вклада рубли и доллары. Оформляем?</template>
+                            <template>Валюта вклада рубли и доллары. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Пополняй</srai></template>
                         </category>
 
                         <category>
                             <pattern> ^ <regex pattern="СНЯТ.*|СНИМ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
-                            <template>Пополнение данного вклада не предусмотрено. Оформляем?</template>
+                            <template>Пополнение данного вклада не предусмотрено. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Пополняй</srai></template>
                         </category>
 
                         <category>
                             <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Да, вы можете пополнять вклад, процентная ставка увеличивается автоматически. Оформляем?</template>
+                            <template>Да, вы можете пополнять вклад, процентная ставка увеличивается автоматически. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Пополняй</srai></template>
                         </category>
 
                         <category>
@@ -410,7 +415,7 @@
 
                         <category>
                             <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
-                            <template>Срок вклада особый пополняй от 3 месяцев до 3 лет. Оформляем?</template>
+                            <template>Срок вклада особый пополняй от 3 месяцев до 3 лет. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Пополняй</srai></template>
                         </category>
 
                         <category>
@@ -450,17 +455,17 @@
 
                         <category>
                             <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Валюта вклада рубли и доллары. Оформляем?</template>
+                            <template>Валюта вклада рубли и доллары. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Управляй</srai></template>
                         </category>
 
                         <category>
                             <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
-                            <template>Да,вы можете снять деньги до уровня неснижаемого остатка. Оформляем?</template>
+                            <template>Да,вы можете снять деньги до уровня неснижаемого остатка. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Управляй</srai></template>
                         </category>
 
                         <category>
                             <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Да, вы можете пополнять вклад, процентная ставка увеличивается автоматически. Оформляем?</template>
+                            <template>Да, вы можете пополнять вклад, процентная ставка увеличивается автоматически. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Управляй</srai></template>
                         </category>
 
                         <category>
@@ -470,7 +475,7 @@
 
                         <category>
                             <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
-                            <template>Срок вклада особый управляй от 3 месяцев до 3 лет. Оформляем?</template>
+                            <template>Срок вклада особый управляй от 3 месяцев до 3 лет. <srai>ОФОРМЛЯЕМ ЛИ Вклад Особый Управляй</srai></template>
                         </category>
 
                         <category>

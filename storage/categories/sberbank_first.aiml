@@ -72,6 +72,7 @@
             <category>
                 <pattern>DIALOG1 FIRST THEME CHOICE</pattern>
                 <template>
+                    <srai>ИНТЕРЕСОВАЛИСЬ ЛИ Сбербанк Первый</srai>
                     Могу рассказать о кредитах, картах, вкладах, обмене валюты, 
                     облигациях и партнёрских услугах. О чём хотите узнать?
                 </template>
@@ -84,8 +85,8 @@
                     <think>
                         <addtriple>
                             <subj>клиент</subj>
-                            <pred>начал</pred>
-                            <obj>диалог</obj>
+                            <pred>заинтересован</pred>
+                            <obj>карты</obj>
                         </addtriple>
                         <srai>TOPIC STACK PUSH</srai><set name="topic">sb1_cards</set>
                     </think>
@@ -150,7 +151,7 @@
         <!--вклады-->
             <category>
                 <pattern> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                <template>Для клиентов сбербанк первый доступны вклады лидер сохраняй, лидер пополняй, лидер управляй. Рассказать о вкладах?</template>
+                <template>Для клиентов сбербанк первый доступны вклады лидер сохраняй, лидер пополняй, лидер управляй. <srai>ИНТЕРЕСОВАЛИСЬ ЛИ вклады</srai> Рассказать о вкладах?</template>
             </category>
                 <category>
                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
@@ -210,7 +211,7 @@
             <category>
                 <pattern> ^ <regex pattern="ОБЛИГАЦ.*" /> ^ </pattern>
                 <template>
-                    <srai>OK001</srai>
+                    <srai>OK001</srai><srai>ИНТЕРЕСОВАЛИСЬ ЛИ облигации</srai>
                     Сбербанк гарантирует возврат 100% вложенных средств, доход выплачивается каждые полгода. 
                     Если будет необходимо, облигации можно продать досрочно по рыночной цене. 
                     Хотите узнать об облигациях поподробнее?
@@ -262,7 +263,7 @@
         <!--Партнерские услуги-->
             <category>
                 <pattern> ^ <regex pattern="ПАРТНЕР.*" /> ^ <regex pattern="УСЛУГ.*" /> ^ </pattern>
-                <template><srai>OK001</srai> Партнёрские услуги, которые предоставляет сбербанк,- это страхование, медицинские услуги и приорити пасс. Хотите узнать о партнерских услугах подробнее? </template>
+                <template><srai>OK001</srai><srai>ИНТЕРЕСОВАЛИСЬ ЛИ Партнерские услуги</srai> Партнёрские услуги, которые предоставляет сбербанк,- это страхование, медицинские услуги и приорити пасс. Хотите узнать о партнерских услугах подробнее? </template>
             </category>
                 <category>
                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
@@ -335,8 +336,8 @@
                     <category>
                         <pattern>SB1 CREDIT WITHOUT GUARANTOR</pattern>
                         <template>
-                            Есть премиум потребительский кредит под поручительство физических лиц. 
-                            Минимальная сумма 5000000. 
+                            Есть премиум потребительский кредит на любые ваши нужды.
+                            Минимальная сумма 3000000. 
                             Я могу рассказать Вам, какая ставка, сколько обрабатывается заявка, и срок кредита.
                         </template>
                     </category>
@@ -353,17 +354,20 @@
                         <pattern><regex pattern="КРЕДИТ.*" /></pattern>
                         <template><srai>СРОК КРЕДИТА</srai></template>
                     </category>
+
                     <category>
                         <pattern> ^ <regex pattern=".*|КАК.*|ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="СТАВК.*" /> ^ </pattern>
-                        <template>Минимальная ставка 13,9% в год. Оформляем?</template>
+                        <template>
+                            Минимальная ставка 13,9% в год.<srai>ОФОРМЛЯЕМ ЛИ Кредит без поручителей</srai>
+                        </template>
                     </category>
                     <category>
                         <pattern> ^ <regex pattern="СКОЛЬК.*|" />  ^ <regex pattern="ОБРАБ.*|РАССМ(О|А)ТР.*" /> ^ <regex pattern="ЗАЯВК." /> ^ </pattern>
-                        <template>Срок рассмотрения заявки не более 2 рабочих дней. Оформляем?</template>
+                        <template>Срок рассмотрения заявки не более 2 рабочих дней. <srai>ОФОРМЛЯЕМ ЛИ Кредит без поручителей</srai></template>
                     </category>
                     <category>
                         <pattern> ^ <regex pattern="СРОК.*|СКОЛЬК.*" /> ^ <regex pattern="КРЕДИТ.*|" /> ^ </pattern>
-                        <template>Срок кредита от 3 месяцев до 5 лет. Оформляем?</template>
+                        <template>Срок кредита от 3 месяцев до 5 лет. <srai>ОФОРМЛЯЕМ ЛИ Кредит без поручителей</srai></template>
                     </category>
 
                     <!--не понятно-->
@@ -395,8 +399,8 @@
                     <category>
                         <pattern>SB1 CREDIT WITH GUARANTOR</pattern>
                         <template>
-                            Есть премиум потребительский кредит на любые ваши нужды.
-                            Минимальная сумма 3000000. 
+                            Есть премиум потребительский кредит под поручительство физических лиц. 
+                            Минимальная сумма 5000000. 
                             Я могу рассказать Вам, какая ставка, сколько обрабатывается заявка, и срок кредита.
                         </template>
                     </category>
@@ -415,15 +419,15 @@
                     </category>
                     <category>
                         <pattern> ^ <regex pattern=".*|КАК.*|ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="СТАВК.*" /> ^ </pattern>
-                        <template>Минимальная ставка 14,9%. Оформляем?</template>
+                        <template>Минимальная ставка 14,9%. <srai>ОФОРМЛЯЕМ ЛИ Кредит с поручителями</srai></template>
                     </category>
                     <category>
                         <pattern> ^ <regex pattern="СКОЛЬК.*|" />  ^ <regex pattern="ОБРАБ.*|РАССМ(О|А)ТР.*" /> ^ <regex pattern="ЗАЯВК." /> ^ </pattern>
-                        <template>Срок рассмотрения заявки не более 2 рабочих дней. Оформляем?</template>
+                        <template>Срок рассмотрения заявки не более 2 рабочих дней. <srai>ОФОРМЛЯЕМ ЛИ Кредит с поручителями</srai></template>
                     </category>
                     <category>
                         <pattern> ^ <regex pattern="СРОК.*|СКОЛЬК.*" /> ^ <regex pattern="КРЕДИТ.*|" /> ^ </pattern>
-                        <template>Срок кредита от 3 месяцев до 5 лет. Оформляем?</template>
+                        <template>Срок кредита от 3 месяцев до 5 лет. <srai>ОФОРМЛЯЕМ ЛИ Кредит с поручителями</srai></template>
                     </category>
 
                     <!--не понятно-->
@@ -524,18 +528,19 @@
                                 Могу рассказать про валюту вклада, снятие денег и пополнение вклада.
                             </template>
                         </category>
+
                         <category>
                             <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
+                            <template>Валюта вклада рубли, доллары, евро. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Сохраняй</srai></template>
                         </category>
                         <category>
                             <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
-                            <template>На данном вкладе такая опция не предусмотрена. Оформляем?</template>
+                            <template>На данном вкладе такая опция не предусмотрена. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Сохраняй</srai></template>
                         </category>
                         
                         <category>
                             <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Пополнение данного вклада не предусмотрено. Оформляем?</template>
+                            <template>Пополнение данного вклада не предусмотрено. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Сохраняй</srai></template>
                         </category>
                         <category>
                             <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
@@ -544,7 +549,7 @@
 
                         <category>
                             <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
-                            <template>Срок вклада лидер сохраняй от 1 месяца до 3 лет. Оформляем?</template>
+                            <template>Срок вклада лидер сохраняй от 1 месяца до 3 лет. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Сохраняй</srai></template>
                         </category>
 
                         <category>
@@ -580,18 +585,21 @@
                                 Могу рассказать про валюту вклада, снятие денег и пополнение вклада.
                             </template>
                         </category>
+
+
+
                         <category>
                             <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
+                            <template>Валюта вклада рубли, доллары, евро. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Пополняй</srai></template>
                         </category>
                         <category>
                             <pattern> ^ <regex pattern="СНЯТ.*|СНИМ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
-                            <template>На данном вкладе такая опция не предусмотрена. Оформляем?</template>
+                            <template>На данном вкладе такая опция не предусмотрена. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Пополняй</srai></template>
                         </category>
 
                         <category>
                             <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Да, вы можете пополнять вклад, процентная ставка увеличивается автоматически. Оформляем?</template>
+                            <template>Да, вы можете пополнять вклад, процентная ставка увеличивается автоматически. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Пополняй</srai></template>
                         </category>
                         <category>
                             <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
@@ -600,7 +608,7 @@
 
                         <category>
                             <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
-                            <template>Срок вклада лидер пополняй от 1 месяца до 3 лет. Оформляем?</template>
+                            <template>Срок вклада лидер пополняй от 1 месяца до 3 лет. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Пополняй</srai></template>
                         </category>
                         <category>
                             <pattern>*</pattern>
@@ -636,16 +644,16 @@
                         </category>
                         <category>
                             <pattern> ^ <regex pattern="ВАЛЮТ.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Валюта вклада рубли, доллары, евро. Оформляем?</template>
+                            <template>Валюта вклада рубли, доллары, евро. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Управляй</srai></template>
                         </category>
                         <category>
                             <pattern> ^ <regex pattern="СНЯТ.*" /> ^ <regex pattern="ДЕН(Ь|Е)Г.*" /> ^ </pattern>
-                            <template>Да,вы можете снять деньги до уровня неснижаемого остатка. Оформляем?</template>
+                            <template>Да,вы можете снять деньги до уровня неснижаемого остатка. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Управляй</srai></template>
                         </category>
 
                         <category>
                             <pattern> ^ <regex pattern="ПОПОЛН.*" /> ^ <regex pattern="ВКЛАД.*" /> ^ </pattern>
-                            <template>Да, вы можете пополнять вклад, процентная ставка увеличивается автоматически. Оформляем?</template>
+                            <template>Да, вы можете пополнять вклад, процентная ставка увеличивается автоматически. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Управляй</srai></template>
                         </category>
                         <category>
                             <pattern> ^ <regex pattern="ПРОЦЕНТ.*" /> ^ <regex pattern="ДОБАВ.*" /> ^ </pattern>
@@ -654,7 +662,7 @@
 
                         <category>
                             <pattern> ^ <regex pattern="СРОК.*" /> ^ </pattern>
-                            <template>Срок вклада лидер управляй от 1 месяца до 3 лет. Оформляем?</template>
+                            <template>Срок вклада лидер управляй от 1 месяца до 3 лет. <srai>ОФОРМЛЯЕМ ЛИ Вклад Лидер Управляй</srai></template>
                         </category>
                         <category>
                             <pattern>*</pattern>
@@ -692,12 +700,12 @@
                     </category>
                     <category>
                         <pattern> ^ <regex pattern="КАКОВА|СКОЛЬКО|ЦЕН.*|ОБЛИГАЦ.*|ИХ.*" /> ^ <regex pattern="СКОЛЬКО|ЦЕН.*|ОБЛИГАЦ.*|ИХ.*" /></pattern>
-                        <template>Цена облигации 1000 рублей. Оформляем?</template>
+                        <template>Цена облигации 1000 рублей. <srai>ОФОРМЛЯЕМ ЛИ Облигации</srai></template>
                     </category>
                     <category>
                       
                         <pattern> ^ <regex pattern="СКОЛЬКО|КОЛИЧЕСТВ.*" /> ^ <regex pattern="МО(ЖНО|ГУ|ЖЕМ)|КУП.*|ПРИОБР.*|ОБЛИГАЦ.*|ИХ" /> ^ <regex pattern="МО(ЖНО|ГУ|ЖЕМ)|КУП.*|ПРИОБР.*|ОБЛИГАЦ.*|ИХ" /> ^ </pattern>
-                        <template>Количество облигаций, которые вы можете приобрести, не ограничено. Оформляем?</template>
+                        <template>Количество облигаций, которые вы можете приобрести, не ограничено. <srai>ОФОРМЛЯЕМ ЛИ Облигации</srai></template>
 
                     </category>
 
@@ -707,7 +715,7 @@
                             Вам нужно открыть брокерский счёт. 
                             Это можно сделать в Сбербанк онлайн или в офисе Сбербанк Первый. 
                             Затем нужно перевести на счёт деньги и подать поручение на приобретение облигаций. 
-                            Это можно сделать в приложении Сбербанк Инвестор или в нашем офисе. Оформляем?
+                            Это можно сделать в приложении Сбербанк Инвестор или в нашем офисе. <srai>ОФОРМЛЯЕМ ЛИ Облигации</srai>
                         </template>
                     </category>
 
@@ -715,7 +723,7 @@
                         <pattern> ^ <regex pattern="СКОЛЬКО|ПРОЦЕНТ.*" /> ^ <regex pattern="ОБЛИГАЦ.*|ДОХОД.*" /> ^ </pattern>
                         <template>
                             Купонный доход по процентным ставкам, которые растут в течение 3-х лет владения облигацией: 
-                            от 6 до 8,6% годовых. Оформляем?
+                            от 6 до 8,6% годовых. <srai>ОФОРМЛЯЕМ ЛИ Облигации</srai>
                         </template>
                     </category>	
 
