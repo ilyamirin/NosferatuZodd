@@ -30,7 +30,16 @@
     <category>
         <pattern>BASICTHEMES001</pattern>
         <template>
-            <think><set name="topic">sberta_package_choise</set></think>
+            <think>
+                <set name="topic">sberta_package_choise</set>
+                <think>
+                    <addtriple>
+                        <subj>клиент</subj>
+                        <pred>начал</pred>
+                        <obj>диалог</obj>
+                    </addtriple>
+                </think>
+            </think>
             <srai>DIALOG1 SBERTA PACKAGE CHOICE</srai>
         </template>
     </category>
@@ -384,6 +393,8 @@
             <template>
                 <think>
                     <condition name="topic">
+                    <!-- клиент заказал-->
+                        <!--Партнерские услуги-->                   
                         <li value="sb_1_insurance">
                                 <addtriple>
                                     <subj>клиент</subj>
@@ -398,6 +409,14 @@
                                     <obj>ТВ-мед</obj>
                                 </addtriple>
                         </li>
+                        <li value="sb_1card_medic_expert_opinion">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Второе экспертное мнение</obj>
+                                </addtriple>
+                        </li>
+                        <!--Сбербанк Первый-->
                         <li value="sb_1card_vklad_lsohranyai">
                                 <addtriple>
                                     <subj>клиент</subj>
@@ -424,6 +443,42 @@
                                     <subj>клиент</subj>
                                     <pred>заказал</pred>
                                     <obj>Кредит без поручителей</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sb_1card_credit_sp">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Кредит с поручителями</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sb_1_obligations">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>ТВ-мед</obj>
+                                </addtriple>
+                        </li>
+                        <!--Сбербанк Премьер-->
+                        <li value="sbpr_card_vklad_lsohranyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Лидер Сохраняй</obj>
+                                </addtriple>
+                        </li>
+                        <li value="sbpr_card_vklad_lpopolnyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Лидер Пополняй</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sbpr_card_vklad_luprvlyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Лидер Управляй</obj>
                                 </addtriple>
                         </li>                        
                     </condition>

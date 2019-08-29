@@ -54,7 +54,16 @@
 <!-- услуги Сбербанк Первый-->
     <category>
             <pattern> ^ <regex pattern="УСЛУГ.*" /> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
-            <template><think><set name="topic">sb1_theme_choice</set></think><srai>DIALOG1 FIRST THEME CHOICE</srai></template>
+            <template>
+                <think>
+                    <set name="topic">sb1_theme_choice</set>
+                    <addtriple>
+                        <subj>клиент</subj>
+                        <pred>заинтересован</pred>
+                        <obj>Сбербанк Первый</obj>
+                    </addtriple>
+                </think>
+                <srai>DIALOG1 FIRST THEME CHOICE</srai></template>
     </category>
 
         <topic name="sb1_theme_choice">
@@ -65,7 +74,6 @@
                 <template>
                     Могу рассказать о кредитах, картах, вкладах, обмене валюты, 
                     облигациях и партнёрских услугах. О чём хотите узнать?
-
                 </template>
             </category>
                 
@@ -73,7 +81,15 @@
             <category>
                 <pattern> ^ <regex pattern="КАРТ.*" /> ^ </pattern>
                 <template>
-                    <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_cards</set></think><srai> DIALOG1 CARDS </srai>
+                    <think>
+                        <addtriple>
+                            <subj>клиент</subj>
+                            <pred>начал</pred>
+                            <obj>диалог</obj>
+                        </addtriple>
+                        <srai>TOPIC STACK PUSH</srai><set name="topic">sb1_cards</set>
+                    </think>
+                    <srai> DIALOG1 CARDS </srai>
                 </template>
             </category>
 
@@ -676,12 +692,12 @@
                     </category>
                     <category>
                         <pattern> ^ <regex pattern="КАКОВА|СКОЛЬКО|ЦЕН.*|ОБЛИГАЦ.*|ИХ.*" /> ^ <regex pattern="СКОЛЬКО|ЦЕН.*|ОБЛИГАЦ.*|ИХ.*" /></pattern>
-                        <template>Цена облигации 1000 рублей.</template>
+                        <template>Цена облигации 1000 рублей. Оформляем?</template>
                     </category>
                     <category>
                       
                         <pattern> ^ <regex pattern="СКОЛЬКО|КОЛИЧЕСТВ.*" /> ^ <regex pattern="МО(ЖНО|ГУ|ЖЕМ)|КУП.*|ПРИОБР.*|ОБЛИГАЦ.*|ИХ" /> ^ <regex pattern="МО(ЖНО|ГУ|ЖЕМ)|КУП.*|ПРИОБР.*|ОБЛИГАЦ.*|ИХ" /> ^ </pattern>
-                        <template>Количество облигаций, которые вы можете приобрести, не ограничено. </template>
+                        <template>Количество облигаций, которые вы можете приобрести, не ограничено. Оформляем?</template>
 
                     </category>
 
@@ -691,7 +707,7 @@
                             Вам нужно открыть брокерский счёт. 
                             Это можно сделать в Сбербанк онлайн или в офисе Сбербанк Первый. 
                             Затем нужно перевести на счёт деньги и подать поручение на приобретение облигаций. 
-                            Это можно сделать в приложении Сбербанк Инвестор или в нашем офисе. 
+                            Это можно сделать в приложении Сбербанк Инвестор или в нашем офисе. Оформляем?
                         </template>
                     </category>
 
@@ -699,7 +715,7 @@
                         <pattern> ^ <regex pattern="СКОЛЬКО|ПРОЦЕНТ.*" /> ^ <regex pattern="ОБЛИГАЦ.*|ДОХОД.*" /> ^ </pattern>
                         <template>
                             Купонный доход по процентным ставкам, которые растут в течение 3-х лет владения облигацией: 
-                            от 6 до 8,6% годовых.
+                            от 6 до 8,6% годовых. Оформляем?
                         </template>
                     </category>	
 

@@ -7,7 +7,14 @@
         <pattern> ^ <regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*" /> ^ <regex pattern="ПРЕМЬЕР.*" /> ^ </pattern>
         <template>
             Это специально разработанный пакет услуг для наших состоятельных клиентов. 
-            <think><set name="topic">sbpr_theme_choice</set></think>
+            <think>
+                <set name="topic">sbpr_theme_choice</set>
+                <addtriple>
+                    <subj>клиент</subj>
+                    <pred>заинтересован</pred>
+                    <obj>Сбербанк Премьер</obj>
+                </addtriple>
+            </think>
             <srai>DIALOG1 PREMIER THEME CHOICE</srai>
         </template>
     </category>
@@ -42,6 +49,11 @@
                     <think>
                         <srai>TOPIC STACK PUSH</srai>
                         <set name = "topic">sbpr_card</set>
+                        <addtriple>
+                            <subj>клиент</subj>
+                            <pred>заинтересова</pred>
+                            <obj>карты</obj>
+                        </addtriple>
                     </think>
                         <srai>DIALOG2 CARDS</srai>
                 </template>
@@ -55,6 +67,11 @@
                     <think>
                         <srai>TOPIC STACK PUSH</srai>
                         <set name = "topic">sbpr_card_vklad</set>
+                        <addtriple>
+                            <subj>клиент</subj>
+                            <pred>заинтересован</pred>
+                            <obj>Вклады</obj>
+                        </addtriple>
                     </think>
                         <srai>DIALOG2 DEPOSITS</srai>
                 </template>
@@ -87,7 +104,15 @@
                 <category>
                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                     <that> РАССКАЗАТЬ О СЕЙФЕ </that>
-                    <template><think><srai>TOPIC STACK PUSH</srai><set name = "topic">sbpr_vault</set></think><srai>OK001</srai><srai>DIALOG2 VAULT</srai></template>
+                    <template>
+                        <think><srai>TOPIC STACK PUSH</srai><set name = "topic">sbpr_vault</set>
+                        <addtriple>
+                            <subj>клиент</subj>
+                            <pred>заинтересован</pred>
+                            <obj>Сбербанк Первый</obj>
+                        </addtriple>
+                        </think>
+                        <srai>OK001</srai><srai>DIALOG2 VAULT</srai></template>
                 </category>
 
                 <category>
@@ -130,7 +155,16 @@
                     <category>
                         <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
                         <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОПОДРОБНЕЕ </that>
-                        <template><think><srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1_partners_services</set></think><srai>OK001</srai><srai>DIALOG1 PARTNER</srai></template>
+                        <template>
+                            <think>
+                                <srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1_partners_services</set>
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заинтересован</pred>
+                                    <obj>Сбербанк Первый</obj>
+                                </addtriple>                                
+                            </think>
+                            <srai>OK001</srai><srai>DIALOG1 PARTNER</srai></template>
                     </category>
                     <category>
                         <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
@@ -215,7 +249,14 @@
                         <template>
                            Минимальная сумма вклада 700 000 рублей, 50 000 долларов. 
                            Минимальный процент по данному вкладу в рублях 4,20%. Максимальный 5,65%
-                            <think><srai>TOPIC STACK PUSH</srai><set name = "topic">sbpr_card_vklad_lsohranyai</set></think>
+                            <think>
+                                <srai>TOPIC STACK PUSH</srai><set name = "topic">sbpr_card_vklad_lsohranyai</set>
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заинтересован</pred>
+                                    <obj>Сбербанк Первый</obj>
+                                </addtriple>
+                            </think>
                             <srai>DIALOG1 FIRST DEPOSIT SOHRANYAI</srai>
                         </template>
                     </category>
@@ -225,7 +266,14 @@
                         <template>
                             Минимальная сумма вклада 700 000 рублей, 50 000 долларов. 
                             Минимальный процент по данному вкладу в рублях 4,75%. Максимальный 5,20%.
-                            <think><srai>TOPIC STACK PUSH</srai><set name = "topic">sbpr_card_vklad_lpopolnyai</set></think>
+                            <think>
+                                <srai>TOPIC STACK PUSH</srai><set name = "topic">sbpr_card_vklad_lpopolnyai</set>
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заинтересован</pred>
+                                    <obj>Сбербанк Первый</obj>
+                                </addtriple>
+                            </think>
                             <srai>DIALOG1 FIRST DEPOSIT POPOLNYAI</srai>
                         </template>
                     </category>
@@ -235,7 +283,14 @@
                         <template>
                             Минимальная сумма вклада 700 000 рублей, 50 000 долларов. 
                             Минимальный процент по данному вкладу в рублях 4,10%. Максимальный 4,90%.
-                            <think><srai>TOPIC STACK PUSH</srai><set name = "topic">sbpr_card_vklad_luprvlyai</set></think>
+                            <think>
+                                <srai>TOPIC STACK PUSH</srai><set name = "topic">sbpr_card_vklad_luprvlyai</set>
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заинтересован</pred>
+                                    <obj>Сбербанк Первый</obj>
+                                </addtriple>
+                            </think>
                             <srai>DIALOG1 FIRST DEPOSIT UPRVLYAI</srai>
                         </template>
                     </category>
