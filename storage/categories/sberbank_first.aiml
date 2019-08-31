@@ -20,7 +20,7 @@
         <category>
             <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
             <that> ХОТИТЕ УСЛЫШАТЬ О ПРЕДОСТАВЛЯЕМЫХ УСЛУГАХ В ПАКЕТЕ СБЕРБАНК ПЕРВЫЙ </that>
-            <template><srai>OK001</srai><srai>УСЛУГ СБЕРБАНК ПЕРВЫЙ</srai></template>
+            <template><srai>ИНТЕРЕСОВАЛИСЬ ЛИ Сбербанк Первый</srai><srai>OK001</srai><srai>УСЛУГ СБЕРБАНК ПЕРВЫЙ</srai></template>
         </category>
 
         <category>
@@ -72,7 +72,6 @@
             <category>
                 <pattern>DIALOG1 FIRST THEME CHOICE</pattern>
                 <template>
-                    <srai>ИНТЕРЕСОВАЛИСЬ ЛИ Сбербанк Первый</srai>
                     Могу рассказать о кредитах, картах, вкладах, обмене валюты, 
                     облигациях и партнёрских услугах. О чём хотите узнать?
                 </template>
@@ -97,7 +96,17 @@
         <!--кредиты-->
             <category>
                 <pattern> ^ <regex pattern="КРЕДИТ.*" /> ^ </pattern>
-                <template>с поручителями или без поручителей?</template>
+                <template>
+                    <srai>ИНТЕРЕСОВАЛИСЬ ЛИ Кредиты</srai>
+                    <think>
+                        <addtriple>
+                            <subj>клиент</subj>
+                            <pred>заинтересован</pred>
+                            <obj>Кредиты</obj>
+                        </addtriple>
+                    </think>
+                    . с поручителями или без поручителей?
+                </template>
             </category>
                 <category>
                     <pattern>БЕЗ</pattern>
@@ -133,15 +142,10 @@
                                 <condition name="active_topic">
                                     <li value="unknown">
                                         <think>
-                                            <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
-                                            <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
-                                            <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
-                                            <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
-                                            <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
+                                            <srai>TOPIC STACK BUF</srai>
                                             <set name="active_topic"><get name="topic"/></set>
                                         </think>
                                     </li>
-
                                 </condition>                            
                                 <set name="topic"><srai>TOPIC STACK POP</srai></set>
                             </think>
@@ -263,11 +267,11 @@
         <!--Партнерские услуги-->
             <category>
                 <pattern> ^ <regex pattern="ПАРТНЕР.*" /> ^ <regex pattern="УСЛУГ.*" /> ^ </pattern>
-                <template><srai>OK001</srai><srai>ИНТЕРЕСОВАЛИСЬ ЛИ Партнерские услуги</srai> Партнёрские услуги, которые предоставляет сбербанк,- это страхование, медицинские услуги и приорити пасс. Хотите узнать о партнерских услугах подробнее? </template>
+                <template><srai>OK001</srai><srai>ИНТЕРЕСОВАЛИСЬ ЛИ Партнерские услуги</srai> Партнёрские услуги, которые предоставляет сбербанк,- это страхование, медицинские услуги и приорити пасс. Хотите узнать о партнерских услугах подробнее?</template>
             </category>
                 <category>
                     <pattern> ^ <regex pattern="ДА|.*СКАЖИ|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ГОВОРИ|ИНТЕРЕС|ЛА.*|ОКЕЙ" /> ^ </pattern>
-                    <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОПОДРОБНЕЕ </that>
+                    <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОДРОБНЕЕ </that>
                     <template>
                         <think>
                             <srai>TOPIC STACK PUSH</srai><set name = "topic">sb_1_partners_services</set>
@@ -282,12 +286,12 @@
                 </category>
                 <category>
                     <pattern> ^ <regex pattern="НЕ.*" /> ^ </pattern>
-                    <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОДРОБНЕЕ </that>
+                    <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОДРОБНЕЕ</that>
                     <template><srai>OK001</srai> Чем еще я могу вам помочь?</template>
                 </category>
                 <category>
                     <pattern>*</pattern>
-                    <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОДРОБНЕЕ </that>
+                    <that> ХОТИТЕ УЗНАТЬ О ПАРТНЕРСКИХ УСЛУГАХ ПОДРОБНЕЕ</that>
                     <template>
                         <condition name="flag_MU">
                             <li value="unknown">
@@ -315,11 +319,7 @@
                         <condition name="active_topic">
                             <li value="unknown">
                                 <think>
-                                    <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
-                                    <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
-                                    <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
-                                    <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
-                                    <set name="top_buf_4_buf"><get name="top_buf_4" /></set>                                
+                                    <srai>TOPIC STACK BUF</srai>
                                     <set name="active_topic"><get name="topic"/></set>
                                 </think>
                             </li>
@@ -378,11 +378,7 @@
                                     <condition name="active_topic">
                                         <li value="unknown">
                                             <think>
-                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
-                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
-                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
-                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
-                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
+                                                <srai>TOPIC STACK BUF</srai>
                                                 <set name="active_topic"><get name="topic"/></set>
                                             </think>
                                         </li>
@@ -438,11 +434,7 @@
                                     <condition name="active_topic">
                                         <li value="unknown">
                                             <think>
-                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
-                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
-                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
-                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
-                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
+                                                <srai>TOPIC STACK BUF</srai>
                                                 <set name="active_topic"><get name="topic"/></set>
                                             </think>
                                         </li>
@@ -502,11 +494,7 @@
                                 <condition name="active_topic">
                                     <li value="unknown">
                                         <think>
-                                            <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
-                                            <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
-                                            <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
-                                            <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
-                                            <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
+                                            <srai>TOPIC STACK BUF</srai>
                                             <set name="active_topic"><get name="topic"/></set>
                                         </think>
                                     </li>
@@ -559,12 +547,8 @@
                                     <condition name="active_topic">
                                         <li value="unknown">
                                             <think>
+                                                <srai>TOPIC STACK BUF</srai>
                                                 <set name="active_topic"><get name="topic"/></set>
-                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
-                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
-                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
-                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
-                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                                             </think>
                                         </li>
                                     </condition>
@@ -617,12 +601,8 @@
                                     <condition name="active_topic">
                                         <li value="unknown">
                                             <think>
+                                                <srai>TOPIC STACK BUF</srai>
                                                 <set name="active_topic"><get name="topic"/></set>
-                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
-                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
-                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
-                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
-                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                                             </think>
                                         </li>
                                     </condition>
@@ -671,12 +651,8 @@
                                     <condition name="active_topic">
                                         <li value="unknown">
                                             <think>
+                                                <srai>TOPIC STACK BUF</srai>
                                                 <set name="active_topic"><get name="topic"/></set>
-                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
-                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
-                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
-                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
-                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
                                             </think>
                                         </li>
                                     </condition>
@@ -735,11 +711,7 @@
                                     <condition name="active_topic">
                                         <li value="unknown">
                                             <think>
-                                                <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
-                                                <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
-                                                <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
-                                                <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
-                                                <set name="top_buf_4_buf"><get name="top_buf_4" /></set>
+                                                <srai>TOPIC STACK BUF</srai>
                                                 <set name="active_topic"><get name="topic"/></set>
                                             </think>
                                         </li>
