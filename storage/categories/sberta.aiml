@@ -53,7 +53,7 @@
                     </think>
                 </template>
             </category>
-            
+
             <category>
                 <pattern> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
                 <template><srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
@@ -87,12 +87,32 @@
                     </template>
                 </category>
 
+                <!--ПОВТОРИЛ ЭТИ КАТЕГОРИИ ВНЕ ТОПИКА | TODO: СДЕЛАТЬ НОРМАЛЬНО-->
+                <category>
+                    <pattern><regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*|КАК.*" /> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*|ПАРТНЕР.*"/> ^ СБЕРБАНК <regex pattern="1|ПЕРВ.*" /></pattern>
+                    <template>
+                        <srai>OK001</srai>
+                        <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+                        <srai><star index="3"/></srai>
+                    </template>
+                </category>
+
+                <category>
+                    <pattern><regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*|КАК.*" /> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*|ПАРТНЕР.*"/> ^ СБЕРБАНК <regex pattern="ПРЕМЬЕР.*" /></pattern>
+                    <template>
+                        <srai>OK001</srai>
+                        <think><srai>TOPIC STACK PUSH</srai><set name="topic">sbpr_theme_choice</set></think>
+                        <srai><star index="3"/></srai>
+                    </template>
+                </category>
+
                 <category>
                     <pattern> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*"/> ^ </pattern>
                     <template>
                         В каком премиальном сегменте, Сбербанк Первый или Сбербанк Премьер?
                     </template>
                 </category>
+                
                     <category>
                         <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^ </pattern>
                         <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
@@ -102,14 +122,16 @@
                             <srai><input index="1"/></srai>
                         </template>
                     </category>
-                    <!--Loop
+                    
                     <category>
                         <pattern> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
                         <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
                         <template>
-                            <srai>СБЕРБАНК ПЕРВЫЙ</srai>
+                            <srai>OK001</srai>
+                            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+                            <srai><input index="1"/></srai>
                         </template>
-                    </category>-->
+                    </category><!--Loop
                     <category>
                         <pattern> ^ СБЕРБАНК <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
                         <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
@@ -118,7 +140,7 @@
                             <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
                             <srai><input index="1"/></srai>
                         </template>
-                    </category>
+                    </category>-->
                     <category>
                         <pattern>*</pattern>
                         <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
@@ -130,8 +152,25 @@
                     </category>
 
         </topic>
-    
-    
+    <!-- ПОВТОР -->
+    <category>
+        <pattern><regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*|КАК.*" /> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*|ПАРТНЕР.*"/> ^ СБЕРБАНК <regex pattern="1|ПЕРВ.*" /></pattern>
+        <template>
+            <srai>OK001</srai>
+            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+            <srai><star index="3"/></srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern><regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*|КАК.*" /> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*|ПАРТНЕР.*"/> ^ СБЕРБАНК <regex pattern="ПРЕМЬЕР.*" /></pattern>
+        <template>
+            <srai>OK001</srai>
+            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sbpr_theme_choice</set></think>
+            <srai><star index="3"/></srai>
+        </template>
+    </category>
+
     <category>
         <pattern> ^ <regex pattern=".*СКА(З|Ж).*|.*"/> ^ <regex pattern="СБЕРБАНК"/></pattern>
         <template>
@@ -166,7 +205,6 @@
     </category>
     <category>
         <pattern><regex pattern="МЕНЯ|МОЕ"/><regex pattern="ЗОВУТ|ИМЯ*"/> * </pattern>
-        <that>МЕНЯ ЗОВУТ СБЕРТА А ВАС</that>
         <template>Прекрасное имя! Рада нашему знакомству, <set name="name"><star index="3"/></set>!</template>
     </category>
 
@@ -351,7 +389,7 @@
     <category>
         <pattern>*</pattern>
         <template>
-            Ок, вот что я нашла в интернете:
+            Пожалуй, лучше поискать это в интернете:
             <think>
                 <set name="topic"><get name="active_topic"/></set>
                 <set name="active_topic">unknown</set>
@@ -729,4 +767,16 @@
         <pattern> ^ <regex pattern="СКОЛЬК.*"/> ^ <regex pattern="ЗНАЕШ.*|КАТЕГОР.*"/></pattern>
         <template> Мне задано <size/> категорий.</template>
     </category>
+
+    <category>
+        <pattern>TOPIC STACK BUF</pattern>
+        <template>
+            <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+            <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+            <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+            <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+            <set name="top_buf_4_buf"><get name="top_buf_4" /></set>     
+        </template>
+    </category>
+
 </aiml>
