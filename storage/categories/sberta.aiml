@@ -101,7 +101,7 @@
                     <pattern><regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*|КАК.*" /> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*|ПАРТНЕР.*"/> ^ СБЕРБАНК <regex pattern="ПРЕМЬЕР.*" /></pattern>
                     <template>
                         <srai>OK001</srai>
-                        <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+                        <think><srai>TOPIC STACK PUSH</srai><set name="topic">sbpr_theme_choice</set></think>
                         <srai><star index="3"/></srai>
                     </template>
                 </category>
@@ -166,7 +166,7 @@
         <pattern><regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*|КАК.*" /> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*|ПАРТНЕР.*"/> ^ СБЕРБАНК <regex pattern="ПРЕМЬЕР.*" /></pattern>
         <template>
             <srai>OK001</srai>
-            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sbpr_theme_choice</set></think>
             <srai><star index="3"/></srai>
         </template>
     </category>
