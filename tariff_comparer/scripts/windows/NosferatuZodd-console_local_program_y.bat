@@ -1,0 +1,2 @@
+cd %cd%
+python ..\..\program-y\src\programy\clients\events\console\client_mod.py --config ..\..\config\windows\config.yaml --cformat yaml --logging ..\..\config\windows\logging.yaml --bot_root ..\..\storage\

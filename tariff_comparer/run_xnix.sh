@@ -1,2 +1,2 @@
 #!/bin/sh
-python bot_tariff_comparer.py
+python telegram_bot.py

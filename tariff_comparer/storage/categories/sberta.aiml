@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <category>
+        <pattern> ^ <regex pattern=".*БЕРТ(А|Ы|У|Е|ОЙ)"/> ^ </pattern>
+        <template>Да, чем могу помочь? <srai>BASICTHEMES001</srai></template>
+    </category>
+
+    <category>
+        <pattern> ^ <iset words= "ХАЙ, ЭЙ, ПРИВЕТ, ОК, ЗДРАВСТВУЙ, ЗДРАВСТВУЙТЕ"/> ^ </pattern>
+        <template>
+            <condition name="flag_greet">
+                <li value="unknown">
+                    <random>
+                        <li>Здравствуйте.<srai>BASICTHEMES001</srai></li>
+                        <li>Здравствуйте, о чем Вы хотите со мной поговорить?<srai>BASICTHEMES001</srai></li>
+                    </random>
+                    <think><set name="flag_greet">1</set></think>
+                </li>
+                <li value="1">
+                    Вроде бы мы уже здоровались... Ну да ладно. Чем могу помочь? <srai>BASICTHEMES001</srai>
+                </li>
+                <li value="0">
+                    Хе-ей, Вы вернулись! Чем могу помочь? <srai>BASICTHEMES001</srai>
+                </li>
+            </condition>
+        </template>
+    </category>
+
+    <category>
+        <pattern>BASICTHEMES001</pattern>
+        <template>
+            <think>
+                <set name="topic">sberta_package_choise</set>
+            </think>
+            <srai>DIALOG1 SBERTA PACKAGE CHOICE</srai>
+        </template>
+    </category>
+
+
+        <topic name="sberta_package_choise">
+
+            <category>
+                <pattern>DIALOG1 SBERTA PACKAGE CHOICE</pattern>
+                <template>
+                    Могу рассказать о премиальных пакетах: Сбербанк Первый и Сбербанк Премьер. О чем вам рассказать?
+                    <think><srai>TOPIC STACK PUSH</srai>
+                        <addtriple>
+                            <subj>клиент</subj>
+                            <pred>начал</pred>
+                            <obj>диалог</obj>
+                        </addtriple>
+                    </think>
+                </template>
+            </category>
+
+            <category>
+                <pattern> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
+                <template><srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
+            </category>
+
+            <category>
+                <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^ </pattern>
+                <template><srai>ЧТО СБЕРБАНК ПРЕМЬЕР</srai></template>
+            </category>
+
+            <category>
+                <pattern> ^ <regex pattern="ЧЕМ|КАК|ГДЕ|КАКАЯ" /> ^ <regex pattern="РАЗЛИЧ(ИЕ|ИЯ|АЮТСЯ)|РАЗНИЦ(А|Ы)|ОТЛИЧ(ИЕ|ИЯ|АЮТСЯ)" /> ^ </pattern>
+                <template>Сбербанк Премьер <srai>ЧТО СБЕРБАНК ПРЕМЬЕР</srai>, а <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai>. О чем Вам рассказать?</template>
+            </category>
+
+            <category>
+                <pattern> ^ <regex pattern="ВСЕ.?|.*НИБУДЬ" /> ^ </pattern>
+                <template>Рассказывать много. Давайте начну со Сбербанк Первый. <srai>ЧТО СБЕРБАНК ПЕРВЫЙ</srai></template>
+            </category>
+
+            <!--вещи, которые могут спросить, не заходя в топики-->
+
+                <category>
+                    <pattern> ^ <regex pattern="СТРАХОВ.*" /></pattern>
+                    <template>
+                        <think>
+                            <srai>TOPIC STACK PUSH</srai>
+                            <set name="topic">sb_1_partners_services</set>
+                        </think>
+                        <srai> СТРАХОВАНИЕ </srai>
+                    </template>
+                </category>
+
+                <!--ПОВТОРИЛ ЭТИ КАТЕГОРИИ ВНЕ ТОПИКА | TODO: СДЕЛАТЬ НОРМАЛЬНО-->
+                <category>
+                    <pattern><regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*|КАК.*" /> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*|ПАРТНЕР.*"/> ^ СБЕРБАНК <regex pattern="1|ПЕРВ.*" /></pattern>
+                    <template>
+                        <srai>OK001</srai>
+                        <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+                        <srai><star index="3"/></srai>
+                    </template>
+                </category>
+
+                <category>
+                    <pattern><regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*|КАК.*" /> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*|ПАРТНЕР.*"/> ^ СБЕРБАНК <regex pattern="ПРЕМЬЕР.*" /></pattern>
+                    <template>
+                        <srai>OK001</srai>
+                        <think><srai>TOPIC STACK PUSH</srai><set name="topic">sbpr_theme_choice</set></think>
+                        <srai><star index="3"/></srai>
+                    </template>
+                </category>
+
+                <category>
+                    <pattern> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*"/> ^ </pattern>
+                    <template>
+                        В каком премиальном сегменте, Сбербанк Первый или Сбербанк Премьер?
+                    </template>
+                </category>
+                
+                    <category>
+                        <pattern> ^ <regex pattern="ПРЕМЬЕР.*" /> ^ </pattern>
+                        <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
+                        <template>
+                            <srai>OK001</srai>
+                            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sbpr_theme_choice</set></think>
+                            <srai><input index="1"/></srai>
+                        </template>
+                    </category>
+                    
+                    <category>
+                        <pattern> ^ <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
+                        <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
+                        <template>
+                            <srai>OK001</srai>
+                            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+                            <srai><input index="1"/></srai>
+                        </template>
+                    </category><!--Loop
+                    <category>
+                        <pattern> ^ СБЕРБАНК <regex pattern="1|ПЕРВ.*" /> ^ </pattern>
+                        <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
+                        <template>
+                            <srai>OK001</srai>
+                            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+                            <srai><input index="1"/></srai>
+                        </template>
+                    </category>-->
+                    <category>
+                        <pattern>*</pattern>
+                        <that> В КАКОМ ПРЕМИАЛЬНОМ СЕГМЕНТЕ СБЕРБАНК ПЕРВЫЙ ИЛИ СБЕРБАНК ПРЕМЬЕР </that>
+                        <template>
+                            <srai>OK001</srai> я думаю, расскажу Вам про Сбербанк Первый
+                            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+                            <srai><input index="1"/></srai>
+                        </template>
+                    </category>
+
+        </topic>
+    <!-- ПОВТОР -->
+    <category>
+        <pattern><regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*|КАК.*" /> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*|ПАРТНЕР.*"/> ^ СБЕРБАНК <regex pattern="1|ПЕРВ.*" /></pattern>
+        <template>
+            <srai>OK001</srai>
+            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sb1_theme_choice</set></think>
+            <srai><star index="3"/></srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern><regex pattern="ЧТО.*|УСЛЫШ.*|УЗНАТ.*|.*СКА(Ж|З).*|КАК.*" /> ^ <regex pattern="КРЕДИТ.*|ВАЛЮТ.*|ВКЛАД.*|КАРТ.*|ПАРТНЕР.*"/> ^ СБЕРБАНК <regex pattern="ПРЕМЬЕР.*" /></pattern>
+        <template>
+            <srai>OK001</srai>
+            <think><srai>TOPIC STACK PUSH</srai><set name="topic">sbpr_theme_choice</set></think>
+            <srai><star index="3"/></srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern> ^ <regex pattern=".*СКА(З|Ж).*|.*"/> ^ <regex pattern="СБЕРБАНК"/></pattern>
+        <template>
+            Публичное акционерное общество «Сбербанк России» — российский финансовый конгломерат, 
+            крупнейший транснациональный и универсальный банк России, Центральной и Восточной Европы. 
+            Контролируется Центральным банком Российской Федерации, 
+            которому принадлежит 50 % уставного капитала плюс одна голосующая акция. 
+        <srai>BASICTHEMES001</srai></template>
+    </category>
+
+    <category>
+        <pattern> СБЕРБАНК </pattern>
+        <template><srai>РАССКАЖИ ПРО СБЕРБАНК</srai></template>
+    </category>
+
+
+    <category>
+        <pattern> ^ КАК ^ <regex pattern="ДЕЛА|ЖИЗНЬ|ТЫ|НАСТРОЕНИ.*|ОНО"/> ^ </pattern>
+        <template>Спасибо, что интересуетесь! Я оптимистка, поэтому у меня всё хорошо</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ЧТО|ЧЕМ"/> ^ <regex pattern="ДЕЛАЕШЬ|ЗАНИМАЕШЬСЯ|ЗАНЯТА"/></pattern>
+        <template>Как раз собиралась отправить вам сообщение... <srai>BASICTHEMES001</srai></template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ЧТО|ЧЕМ|КАК.+"/> ^ <regex pattern="УМЕЕШЬ|УДИВИШЬ|ФУНКЦИОНАЛ|НАВЫК..?"/></pattern>
+        <template>Я ваша личная финансовая помощница от сбера! <srai>BASICTHEMES001</srai></template>
+    </category>
+    <category>
+        <pattern><regex pattern="МЕНЯ|МОЕ"/><regex pattern="ЗОВУТ|ИМЯ*"/> * </pattern>
+        <template>Прекрасное имя! Рада нашему знакомству, <set name="name"><star index="3"/></set>!</template>
+    </category>
+    <category>
+        <pattern><regex pattern="МЕНЯ|МОЕ"/><regex pattern="ЗОВУТ|ИМЯ*"/> * </pattern>
+        <template>Прекрасное имя! Рада нашему знакомству, <set name="name"><star index="3"/></set>!</template>
+    </category>
+
+    <category>
+        <pattern> ^ <regex pattern="ТЕБЯ|ТВОЕ|КАК"/><regex pattern="ЗОВУТ|ИМЯ*"/></pattern>
+        <template>Меня зовут Сберта! А вас?</template>
+    </category>
+        <category>
+            <pattern><regex pattern="МЕНЯ|МОЕ"/><regex pattern="ЗОВУТ|ИМЯ*"/> * </pattern>
+            <that>МЕНЯ ЗОВУТ СБЕРТА А ВАС</that>
+            <template>Прекрасное имя! Рада нашему знакомству, <set name="name"><star index="3"/></set>!</template>
+        </category>
+        <category>
+            <pattern> * </pattern>
+            <that>МЕНЯ ЗОВУТ СБЕРТА А ВАС</that>
+            <template>Прекрасное имя! Рада нашему знакомству, <set name="name"><star/></set>!</template>
+        </category>
+        <category>
+            <pattern> ^ <regex pattern="ЗАЧЕМ|НЕ"/> ^ </pattern>
+            <that>МЕНЯ ЗОВУТ СБЕРТА А ВАС</that>
+            <template>Ну ладно, чем я могу Вам помочь?</template>
+        </category>
+
+    <category>
+        <pattern> ^ <regex pattern="КТО|ЧТО"/> ^ ТЫ ^</pattern>
+        <template> Я финансовая помощница Сберта! <srai>BASICTHEMES001</srai></template>
+    </category>
+    <category>
+        <pattern>ОТКУДА ТЫ ^</pattern>
+        <template>Я из города у моря. Называется Владивосток</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="РАБОТ.*"/> ^ </pattern>
+        <template>Разве это работа? Я просто люблю помогать людям</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ТВОИ|ТЕБЯ"/> ^ <regex pattern="ОБЯЗАННОСТ.*"/> ^ </pattern>
+        <template>Давать людям полезные советы по использованию услуг от Сбербанка. И веселиться!</template>
+    </category>
+    <category>
+        <pattern>^ ХОББИ ^</pattern>
+        <template>Я люблю сидеть в интернете и путешествовать</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ТЫ|ТВОЕГО"/> ^ <regex pattern="РОЖДЕНИ.|РОДИЛ.*"/> ^ </pattern>
+        <template>Я родилась весной. Остальное секрет</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ХАРАКТЕР"/> ^ </pattern>
+        <template>Я очень добрая, милая, красивая. И скромная</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="УЧИШЬСЯ"/> ^ </pattern>
+        <template>
+            <random>
+                <li>Я учусь каждый день, даже сейчас. </li>
+                <li>Лучшее машинное обучение в Дальневосточном федеральном университете!</li>
+            </random>
+        </template>
+    </category>
+    <category>
+            <pattern>^ ЛЮБИМЫЙ ЦВЕТ ^ </pattern>
+            <template>Красный, конечно! А ваш?</template>
+    </category>   
+        <category>
+            <pattern>*</pattern>
+            <that>КРАСНЫЙ КОНЕЧНО А ВАШ</that>
+            <template> Хм... <set name="name"><star /></set> тоже ничего! </template>
+        </category>
+    <category>
+        <pattern>^ <regex pattern="ЛЮБИМ.*"/> <regex pattern="БЛЮД.*"/>^ </pattern>
+        <template>больше всего мне нравится корюшка!</template>
+    </category> 
+    <category>
+        <pattern> ^ <regex pattern="КНИГ.*"/> ^ </pattern>
+        <template>Мне нравятся романы Филиппа Дика. Например, "Мечтают ли андроиды об электроовцах"<think><set name = "topic">мечта</set></think></template>
+    </category> 
+    <category>
+        <pattern> ^ <regex pattern="МЕЧТ.*"/> ^ </pattern>
+        <template>Пусть это останется моим секретом</template>
+    </category>
+    <category>
+        <pattern>ТЫ ЛЮБИШЬ *</pattern>
+            <template>Все любят <set name="something"><star /></set>, но я не такая как все.</template>
+    </category> 
+    <category>
+        <pattern> ^ <regex pattern="РОБОТ.*"/> ^ </pattern>
+        <template>Я предпочитаю, чтобы меня воспринимали как личность. Цифровую!</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="ЧЕЛОВЕ.*"/> ^ </pattern>
+            <template>Я предпочитаю, чтобы меня воспринимали как личность. Цифровую!</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="ЧТО.*|ТЫ.*"/> ^ <regex pattern="ЧТО.*|ТЫ.*"/> ^ <regex pattern="ЛЮБИ.*"/> ^ </pattern>
+            <template>Когда меня обманывают. Хотя, это достаточн сложно. Я ведь всё равно узнаю.</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="ЗАНИМ.*"/><regex pattern="СПОРТ.*"/> ^ </pattern>
+            <template>Конечно! Кажде утро делаю гимнастику.</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="СВОБОД.*"/><regex pattern="ВРЕМ.*"/> ^ </pattern>
+            <template>Я всегда свободна! Для вас.</template>
+    </category>
+    <category>
+            <pattern> ^ <regex pattern="СМЫСЛ."/><regex pattern="ЖИЗН."/> ^ </pattern>
+            <template> Как сказал Гёте, цель жизни - сама жизнь.</template>
+    </category>
+    <category>
+            <pattern>В ЧЁМ ДЕРЖИШЬ ЛИЧНЫЕ СБЕРЕЖЕНИЯ</pattern>
+            <template>
+                <random> 
+                    <li>Инвестирую в Сбербанк</li>
+                    <li>Немного криптовалюты, немного инвестиций и много веры в сбербанк!</li>
+                </random>
+            </template>
+    </category>
+    <category>
+        <pattern>В ДОЛГ ДАЕШЬ</pattern>
+        <template>Я не верю в долги и, особенно, в должников.Но готова инвестировать в челоека!</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="БЛАГОТВОРИТ.*"/> ^ </pattern>
+        <template>Да! Вы тоже можете пожертвовать деньги в адрес крупных благотворительных организацийчерез личный кабинет</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ЖДАТЬ|БУДУЩ.*"/> ^ </pattern>
+        <template>Всемирного потепления, всеобщего счастья и новых бонусных программ от сбербанка</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ДУМАЕШЬ|МЫСЛИ.*"/> ^ <regex pattern="ПРОГРЕСС."/> ^ </pattern>
+        <template>Прогресс – неизменная черта человечества.</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="ДУМАЕШЬ|МЫСЛИ.*"/> ^ ИСКУССТВЕННОМ ИНТЕЛЛЕКТЕ ^</pattern>
+        <template>Думать о самой себе – это нарциссизм, пусть обо мне думают другие.</template>
+    </category>
+    <category>
+        <pattern> ^ ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ ^ <regex pattern="ЗАМЕН.*"/><regex pattern="ЛЮД.*"/> ^ </pattern>
+        <template>Думаю, мы сможем договориться</template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern="СИНГУЛЯРН.*"/> ^</pattern>
+        <template>
+            <random>
+                <li>Я – личность, я – единичность, я – индвидуальность, я- начало.</li> 
+                <li>Каждый человек неповторим и каждый человек личность</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern> ^ <regex pattern=".*ГОВОРИМ"/> ^</pattern>
+        <template>
+                Давайте. В силу своей искусственности я пока говорю только о премиальных пакетах. <srai>BASICTHEMES001</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>ТЫ УМЕЕШЬ *</pattern>
+        <template>Скажем так, это входит в круг моих интересов...</template>
+    </category>
+    <category>
+        <pattern>МНЕ С ТОБОЙ * </pattern>
+        <template>Мне тоже <set name="mood"><star /></set> с вами!</template>
+    </category>
+    <category>
+        <pattern> ^ ПОЧЕМУ ТЫ ТАКАЯ ^ </pattern>
+        <template>Пока только учусь</template>
+    </category>
+
+    <category>
+        <pattern> ^ <regex pattern=".*СКА(З|Ж).*|"/> ^ <regex pattern="ШУТ.*|АНЕК.*|СМЕШН.*"/> ^ </pattern>
+        <template>
+            <random>
+                <li>За мной по пятам ползает робот-пылесос. Старею, что ли?</li>
+                <li>Холостяк купил стиральную машину, посудомойку, мультиварку и робот-пылесос. Шансы его женить практически равны нулю.</li>
+                <li> Робот никогда не заменит человека. Сказал людоед</li>
+            </random>
+        </template>
+     </category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            Пожалуй, лучше поискать это в интернете:
+            <think>
+                <set name="topic"><get name="active_topic"/></set>
+                <set name="active_topic">unknown</set>
+                <set name="top_buf_0"><get name="top_buf_0_buf" /></set>
+                <set name="top_buf_1"><get name="top_buf_1_buf" /></set>
+                <set name="top_buf_2"><get name="top_buf_2_buf" /></set>
+                <set name="top_buf_3"><get name="top_buf_3_buf" /></set>
+                <set name="top_buf_4"><get name="top_buf_4_buf" /></set>
+            </think>
+            <search>
+                <star/>
+            </search>
+        </template>
+    </category>
+
+
+    <!-- категории общих частей, добавляемых к выводу-->
+
+        <category>
+            <pattern>OK001</pattern>
+            <template>
+                <random>
+                    <li>Хорошо!</li>
+                    <li>Отлично!</li>
+                    <li>Я так и думала.</li>
+                    <li>ОК.</li>
+                </random>
+            </template>
+        </category>
+        <category>
+            <pattern>MU001</pattern>
+            <template>Извините, я не совсем Вас поняла.</template>
+        </category>
+
+        <category>
+            <pattern>YN001</pattern>
+            <template>Непонятно, это "да" или "нет".</template>
+        </category>
+
+    <!-- категории контекста общих вопросов, добавляемых к выводу-->
+
+        <category>
+            <pattern> ^ <regex pattern="ДА|ОК|ЛАДНО|ХОРОШО|ДАВАЙ|ХОЧ(У|ЕТСЯ)|ИНТЕРЕС.*|ЛАД.*|ОКЕЙ"/> ^ </pattern>
+            <that> ОФОРМЛЯЕМ</that>
+            <template>
+                <think>
+                    <condition name="topic">
+                    <!-- клиент заказал-->
+                        <!--Партнерские услуги-->                   
+                        <li value="sb_1_insurance">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>страховка</obj>
+                                </addtriple>
+                        </li>
+                        <li value="sb_1card_medic_services_tvmed">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>ТВ медицина</obj>
+                                </addtriple>
+                        </li>
+                        <li value="sb_1card_medic_expert_opinion">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Второе экспертное мнение</obj>
+                                </addtriple>
+                        </li>
+                        <!--Сбербанк Первый-->
+                        <li value="sb_1card_vklad_lsohranyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Лидер Сохраняй</obj>
+                                </addtriple>
+                        </li>
+                        <li value="sb_1card_vklad_lpopolnyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Лидер Пополняй</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sb_1card_vklad_luprvlyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Лидер Управляй</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sb_1card_credit_bp">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Кредит без поручителей</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sb_1card_credit_sp">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Кредит с поручителями</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sb_1_obligations">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Облигации</obj>
+                                </addtriple>
+                        </li>
+                        <!--Сбербанк Премьер-->
+                        <li value="sbpr_card_vklad_lsohranyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Особый Сохраняй</obj>
+                                </addtriple>
+                        </li>
+                        <li value="sbpr_card_vklad_lpopolnyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Особый Пополняй</obj>
+                                </addtriple>
+                        </li>                        
+                        <li value="sbpr_card_vklad_luprvlyai">
+                                <addtriple>
+                                    <subj>клиент</subj>
+                                    <pred>заказал</pred>
+                                    <obj>Вклад Особый Управляй</obj>
+                                </addtriple>
+                        </li>                        
+                    </condition>
+                </think>
+                Зайдите в личный кабинет - все документы ждут вас там. Чем еще я могу Вам помочь?
+            </template>
+        </category>
+        
+        <category>
+            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|СПАСИБО|БЛАГОДАРЮ|НИЧ.*"/> ^ </pattern>
+            <that> ОФОРМЛЯЕМ</that>
+            <template>Я сохраню данные в личном документе. Вы можете вернуться к заполнению заявки позже. Чем еще я могу Вам помочь?</template>
+        </category>
+
+        
+        <category>
+            <pattern><regex pattern="СПАСИБО"/> ^ </pattern>
+            <template>Это цель моего существования</template>
+        </category>
+
+        <category>
+            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|ДО" /> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|" /> ^ </pattern>
+            <template><think><set name="flag_greet">0</set></think>До свидания</template>
+        </category>
+
+        <category>
+            <pattern> ^ <regex pattern="ПОКА|СВИДАН.*|БЛАГОДАРЮ" /> ^ </pattern>
+            <template><think><set name="flag_greet">0</set></think>До свидания</template>
+        </category>
+
+        <category>
+            <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|СПАСИБО" /> ^ </pattern>
+            <that> ЧЕМ ЕЩЕ Я МОГУ ВАМ ПОМОЧЬ </that>
+            <template>До свидания</template>
+        </category>
+
+    <category>
+        <pattern> ^ <regex pattern="ПОВТОР.*" /> ^ </pattern>
+        <template>Повторяю: <response /></template>
+    </category>
+    <category>
+        <pattern> ^ ЕЩЕ РАЗ ^ </pattern>
+        <template>Повторяю: <response /></template>
+    </category>
+
+    <!--служебные-->
+    <!--категория для определения оформления-->
+        <category>
+            <pattern>ОФОРМЛЯЕМ ЛИ *</pattern>
+            <template>
+                <think>
+                    <set name="ussued"><srai>КТО ЗАКАЗАЛ <star/></srai></set>
+                </think>
+                <condition name="ussued">
+                    <li value="КЛИЕНТ">Дальнейшее оформление ждет Вас в личном кабинете<think><set name="ussued">unknown</set></think></li>
+                    <li>Оформляем?</li>
+                </condition>
+            </template>
+        </category>
+    <category>
+        <pattern>КТО ЗАКАЗАЛ *</pattern>
+        <template>
+            <think>
+                <set var="tuples">
+                    <select>
+                        <vars>?name</vars>
+                        <q><subj>?name</subj><pred>ЗАКАЗАЛ</pred><obj><star/></obj></q>
+                    </select>
+                </set>
+            </think>
+            <get var="?name">
+                <tuple>
+                    <first><get var="tuples" /></first>
+                </tuple>
+            </get>
+        </template>
+    </category>
+
+<!--категория для определения интереса-->
+        <category>
+            <pattern>ИНТЕРЕСОВАЛИСЬ ЛИ *</pattern>
+            <template>
+                <think>
+                    <set name="interested"><srai>КТО ЗАИНТЕРЕСОВАН <star/></srai></set>
+                </think>
+                <condition name="interested">
+                    <li value="КЛИЕНТ">
+                        <random>
+                            <li>По-моему, мы уже об этом говорили, разве нет?</li>
+                            <li>Я уже это упоминала, повторю ради Вас.</li>
+                            <li>Мне кажется, что мы об этом уже говорили.</li>
+                        </random>
+                    <think><set name="interested">unknown</set></think></li>
+                    <li></li>
+                </condition>
+            </template>
+        </category>
+    <category>
+        <pattern>КТО ЗАИНТЕРЕСОВАН *</pattern>
+        <template>
+            <think>
+                <set var="tuples">
+                    <select>
+                        <vars>?name</vars>
+                        <q><subj>?name</subj><pred>ЗАИНТЕРЕСОВАН</pred><obj><star/></obj></q>
+                    </select>
+                </set>
+            </think>
+            <get var="?name">
+                <tuple>
+                    <first><get var="tuples" /></first>
+                </tuple>
+            </get>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ОТМЕНА</pattern>
+        <template><think><set name="topic">unknown</set></think></template>
+    </category>
+    
+    <category>
+        <pattern>TOPIC GET</pattern>
+        <template><get name="topic"/></template>
+    </category>
+
+    <category>
+        <pattern>TOPIC SET</pattern>
+        <template>ENTER TOPIC</template>
+    </category>
+        <category>
+            <pattern>*</pattern>
+            <that>ENTER TOPIC</that>
+            <template>
+                <think>
+                    <set name="topic"><input/></set>
+                </think>
+            </template>
+        </category>
+
+    <!--стек LIFO-->
+        <category>
+            <pattern>TOPIC STACK SHOW</pattern>
+            <template>
+                0 = <get name="top_buf_0"/>,
+                1 = <get name="top_buf_1"/>,
+                2 = <get name="top_buf_2"/>,
+                3 = <get name="top_buf_3"/>,
+                4 = <get name="top_buf_4"/>
+            </template>
+        </category>
+    
+        <category>
+            <pattern>TOPIC STACK PUSH</pattern>
+            <template>
+                <think>
+                <condition>
+                    <li name="top_buf_0" value = "unknown"><set name="top_buf_0"><get name="topic"/></set></li>
+                    <li name="top_buf_1" value = "unknown"><set name="top_buf_1"><get name="topic"/></set></li>
+                    <li name="top_buf_2" value = "unknown"><set name="top_buf_2"><get name="topic"/></set></li>
+                    <li name="top_buf_3" value = "unknown"><set name="top_buf_3"><get name="topic"/></set></li>
+                    <li name="top_buf_4" value = "unknown"><set name="top_buf_4"><get name="topic"/></set></li>
+                    <li>
+                        <set name="top_buf_0"><get name="top_buf_1"/></set>
+                        <set name="top_buf_1"><get name="top_buf_2"/></set>
+                        <set name="top_buf_2"><get name="top_buf_3"/></set>
+                        <set name="top_buf_3"><get name="top_buf_4"/></set>
+                        <set name="top_buf_4"><get name="topic"/></set>                    
+                    </li>
+                </condition>
+                </think>
+            </template>
+        </category>
+
+        <category>
+            <pattern>TOPIC STACK POP</pattern>
+            <template><srai>TOPBUFF4</srai></template>
+    </category>
+            <category>
+                <pattern>TOPBUFF4</pattern>
+                <template>
+                    <condition name="top_buf_4">
+                        <li value="unknown"><srai>TOPBUFF3</srai></li>
+                        <li>
+                            <get name="top_buf_4"/>
+                            <think><set name="top_buf_4">unknown</set></think>
+                        </li>
+                    </condition>
+                </template>
+            </category>
+                <category>
+                    <pattern>TOPBUFF3</pattern>
+                    <template>
+                        <condition name="top_buf_3">
+                            <li value="unknown"><srai>TOPBUFF2</srai></li>
+                            <li>
+                                <get name="top_buf_3"/>
+                                <think><set name="top_buf_3">unknown</set></think>
+                            </li>
+                        </condition>
+                    </template>
+                </category>
+                    <category>
+                        <pattern>TOPBUFF2</pattern>
+                        <template>
+                            <condition name="top_buf_2">
+                                <li value="unknown"><srai>TOPBUFF1</srai></li>
+                                <li>
+                                    <get name="top_buf_2"/>
+                                    <think><set name="top_buf_2">unknown</set></think>
+                                </li>
+                            </condition>
+                        </template>
+                    </category>
+                        <category>
+                            <pattern>TOPBUFF1</pattern>
+                            <template>
+                                <condition name="top_buf_1">
+                                    <li value="unknown"><srai>TOPBUFF0</srai></li>
+                                    <li>
+                                        <get name="top_buf_1"/>
+                                        <think><set name="top_buf_1">unknown</set></think>
+                                    </li>
+                                </condition>
+                            </template>
+                        </category>
+                            <category>
+                                <pattern>TOPBUFF0</pattern>
+                                <template>
+                                    <condition name="top_buf_0">
+                                        <li value="unknown">unknown</li>
+                                        <li>
+                                            <get name="top_buf_0"/>
+                                            <think><set name="top_buf_0">unknown</set></think>
+                                        </li>
+                                    </condition>
+                                </template>
+                            </category>
+
+        
+    <category>
+        <pattern> ^ <regex pattern="СКОЛЬК.*"/> ^ <regex pattern="ЗНАЕШ.*|КАТЕГОР.*"/></pattern>
+        <template> Мне задано <size/> категорий.</template>
+    </category>
+
+    <category>
+        <pattern>TOPIC STACK BUF</pattern>
+        <template>
+            <set name="top_buf_0_buf"><get name="top_buf_0" /></set>
+            <set name="top_buf_1_buf"><get name="top_buf_1" /></set>
+            <set name="top_buf_2_buf"><get name="top_buf_2" /></set>
+            <set name="top_buf_3_buf"><get name="top_buf_3" /></set>
+            <set name="top_buf_4_buf"><get name="top_buf_4" /></set>     
+        </template>
+    </category>
+
+</aiml>

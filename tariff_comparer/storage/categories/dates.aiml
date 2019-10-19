@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">   
+    <category>
+        <pattern> ^ <regex pattern=".*СЕГОДН.*" /> ^ <regex pattern=".*ДАТ.*" /> ^ </pattern>
+        <template>
+            Сегодня 
+            <think>
+                <set var="week">
+                    <date format="%A"/>
+                </set>
+            </think>
+            <condition var="week">
+                <li value="Monday">понедельник</li>
+                <li value="Tuesday">вторник</li>
+                <li value="Wednesday">среда</li>
+                <li value="Thursday">четверг</li>
+                <li value="Friday">пятница</li>
+                <li value="Saturday">суббота</li>
+                <li value="Sunday">воскресенье</li>
+            </condition>, <date format="%d"/>
+            <think>
+                <set var="month">
+                    <date format="%B"/>
+                </set>
+            </think>
+            <condition var="month">
+                <li value="January">января</li>
+                <li value="February">февраля</li>
+                <li value="March">марта</li>
+                <li value="April">апреля</li>
+                <li value="May">мая</li>
+                <li value="June">июня</li>
+                <li value="July">июля</li>
+                <li value="August">августа</li>
+                <li value="September">сентября</li>
+                <li value="October">октября</li>
+                <li value="November">ноября</li>
+                <li value="December">декабря</li>
+            </condition>
+             <date format="%Y"/> года
+        </template>
+    </category>
+</aiml>
