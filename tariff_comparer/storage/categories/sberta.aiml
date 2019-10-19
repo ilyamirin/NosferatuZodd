@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
     <category>
@@ -43,7 +43,7 @@
             <category>
                 <pattern>DIALOG1 SBERTA PACKAGE CHOICE</pattern>
                 <template>
-                    Могу рассказать о премиальных пакетах: Сбербанк Первый и Сбербанк Премьер. О чем вам рассказать?
+                    Могу рассказать о премиальных пакетах: Сбербанк Первый и Сбербанк Премьер. Также, при команде /compare я могу сравнить тарифы. О чем вам рассказать?
                     <think><srai>TOPIC STACK PUSH</srai>
                         <addtriple>
                             <subj>клиент</subj>

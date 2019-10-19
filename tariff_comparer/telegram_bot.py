@@ -9,6 +9,11 @@ tlg_bot = telebot.TeleBot('920441140:AAFb8V75hXzR9oGuN-0aVsqDFxZH8aLI6eo')
 
 compare_flag = False
 
+@tlg_bot.message_handler(commands=['start'])
+def start_message_1(message):
+    answer = aiml_bot.get_answer(message.chat.id, 'Привет')
+    tlg_bot.send_message(message.chat.id, answer)
+
 @tlg_bot.message_handler(commands=['compare'])
 def start_message(message):
     global compare_flag
