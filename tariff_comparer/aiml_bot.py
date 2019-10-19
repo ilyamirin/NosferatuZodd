@@ -1,3 +1,5 @@
+#TODO: поправить задание контекста клиента в методах.
+
 from programy.clients.events.console.client import ConsoleBotClient
 import programy.clients.args as args
 import os
@@ -47,7 +49,18 @@ class BotClientMod(ConsoleBotClient):
         topic = conversation.property("topic")
         return(topic)
 
+    def get_var(self, uid, var):
+        context = self.get_context(uid)
+        conversation = context.bot.get_conversation(context)
+        topic = conversation.property(var)
+        return(topic)
+
     def get_rdf(self, uid, subj, pred, obj):
         context = self.get_context(uid)
         rdf_arr = context.brain.rdf.matched_as_tuples(subj, pred, obj)
         return(rdf_arr)
+
+    def set_var(self, uid, var, value):
+        context = self.get_context(uid)
+        conversation = context.bot.get_conversation(context)
+        conversation.properties[var] = value

@@ -209,6 +209,26 @@
     </category>
 
     <category>
+        <pattern> ^ <regex pattern="КАК|КАКОЕ"/> <regex pattern="МЕНЯ|МОЕ"/> <regex pattern="ЗОВУТ|ИМЯ*"/></pattern>
+        <template>
+            <condition name="name">
+                <li value="unknown">Я не знаю, Вы не представлялись. Представитесь?</li>
+                <li>Вас зовут <get name="name"/></li>
+            </condition>
+        </template>
+    </category>
+        <category>
+            <pattern><regex pattern="МЕНЯ|МОЕ|"/><regex pattern="ЗОВУТ|ИМЯ|"/> * </pattern>
+            <that>ПРЕДСТАВИТЕСЬ</that>
+            <template>Прекрасное имя! Рада нашему знакомству, <set name="name"><star index="3"/></set>!</template>
+        </category>
+        <category>
+            <pattern> * </pattern>
+            <that>ПРЕДСТАВИТЕСЬ</that>
+            <template>Прекрасное имя! Рада нашему знакомству, <set name="name"><star/></set>!</template>
+        </category>
+
+    <category>
         <pattern> ^ <regex pattern="ТЕБЯ|ТВОЕ|КАК"/><regex pattern="ЗОВУТ|ИМЯ*"/></pattern>
         <template>Меня зовут Сберта! А вас?</template>
     </category>
