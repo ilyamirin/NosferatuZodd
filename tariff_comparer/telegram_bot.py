@@ -38,6 +38,7 @@ def start_message(message):
 
 @tlg_bot.message_handler(content_types=['text'])
 def send_text(message):
+    global compare_flag
     if compare_flag:
         if message.text in banks_tariff and client['condition'] == 'sending_first_bank':
 
@@ -115,6 +116,7 @@ def send_text(message):
             for i in compare_results[1]:
                 answer += aiml_bot.get_answer(message.chat.id, 'DIFFERENT FEATURES').format('"'+i+'"', client['first_tariff'], client['second_tariff'], compare_results[1][i][0], compare_results[1][i][1])
             tlg_bot.send_message(message.chat.id, answer)
+            compare_flag = False
     else:
         answer = aiml_bot.get_answer(message.chat.id, message.text)
         tlg_bot.send_message(message.chat.id, answer)
