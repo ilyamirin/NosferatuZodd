@@ -106,20 +106,43 @@ def send_text(message):
         elif message.text in banks_tariff[client['second_bank']] and client['condition'] == 'sending_second_tariff':
             client['second_tariff'] = message.text
             answer = ''
-            first_tariff = features_to_dict(client['first_tariff'])
-            second_tariff = features_to_dict(client['second_tariff'])
+            first_tariff = features_to_dict(client['first_tariff'], client['first_bank'])
+            second_tariff = features_to_dict(client['second_tariff'], client['second_bank'])
             compare_results = compare_tariffs(first_tariff, second_tariff)
 
+            flag_bold = True
             for i in compare_results[0]:
-                answer += aiml_bot.get_answer(message.chat.id, 'COMMON FEATURES').format('"'+i+'"', client['first_tariff'], client['second_tariff'], compare_results[0][i])
+                part_of_answer = aiml_bot.get_answer(message.chat.id, 'COMMON FEATURES').format(i,
+                                                                                         client['first_tariff'],
+                                                                                         client['second_tariff'],
+                                                                                         compare_results[0][i])
+                if flag_bold:
+                    answer += "<b>"+part_of_answer+"</b>"
+                    flag_bold = False
+                else:
+                    answer += part_of_answer
+                    flag_bold = True
+
 
             for i in compare_results[1]:
-                answer += aiml_bot.get_answer(message.chat.id, 'DIFFERENT FEATURES').format('"'+i+'"', client['first_tariff'], client['second_tariff'], compare_results[1][i][0], compare_results[1][i][1])
-            tlg_bot.send_message(message.chat.id, answer)
+                part_of_answer = aiml_bot.get_answer(message.chat.id, 'DIFFERENT FEATURES').format(i,
+                                                                                            client['first_tariff'],
+                                                                                            client['second_tariff'],
+                                                                                            compare_results[1][i][0],
+                                                                                            compare_results[1][i][1])
+                if flag_bold:
+                    answer += "<b>"+part_of_answer+"</b>"
+                    flag_bold = False
+                else:
+                    answer += part_of_answer
+                    flag_bold = True
+
+            print("answer: ", answer)
+            tlg_bot.send_message(message.chat.id, answer, parse_mode = "html")
             compare_flag = False
     else:
         answer = aiml_bot.get_answer(message.chat.id, message.text)
-        tlg_bot.send_message(message.chat.id, answer)
+        tlg_bot.send_message(message.chat.id, answer, parse_mode = "html")
         print(answer)
 
 if __name__ == '__main__':

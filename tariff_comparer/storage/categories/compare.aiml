@@ -14,10 +14,10 @@
     </category>
     <category>
         <pattern>COMMON FEATURES</pattern>
-        <template>Условия для {0} в тарифах {1} и {2} одинаковы, т.е. {3}</template>
+        <template>Условия для {0} в тарифах "{1}" и "{2}" одинаковы, т.е. {3}</template>
     </category>
     <category>
         <pattern>DIFFERENT FEATURES</pattern>
-        <template>Условия для {0} в тарифах {1} и {2} различаются, для {1} это {3}, а для {2} это {4}</template>
+        <template>Условия для {0} в тарифах "{1}" и "{2}" различаются, для "{1}" это {3}, а для "{2}" это {4}</template>
     </category>
 </aiml>
