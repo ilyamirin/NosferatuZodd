@@ -1,4 +1,4 @@
-import telebot
+﻿import telebot
 from aiml_bot import BotClientMod
 from math import ceil
 from doc_prepr import *
@@ -146,9 +146,12 @@ def send_text(message):
         print(answer)
 
 def run_bot():
+    global client
     client = {'first_bank': None,
               'second_bank': None,
               'first_tariff': None,
               'second_tariff': None,
               'condition': None}
     tlg_bot.polling()
+if __name__ == "__main__":
+    run_bot()
