@@ -145,7 +145,7 @@ def send_text(message):
         tlg_bot.send_message(message.chat.id, answer, parse_mode = "html")
         print(answer)
 
-if __name__ == '__main__':
+def run_bot():
     client = {'first_bank': None,
               'second_bank': None,
               'first_tariff': None,
