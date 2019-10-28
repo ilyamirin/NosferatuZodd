@@ -105,6 +105,11 @@ def send_text(message):
 
         elif message.text in banks_tariff[client['second_bank']] and client['condition'] == 'sending_second_tariff':
             client['second_tariff'] = message.text
+
+            tlg_bot.send_photo(message.chat.id, make_img_from_html(client['first_tariff'], client['first_bank'], client['second_tariff'], client['second_bank']))
+
+            #This is for text message
+            '''
             answer = ''
             first_tariff = features_to_dict(client['first_tariff'], client['first_bank'])
             second_tariff = features_to_dict(client['second_tariff'], client['second_bank'])
@@ -140,6 +145,7 @@ def send_text(message):
             print("answer: ", answer)
             tlg_bot.send_message(message.chat.id, answer, parse_mode = "html")
             compare_flag = False
+            '''
     else:
         answer = aiml_bot.get_answer(message.chat.id, message.text)
         tlg_bot.send_message(message.chat.id, answer, parse_mode = "html")
