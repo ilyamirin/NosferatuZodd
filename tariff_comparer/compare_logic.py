@@ -2,12 +2,17 @@ from doc_prepr import table
 import xml.etree.ElementTree as ET
 import imgkit
 #for Windows. Add wkhtmltopdf package to the root
+from pyvirtualdisplay import Display
 #path_wkhtmltoimage = r"wkhtmltopdf\bin\wkhtmltoimage.exe"
 #img_config = imgkit.config(wkhtmltoimage = path_wkhtmltoimage)
 
 #for i in table.columns[1:]:
 #    for j in table['хар-ка\тариф']:
 #        print('тариф: ', i, '\nхарактеристика: ', j, '\nзначение: ', table[i][table['хар-ка\тариф'] == j].values[0], '\n________\n')
+
+
+display = Display(size = (800,600), visible = False)
+display.start()
 
 def get_tariff_features(tariff, bank): #TODO исправь этот быдлокод, pandas может лучше
     for i in range(len(table.columns)):

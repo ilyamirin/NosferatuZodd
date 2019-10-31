@@ -5,6 +5,7 @@ from doc_prepr import *
 from compare_logic import *
 
 aiml_bot = BotClientMod()
+telebot.apihelper.proxy = {'https': 'socks5h://162.243.32.120:4511'}
 tlg_bot = telebot.TeleBot('920441140:AAFb8V75hXzR9oGuN-0aVsqDFxZH8aLI6eo')
 
 compare_flag = False
@@ -144,8 +145,9 @@ def send_text(message):
 
             print("answer: ", answer)
             tlg_bot.send_message(message.chat.id, answer, parse_mode = "html")
-            compare_flag = False
             '''
+            compare_flag = False
+            
     else:
         answer = aiml_bot.get_answer(message.chat.id, message.text)
         tlg_bot.send_message(message.chat.id, answer, parse_mode = "html")
@@ -158,6 +160,6 @@ def run_bot():
               'first_tariff': None,
               'second_tariff': None,
               'condition': None}
-    tlg_bot.polling()
+    tlg_bot.polling(none_stop = True, timeout = 1000)
 if __name__ == "__main__":
     run_bot()
