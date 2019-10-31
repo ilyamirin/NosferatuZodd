@@ -18,19 +18,20 @@ with open('tok', 'r') as tok:
 
 def get_proxy():
     global proxies_provider
+    global proxies
     if 'proxies_provider' not in globals():
         proxies_provider = 'https://www.proxy-list.download/api/v1/get?type=socks5'
-        proxies = [i for i in requests.get(proxies_provider).text.split()]
-        print('Proxies list recieved.')
-    try:
-        for each in proxies:
-            yield (each)
-    except ConnectionError:
-        print('Unable to get proxies list, check your internet connection')
-
+        try:
+            proxies = [i for i in requests.get(proxies_provider).text.split()]
+            print('Proxies list recieved.')
+        except ConnectionError:
+            print('Unable to get proxies list, check your internet connection')
+    for each in proxies:
+        yield(each)
+get_proxy_instance = get_proxy()
 def ConnectionResolve():
     print('Connection troubles, trying to apply proxies...')
-    telebot.apihelper.proxy = {'https': 'socks5h://{}'.format(next(get_proxy()))}
+    telebot.apihelper.proxy = {'https': 'socks5h://{}'.format(next(get_proxy_instance))}
     print(telebot.apihelper.proxy['https'])
     run_bot()
 
