@@ -54,7 +54,11 @@ def make_table(first_tariff, first_bank, second_tariff, second_bank):
 
 def make_img_from_html(first_tariff, first_bank, second_tariff, second_bank):
     html_table = make_table(first_tariff, first_bank, second_tariff, second_bank)
-    image = imgkit.from_string(html_table, False, config=img_config)
+
+    if os == 'nt':
+        image = imgkit.from_string(html_table, False, config=img_config)
+    if os == 'posix':
+        image = imgkit.from_string(html_table, False)
     return(image)
 '''
 client = {
