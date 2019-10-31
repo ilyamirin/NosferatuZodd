@@ -1,13 +1,44 @@
 ﻿import telebot
+import requests
 from aiml_bot import BotClientMod
 from math import ceil
 from doc_prepr import *
 from compare_logic import *
 
 aiml_bot = BotClientMod()
-tlg_bot = telebot.TeleBot('920441140:AAFb8V75hXzR9oGuN-0aVsqDFxZH8aLI6eo')
+with open('tok', 'r') as tok:
+    tlg_bot = telebot.TeleBot(tok.read())
+    tlg_bot.compare_flag = False
 
-compare_flag = False
+def get_proxy():
+    proxies_provider = 'https://www.proxy-list.download/api/v1/get?type=socks5'
+    try:
+        proxies = [i for i in requests.get(proxies_provider).text.split()]
+        print('Proxies list recieved.')
+        for each in proxies:
+            yield (each)
+    except ConnectionError:
+        print('Unable to get proxies list, check your internet connection')
+
+def ConnectionResolve():
+    print('Connection troubles, trying to apply proxies...')
+    telebot.apihelper.proxy = {'https': 'socks5h://{}'.format(next(get_proxy()))}
+    print(telebot.apihelper.proxy)
+    run_bot()
+
+def run_bot():
+    global client
+    client = {'first_bank': None,
+              'second_bank': None,
+              'first_tariff': None,
+              'second_tariff': None,
+              'condition': None}
+    try:
+        tlg_bot.polling(timeout=1000, none_stop=True, interval = 1)
+    except requests.exceptions.ConnectionError:
+        ConnectionResolve()
+
+
 
 @tlg_bot.message_handler(commands=['start'])
 def start_message_1(message):
@@ -16,8 +47,7 @@ def start_message_1(message):
 
 @tlg_bot.message_handler(commands=['compare'])
 def start_message(message):
-    global compare_flag
-    compare_flag = True
+    tlg_bot.compare_flag = True
     count_banks = ceil(len(banks_tariff) / 3)
 
     keyboard_bank = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True,
@@ -38,8 +68,7 @@ def start_message(message):
 
 @tlg_bot.message_handler(content_types=['text'])
 def send_text(message):
-    global compare_flag
-    if compare_flag:
+    if tlg_bot.compare_flag:
         if message.text in banks_tariff and client['condition'] == 'sending_first_bank':
 
             tariffs = banks_tariff[message.text]
@@ -144,20 +173,13 @@ def send_text(message):
 
             print("answer: ", answer)
             tlg_bot.send_message(message.chat.id, answer, parse_mode = "html")
-            compare_flag = False
             '''
+            tlg_bot.compare_flag = False
+
     else:
         answer = aiml_bot.get_answer(message.chat.id, message.text)
         tlg_bot.send_message(message.chat.id, answer, parse_mode = "html")
         print(answer)
 
-def run_bot():
-    global client
-    client = {'first_bank': None,
-              'second_bank': None,
-              'first_tariff': None,
-              'second_tariff': None,
-              'condition': None}
-    tlg_bot.polling()
 if __name__ == "__main__":
     run_bot()

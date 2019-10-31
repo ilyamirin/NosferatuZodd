@@ -1,13 +1,10 @@
 from doc_prepr import table
 import xml.etree.ElementTree as ET
 import imgkit
-#for Windows. Add wkhtmltopdf package to the root
-#path_wkhtmltoimage = r"wkhtmltopdf\bin\wkhtmltoimage.exe"
-#img_config = imgkit.config(wkhtmltoimage = path_wkhtmltoimage)
 
-#for i in table.columns[1:]:
-#    for j in table['хар-ка\тариф']:
-#        print('тариф: ', i, '\nхарактеристика: ', j, '\nзначение: ', table[i][table['хар-ка\тариф'] == j].values[0], '\n________\n')
+#for Windows. Add wkhtmltopdf package to the root
+path_wkhtmltoimage = r"wkhtmltopdf\bin\wkhtmltoimage.exe"
+img_config = imgkit.config(wkhtmltoimage = path_wkhtmltoimage)
 
 def get_tariff_features(tariff, bank): #TODO исправь этот быдлокод, pandas может лучше
     for i in range(len(table.columns)):
@@ -50,7 +47,7 @@ def make_table(first_tariff, first_bank, second_tariff, second_bank):
 
 def make_img_from_html(first_tariff, first_bank, second_tariff, second_bank):
     html_table = make_table(first_tariff, first_bank, second_tariff, second_bank)
-    image = imgkit.from_string(html_table, False) #config=img_config)
+    image = imgkit.from_string(html_table, False, config=img_config)
     return(image)
 '''
 client = {
