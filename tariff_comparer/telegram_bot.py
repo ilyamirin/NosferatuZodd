@@ -1,20 +1,28 @@
 ﻿import telebot
 import requests
+import logging
+
 from aiml_bot import BotClientMod
 from math import ceil
 from doc_prepr import *
 from compare_logic import *
 
+logging.disable(level=100) #set 50 for debugging
+
+telebot.console_output_handler = logging.StreamHandler()
 aiml_bot = BotClientMod()
+
 with open('tok', 'r') as tok:
     tlg_bot = telebot.TeleBot(tok.read())
     tlg_bot.compare_flag = False
 
 def get_proxy():
-    proxies_provider = 'https://www.proxy-list.download/api/v1/get?type=socks5'
-    try:
+    global proxies_provider
+    if 'proxies_provider' not in globals():
+        proxies_provider = 'https://www.proxy-list.download/api/v1/get?type=socks5'
         proxies = [i for i in requests.get(proxies_provider).text.split()]
         print('Proxies list recieved.')
+    try:
         for each in proxies:
             yield (each)
     except ConnectionError:
@@ -23,7 +31,7 @@ def get_proxy():
 def ConnectionResolve():
     print('Connection troubles, trying to apply proxies...')
     telebot.apihelper.proxy = {'https': 'socks5h://{}'.format(next(get_proxy()))}
-    print(telebot.apihelper.proxy)
+    print(telebot.apihelper.proxy['https'])
     run_bot()
 
 def run_bot():
@@ -35,7 +43,7 @@ def run_bot():
               'condition': None}
     try:
         tlg_bot.polling(timeout=1000, none_stop=True, interval = 1)
-    except requests.exceptions.ConnectionError:
+    except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
         ConnectionResolve()
 
 
@@ -174,6 +182,7 @@ def send_text(message):
             print("answer: ", answer)
             tlg_bot.send_message(message.chat.id, answer, parse_mode = "html")
             '''
+
             tlg_bot.compare_flag = False
 
     else:

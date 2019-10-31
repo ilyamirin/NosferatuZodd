@@ -1,10 +1,17 @@
 from doc_prepr import table
 import xml.etree.ElementTree as ET
 import imgkit
+from os import name as os
+from pyvirtualdisplay import Display
+print(os)
 
-#for Windows. Add wkhtmltopdf package to the root
-path_wkhtmltoimage = r"wkhtmltopdf\bin\wkhtmltoimage.exe"
-img_config = imgkit.config(wkhtmltoimage = path_wkhtmltoimage)
+#for Windows, add wkhtmltopdf
+if os == 'nt':
+    path_wkhtmltoimage = r"wkhtmltopdf\bin\wkhtmltoimage.exe"
+    img_config = imgkit.config(wkhtmltoimage = path_wkhtmltoimage)
+if os == 'posix':
+    display = Display(size = (800,600), visible = False)
+    display.start()
 
 def get_tariff_features(tariff, bank): #TODO исправь этот быдлокод, pandas может лучше
     for i in range(len(table.columns)):
