@@ -20,4 +20,8 @@
         <pattern>DIFFERENT FEATURES</pattern>
         <template>Условия для {0} в тарифах "{1}" и "{2}" различаются, для "{1}" это {3}, а для "{2}" это {4}</template>
     </category>
+    <category>
+        <pattern>OUTPUT TYPE</pattern>
+        <template>Выберите формат вывода</template>
+    </category>
 </aiml>

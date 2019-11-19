@@ -60,7 +60,7 @@ def make_img_from_html(first_tariff, first_bank, second_tariff, second_bank):
     if os == 'posix':
         image = imgkit.from_string(html_table, False)
     return(image)
-'''
+
 client = {
     'first_bank': 'Альфа-Банк',
     'second_bank' : 'МТС Банк',
@@ -68,6 +68,6 @@ client = {
     'second_tariff' : 'Проще простого'
 }
 
-print(make_img_from_html(client['first_tariff'], client['first_bank'],
+print(compare_tariffs(client['first_tariff'], client['first_bank'],
                  client['second_tariff'], client['second_bank']))
-'''
+
