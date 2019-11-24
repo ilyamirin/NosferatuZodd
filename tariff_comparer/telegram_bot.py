@@ -143,67 +143,9 @@ def send_text(message):
 
         elif message.text in banks_tariff[client['second_bank']] and client['condition'] == 'sending_second_tariff':
             client['second_tariff'] = message.text
-            keyboard_output_type = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True,
-                                                                one_time_keyboard=True,
-                                                                selective=True,
-                                                                row_width=3,
-                                                                )
-            for i in ('Изображение двух столбцов', 'Сравнение по всем характеристикам'):
-                keyboard_output_type.add(i)
-            tlg_bot.send_message(message.chat.id,
-                                 aiml_bot.get_answer(message.chat.id, 'OUTPUT TYPE'),
-                                 reply_markup=keyboard_output_type)
-            client['condition'] = 'sending_output_type'
-
-        elif message.text in ('Изображение двух столбцов',
-                              'Сравнение по 3-м характериситкам',
-                              'Сравнение по всем характеристикам') and client['condition'] == 'sending_output_type':
-
-            if message.text == 'Изображение двух столбцов':
-                tlg_bot.send_photo(message.chat.id,
-                                   make_img_from_html(client['first_tariff'], client['first_bank'], client['second_tariff'],
-                                                      client['second_bank']))
-
-            elif message.text == 'Сравнение по всем характеристикам':
-                answer = ''
-                compare_results = compare_tariffs(client['first_tariff'],
-                                                  client['first_bank'],
-                                                  client['second_tariff'],
-                                                  client['second_bank'])
-
-                flag_bold = True
-
-                for i in compare_results[0]:
-                    part_of_answer = aiml_bot.get_answer(message.chat.id, 'COMMON FEATURES').format(i,
-                                                                                             client['first_tariff'],
-                                                                                             client['second_tariff'],
-                                                                                             compare_results[0][i])
-                    if flag_bold:
-                        answer += "<b>"+part_of_answer+"</b>"
-                        flag_bold = False
-                    else:
-                        answer += part_of_answer
-                        flag_bold = True
-
-
-                for i in compare_results[1]:
-                    part_of_answer = aiml_bot.get_answer(message.chat.id, 'DIFFERENT FEATURES').format(i,
-                                                                                                client['first_tariff'],
-                                                                                                client['second_tariff'],
-                                                                                                compare_results[1][i][0],
-                                                                                                compare_results[1][i][1])
-                    if flag_bold:
-                        answer += "<b>"+part_of_answer+"</b>"
-                        flag_bold = False
-                    else:
-                        answer += part_of_answer
-                        flag_bold = True
-
-                print("answer: ", answer)
-                tlg_bot.send_message(message.chat.id, answer, parse_mode = "html")
-            #TODO запилить сравнение по трем характеристикам
-            #elif message.text == 'Сравнение по трём характеристикам':
-
+            tlg_bot.send_photo(message.chat.id,
+                               make_img_from_html(client['first_tariff'], client['first_bank'], client['second_tariff'],
+                                                  client['second_bank']))
             tlg_bot.compare_flag = False
 
     else:

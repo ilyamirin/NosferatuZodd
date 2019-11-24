@@ -9,9 +9,6 @@ print(os)
 if os == 'nt':
     path_wkhtmltoimage = r"wkhtmltopdf\bin\wkhtmltoimage.exe"
     img_config = imgkit.config(wkhtmltoimage = path_wkhtmltoimage)
-if os == 'posix':
-    display = Display(size = (800,600), visible = False)
-    display.start()
 
 def get_tariff_features(tariff, bank): #TODO исправь этот быдлокод, pandas может лучше
     for i in range(len(table.columns)):
@@ -58,7 +55,10 @@ def make_img_from_html(first_tariff, first_bank, second_tariff, second_bank):
     if os == 'nt':
         image = imgkit.from_string(html_table, False, config=img_config)
     if os == 'posix':
+        display = Display(size=(800, 600), visible=False)
+        display.start()
         image = imgkit.from_string(html_table, False)
+        display.stop()
     return(image)
 
 client = {
