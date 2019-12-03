@@ -35,13 +35,19 @@ def ConnectionResolve():
     print(telebot.apihelper.proxy['https'])
     run_bot()
 
+
+class Client(dict):
+    def __init__(self):
+        self['first_bank'] = None
+        self['second_bank'] = None
+        self['first_tariff'] = None
+        self['second_tariff'] = None
+        self['condition'] = None
+
+
 def run_bot():
-    global client
-    client = {'first_bank': None,
-              'second_bank': None,
-              'first_tariff': None,
-              'second_tariff': None,
-              'condition': None}
+    global clients
+    clients = {}
     try:
         tlg_bot.polling(timeout=1000, none_stop=True, interval = 1)
     except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
@@ -52,6 +58,8 @@ def run_bot():
 @tlg_bot.message_handler(commands=['start'])
 def start_message_1(message):
     answer = aiml_bot.get_answer(message.chat.id, 'Привет')
+    print(message.chat.id)
+    clients[str(message.chat.id)] = Client()
     tlg_bot.send_message(message.chat.id, answer)
 
 @tlg_bot.message_handler(commands=['compare'])
@@ -73,15 +81,15 @@ def start_message(message):
                      reply_markup=keyboard_bank,
                      )
 
-    client['condition'] = 'sending_first_bank'
+    clients[str(message.chat.id)]['condition'] = 'sending_first_bank'
 
 @tlg_bot.message_handler(content_types=['text'])
 def send_text(message):
     if tlg_bot.compare_flag:
-        if message.text in banks_tariff and client['condition'] == 'sending_first_bank':
+        if message.text in banks_tariff and clients[str(message.chat.id)]['condition'] == 'sending_first_bank':
 
             tariffs = banks_tariff[message.text]
-            client['first_bank'] = message.text
+            clients[str(message.chat.id)]['first_bank'] = message.text
             count_tariffs = ceil(len(tariffs) / 3)
 
             keyboard_tariff = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True,
@@ -97,12 +105,12 @@ def send_text(message):
                              aiml_bot.get_answer(message.chat.id, 'CHOOSE TARIFF').format(message.text),
                              reply_markup=keyboard_tariff)
 
-            client['condition'] = 'sending_first_tariff'
+            clients[str(message.chat.id)]['condition'] = 'sending_first_tariff'
 
-        elif message.text in banks_tariff[client['first_bank']] and client['condition'] == 'sending_first_tariff':
+        elif message.text in banks_tariff[clients[str(message.chat.id)]['first_bank']] and clients[str(message.chat.id)]['condition'] == 'sending_first_tariff':
 
-            client['first_tariff'] = message.text
-            banks = [i for i in banks_tariff if i != client['first_bank']]
+            clients[str(message.chat.id)]['first_tariff'] = message.text
+            banks = [i for i in banks_tariff if i != clients[str(message.chat.id)]['first_bank']]
             count_banks = ceil(len(banks) / 3)
             keyboard_bank = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True,
                                                               one_time_keyboard=True,
@@ -118,12 +126,12 @@ def send_text(message):
                              reply_markup=keyboard_bank,
                              )
 
-            client['condition'] = 'sending_second_bank'
+            clients[str(message.chat.id)]['condition'] = 'sending_second_bank'
 
-        elif message.text in banks_tariff and client['condition'] == 'sending_second_bank':
+        elif message.text in banks_tariff and clients[str(message.chat.id)]['condition'] == 'sending_second_bank':
 
             tariffs = banks_tariff[message.text]
-            client['second_bank'] = message.text
+            clients[str(message.chat.id)]['second_bank'] = message.text
             count_tariffs = ceil(len(tariffs) / 3)
 
             keyboard_tariff = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True,
@@ -139,13 +147,13 @@ def send_text(message):
                              aiml_bot.get_answer(message.chat.id, 'CHOOSE TARIFF').format(message.text),
                              reply_markup=keyboard_tariff)
 
-            client['condition'] = 'sending_second_tariff'
+            clients[str(message.chat.id)]['condition'] = 'sending_second_tariff'
 
-        elif message.text in banks_tariff[client['second_bank']] and client['condition'] == 'sending_second_tariff':
-            client['second_tariff'] = message.text
+        elif message.text in banks_tariff[clients[str(message.chat.id)]['second_bank']] and clients[str(message.chat.id)]['condition'] == 'sending_second_tariff':
+            clients[str(message.chat.id)]['second_tariff'] = message.text
             tlg_bot.send_photo(message.chat.id,
-                               make_img_from_html(client['first_tariff'], client['first_bank'], client['second_tariff'],
-                                                  client['second_bank']))
+                               make_img_from_html(clients[str(message.chat.id)]['first_tariff'], clients[str(message.chat.id)]['first_bank'], clients[str(message.chat.id)]['second_tariff'],
+                                                  clients[str(message.chat.id)]['second_bank']))
             tlg_bot.compare_flag = False
 
     else:
