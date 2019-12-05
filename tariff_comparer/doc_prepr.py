@@ -14,7 +14,7 @@ def split(arr, size):
     arrs.append(arr)
     return (arrs)
 
-table = read_excel('20190901_Рынок пакеты.xlsx')
+table = read_excel('tariffs.xlsx')
 
 cols = list(table.columns)
 for i in range(len(cols)):
