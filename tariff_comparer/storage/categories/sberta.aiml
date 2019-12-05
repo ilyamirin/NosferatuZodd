@@ -573,6 +573,11 @@
             <template><think><set name="flag_greet">0</set></think>До свидания</template>
         </category>
 
+      <category>
+            <pattern><regex pattern="НЕ.*" /></pattern>
+            <template>Ладно.</template>
+        </category>
+
         <category>
             <pattern> ^ <regex pattern="НЕ.*|ОТРИЦ.*|ПОКА|СВИДАН.*|ВСЕ|БЛАГОДАРЮ|НИЧ.*|СПАСИБО" /> ^ </pattern>
             <that> ЧЕМ ЕЩЕ Я МОГУ ВАМ ПОМОЧЬ </that>
